@@ -428,7 +428,6 @@ const CARD_ENTRIES = [
   { id: "orwell_essay", title: "Politics and the English Language", author: "George Orwell \u00b7 1946", desc: "On the corruption of language by political orthodoxy and the defense of clear prose as a political act.", format: "essay", portal: "literature", meta: "~4,000 words", sessions: "8 this week" },
   { id: "game_theory", title: "Game Theory", author: "Expedition \u00b7 Nash to Schelling", desc: "The mathematics of strategic interaction. Prisoner\u2019s dilemma, Nash equilibrium, Schelling points.", format: "expedition", portal: "mathematics", meta: "Full field", sessions: "19 this week" },
   { id: "meditations", title: "Meditations", author: "Marcus Aurelius \u00b7 c. 170\u2013180 AD", desc: "The personal journal of Rome\u2019s philosopher-king. Twelve books of Stoic reflection, never meant to be published.", format: "living_book", portal: "philosophy", meta: "12 books", sessions: "24 this week" },
-  { id: "corpus_hermeticum", title: "Corpus Hermeticum", author: "Hermes Trismegistus \u00b7 c. 2nd\u20133rd century", desc: "The foundational Hermetic texts. As above, so below.", format: "living_book", portal: "esoterica", meta: "18 tractates", sessions: "6 this week" },
 ];
 
 function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
