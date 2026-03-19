@@ -178,7 +178,7 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
   const [hov, setHov] = useState<string | null>(null);
   const all: (string | null)[] = [...LIB_SUBJECTS];
   return (
-    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 44, zIndex: 29 }}>
+    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 46, zIndex: 29 }}>
     <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", maxWidth: 1200, padding: "0 12px" }}>
       <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginRight: 14, paddingRight: 14, borderRight: "0.5px solid rgba(255,255,255,.2)", whiteSpace: "nowrap", flexShrink: 0 }}>
         The Library
@@ -400,6 +400,65 @@ function SidebarSection() {
   );
 }
 
+// ── Card Economy ──────────────────────────────────────────────────────────
+
+const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }> = {
+  living_book: { label: "Living Book", tab: "#1D4ED8", tint: "#EFF6FF" },
+  expedition:  { label: "Expedition",  tab: "#0891B2", tint: "#ECFEFF" },
+  oracle:      { label: "Oracle",      tab: "#7C3AED", tint: "#F5F3FF" },
+  essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
+  interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
+};
+
+const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
+  philosophy:  { tint: "#F5F3FF", accent: "#7C3AED" },
+  religion:    { tint: "#FFF7ED", accent: "#C2410C" },
+  science:     { tint: "#ECFDF5", accent: "#065F46" },
+  history:     { tint: "#FFFBEB", accent: "#92400E" },
+  mathematics: { tint: "#EFF6FF", accent: "#1E40AF" },
+  esoterica:   { tint: "#FDF4FF", accent: "#7E22CE" },
+  literature:  { tint: "#FFF1F2", accent: "#9F1239" },
+  psychology:  { tint: "#ECFEFF", accent: "#155E75" },
+};
+
+const CARD_ENTRIES = [
+  { id: "tao_te_ching", title: "Tao Te Ching", author: "Laozi \u00b7 6th century BC", desc: "The foundational text of Taoist philosophy. 81 chapters on the nature of the Tao, virtue, and effortless action.", format: "living_book", portal: "religion", meta: "81 chapters", sessions: "47 this week" },
+  { id: "stoicism", title: "Stoicism", author: "Expedition \u00b7 Zeno to Aurelius", desc: "From Zeno\u2019s stoa to Marcus Aurelius\u2019s journal. Virtue ethics, the dichotomy of control, living according to nature.", format: "expedition", portal: "philosophy", meta: "Full tradition", sessions: "31 this week" },
+  { id: "i_ching", title: "I Ching", author: "Oracle \u00b7 Chinese antiquity", desc: "Cast a hexagram. Receive interpretation from the oldest continuously consulted divinatory text in the world.", format: "oracle", portal: "esoterica", meta: "64 hexagrams", sessions: "12 this week" },
+  { id: "orwell_essay", title: "Politics and the English Language", author: "George Orwell \u00b7 1946", desc: "On the corruption of language by political orthodoxy and the defense of clear prose as a political act.", format: "essay", portal: "literature", meta: "~4,000 words", sessions: "8 this week" },
+  { id: "game_theory", title: "Game Theory", author: "Expedition \u00b7 Nash to Schelling", desc: "The mathematics of strategic interaction. Prisoner\u2019s dilemma, Nash equilibrium, Schelling points.", format: "expedition", portal: "mathematics", meta: "Full field", sessions: "19 this week" },
+  { id: "meditations", title: "Meditations", author: "Marcus Aurelius \u00b7 c. 170\u2013180 AD", desc: "The personal journal of Rome\u2019s philosopher-king. Twelve books of Stoic reflection, never meant to be published.", format: "living_book", portal: "philosophy", meta: "12 books", sessions: "24 this week" },
+  { id: "corpus_hermeticum", title: "Corpus Hermeticum", author: "Hermes Trismegistus \u00b7 c. 2nd\u20133rd century", desc: "The foundational Hermetic texts. As above, so below.", format: "living_book", portal: "esoterica", meta: "18 tractates", sessions: "6 this week" },
+];
+
+function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
+  const [hov, setHov] = useState(false);
+  const f = FORMAT_COLORS[entry.format] || FORMAT_COLORS.living_book;
+  const p = PORTAL_COLORS[entry.portal] || { tint: "#F9FAFB", accent: "#374151" };
+  return (
+    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
+      background: hov ? "#fff" : p.tint,
+      border: `0.5px solid ${hov ? p.accent : "rgba(0,0,0,.08)"}`,
+      borderRadius: 10, overflow: "hidden", cursor: "pointer",
+      display: "flex", flexDirection: "column", transition: "border-color .15s, background .15s",
+    }}>
+      <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.9)", fontWeight: 500 }}>{f.label}</span>
+        <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>{entry.sessions}</span>
+      </div>
+      <div style={{ padding: "14px 16px 16px", flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, lineHeight: 1.15, color: ink, letterSpacing: "-.01em" }}>{entry.title}</div>
+        <div style={{ fontFamily: mono, fontSize: 10, color: p.accent, letterSpacing: ".04em" }}>{entry.author}</div>
+        <div style={{ fontFamily: serif, fontSize: 13, lineHeight: 1.65, color: ink2, marginTop: 4, flex: 1 }}>{entry.desc}</div>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 12, marginTop: 4, borderTop: "0.5px solid rgba(0,0,0,.07)" }}>
+          <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>{entry.meta}</span>
+          <button style={{ background: f.tab, color: "#fff", border: "none", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", cursor: "pointer", letterSpacing: ".04em" }}>Open session →</button>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 // ── Root ──────────────────────────────────────────────────────────────────
 
 export default function HomePage() {
@@ -413,6 +472,14 @@ export default function HomePage() {
       <NewsNav active={newsTab} onSelect={t => { setNewsTab(t); setLibTab(null); }} />
       <LibNav active={libTab} onSelect={setLibTab} />
       <ThreadBand />
+
+      {/* Card grid — From the Library */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px 0" }}>
+        <ColLabel>From the Library</ColLabel>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16, marginBottom: 8 }}>
+          {CARD_ENTRIES.map(e => <LibCard key={e.id} entry={e} />)}
+        </div>
+      </div>
 
       <div style={{ display: "grid", gridTemplateColumns: "1fr 0.5px 1fr 0.5px 220px", maxWidth: 1200, margin: "0 auto", padding: "28px 24px", gap: 0, alignItems: "start" }}>
         <div style={{ paddingRight: 28 }}>
