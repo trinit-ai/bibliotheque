@@ -158,7 +158,7 @@ function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) =
           style={{
             fontFamily: mono, fontSize: 12,
             padding: "0 10px", height: 44, lineHeight: "44px",
-            color: active === t ? blue : hov === t ? ink : ink3,
+            color: active === t ? blue : hov === t ? "#1e40af" : "#3B82F6",
             cursor: "pointer", whiteSpace: "nowrap",
             borderBottom: active === t ? `2px solid ${blue}` : "2px solid transparent",
             display: "inline-block", transition: "color .12s",
@@ -448,13 +448,13 @@ export default function HomePage() {
             </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Library</div>
-              {["Living Books", "Expeditions", "Oracles", "Games", "Packs", "Essays", "Forms"].map(s => (
+              {["Books", "Digests", "Essays", "Horoscopes", "Games"].map(s => (
                 <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
               ))}
             </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Subjects</div>
-              {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoteric", "Literature", "Psychology"].map(s => (
+              {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Society", "Technology", "Health", "Psychology"].map(s => (
                 <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
               ))}
             </div>
@@ -476,7 +476,7 @@ export default function HomePage() {
               Biblioth<span style={{ color: blue }}>è</span>que
             </div>
             <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-              © 2026 TMOS13, LLC. All rights reserved.
+              © 2026 TMOS13, LLC
             </div>
           </div>
         </div>
