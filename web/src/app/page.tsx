@@ -215,9 +215,9 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
 function TickerBar() {
   const t = `${TICKER}          `;
   return (
-    <div style={{ background: ink, height: 22, overflow: "hidden", whiteSpace: "nowrap", display: "flex", alignItems: "center" }}>
+    <div style={{ background: "#7F1D1D", height: 22, overflow: "hidden", whiteSpace: "nowrap", display: "flex", alignItems: "center" }}>
       <style>{`@keyframes btick { to { transform: translateX(-50%); } } *::-webkit-scrollbar { display: none; }`}</style>
-      <div style={{ display: "inline-block", fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)", letterSpacing: ".03em", animation: "btick 55s linear infinite", whiteSpace: "nowrap" }}>
+      <div style={{ display: "inline-block", fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.7)", letterSpacing: ".03em", animation: "btick 55s linear infinite", whiteSpace: "nowrap" }}>
         {t}{t}
       </div>
     </div>
