@@ -79,7 +79,7 @@ export default function PackSessionPage() {
         </div>
 
         {/* Right passages */}
-        <div style={{ width: 260, flexShrink: 0 }}>
+        <div className="pack-passages">
           <PassagesPanel passages={passages} />
         </div>
       </div>

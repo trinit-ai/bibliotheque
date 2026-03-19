@@ -62,13 +62,13 @@ export default function BookPage() {
             <span style={{ fontSize: 22, fontFamily: serif, fontWeight: 600, color: "#111", letterSpacing: "-.02em" }}>Biblioth<span style={{ color: blue }}>è</span>que</span>
             <span style={{ fontSize: 10, fontFamily: mono, color: blue, marginLeft: 6, padding: "2px 6px", border: "1px solid #bfdbfe", borderRadius: 3 }}>PBC</span>
           </a>
-          <div style={{ flex: 1, maxWidth: 500 }}>
+          <div className="book-search">
             <div style={{ background: "#f9fafb", border: "1px solid #e5e7eb", borderRadius: 6, padding: "7px 10px 7px 30px", fontSize: 12, fontFamily: mono, color: "#9ca3af", position: "relative" }}>
               <span style={{ position: "absolute", left: 10, top: "50%", transform: "translateY(-50%)", fontSize: 14 }}>⌕</span>
               Search books, topics, expeditions…
             </div>
           </div>
-          <div style={{ display: "flex", gap: 0, marginLeft: "auto", border: "1px solid #e5e7eb", borderRadius: 6, overflow: "hidden" }}>
+          <div className="book-nav-tabs">
             {NAV_TABS.map((t, i) => (
               <button key={t} onClick={() => setActiveNav(t)} style={{
                 all: "unset", cursor: "pointer", fontSize: 12, fontFamily: mono, padding: "4px 10px",
@@ -78,7 +78,7 @@ export default function BookPage() {
             ))}
           </div>
         </div>
-        <div style={{ display: "flex", gap: 0, marginTop: -1 }}>
+        <div className="book-sub-tabs">
           {SUB_TABS.map(t => (
             <button key={t} style={{
               all: "unset", cursor: "pointer", fontSize: 11, fontFamily: mono, padding: "6px 14px",
@@ -92,7 +92,7 @@ export default function BookPage() {
       {/* Body */}
       <div style={{ display: "flex", flex: 1, minHeight: 0 }}>
         {/* Left sidebar */}
-        <div style={{ width: 200, flexShrink: 0, borderRight: "1px solid #e5e7eb", padding: "18px 0", overflowY: "auto" }}>
+        <div className="book-sidebar-left">
           <div style={{ padding: "0 14px 8px", fontSize: 9, color: "#9ca3af", fontFamily: mono, letterSpacing: ".1em", textTransform: "uppercase" }}>Portals</div>
           {PORTALS.map(p => (
             <div key={p} onClick={() => setActivePortal(p)} style={{
@@ -119,7 +119,7 @@ export default function BookPage() {
 
         {/* Center */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-          <div style={{ padding: "22px 28px 16px", borderBottom: "1px solid #e5e7eb" }}>
+          <div style={{ padding: "22px 16px 16px", borderBottom: "1px solid #e5e7eb" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
               <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".1em" }}>LIVING BOOK</span>
               <span style={{ color: "#d1d5db", fontSize: 10 }}>·</span>
@@ -139,7 +139,7 @@ export default function BookPage() {
             </div>
           </div>
 
-          <div ref={chatRef} style={{ flex: 1, overflowY: "auto", padding: "18px 28px", display: "flex", flexDirection: "column", gap: 12 }}>
+          <div ref={chatRef} style={{ flex: 1, overflowY: "auto", padding: "18px 16px", display: "flex", flexDirection: "column", gap: 12 }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, paddingBottom: 10, borderBottom: "1px solid #f3f4f6" }}>
               <div style={{ width: 5, height: 5, borderRadius: "50%", background: blue }} />
               <span style={{ fontSize: 10, color: "#9ca3af", fontFamily: mono }}>{title} · 81 chapters indexed · session open</span>
@@ -159,7 +159,7 @@ export default function BookPage() {
             ))}
           </div>
 
-          <div style={{ padding: "12px 28px 16px", borderTop: "1px solid #e5e7eb", background: "#fff" }}>
+          <div style={{ padding: "12px 16px 16px", borderTop: "1px solid #e5e7eb", background: "#fff" }}>
             <div style={{ display: "flex", gap: 10, alignItems: "center", border: "1px solid #e5e7eb", borderRadius: 8, padding: "9px 12px", background: "#f9fafb" }}>
               <input type="text" placeholder={`Ask about the ${title}…`} value={input}
                 onChange={e => setInput(e.target.value)}
@@ -176,7 +176,7 @@ export default function BookPage() {
         </div>
 
         {/* Right sidebar */}
-        <div style={{ width: 240, flexShrink: 0, borderLeft: "1px solid #e5e7eb", padding: "18px 14px", overflowY: "auto" }}>
+        <div className="book-sidebar-right">
           <div style={{ fontSize: 9, color: "#9ca3af", fontFamily: mono, letterSpacing: ".1em", marginBottom: 12 }}>RELATED</div>
           {[
             { title: "Bhagavad Gita", type: "LIVING BOOK", typeColor: blue, meta: "Hinduism · 18 chapters", desc: "700-verse dialogue on duty, devotion, and liberation." },
