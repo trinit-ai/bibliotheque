@@ -93,13 +93,31 @@ function SbSection({ children }: { children: React.ReactNode }) {
 // ── Masthead ──────────────────────────────────────────────────────────────
 
 function Masthead() {
+  const [q, setQ] = useState("");
   return (
-    <div style={{ textAlign: "center", padding: "24px 0 18px", background: cream, borderBottom: `0.5px solid ${border2}` }}>
-      <div style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, fontSize: 42, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
-        Biblioth<span style={{ color: blue }}>è</span>que
-      </div>
-      <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 6 }}>
-        The Living Library
+    <div style={{ background: cream, borderBottom: `0.5px solid ${border2}` }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 24px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+        <div style={{ width: 200 }} />
+        <div style={{ textAlign: "center" }}>
+          <div style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, fontSize: 38, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
+            Biblioth<span style={{ color: blue }}>è</span>que
+          </div>
+          <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
+            The Living Library
+          </div>
+        </div>
+        <div style={{ width: 200, display: "flex", justifyContent: "flex-end" }}>
+          <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
+            <input
+              type="text"
+              placeholder="Search library…"
+              value={q}
+              onChange={e => setQ(e.target.value)}
+              style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 140 }}
+            />
+            <span style={{ color: ink3, fontSize: 14 }}>⌕</span>
+          </div>
+        </div>
       </div>
     </div>
   );
@@ -110,7 +128,8 @@ function Masthead() {
 function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) => void }) {
   const [hov, setHov] = useState<string | null>(null);
   return (
-    <div style={{ background: cream, borderBottom: `0.5px solid ${border_}`, display: "flex", justifyContent: "center", position: "sticky", top: 0, zIndex: 30 }}>
+    <div style={{ background: cream, borderBottom: `0.5px solid ${border_}`, position: "sticky", top: 0, zIndex: 30 }}>
+    <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "center" }}>
       {NEWS_TABS.map(t => (
         <span
           key={t}
@@ -130,6 +149,7 @@ function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) =
         </span>
       ))}
     </div>
+    </div>
   );
 }
 
@@ -139,7 +159,8 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
   const [hov, setHov] = useState<string | null>(null);
   const all: (string | null)[] = [...LIB_TYPES, null, ...LIB_SUBJECTS];
   return (
-    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", alignItems: "center", justifyContent: "center", position: "sticky", top: 44, zIndex: 29, overflowX: "auto" }}>
+    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", alignItems: "center", justifyContent: "center", position: "sticky", top: 44, zIndex: 29, overflowX: "auto", maxWidth: "100vw" }}>
+    <div style={{ display: "flex", alignItems: "center", maxWidth: 1200, overflowX: "auto", scrollbarWidth: "none" }}>
       <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginRight: 14, paddingRight: 14, borderRight: "0.5px solid rgba(255,255,255,.2)", whiteSpace: "nowrap", flexShrink: 0 }}>
         The Library
       </span>
@@ -166,6 +187,7 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
           )
       )}
     </div>
+    </div>
   );
 }
 
@@ -174,9 +196,9 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
 function TickerBar() {
   const t = `${TICKER}          `;
   return (
-    <div style={{ background: ink, height: 28, overflow: "hidden", whiteSpace: "nowrap", display: "flex", alignItems: "center" }}>
-      <style>{`@keyframes btick { to { transform: translateX(-50%); } }`}</style>
-      <div style={{ display: "inline-block", fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.4)", letterSpacing: ".04em", animation: "btick 55s linear infinite", whiteSpace: "nowrap" }}>
+    <div style={{ background: ink, height: 22, overflow: "hidden", whiteSpace: "nowrap", display: "flex", alignItems: "center" }}>
+      <style>{`@keyframes btick { to { transform: translateX(-50%); } } *::-webkit-scrollbar { display: none; }`}</style>
+      <div style={{ display: "inline-block", fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)", letterSpacing: ".03em", animation: "btick 55s linear infinite", whiteSpace: "nowrap" }}>
         {t}{t}
       </div>
     </div>
@@ -189,7 +211,7 @@ function ThreadBand() {
   return (
     <div style={{ background: "#1C1A18", padding: "20px 40px", display: "grid", gridTemplateColumns: "1fr 48px 1fr", alignItems: "center", borderBottom: "0.5px solid rgba(255,255,255,.06)" }}>
       <div>
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.22)", marginBottom: 10 }}>
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.45)", marginBottom: 10 }}>
           Today&apos;s Thread
         </div>
         <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 19, lineHeight: 1.45, color: "rgba(255,255,255,.82)" }}>
@@ -202,10 +224,10 @@ function ThreadBand() {
         <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
       </div>
       <div style={{ paddingLeft: 24, borderLeft: "0.5px solid rgba(59,130,246,.18)" }}>
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(59,130,246,.55)", marginBottom: 10 }}>
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(59,130,246,.75)", marginBottom: 10 }}>
           The Wealth of Nations · Adam Smith · 1776
         </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,.52)", marginBottom: 12 }}>
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,.7)", marginBottom: 12 }}>
           &ldquo;The natural price is the central price, to which the prices of all commodities are continually gravitating…&rdquo;
         </div>
         <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: "rgba(59,130,246,.85)", background: "rgba(59,130,246,.1)", border: "0.5px solid rgba(59,130,246,.28)", padding: "6px 14px", borderRadius: 3, cursor: "pointer" }}>
@@ -366,14 +388,14 @@ export default function HomePage() {
   const [libTab, setLibTab] = useState<string | null>(null);
 
   return (
-    <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif }}>
+    <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif, overflowX: "hidden" }}>
+      <TickerBar />
       <Masthead />
       <NewsNav active={newsTab} onSelect={t => { setNewsTab(t); setLibTab(null); }} />
       <LibNav active={libTab} onSelect={setLibTab} />
-      <TickerBar />
       <ThreadBand />
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 0.5px 1fr 0.5px 220px", padding: "28px 40px", gap: 0, alignItems: "start" }}>
+      <div style={{ display: "grid", gridTemplateColumns: "1fr 0.5px 1fr 0.5px 220px", maxWidth: 1200, margin: "0 auto", padding: "28px 24px", gap: 0, alignItems: "start" }}>
         <div style={{ paddingRight: 28 }}>
           <ColLabel>Top Stories</ColLabel>
           <StoryListSection />
@@ -388,6 +410,58 @@ export default function HomePage() {
           <SidebarSection />
         </div>
       </div>
+
+      {/* Footer */}
+      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 20px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 24, marginBottom: 28 }}>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>News</div>
+              {["World", "U.S.", "Politics", "Business", "Economy", "Markets", "Tech", "Health", "Science", "Sports"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Opinion</div>
+              {["Opinion", "Free Expression", "Arts", "Lifestyle", "Style", "Real Estate", "Personal Finance"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Library</div>
+              {["Living Books", "Expeditions", "Oracles", "Games", "Packs", "Essays", "Forms"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Subjects</div>
+              {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoteric", "Literature", "Psychology"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Account</div>
+              {["Sign In", "Register", "Reading History", "Session Journal", "Settings"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>About</div>
+              {["About Bibliothèque", "TMOS13, LLC", "Privacy Policy", "Terms of Use", "Contact"].map(s => (
+                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              ))}
+            </div>
+          </div>
+          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+            <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
+              Biblioth<span style={{ color: blue }}>è</span>que
+            </div>
+            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
+              © 2026 TMOS13, LLC. All rights reserved.
+            </div>
+          </div>
+        </div>
+      </footer>
     </div>
   );
 }
