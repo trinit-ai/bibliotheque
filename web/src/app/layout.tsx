@@ -22,15 +22,33 @@ const dmMono = DM_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Biblioth\u00e8que \u2014 The Living Library",
+  title: "Bibliothèque — Living Library",
   description:
-    "Converse with living books, explore wiki expeditions, and discover knowledge through dialogue. A public benefit library powered by structured intelligence.",
+    "Every article is a conversation. 1,700+ sacred texts, expeditions, packs, oracles.",
   metadataBase: new URL("https://bibliotheque.ai"),
+  icons: {
+    icon: "/brand/bibliotheque-favicon.svg",
+    shortcut: "/brand/bibliotheque-favicon.svg",
+    apple: "/brand/bibliotheque-favicon.svg",
+  },
   openGraph: {
-    title: "Biblioth\u00e8que",
-    description: "The living library. Read by asking.",
-    siteName: "Biblioth\u00e8que",
-    type: "website",
+    title: "Bibliothèque",
+    description: "The living library.",
+    url: "https://bibliotheque.ai",
+    siteName: "Bibliothèque",
+    images: [
+      {
+        url: "/brand/bibliotheque-logo.svg",
+        width: 200,
+        height: 240,
+        alt: "Bibliothèque",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary",
+    title: "Bibliothèque",
+    description: "The living library.",
   },
 };
 
