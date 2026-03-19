@@ -52,3 +52,6 @@ yarn-error.log*
 # Testing
 coverage/
 .nyc_output/
+
+# TypeScript build info
+*.tsbuildinfo
