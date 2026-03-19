@@ -5,7 +5,7 @@ import { useState } from "react";
 // ── Data ──────────────────────────────────────────────────────────────────
 
 const NEWS_TABS = ["World", "Politics", "Markets", "Tech", "Health", "Science", "Opinion", "Arts", "Sports"];
-const LIB_TYPES = ["Books", "Digests", "Essays", "Horoscopes", "Games"];
+const CONTENT_TABS = ["Books", "Digests", "Essays", "Horoscopes", "Games"];
 const LIB_SUBJECTS = ["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Society", "Technology", "Health", "Psychology"];
 
 const TOP_STORIES = [
@@ -148,6 +148,25 @@ function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) =
           {t}
         </span>
       ))}
+      <div style={{ width: "0.5px", height: 18, background: border_, margin: "0 6px", flexShrink: 0 }} />
+      {CONTENT_TABS.map(t => (
+        <span
+          key={t}
+          onClick={() => onSelect(t)}
+          onMouseEnter={() => setHov(t)}
+          onMouseLeave={() => setHov(null)}
+          style={{
+            fontFamily: mono, fontSize: 12,
+            padding: "0 10px", height: 44, lineHeight: "44px",
+            color: active === t ? blue : hov === t ? ink : ink3,
+            cursor: "pointer", whiteSpace: "nowrap",
+            borderBottom: active === t ? `2px solid ${blue}` : "2px solid transparent",
+            display: "inline-block", transition: "color .12s",
+          }}
+        >
+          {t}
+        </span>
+      ))}
     </div>
     </div>
   );
@@ -157,7 +176,7 @@ function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) =
 
 function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: string | null) => void }) {
   const [hov, setHov] = useState<string | null>(null);
-  const all: (string | null)[] = [...LIB_TYPES, null, ...LIB_SUBJECTS];
+  const all: (string | null)[] = [...LIB_SUBJECTS];
   return (
     <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 44, zIndex: 29 }}>
     <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", maxWidth: 1200, padding: "0 12px" }}>
