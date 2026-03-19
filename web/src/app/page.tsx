@@ -96,17 +96,17 @@ function Masthead() {
   const [q, setQ] = useState("");
   return (
     <div style={{ background: cream, borderBottom: `0.5px solid ${border2}` }}>
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 24px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-        <div style={{ width: 200 }} />
+      <div className="masthead-inner">
+        <div className="hide-mobile" style={{ width: 200 }} />
         <div style={{ textAlign: "center" }}>
-          <div style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, fontSize: 38, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
+          <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
             Biblioth<span style={{ color: blue }}>è</span>que
           </div>
           <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
             The Living Library
           </div>
         </div>
-        <div style={{ width: 200, display: "flex", justifyContent: "flex-end" }}>
+        <div className="hide-mobile-flex" style={{ width: 200, justifyContent: "flex-end" }}>
           <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
             <input
               type="text"
@@ -129,7 +129,7 @@ function NewsNav({ active, onSelect }: { active: string; onSelect: (t: string) =
   const [hov, setHov] = useState<string | null>(null);
   return (
     <div style={{ background: cream, borderBottom: `0.5px solid ${border_}`, position: "sticky", top: 0, zIndex: 30 }}>
-    <div style={{ maxWidth: 1200, margin: "0 auto", display: "flex", justifyContent: "center" }}>
+    <div className="news-nav-inner">
       {NEWS_TABS.map(t => (
         <span
           key={t}
@@ -178,8 +178,8 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
   const [hov, setHov] = useState<string | null>(null);
   const all: (string | null)[] = [...LIB_SUBJECTS];
   return (
-    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 46, zIndex: 29 }}>
-    <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", maxWidth: 1200, padding: "0 12px" }}>
+    <div className="lib-nav-outer" style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center" }}>
+    <div className="lib-nav-inner">
       <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginRight: 14, paddingRight: 14, borderRight: "0.5px solid rgba(255,255,255,.2)", whiteSpace: "nowrap", flexShrink: 0 }}>
         The Library
       </span>
@@ -228,7 +228,7 @@ function TickerBar() {
 
 function ThreadBand() {
   return (
-    <div style={{ background: "#1C1A18", padding: "20px 40px", display: "grid", gridTemplateColumns: "1fr 48px 1fr", alignItems: "center", borderBottom: "0.5px solid rgba(255,255,255,.06)" }}>
+    <div className="thread-band" style={{ background: "#1C1A18", borderBottom: "0.5px solid rgba(255,255,255,.06)" }}>
       <div>
         <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.45)", marginBottom: 10 }}>
           Today&apos;s Thread
@@ -237,12 +237,12 @@ function ThreadBand() {
           &ldquo;Fed Signals Patience as Inflation Proves Stickier Than Expected&rdquo;
         </div>
       </div>
-      <div style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
         <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
         <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#3B82F6", border: "2px solid #1C1A18" }} />
         <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
       </div>
-      <div style={{ paddingLeft: 24, borderLeft: "0.5px solid rgba(59,130,246,.18)" }}>
+      <div style={{ borderLeft: "none" }} className="thread-right">
         <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(59,130,246,.75)", marginBottom: 10 }}>
           The Wealth of Nations · Adam Smith · 1776
         </div>
@@ -264,7 +264,7 @@ function StoryListSection() {
     <div>
       <div style={{ marginBottom: 20 }}>
         <div style={{ fontFamily: mono, fontSize: 11, letterSpacing: ".08em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>Markets</div>
-        <div style={{ fontFamily: serif, fontSize: 28, lineHeight: 1.18, letterSpacing: "-.01em", marginBottom: 12 }}>
+        <div className="story-headline" style={{ fontFamily: serif, lineHeight: 1.18, letterSpacing: "-.01em", marginBottom: 12 }}>
           Fed Signals Patience as Inflation Proves Stickier Than Expected
         </div>
         <div style={{ fontFamily: serif, fontSize: 15, lineHeight: 1.75, color: ink2, marginBottom: 12 }}>
@@ -291,7 +291,7 @@ function StoryListSection() {
 
       <div style={{ marginTop: 20, paddingTop: 14, borderTop: `0.5px solid ${border2}` }}>
         <ColLabel>Markets</ColLabel>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3,1fr)", gap: 14 }}>
+        <div className="markets-grid">
           {[
             { label: "S&P 500", val: "5,638.94", chg: "+0.42%", up: true },
             { label: "Nasdaq", val: "17,691.63", chg: "+0.87%", up: true },
@@ -473,33 +473,33 @@ export default function HomePage() {
       <ThreadBand />
 
       {/* Card grid — From the Library */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 16px 0" }}>
         <ColLabel>From the Library</ColLabel>
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(280px, 1fr))", gap: 16, marginBottom: 8 }}>
+        <div className="card-grid">
           {CARD_ENTRIES.map(e => <LibCard key={e.id} entry={e} />)}
         </div>
       </div>
 
-      <div style={{ display: "grid", gridTemplateColumns: "1fr 0.5px 1fr 0.5px 220px", maxWidth: 1200, margin: "0 auto", padding: "28px 24px", gap: 0, alignItems: "start" }}>
-        <div style={{ paddingRight: 28 }}>
+      <div className="main-columns">
+        <div style={{ paddingRight: 0 }} className="main-col-stories">
           <ColLabel>Top Stories</ColLabel>
           <StoryListSection />
         </div>
-        <div style={{ background: border2 }} />
-        <div style={{ padding: "0 28px" }}>
+        <div className="column-divider" style={{ background: border2 }} />
+        <div className="main-col-library">
           <ColLabel>From the Library</ColLabel>
           <LibraryColumn />
         </div>
-        <div style={{ background: border2 }} />
-        <div style={{ paddingLeft: 28 }}>
+        <div className="column-divider" style={{ background: border2 }} />
+        <div className="main-col-sidebar">
           <SidebarSection />
         </div>
       </div>
 
       {/* Footer */}
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 20px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(6, 1fr)", gap: 24, marginBottom: 28 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px 20px" }}>
+          <div className="footer-grid">
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>News</div>
               {["World", "U.S.", "Politics", "Business", "Economy", "Markets", "Tech", "Health", "Science", "Sports"].map(s => (
@@ -537,7 +537,7 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center" }}>
+          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
             <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
               Biblioth<span style={{ color: blue }}>è</span>que
             </div>

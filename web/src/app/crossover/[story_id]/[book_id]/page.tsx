@@ -104,18 +104,9 @@ export default function CrossoverBridgePage() {
         </div>
 
         {/* Split view */}
-        <div
-          style={{
-            display: "flex",
-            maxWidth: 960,
-            margin: "40px auto 0",
-            padding: "0 24px",
-            gap: 0,
-            alignItems: "flex-start",
-          }}
-        >
-          {/* Left 55%: news story */}
-          <div style={{ flex: "0 0 55%", paddingRight: 40 }}>
+        <div className="crossover-split">
+          {/* Left: news story */}
+          <div className="crossover-left">
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
@@ -158,16 +149,7 @@ export default function CrossoverBridgePage() {
           </div>
 
           {/* Center connector */}
-          <div
-            style={{
-              display: "flex",
-              flexDirection: "column",
-              alignItems: "center",
-              flexShrink: 0,
-              width: 20,
-              paddingTop: 8,
-            }}
-          >
+          <div className="crossover-connector">
             <div
               style={{
                 width: 0.5,
@@ -194,8 +176,8 @@ export default function CrossoverBridgePage() {
             />
           </div>
 
-          {/* Right 45%: book passages */}
-          <div style={{ flex: "0 0 calc(45% - 20px)", paddingLeft: 40 }}>
+          {/* Right: book passages */}
+          <div className="crossover-right">
             <div
               style={{
                 fontFamily: "'DM Mono', monospace",
