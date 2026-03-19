@@ -1,0 +1,11 @@
+{
+  "framework": "nextjs",
+  "buildCommand": "cd web && npm run build",
+  "outputDirectory": "web/.next",
+  "rewrites": [
+    {
+      "source": "/api/:path*",
+      "destination": "https://bibliotheque-api.up.railway.app/api/:path*"
+    }
+  ]
+}

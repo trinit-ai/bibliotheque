@@ -1,0 +1,109 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* =========================================================================
+   Design Tokens
+   ========================================================================= */
+
+:root {
+  /* Editorial mode (default) */
+  --color-bg: #ffffff;
+  --color-text: #111827;
+  --color-accent: #1d4ed8;
+  --color-muted: #6b7280;
+  --color-border: #e5e7eb;
+  --color-surface: #f9fafb;
+
+  /* Typography */
+  --font-display: var(--font-crimson-pro), Georgia, serif;
+  --font-body: var(--font-source-serif), Georgia, serif;
+  --font-mono: var(--font-dm-mono), Menlo, monospace;
+}
+
+/* Session mode — activated via data attribute on a container */
+[data-mode="session"] {
+  --color-bg: #020817;
+  --color-text: #e2e8f0;
+  --color-accent: #3b82f6;
+  --color-muted: #64748b;
+  --color-border: #1e293b;
+  --color-surface: #0f172a;
+}
+
+/* =========================================================================
+   Base Typography
+   ========================================================================= */
+
+@layer base {
+  html {
+    font-family: var(--font-body);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.2;
+  }
+
+  h1 {
+    font-size: 3rem;
+  }
+
+  h2 {
+    font-size: 2rem;
+  }
+
+  h3 {
+    font-size: 1.5rem;
+  }
+
+  p {
+    line-height: 1.7;
+  }
+
+  code, pre, .mono {
+    font-family: var(--font-mono);
+  }
+
+  /* Focus styles */
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+  }
+
+  /* Selection */
+  ::selection {
+    background-color: var(--color-accent);
+    color: #ffffff;
+  }
+}
+
+/* =========================================================================
+   Utilities
+   ========================================================================= */
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .editorial-container {
+    max-width: 72rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+
+  .session-container {
+    max-width: 48rem;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}

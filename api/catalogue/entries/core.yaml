@@ -1,0 +1,102 @@
+entries:
+  - id: tao_te_ching_mou
+    slug: tao_te_ching_mou
+    title: "Tao Te Ching"
+    subtitle: "The Book of the Way — rendered through the voice of Master Mou"
+    description: "A living conversation with the Tao Te Ching. Ask questions, explore passages, and receive interpretation grounded in the original 81 chapters."
+    content_type: living_book
+    portal: religion
+    tags: [taoism, lao_tzu, chinese_philosophy, spirituality, the_way]
+    featured: 1
+    pack_id: tao_te_ching_mou
+
+  - id: meditations_marcus
+    slug: meditations_marcus
+    title: "Meditations"
+    subtitle: "Marcus Aurelius — private reflections of a philosopher-emperor"
+    description: "Converse with the Meditations of Marcus Aurelius. Explore Stoic principles through the personal journal of Rome's philosopher-king."
+    content_type: living_book
+    portal: philosophy
+    tags: [stoicism, marcus_aurelius, roman_philosophy, virtue, self_discipline]
+    featured: 2
+    pack_id: meditations_marcus
+
+  - id: bhagavad_gita
+    slug: bhagavad_gita
+    title: "Bhagavad Gita"
+    subtitle: "The Song of God — Krishna's counsel on the battlefield of Kurukshetra"
+    description: "A living dialogue with the Bhagavad Gita. Explore duty, devotion, and the nature of the self through the counsel of Krishna to Arjuna."
+    content_type: living_book
+    portal: religion
+    tags: [hinduism, krishna, arjuna, dharma, yoga, vedanta]
+    featured: 3
+    pack_id: bhagavad_gita
+
+  - id: wiki_stoicism
+    slug: wiki_stoicism
+    title: "Stoicism"
+    subtitle: "An expedition through the Stoic tradition"
+    description: "Explore the philosophy of Stoicism from Zeno to Epictetus. Topics include virtue ethics, the dichotomy of control, living according to nature, and modern Stoic practice."
+    content_type: expedition
+    portal: philosophy
+    tags: [stoicism, virtue, epictetus, seneca, zeno, ethics]
+    featured: 4
+
+  - id: wiki_game_theory
+    slug: wiki_game_theory
+    title: "Game Theory"
+    subtitle: "Strategy, decisions, and the mathematics of interaction"
+    description: "An expedition through game theory — from Nash equilibria to evolutionary dynamics. Explore how rational agents make strategic decisions."
+    content_type: expedition
+    portal: mathematics
+    tags: [game_theory, nash, strategy, economics, decision_theory]
+    featured: 5
+
+  - id: epic_of_gilgamesh
+    slug: epic_of_gilgamesh
+    title: "Epic of Gilgamesh"
+    subtitle: "The oldest surviving great work of literature"
+    description: "Converse with humanity's earliest epic. Explore themes of friendship, mortality, and the search for meaning through the journey of Gilgamesh and Enkidu."
+    content_type: living_book
+    portal: history
+    tags: [mesopotamia, sumerian, epic, mortality, friendship, ancient]
+    featured: 6
+    pack_id: epic_of_gilgamesh
+
+  - id: corpus_hermeticum
+    slug: corpus_hermeticum
+    title: "Corpus Hermeticum"
+    subtitle: "The foundational texts of the Hermetic tradition"
+    description: "A living encounter with the Hermetic writings attributed to Hermes Trismegistus. Explore the nature of God, mind, cosmos, and the path of spiritual ascent."
+    content_type: living_book
+    portal: esoteric
+    tags: [hermeticism, hermes_trismegistus, gnosis, alchemy, neoplatonism]
+    featured: 7
+    pack_id: corpus_hermeticum
+
+  - id: wiki_consciousness
+    slug: wiki_consciousness
+    title: "Consciousness"
+    subtitle: "The hard problem and beyond"
+    description: "An expedition through the philosophy and science of consciousness. From qualia and the explanatory gap to integrated information theory and panpsychism."
+    content_type: expedition
+    portal: philosophy
+    tags: [consciousness, mind, qualia, hard_problem, philosophy_of_mind]
+
+  - id: wiki_entropy
+    slug: wiki_entropy
+    title: "Entropy"
+    subtitle: "Order, disorder, and the arrow of time"
+    description: "An expedition through entropy — thermodynamic, informational, and cosmological. Explore why time flows forward and how disorder shapes the universe."
+    content_type: expedition
+    portal: science
+    tags: [entropy, thermodynamics, information_theory, physics, time]
+
+  - id: wiki_octopus
+    slug: wiki_octopus
+    title: "Octopus"
+    subtitle: "Alien intelligence in Earth's oceans"
+    description: "An expedition into the world of the octopus. Explore their distributed nervous system, camouflage, problem-solving abilities, and what they reveal about the evolution of intelligence."
+    content_type: expedition
+    portal: science
+    tags: [octopus, cephalopod, marine_biology, intelligence, evolution]
