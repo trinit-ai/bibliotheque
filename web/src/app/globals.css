@@ -124,8 +124,9 @@
 }
 
 /* Hide on mobile, show on md+ */
-.hide-mobile {
-  display: none;
+.hide-mobile,
+.hide-mobile-flex {
+  display: none !important;
 }
 
 /* Show on mobile, hide on md+ */
@@ -135,10 +136,10 @@
 
 @media (min-width: 768px) {
   .hide-mobile {
-    display: block;
+    display: block !important;
   }
   .hide-mobile-flex {
-    display: flex;
+    display: flex !important;
   }
   .show-mobile {
     display: none;
@@ -189,6 +190,7 @@
 .lib-nav-inner {
   display: flex;
   align-items: center;
+  flex-wrap: nowrap;
   max-width: 1200px;
   padding: 0 8px;
   overflow-x: auto;
@@ -473,6 +475,19 @@
     flex-shrink: 0;
     width: 20px;
     padding-top: 8px;
+  }
+}
+
+/* Disable sticky on mobile for lib nav to avoid header stacking */
+.lib-nav-outer {
+  position: relative;
+}
+
+@media (min-width: 768px) {
+  .lib-nav-outer {
+    position: sticky;
+    top: 46px;
+    z-index: 29;
   }
 }
 

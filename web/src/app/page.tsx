@@ -106,7 +106,7 @@ function Masthead() {
             The Living Library
           </div>
         </div>
-        <div className="hide-mobile" style={{ width: 200, display: "flex", justifyContent: "flex-end" }}>
+        <div className="hide-mobile-flex" style={{ width: 200, justifyContent: "flex-end" }}>
           <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
             <input
               type="text"
@@ -178,7 +178,7 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
   const [hov, setHov] = useState<string | null>(null);
   const all: (string | null)[] = [...LIB_SUBJECTS];
   return (
-    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 46, zIndex: 29 }}>
+    <div className="lib-nav-outer" style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center" }}>
     <div className="lib-nav-inner">
       <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginRight: 14, paddingRight: 14, borderRight: "0.5px solid rgba(255,255,255,.2)", whiteSpace: "nowrap", flexShrink: 0 }}>
         The Library
@@ -237,7 +237,7 @@ function ThreadBand() {
           &ldquo;Fed Signals Patience as Inflation Proves Stickier Than Expected&rdquo;
         </div>
       </div>
-      <div className="hide-mobile" style={{ display: "flex", flexDirection: "column", alignItems: "center" }}>
+      <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
         <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
         <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#3B82F6", border: "2px solid #1C1A18" }} />
         <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
