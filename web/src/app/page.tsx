@@ -5,8 +5,8 @@ import { useState } from "react";
 // ── Data ──────────────────────────────────────────────────────────────────
 
 const NEWS_TABS = ["World", "Politics", "Markets", "Tech", "Health", "Science", "Opinion", "Arts", "Sports"];
-const LIB_TYPES = ["Living Books", "Expeditions", "Oracles", "Games", "Packs"];
-const LIB_SUBJECTS = ["Essays", "Philosophy", "Religion", "Science", "History", "Mathematics", "Esoteric", "Literature", "Psychology"];
+const LIB_TYPES = ["Books", "Digests", "Essays", "Horoscopes", "Games"];
+const LIB_SUBJECTS = ["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Psychology"];
 
 const TOP_STORIES = [
   { n: "01", hl: "TSMC\u2019s Arizona Bet Reshapes the Global Chip Map", cat: "tech", time: "6 min", session: true },
