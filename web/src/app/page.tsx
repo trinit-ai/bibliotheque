@@ -6,7 +6,7 @@ import { useState } from "react";
 
 const NEWS_TABS = ["World", "Politics", "Markets", "Tech", "Health", "Science", "Opinion", "Arts", "Sports"];
 const LIB_TYPES = ["Books", "Digests", "Essays", "Horoscopes", "Games"];
-const LIB_SUBJECTS = ["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Psychology"];
+const LIB_SUBJECTS = ["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Society", "Technology", "Health", "Psychology"];
 
 const TOP_STORIES = [
   { n: "01", hl: "TSMC\u2019s Arizona Bet Reshapes the Global Chip Map", cat: "tech", time: "6 min", session: true },
@@ -159,8 +159,8 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
   const [hov, setHov] = useState<string | null>(null);
   const all: (string | null)[] = [...LIB_TYPES, null, ...LIB_SUBJECTS];
   return (
-    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", alignItems: "center", justifyContent: "center", position: "sticky", top: 44, zIndex: 29, overflowX: "auto", maxWidth: "100vw" }}>
-    <div style={{ display: "flex", alignItems: "center", maxWidth: 1200, overflowX: "auto", scrollbarWidth: "none" }}>
+    <div style={{ background: blue, borderBottom: "0.5px solid rgba(255,255,255,.15)", display: "flex", justifyContent: "center", position: "sticky", top: 44, zIndex: 29 }}>
+    <div style={{ display: "flex", alignItems: "center", flexWrap: "wrap", justifyContent: "center", maxWidth: 1200, padding: "0 12px" }}>
       <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: "rgba(255,255,255,.5)", marginRight: 14, paddingRight: 14, borderRight: "0.5px solid rgba(255,255,255,.2)", whiteSpace: "nowrap", flexShrink: 0 }}>
         The Library
       </span>
