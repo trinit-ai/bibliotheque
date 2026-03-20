@@ -29,7 +29,7 @@ const ARTS = [
 const PICKS = [
   { title: "Tao Te Ching", meta: "Laozi \u00b7 Living Book", dot: "#3B82F6", href: "/book/tao_te_ching" },
   { title: "The Stoicism Expedition", meta: "Philosophy \u00b7 Expedition", dot: "#10B981", href: "/wiki/stoicism" },
-  { title: "I Ching Oracle", meta: "Divination \u00b7 Oracle", dot: "#F59E0B", href: "/book/i_ching_oracle" },
+  { title: "I Ching", meta: "Divination \u00b7 Horoscope", dot: "#F59E0B", href: "/book/i_ching" },
   { title: "Politics and the English Language", meta: "Orwell \u00b7 Essay", dot: "#8B5CF6", href: "/book/politics_and_the_english_language" },
 ];
 
@@ -102,9 +102,9 @@ function Masthead() {
       <div className="masthead-inner">
         <div className="hide-mobile" style={{ width: 200 }} />
         <div style={{ textAlign: "center" }}>
-          <Link href="/" style={{ textDecoration: "none" }}>
+          <Link href="/" className="bib-logo" style={{ textDecoration: "none" }}>
             <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
-              Biblioth<span style={{ color: blue }}>è</span>que
+              Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
             </div>
             <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
               The Living Library
@@ -413,7 +413,7 @@ function SidebarSection() {
 const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }> = {
   living_book: { label: "Living Book", tab: "#1D4ED8", tint: "#EFF6FF" },
   expedition:  { label: "Expedition",  tab: "#0891B2", tint: "#ECFEFF" },
-  oracle:      { label: "Oracle",      tab: "#7C3AED", tint: "#F5F3FF" },
+  horoscope:   { label: "Horoscope",   tab: "#7C3AED", tint: "#F5F3FF" },
   essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
   interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
 };
@@ -447,13 +447,15 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
   const [hov, setHov] = useState(false);
   const f = FORMAT_COLORS[entry.format] || FORMAT_COLORS.living_book;
   const p = PORTAL_COLORS[entry.portal] || { tint: "#F9FAFB", accent: "#374151" };
-  const sessionUrl = entry.format === "expedition" ? `/wiki/${entry.id}` : `/book/${entry.id}`;
+  const transitionUrl = entry.format === "expedition" ? `/wiki/${entry.id}` : `/wiki/${entry.id}`;
+  const sessionUrl = `/book/${entry.id}`;
   return (
-    <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
+    <Link href={transitionUrl} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
       background: hov ? "#fff" : p.tint,
       border: `0.5px solid ${hov ? p.accent : "rgba(0,0,0,.08)"}`,
       borderRadius: 10, overflow: "hidden", cursor: "pointer",
       display: "flex", flexDirection: "column", transition: "border-color .15s, background .15s",
+      textDecoration: "none", color: "inherit",
     }}>
       <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.9)", fontWeight: 500 }}>{f.label}</span>
@@ -463,12 +465,12 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
         <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, lineHeight: 1.15, color: ink, letterSpacing: "-.01em" }}>{entry.title}</div>
         <div style={{ fontFamily: mono, fontSize: 10, color: p.accent, letterSpacing: ".04em" }}>{entry.author}</div>
         <div style={{ fontFamily: serif, fontSize: 13, lineHeight: 1.65, color: ink2, marginTop: 4, flex: 1 }}>{entry.desc}</div>
-        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 12, marginTop: 4, borderTop: "0.5px solid rgba(0,0,0,.07)" }}>
+        <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 10, marginTop: 4, borderTop: "0.5px solid rgba(0,0,0,.07)" }}>
           <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>{entry.meta}</span>
-          <Link href={sessionUrl} style={{ background: f.tab, color: "#fff", border: "none", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", cursor: "pointer", letterSpacing: ".04em", textDecoration: "none" }}>Open session →</Link>
+          <span onClick={e => { e.preventDefault(); window.location.href = sessionUrl; }} style={{ background: f.tab, color: "#fff", border: "none", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", cursor: "pointer", letterSpacing: ".04em" }}>Open session →</span>
         </div>
       </div>
-    </div>
+    </Link>
   );
 }
 
@@ -569,9 +571,9 @@ export default function HomePage() {
             </div>
           </div>
           <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-            <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
-              Biblioth<span style={{ color: blue }}>è</span>que
-            </div>
+            <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
+              Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
+            </Link>
             <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
               © 2026 TMOS13, LLC
             </div>

@@ -24,7 +24,7 @@ const dmMono = DM_Mono({
 export const metadata: Metadata = {
   title: "Bibliothèque — Living Library",
   description:
-    "Every article is a conversation. 1,700+ sacred texts, expeditions, packs, oracles.",
+    "Every article is a conversation. 1,700+ sacred texts, expeditions, packs, horoscopes.",
   metadataBase: new URL("https://bibliotheque.ai"),
   icons: {
     icon: "/brand/bibliotheque-favicon.svg",

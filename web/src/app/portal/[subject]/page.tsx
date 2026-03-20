@@ -35,7 +35,7 @@ const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
 const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }> = {
   living_book: { label: "Living Book", tab: "#1D4ED8", tint: "#EFF6FF" },
   expedition:  { label: "Expedition",  tab: "#0891B2", tint: "#ECFEFF" },
-  oracle:      { label: "Oracle",      tab: "#7C3AED", tint: "#F5F3FF" },
+  horoscope:   { label: "Horoscope",   tab: "#7C3AED", tint: "#F5F3FF" },
   essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
   interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
 };
@@ -108,11 +108,11 @@ const SUBJECT_CARDS: Record<string, CardEntry[]> = {
     { id: "what_is_mathematics", title: "What Is Mathematics?", author: "Courant & Robbins \u00b7 1941", desc: "An elementary approach to ideas and methods. Number theory, geometry, topology, calculus \u2014 the whole landscape in one book.", format: "living_book", meta: "8 chapters", sessions: "10 this week" },
   ],
   esoterica: [
-    { id: "i_ching", title: "I Ching", author: "Chinese tradition \u00b7 c. 1000 BC", desc: "The Book of Changes. 64 hexagrams encoding a complete cosmology. Cast and interpret in real time.", format: "oracle", meta: "64 hexagrams", sessions: "38 this week" },
+    { id: "i_ching", title: "I Ching", author: "Chinese tradition \u00b7 c. 1000 BC", desc: "The Book of Changes. 64 hexagrams encoding a complete cosmology. Cast and interpret in real time.", format: "horoscope", meta: "64 hexagrams", sessions: "38 this week" },
     { id: "corpus_hermeticum", title: "Corpus Hermeticum", author: "Hermes Trismegistus \u00b7 c. 100\u2013300 AD", desc: "As above, so below. The foundational texts of Hermeticism \u2014 divine mind, cosmic sympathy, and the path of ascent.", format: "living_book", meta: "18 tractates", sessions: "14 this week" },
     { id: "alchemy_expedition", title: "The Alchemy Expedition", author: "Expedition \u00b7 Multi-source", desc: "The Great Work: nigredo, albedo, citrinitas, rubedo. Not just proto-chemistry \u2014 a complete system of spiritual transformation.", format: "expedition", meta: "\u221e turns", sessions: "22 this week" },
     { id: "sefer_yetzirah", title: "Sefer Yetzirah", author: "Kabbalistic tradition \u00b7 c. 200\u2013600 AD", desc: "The Book of Formation. God created the world through 32 paths of wisdom: 10 sefirot and 22 letters.", format: "living_book", meta: "6 chapters", sessions: "11 this week" },
-    { id: "tarot_oracle", title: "The Tarot Oracle", author: "Oracle \u00b7 Western esoteric", desc: "A living tarot reading. Draw cards, explore their symbolism, and let the archetypes speak to your question.", format: "oracle", meta: "78 arcana", sessions: "45 this week" },
+    { id: "tarot_oracle", title: "Tarot", author: "Western esoteric \u00b7 Western esoteric", desc: "A living tarot reading. Draw cards, explore their symbolism, and let the archetypes speak to your question.", format: "horoscope", meta: "78 arcana", sessions: "45 this week" },
     { id: "emerald_tablet", title: "The Emerald Tablet", author: "Hermes Trismegistus \u00b7 c. 600\u2013800 AD", desc: "Fourteen cryptic lines that shaped a thousand years of Western esotericism. The operation of the Sun.", format: "living_book", meta: "14 verses", sessions: "9 this week" },
   ],
   literature: [

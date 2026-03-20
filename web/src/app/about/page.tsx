@@ -94,7 +94,7 @@ export default function AboutPage() {
             {[
               { label: "Living Books", desc: "Full texts rendered as conversational entities. Ask questions, explore chapters, follow threads across the work." },
               { label: "Expeditions", desc: "Guided journeys across multiple texts and traditions. Stoicism, the history of consciousness, the philosophy of mathematics." },
-              { label: "Oracles", desc: "Divination systems &mdash; I Ching, Tarot, astrology &mdash; presented with scholarly depth and genuine interpretive range." },
+              { label: "Horoscopes", desc: "Divination systems &mdash; I Ching, Tarot, astrology &mdash; presented with scholarly depth and genuine interpretive range." },
               { label: "Editorials", desc: "Essays and opinion pieces you can interrogate. Read Orwell, then ask him what he&apos;d think about today." },
               { label: "News Sessions", desc: "Current events rendered through the library&apos;s lens. The day&apos;s headlines paired with the texts that illuminate them." },
             ].map((item) => (

@@ -1,7 +1,7 @@
 "use client";
 
-import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
+import Link from "next/link";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -294,8 +294,6 @@ function ColLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-interface Message { role: "user" | "assistant"; content: string }
-
 // ── Page ──────────────────────────────────────────────────────────────────
 
 export default function WikiPage() {
@@ -305,71 +303,32 @@ export default function WikiPage() {
   const displayName = toTitle(slug);
   const data = getEntityData(slug);
 
-  const [inSession, setInSession] = useState(false);
-  const [messages, setMessages] = useState<Message[]>([]);
-  const [input, setInput] = useState("");
-  const [searchQuery, setSearchQuery] = useState("");
-  const chatRef = useRef<HTMLDivElement>(null);
-
-  useEffect(() => {
-    if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
-  }, [messages]);
-
-  const beginExploration = () => {
-    setInSession(true);
-    setMessages([{ role: "assistant", content: data.demoResponse }]);
-  };
-
-  const sendMessage = () => {
-    if (!input.trim()) return;
-    const userMsg = input.trim();
-    setMessages(prev => [...prev, { role: "user", content: userMsg }]);
-    setInput("");
-    setTimeout(() => {
-      setMessages(prev => [...prev, {
-        role: "assistant",
-        content: `That is an excellent question about ${displayName.toLowerCase()}. Let me trace this thread carefully.\n\nThe key insight here connects to several ideas we can explore further. This is one of those areas where the conventional understanding — while not exactly wrong — misses important nuance.\n\nWould you like to go deeper into this particular aspect, or shall we follow one of the connections that emerged?`,
-      }]);
-    }, 700);
-  };
-
   return (
     <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif, display: "flex", flexDirection: "column" }}>
       {/* ── Top bar ──────────────────────────────────────────────────── */}
       <div style={{ borderBottom: `0.5px solid ${border_}`, background: cream }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", height: 52, gap: 20 }}>
-          <a href="/" style={{ display: "flex", alignItems: "baseline", gap: 2, textDecoration: "none", flexShrink: 0 }}>
-            <span style={{ fontSize: 22, fontFamily: serif, fontStyle: "italic", fontWeight: 400, color: ink, letterSpacing: "-.025em" }}>
-              Biblioth<span style={{ color: blue }}>e</span>que
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 24px", display: "flex", alignItems: "center", height: 48, gap: 20 }}>
+          <Link href="/" style={{ textDecoration: "none", flexShrink: 0 }}>
+            <span style={{ fontSize: 20, fontFamily: serif, fontStyle: "italic", fontWeight: 400, color: ink, letterSpacing: "-.025em" }}>
+              Biblioth<span style={{ color: blue }}>è</span>que
             </span>
-          </a>
-
-          <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", marginLeft: "auto" }}>
-            <input
-              type="text"
-              placeholder="Search library..."
-              value={searchQuery}
-              onChange={e => setSearchQuery(e.target.value)}
-              style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 160 }}
-            />
-            <span style={{ color: ink3, fontSize: 14 }}>&#x2315;</span>
+          </Link>
+          <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
+            <Link href="/search" style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", textDecoration: "none" }}>
+              <span style={{ fontFamily: mono, fontSize: 11, color: ink3 }}>Search library…</span>
+              <span style={{ color: ink3, fontSize: 14, marginLeft: 8 }}>⌕</span>
+            </Link>
+            <Link href="/subscribe" style={{ width: 32, height: 32, borderRadius: "50%", background: cream, border: `0.5px solid ${border_}`, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", flexShrink: 0 }}>
+              <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ink3} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            </Link>
           </div>
-
-          {inSession && (
-            <button
-              onClick={() => setInSession(false)}
-              style={{ all: "unset", cursor: "pointer", fontFamily: mono, fontSize: 11, color: blue, display: "flex", alignItems: "center", gap: 4 }}
-            >
-              &#x2190; Back to overview
-            </button>
-          )}
         </div>
       </div>
 
       {/* ── Breadcrumb ───────────────────────────────────────────────── */}
       <div style={{ borderBottom: `0.5px solid ${border2}`, background: cream }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "8px 24px", display: "flex", alignItems: "center", gap: 6 }}>
-          <a href="/" style={{ fontFamily: mono, fontSize: 10, color: ink3, textDecoration: "none" }}>Home</a>
+          <Link href="/" style={{ fontFamily: mono, fontSize: 10, color: ink3, textDecoration: "none" }}>Home</Link>
           <span style={{ fontFamily: mono, fontSize: 10, color: border_ }}>/</span>
           <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>Expeditions</span>
           <span style={{ fontFamily: mono, fontSize: 10, color: border_ }}>/</span>
@@ -382,173 +341,81 @@ export default function WikiPage() {
 
         {/* ── Main column ──────────────────────────────────────────── */}
         <div style={{ flex: 1, minWidth: 0, borderRight: `0.5px solid ${border2}`, display: "flex", flexDirection: "column" }}>
-
-          {!inSession ? (
-            /* ── Info view ─────────────────────────────────────────── */
-            <div style={{ padding: "32px 32px 48px" }}>
-              {/* Entity header */}
-              <div style={{ marginBottom: 32 }}>
-                <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
-                  Expedition
-                </div>
-                <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.1, letterSpacing: "-.02em", margin: "0 0 16px", color: ink }}>
-                  {displayName}
-                </h1>
-                <div style={{ width: 40, height: 1, background: border_, marginBottom: 18 }} />
-                <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.75, color: ink2, margin: 0, maxWidth: 640 }}>
-                  {data.intro}
-                </p>
+          <div style={{ padding: "32px 32px 48px" }}>
+            {/* Entity header */}
+            <div style={{ marginBottom: 32 }}>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
+                Expedition
               </div>
-
-              {/* Major territories */}
-              <div style={{ marginBottom: 36 }}>
-                <ColLabel>Major Territories</ColLabel>
-                <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
-                  {data.territories.map((t, i) => (
-                    <div
-                      key={t.name}
-                      style={{
-                        padding: "14px 0",
-                        borderBottom: i < data.territories.length - 1 ? `0.5px solid ${border2}` : "none",
-                        cursor: "pointer",
-                        display: "flex",
-                        gap: 14,
-                        alignItems: "flex-start",
-                      }}
-                    >
-                      <span style={{ fontFamily: mono, fontSize: 11, color: ink3, minWidth: 22, paddingTop: 2, flexShrink: 0 }}>
-                        {String(i + 1).padStart(2, "0")}
-                      </span>
-                      <div>
-                        <div style={{ fontFamily: serif, fontSize: 17, color: ink, marginBottom: 3, lineHeight: 1.3 }}>
-                          {t.name}
-                        </div>
-                        <div style={{ fontFamily: serif, fontSize: 13, color: ink3, lineHeight: 1.5 }}>
-                          {t.desc}
-                        </div>
-                      </div>
-                    </div>
-                  ))}
-                </div>
-              </div>
-
-              {/* Begin exploration button */}
-              <div style={{ marginBottom: 40 }}>
-                <button
-                  onClick={beginExploration}
-                  style={{
-                    all: "unset", cursor: "pointer",
-                    background: blue, color: "#fff",
-                    fontFamily: mono, fontSize: 12, letterSpacing: ".04em",
-                    padding: "12px 28px", borderRadius: 4,
-                    display: "inline-flex", alignItems: "center", gap: 8,
-                  }}
-                >
-                  Begin exploration &#x2192;
-                </button>
-                <p style={{ fontFamily: mono, fontSize: 10, color: ink3, marginTop: 10, marginBottom: 0 }}>
-                  Opens a guided conversation with the library. 5 turns for anonymous visitors.
-                </p>
-              </div>
-
-              {/* Library connections */}
-              <div>
-                <ColLabel>Library Connections</ColLabel>
-                <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                  {data.books.map(b => (
-                    <a
-                      key={b.id}
-                      href={`/book/${b.id}`}
-                      style={{
-                        display: "flex", alignItems: "center", gap: 12,
-                        padding: "10px 14px",
-                        border: `0.5px solid ${border_}`, borderRadius: 6,
-                        textDecoration: "none", color: ink, background: "#fff",
-                        cursor: "pointer",
-                      }}
-                    >
-                      <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, flexShrink: 0 }} />
-                      <div>
-                        <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15 }}>{b.title}</span>
-                        <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: 10 }}>{b.author}</span>
-                      </div>
-                      <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: blue, flexShrink: 0 }}>Living Book &#x2192;</span>
-                    </a>
-                  ))}
-                </div>
-              </div>
+              <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.1, letterSpacing: "-.02em", margin: "0 0 16px", color: ink }}>
+                {displayName}
+              </h1>
+              <div style={{ width: 40, height: 1, background: border_, marginBottom: 18 }} />
+              <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.75, color: ink2, margin: 0, maxWidth: 640 }}>
+                {data.intro}
+              </p>
             </div>
-          ) : (
-            /* ── Session view ─────────────────────────────────────── */
-            <>
-              {/* Session header */}
-              <div style={{ padding: "14px 24px", borderBottom: `0.5px solid ${border2}`, display: "flex", alignItems: "center", gap: 10 }}>
-                <div style={{ width: 6, height: 6, borderRadius: "50%", background: "#22C55E" }} />
-                <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-                  {displayName} expedition &#183; session active
-                </span>
-                <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: ink3 }}>
-                  {messages.filter(m => m.role === "user").length} / 5 turns
-                </span>
-              </div>
 
-              {/* Chat messages */}
-              <div ref={chatRef} style={{ flex: 1, overflowY: "auto", padding: "20px 24px", display: "flex", flexDirection: "column", gap: 16 }}>
-                {messages.map((m, i) => (
-                  <div key={i} style={{ display: "flex", justifyContent: m.role === "user" ? "flex-end" : "flex-start", gap: 10 }}>
-                    {m.role === "assistant" && (
-                      <div style={{
-                        width: 26, height: 26, borderRadius: "50%", background: blue,
-                        display: "flex", alignItems: "center", justifyContent: "center",
-                        fontSize: 10, color: "#fff", fontFamily: mono, flexShrink: 0, marginTop: 2,
-                      }}>B</div>
-                    )}
-                    <div style={{
-                      maxWidth: m.role === "user" ? "70%" : "82%",
-                      padding: m.role === "user" ? "10px 16px" : "14px 18px",
-                      borderRadius: m.role === "user" ? "16px 4px 16px 16px" : "4px 16px 16px 16px",
-                      background: m.role === "user" ? blue : "#fff",
-                      color: m.role === "user" ? "#fff" : ink,
-                      border: m.role === "user" ? "none" : `0.5px solid ${border_}`,
-                      fontFamily: serif, fontSize: 14, lineHeight: 1.7, whiteSpace: "pre-wrap",
-                    }}>
-                      {m.content}
+            {/* Major territories */}
+            <div style={{ marginBottom: 36 }}>
+              <ColLabel>Major Territories</ColLabel>
+              <div style={{ display: "flex", flexDirection: "column", gap: 0 }}>
+                {data.territories.map((t, i) => (
+                  <div key={t.name} style={{ padding: "14px 0", borderBottom: i < data.territories.length - 1 ? `0.5px solid ${border2}` : "none", cursor: "pointer", display: "flex", gap: 14, alignItems: "flex-start" }}>
+                    <span style={{ fontFamily: mono, fontSize: 11, color: ink3, minWidth: 22, paddingTop: 2, flexShrink: 0 }}>
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                    <div>
+                      <div style={{ fontFamily: serif, fontSize: 17, color: ink, marginBottom: 3, lineHeight: 1.3 }}>{t.name}</div>
+                      <div style={{ fontFamily: serif, fontSize: 13, color: ink3, lineHeight: 1.5 }}>{t.desc}</div>
                     </div>
                   </div>
                 ))}
               </div>
+            </div>
 
-              {/* Input */}
-              <div style={{ padding: "12px 24px 18px", borderTop: `0.5px solid ${border2}`, background: cream }}>
-                <div style={{
-                  display: "flex", gap: 10, alignItems: "center",
-                  border: `0.5px solid ${border_}`, borderRadius: 8,
-                  padding: "10px 14px", background: "#fff",
-                }}>
-                  <input
-                    type="text"
-                    placeholder={`Ask about ${displayName.toLowerCase()}...`}
-                    value={input}
-                    onChange={e => setInput(e.target.value)}
-                    onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
-                    style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontSize: 14, fontFamily: serif, color: ink }}
-                  />
-                  <div
-                    onClick={sendMessage}
-                    style={{
-                      width: 28, height: 28, borderRadius: 6, background: blue,
-                      display: "flex", alignItems: "center", justifyContent: "center",
-                      color: "#fff", fontSize: 13, cursor: "pointer", flexShrink: 0,
-                    }}
-                  >&#x2191;</div>
-                </div>
-                <div style={{ display: "flex", gap: 10, marginTop: 6, paddingLeft: 2 }}>
-                  <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>/territory &#183; /book &#183; /wiki &#183; /compare</span>
-                  <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: ink3 }}>shift+enter for newline</span>
-                </div>
+            {/* Action buttons */}
+            <div style={{ display: "flex", gap: 10, marginBottom: 40, flexWrap: "wrap" }}>
+              <Link href={`/book/${slug}`} style={{
+                all: "unset", cursor: "pointer", background: blue, color: "#fff",
+                fontFamily: mono, fontSize: 12, letterSpacing: ".04em",
+                padding: "12px 28px", borderRadius: 4,
+                display: "inline-flex", alignItems: "center", gap: 8,
+              }}>
+                Begin exploration →
+              </Link>
+              <Link href="/" style={{
+                all: "unset", cursor: "pointer", border: `0.5px solid ${border_}`, color: ink2,
+                fontFamily: mono, fontSize: 12, padding: "12px 20px", borderRadius: 4,
+              }}>
+                ← Back to Library
+              </Link>
+            </div>
+            <p style={{ fontFamily: mono, fontSize: 10, color: ink3, marginTop: -30, marginBottom: 40 }}>
+              Opens a guided conversation. 5 turns for anonymous visitors.
+            </p>
+
+            {/* Library connections */}
+            <div>
+              <ColLabel>Library Connections</ColLabel>
+              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
+                {data.books.map(b => (
+                  <Link key={b.id} href={`/book/${b.id}`} style={{
+                    display: "flex", alignItems: "center", gap: 12,
+                    padding: "10px 14px", border: `0.5px solid ${border_}`, borderRadius: 6,
+                    textDecoration: "none", color: ink, background: "#fff",
+                  }}>
+                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, flexShrink: 0 }} />
+                    <div>
+                      <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15 }}>{b.title}</span>
+                      <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: 10 }}>{b.author}</span>
+                    </div>
+                    <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: blue, flexShrink: 0 }}>Open →</span>
+                  </Link>
+                ))}
               </div>
-            </>
-          )}
+            </div>
+          </div>
         </div>
 
         {/* ── Right sidebar ────────────────────────────────────────── */}
@@ -556,7 +423,7 @@ export default function WikiPage() {
           {/* Related in the Library */}
           <ColLabel>Related in the Library</ColLabel>
           {data.related.map(r => (
-            <a
+            <Link
               key={r.id}
               href={r.type === "book" ? `/book/${r.id}` : `/wiki/${r.id}`}
               style={{
@@ -578,7 +445,7 @@ export default function WikiPage() {
               </div>
               <div style={{ fontFamily: mono, fontSize: 10, color: ink3, marginBottom: 5 }}>{r.meta}</div>
               <div style={{ fontFamily: serif, fontSize: 12, color: ink2, lineHeight: 1.5 }}>{r.desc}</div>
-            </a>
+            </Link>
           ))}
 
           {/* Expedition info */}
@@ -611,7 +478,7 @@ export default function WikiPage() {
               .filter(e => e !== slug)
               .slice(0, 4)
               .map(e => (
-                <a
+                <Link
                   key={e}
                   href={`/wiki/${e}`}
                   style={{
@@ -621,7 +488,7 @@ export default function WikiPage() {
                   }}
                 >
                   {toTitle(e)}
-                </a>
+                </Link>
               ))}
           </div>
         </div>
@@ -631,7 +498,7 @@ export default function WikiPage() {
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: "auto" }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
           <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+            Biblioth<span style={{ color: blue }}>è</span>que
           </div>
           <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
             &copy; 2026 TMOS13, LLC

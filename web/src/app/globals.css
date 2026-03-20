@@ -506,6 +506,20 @@
   }
 }
 
+/* Logo hover */
+.bib-logo {
+  transition: opacity 0.2s;
+}
+.bib-logo:hover {
+  opacity: 0.75;
+}
+.bib-logo .bib-accent {
+  transition: color 0.25s, text-shadow 0.25s;
+}
+.bib-logo:hover .bib-accent {
+  text-shadow: 0 0 8px rgba(29, 78, 216, 0.4);
+}
+
 /* Responsive typography */
 @media (max-width: 767px) {
   h1 {
