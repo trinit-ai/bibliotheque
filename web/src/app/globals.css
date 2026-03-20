@@ -794,10 +794,29 @@
   }
 }
 
-/* ── iOS keyboard fix ───────────────────────────────────────────── */
-/* Ensure input stays visible when iOS keyboard opens */
+/* ── iOS fixes ──────────────────────────────────────────────────── */
+
+/* Prevent iOS text zoom on input focus — font must be >= 16px */
+@media (max-width: 767px) {
+  .session-input textarea,
+  .session-input input,
+  .bib-input-pill textarea,
+  .bib-input-pill input {
+    font-size: 16px !important;
+  }
+}
+
+/* Ensure input has space above iOS browser chrome */
 @supports (-webkit-touch-callout: none) {
   .session-input {
-    padding-bottom: env(safe-area-inset-bottom, 4px) !important;
+    padding-bottom: calc(env(safe-area-inset-bottom, 8px) + 8px) !important;
+  }
+}
+
+/* ── Portal cards: full width on mobile ─────────────────────────── */
+@media (max-width: 767px) {
+  .portal-main .card-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px !important;
   }
 }

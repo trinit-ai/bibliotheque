@@ -326,7 +326,7 @@ export default function PortalSubjectPage() {
         {/* Cards grid */}
         <div className="portal-main" style={{ flex: 1, minWidth: 0 }}>
           <ColLabel>{subjectLabel} &middot; {cards.length} entries</ColLabel>
-          <div style={{
+          <div className="card-grid" style={{
             display: "grid",
             gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
             gap: 20,
