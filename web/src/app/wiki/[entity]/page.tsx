@@ -315,7 +315,7 @@ export default function WikiPage() {
             </span>
           </Link>
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
-            <Link href="/search" style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", textDecoration: "none" }}>
+            <Link href="/search" className="hide-mobile" style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", textDecoration: "none" }}>
               <span style={{ fontFamily: mono, fontSize: 11, color: ink3 }}>Search library…</span>
               <span style={{ color: ink3, fontSize: 14, marginLeft: 8 }}>⌕</span>
             </Link>
@@ -338,10 +338,10 @@ export default function WikiPage() {
       </div>
 
       {/* ── Body ─────────────────────────────────────────────────────── */}
-      <div style={{ flex: 1, maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", gap: 0, minHeight: 0 }}>
+      <div className="wiki-body" style={{ flex: 1, maxWidth: 1200, margin: "0 auto", width: "100%", display: "flex", gap: 0, minHeight: 0 }}>
 
         {/* ── Main column ──────────────────────────────────────────── */}
-        <div style={{ flex: 1, minWidth: 0, borderRight: `0.5px solid ${border2}`, display: "flex", flexDirection: "column" }}>
+        <div className="wiki-main" style={{ flex: 1, minWidth: 0, borderRight: `0.5px solid ${border2}`, display: "flex", flexDirection: "column" }}>
           <div style={{ padding: "32px 32px 48px" }}>
             {/* Entity header */}
             <div style={{ marginBottom: 32 }}>
@@ -427,7 +427,7 @@ export default function WikiPage() {
         </div>
 
         {/* ── Right sidebar ────────────────────────────────────────── */}
-        <div style={{ width: 300, flexShrink: 0, padding: "28px 24px", overflowY: "auto" }}>
+        <div className="wiki-sidebar" style={{ width: 300, flexShrink: 0, padding: "28px 24px", overflowY: "auto" }}>
           {/* Related in the Library */}
           <ColLabel>Related in the Library</ColLabel>
           {data.related.map(r => (

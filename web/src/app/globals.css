@@ -787,12 +787,23 @@ button:not(:disabled),
     padding: 20px 14px !important;
   }
 
-  /* ── Wiki transition page ─────────────────────────────────── */
+  /* ── Wiki transition page: stack sidebar below ───────────── */
+  .wiki-body {
+    flex-direction: column !important;
+  }
   .wiki-main {
+    border-right: none !important;
+  }
+  .wiki-main > div {
     padding: 20px 16px 32px !important;
   }
   .wiki-main h1 {
     font-size: 28px !important;
+  }
+  .wiki-sidebar {
+    width: 100% !important;
+    border-top: 0.5px solid #E5E1D8 !important;
+    padding: 20px 16px !important;
   }
 
   /* ── Crossover bridge ─────────────────────────────────────── */
