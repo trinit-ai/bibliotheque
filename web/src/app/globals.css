@@ -332,13 +332,60 @@
   }
 }
 
-/* Book page: body layout */
-.book-body {
+/* Book page: mobile header — compact single bar */
+.book-mobile-header {
   display: flex;
-  flex: 1;
-  min-height: 0;
+  align-items: center;
+  padding: 8px 12px;
+  gap: 8px;
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
 }
 
+/* Book page: mobile dropdown menu */
+.book-mobile-menu {
+  background: #fff;
+  border-bottom: 1px solid #e5e7eb;
+  flex-shrink: 0;
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+/* Book page: desktop header — hidden on mobile */
+.book-desktop-header {
+  display: none;
+}
+
+/* Book page: book info section — hidden on mobile */
+.book-info-section {
+  display: none;
+}
+
+/* Book page: footer — hidden on mobile */
+.book-footer {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .book-mobile-header {
+    display: none;
+  }
+  .book-mobile-menu {
+    display: none !important;
+  }
+  .book-desktop-header {
+    display: block;
+  }
+  .book-info-section {
+    display: block;
+  }
+  .book-footer {
+    display: flex;
+  }
+}
+
+/* Book page: body layout */
 .book-sidebar-left {
   display: none;
 }

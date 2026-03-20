@@ -29,6 +29,7 @@ export default function BookPage() {
   const [input, setInput] = useState("");
   const [activePortal, setActivePortal] = useState("Religion & Belief");
   const [activeNav, setActiveNav] = useState("Books");
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const chatRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages]);
@@ -55,8 +56,61 @@ export default function BookPage() {
 
   return (
     <div className="chat-page" style={{ fontFamily: serif, display: "flex", flexDirection: "column" }}>
-      {/* Top bar */}
-      <div style={{ borderBottom: "1px solid #e5e7eb", padding: "0 24px", background: "#fff" }}>
+      {/* Mobile header — single compact bar */}
+      <div className="book-mobile-header">
+        <a href="/" style={{ fontSize: 14, color: "#9ca3af", textDecoration: "none", flexShrink: 0, padding: "8px 4px" }}>
+          &larr;
+        </a>
+        <div style={{ flex: 1, minWidth: 0, textAlign: "center" }}>
+          <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 17, fontWeight: 400, color: "#111", letterSpacing: "-.01em", overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>
+            {title}
+          </div>
+        </div>
+        <button
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          style={{ all: "unset", cursor: "pointer", fontSize: 18, color: "#9ca3af", padding: "8px 4px", flexShrink: 0 }}
+        >
+          {mobileMenuOpen ? "✕" : "☰"}
+        </button>
+      </div>
+
+      {/* Mobile dropdown menu */}
+      {mobileMenuOpen && (
+        <div className="book-mobile-menu">
+          <div style={{ padding: "12px 16px", borderBottom: "1px solid #f3f4f6" }}>
+            <div style={{ fontFamily: mono, fontSize: 9, color: "#9ca3af", letterSpacing: ".1em", textTransform: "uppercase", marginBottom: 8 }}>Navigate</div>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {NAV_TABS.map(t => (
+                <button key={t} onClick={() => { setActiveNav(t); setMobileMenuOpen(false); }} style={{
+                  all: "unset", cursor: "pointer", fontSize: 12, fontFamily: mono, padding: "5px 12px",
+                  color: activeNav === t ? "#fff" : "#4b5563",
+                  background: activeNav === t ? blue : "#f3f4f6",
+                  borderRadius: 4,
+                }}>{t}</button>
+              ))}
+            </div>
+          </div>
+          <div style={{ padding: "12px 16px", borderBottom: "1px solid #f3f4f6" }}>
+            <div style={{ fontFamily: mono, fontSize: 9, color: "#9ca3af", letterSpacing: ".1em", textTransform: "uppercase", marginBottom: 8 }}>Actions</div>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {["Browse Chapters", "Search Text", "Related Topics"].map(b => (
+                <button key={b} onClick={() => setMobileMenuOpen(false)} style={{ all: "unset", cursor: "pointer", border: "1px solid #e5e7eb", fontSize: 11, fontFamily: mono, padding: "5px 12px", borderRadius: 4, color: "#4b5563" }}>{b}</button>
+              ))}
+            </div>
+          </div>
+          <div style={{ padding: "12px 16px" }}>
+            <div style={{ fontFamily: mono, fontSize: 9, color: "#9ca3af", letterSpacing: ".1em", textTransform: "uppercase", marginBottom: 8 }}>Portals</div>
+            <div style={{ display: "flex", gap: 6, flexWrap: "wrap" }}>
+              {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica"].map(p => (
+                <span key={p} style={{ fontSize: 11, fontFamily: mono, padding: "4px 10px", borderRadius: 4, border: "1px solid #e5e7eb", color: "#6b7280", cursor: "pointer" }}>{p}</span>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Desktop top bar */}
+      <div className="book-desktop-header" style={{ borderBottom: "1px solid #e5e7eb", padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 52 }}>
           <a href="/" style={{ display: "flex", alignItems: "baseline", gap: 2, flexShrink: 0, textDecoration: "none" }}>
             <span style={{ fontSize: 22, fontFamily: serif, fontWeight: 600, color: "#111", letterSpacing: "-.02em" }}>Biblioth<span style={{ color: blue }}>è</span>que</span>
@@ -119,7 +173,8 @@ export default function BookPage() {
 
         {/* Center */}
         <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0 }}>
-          <div style={{ padding: "22px 16px 16px", borderBottom: "1px solid #e5e7eb" }}>
+          {/* Book info — desktop only */}
+          <div className="book-info-section" style={{ padding: "22px 16px 16px", borderBottom: "1px solid #e5e7eb" }}>
             <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 6 }}>
               <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".1em" }}>LIVING BOOK</span>
               <span style={{ color: "#d1d5db", fontSize: 10 }}>·</span>
@@ -212,8 +267,8 @@ export default function BookPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <div style={{ borderTop: "1px solid #e5e7eb", padding: "12px 24px", background: "#f9fafb", display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
+      {/* Footer — desktop only */}
+      <div className="book-footer" style={{ borderTop: "1px solid #e5e7eb", padding: "12px 24px", background: "#f9fafb", display: "flex", gap: 6, flexWrap: "wrap", alignItems: "center" }}>
         <span style={{ fontSize: 9, color: "#9ca3af", fontFamily: mono, letterSpacing: ".1em", marginRight: 4 }}>PORTALS:</span>
         {["Culture", "History", "Science", "Philosophy", "Religion", "Mathematics", "Technology", "Geography", "Health", "Society", "People", "Sacred Texts", "Oracle", "Games", "Forms"].map(p => (
           <span key={p} style={{ display: "inline-block", fontSize: 10, fontFamily: mono, padding: "2px 8px", borderRadius: 3, border: "1px solid #e5e7eb", color: "#6b7280", cursor: "pointer" }}>{p}</span>
