@@ -281,26 +281,13 @@ function getDailyPassage() {
 function ThreadBand() {
   const p = getDailyPassage();
   return (
-    <div className="thread-band" style={{ background: "#fff", borderBottom: `0.5px solid ${border_}` }}>
-      <div style={{ flex: 1 }}>
-        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
-          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3 }}>
-            Today&apos;s Passage
+    <div className="thread-band" style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 28 }}>
+      <div>
+        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
+          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue }}>
+            {p.source} · {p.author}
           </div>
           <div style={{ width: 5, height: 5, borderRadius: "50%", background: p.dot, flexShrink: 0 }} />
-        </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 21, lineHeight: 1.5, color: ink, maxWidth: 640 }}>
-          &ldquo;{p.quote}&rdquo;
-        </div>
-      </div>
-      <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
-        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
-        <div style={{ width: 7, height: 7, borderRadius: "50%", background: blue, border: "2px solid #fff" }} />
-        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
-      </div>
-      <div style={{ borderLeft: "none" }} className="thread-right">
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue, marginBottom: 8 }}>
-          {p.source} · {p.author}
         </div>
         <div style={{ fontFamily: mono, fontSize: 11, color: ink3, marginBottom: 14 }}>
           {p.cite}
@@ -308,6 +295,19 @@ function ThreadBand() {
         <Link href={`/book/${p.id}`} className="bib-card" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
           Open in Library →
         </Link>
+      </div>
+      <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
+        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
+        <div style={{ width: 7, height: 7, borderRadius: "50%", background: blue, border: "2px solid #fff" }} />
+        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
+      </div>
+      <div style={{ borderLeft: "none" }} className="thread-right">
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 12 }}>
+          Today&apos;s Passage
+        </div>
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 21, lineHeight: 1.5, color: ink, maxWidth: 580 }}>
+          &ldquo;{p.quote}&rdquo;
+        </div>
       </div>
     </div>
   );
