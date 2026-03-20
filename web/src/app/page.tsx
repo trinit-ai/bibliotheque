@@ -534,7 +534,6 @@ export default function HomePage() {
       <Masthead />
       <NewsNav active={newsTab} onSelect={t => { setNewsTab(t); setLibTab(null); }} />
       <LibNav active={libTab} onSelect={setLibTab} />
-      <ThreadBand />
 
       {/* Card grid — From the Library */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 16px 0" }}>
@@ -544,9 +543,12 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Daily passage */}
+      <ThreadBand />
+
       {/* Section divider */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-        <div style={{ borderBottom: `0.5px solid ${border_}`, marginTop: 24, marginBottom: 0 }} />
+        <div style={{ borderBottom: `0.5px solid ${border_}`, marginTop: 0, marginBottom: 0 }} />
       </div>
 
       <div className="main-columns">
