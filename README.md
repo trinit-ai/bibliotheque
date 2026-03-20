@@ -11,30 +11,44 @@
 Bibliothèque is an interactive knowledge library. Wikipedia's structure, with one difference: every article talks back.
 
 - **Living books** — paste any text and it becomes a governed interactive session. The model serves the text, not the other way around. Every response cites the actual passage.
-- **Wiki expeditions** — any person, concept, event, place, or species becomes an interactive exploration. Type `/wiki octopus` and enter the territory.
-- **Packs** — 968 governed session packs across every domain of human knowledge and professional practice.
+- **Wiki expeditions** — any person, concept, event, place, or species becomes an interactive exploration.
+- **591 governed session packs** — philosophy, sacred texts, mythology, science, arts, oracle, games, and more.
 - **Oracle & games** — I Ching, Tarot, divination systems as interactive sessions.
 - **Forms** — guided form completion as conversation.
+- **News crossover** — live news feeds threaded to library content. Reuters writes the story. We find the connection.
 
-The first living book is the Tao Te Ching (81 chapters, fully indexed). The corpus target is the Internet Sacred Text Archive — 1,700+ texts, every major sacred, mythological, folkloric, and philosophical work ever digitized.
+The first living book is the Tao Te Ching (81 chapters, fully indexed). The corpus target is the Internet Sacred Text Archive — 1,700+ texts.
 
 ---
 
 ## Architecture
 
-```
-bibliotheque.ai (Vercel)          tmos13.ai engine (Railway)
-  ├── Next.js 14 (App Router)      ├── Pack loader (968 packs)
-  ├── Editorial white UI           ├── Assembler
-  ├── Session deep blue UI         ├── RAG pipeline
-  ├── Catalogue system             ├── Vault
-  └── FastAPI (Railway)  ──────►  ├── Auth (Supabase)
-       ├── catalogue.py            └── Living book system
-       ├── engine_client.py
-       └── api_*.py
-```
+The 13TMOS engine is embedded directly in this repository under a perpetual license from TMOS13, LLC. No external engine dependency.
 
-Bibliothèque does not contain the TMOS13 engine. It calls it via `engine_client.py`. No engine logic is duplicated.
+```
+bibliotheque.ai
+├── web/                         Next.js 14 (App Router) — Vercel
+│   ├── Editorial white UI       browsing, catalogue, portals
+│   └── Academic session UI      living book + expedition sessions
+│
+├── api/                         FastAPI backend — Railway
+│   ├── engine/                  13TMOS engine (embedded, 53 modules)
+│   │   ├── pack_loader.py       pack resolution
+│   │   ├── assembler.py         system prompt construction
+│   │   ├── llm_provider.py      LLM abstraction
+│   │   ├── rag.py               retrieval-augmented generation
+│   │   ├── living_book/         text ingestion + retrieval
+│   │   └── ...                  guards, vault, state, etc.
+│   ├── catalogue.py             living catalogue system
+│   └── api_*.py                 route handlers
+│
+├── protocols/
+│   ├── library/                 591 curated packs (43 categories)
+│   ├── books/                   living book corpus
+│   └── shared/                  shared protocol fragments
+│
+└── supabase/                    database schema + migrations
+```
 
 ---
 
@@ -44,9 +58,10 @@ Bibliothèque does not contain the TMOS13 engine. It calls it via `engine_client
 |-------|-----------|
 | Frontend | Next.js 14 (App Router), TypeScript, Tailwind |
 | Backend | FastAPI (Python), Railway |
+| Engine | 13TMOS (embedded, perpetual license) |
 | Database | Supabase PostgreSQL |
-| Engine | TMOS13 API (tmos13.ai) |
 | Auth | Supabase Auth |
+| LLM | Anthropic Claude API |
 | Email | Resend |
 | Deploy | Vercel (web) + Railway (api) |
 
@@ -54,22 +69,14 @@ Bibliothèque does not contain the TMOS13 engine. It calls it via `engine_client
 
 ## Design System
 
-Two modes, one codebase. Toggled via `data-mode` attribute.
-
-**Editorial** (browsing, catalogue, portals)
-- Background: `#ffffff`
-- Text: `#111827`
-- Accent: `#1d4ed8`
-
-**Session** (active conversation, living book, expedition)
-- Background: `#020817`
-- Text: `#e2e8f0`
-- Accent: `#3B82F6`
+White academic layout throughout. Session pages use the same white surface as browse pages — no dark mode.
 
 **Fonts**
-- Display: [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro) — titles, article headings
+- Display: [Crimson Pro](https://fonts.google.com/specimen/Crimson+Pro) — titles, article headings, italic
 - Body: [Source Serif 4](https://fonts.google.com/specimen/Source+Serif+4) — prose, chat messages
 - UI: [DM Mono](https://fonts.google.com/specimen/DM+Mono) — labels, metadata, citations, badges
+
+**Accent:** `#1d4ed8` — the è is always in accent blue.
 
 ---
 
@@ -77,35 +84,25 @@ Two modes, one codebase. Toggled via `data-mode` attribute.
 
 | Route | Content |
 |-------|---------|
-| `/` | Home — featured topics, today's picks, portal grid |
+| `/` | Home — featured cards, news feed, crossover thread, portals |
 | `/wiki/[entity]` | Wiki expedition for any knowledge entity |
-| `/book/[book_id]` | Living book session |
+| `/book/[book_id]` | Living book session (3-column academic layout) |
 | `/pack/[pack_id]` | Pack session |
 | `/portal/[category]` | Portal browse page |
 | `/play` | Oracle & games |
 | `/form` | Forms library |
 | `/search` | Cross-catalogue search |
+| `/crossover/[story]/[book]` | News-to-library bridge page |
 
 ---
 
 ## The Catalogue
 
-`api/catalogue.py` is the architectural centerpiece. It indexes every content item across all types — living books, wiki expeditions, packs, oracles, forms — and makes them uniformly browseable, searchable, and cross-referenced.
+`api/catalogue.py` indexes every content item — living books, wiki expeditions, packs, oracles, forms — and makes them uniformly browseable, searchable, and cross-referenced.
 
-```python
-class ContentType(str, Enum):
-    LIVING_BOOK = "living_book"
-    EXPEDITION  = "expedition"
-    PACK        = "pack"
-    ORACLE      = "oracle"
-    GAME        = "game"
-    FORM        = "form"
-    NEWS        = "news"
-```
-
-The catalogue loads from three sources on startup:
+The catalogue loads from:
 1. **Static YAML** — curated entries in `api/catalogue/entries/*.yaml`
-2. **TMOS13 engine** — live pack list fetched from the engine API
+2. **Local engine** — 591 packs from the embedded protocol library
 3. **Living books** — indexed from `protocols/books/`
 
 ---
@@ -117,11 +114,9 @@ The catalogue loads from three sources on startup:
 - Node.js 18+
 - Python 3.11+
 - A Supabase project
-- The TMOS13 engine API key
+- Anthropic API key
 
 ### Environment
-
-Copy `.env.example` and fill in your values:
 
 ```bash
 cp .env.example .env
@@ -130,9 +125,8 @@ cp .env.example .env
 Key variables:
 
 ```bash
-# Engine
-TMOS13_ENGINE_URL=https://tmos13.ai
-TMOS13_ENGINE_API_KEY=your_key
+# LLM
+ANTHROPIC_API_KEY=your_key
 
 # Supabase
 SUPABASE_URL=https://your-project.supabase.co
@@ -147,13 +141,9 @@ NEXT_PUBLIC_SUPABASE_ANON_KEY=your_anon_key
 
 ### Database
 
-Run the migration in the Supabase SQL editor or via CLI:
-
-```bash
-supabase db push
-```
-
-Or paste `supabase/migrations/001_bibliotheque_schema.sql` directly.
+Run the migrations in the Supabase SQL editor:
+1. `supabase/migrations/001_bibliotheque_schema.sql`
+2. `supabase/migrations/002_extended_schema.sql`
 
 ### Frontend
 
@@ -190,8 +180,6 @@ uvicorn app:app --reload --port 8001
 A living book inverts the normal model. Instead of asking a language model what it knows about a text, you paste the text in. The text becomes the ground truth. Every response cites the actual passage. The model serves the text.
 
 ```
-/book tao_te_ching_mou
-
 > What does it say about water?
 
 [Chapter 8]: A person of great virtue is like the flowing water.
@@ -202,7 +190,7 @@ meeker than water. Yet for dissolving the hard and inflexible,
 nothing can surpass it.
 ```
 
-Five properties of the living book system:
+Five properties:
 1. **Domain specificity** — claims grounded in the actual text, not training memory
 2. **Searchability** — query the text directly by keyword, theme, or passage
 3. **Pre-authoring** — governance is encoded before the session begins
@@ -211,43 +199,42 @@ Five properties of the living book system:
 
 ---
 
-## Wiki Expedition System
+## News Crossover System
 
-Any knowledge entity becomes an interactive expedition on demand. Ten entity types, each governed by a template:
-
-`person` · `work` · `concept` · `event` · `place` · `movement` · `period` · `field` · `species` · `phenomenon`
+Bibliothèque is a library, not a newsroom. We never write news copy.
 
 ```
-/wiki burt_reynolds   → person expedition
-/wiki game_theory     → concept/field expedition
-/wiki kind_of_blue    → work expedition
-/wiki weimar_republic → period expedition
-/wiki octopus         → species expedition
+RSS / API feeds → ingest → chunk into story objects →
+run crossover matching against catalogue → surface on homepage
 ```
 
-The session follows the visitor's curiosity. It has opinions. It goes where they pull.
+Reuters writes the Fed story. We connect it to Adam Smith. The value is the library connection, not the news content. See `docs/NEWS_ARCHITECTURE.md` for full design.
 
 ---
 
-## Deployment
+## Embedded Engine
 
-**Frontend → Vercel**
-Connect `trinit-ai/bibliotheque`, set root to `web/`, add env vars.
+The 13TMOS engine is embedded under a perpetual, irrevocable, royalty-free license from TMOS13, LLC. See `LIBRARY_LICENSE.md` and `docs/TMOS13_Bibliotheque_Perpetual_License.pdf`.
 
-**Backend → Railway**
-Connect `trinit-ai/bibliotheque`, set root to `api/`, add env vars.
-The `api/railway.toml` and `api/Dockerfile` are already configured.
+**What's embedded:**
+- Pack loader, assembler, session engine (53 Python modules)
+- 591 curated packs across 43 categories
+- Living book system (ingestor, retriever, session)
+- Guards (output, prompt, distillation, PII, rate)
+- RAG pipeline, vault, knowledge bridge
+
+**What's not included (enterprise-only):**
+- Legal, medical, HR, sales, consulting packs
+- Billing, channels, MCP server, ambassador system
 
 ---
 
 ## Relation to TMOS13
 
-Bibliothèque is a consumer product built on the TMOS13 engine.
-
-- **TMOS13, LLC** — the engine, B2B operator sales, the pack library
+- **TMOS13, LLC** — the engine, B2B operator sales, the full pack library
 - **Bibliothèque** — the consumer product, public-facing, bibliotheque.ai
 
-The engine is called via HTTP through `engine_client.py`. No engine code lives in this repo. The pack library (968 packs), assembler, RAG pipeline, and vault are all on the TMOS13 engine. Bibliothèque adds the catalogue layer, the living book system, the wiki expedition system, and the editorial UI on top.
+The engine is embedded locally. No HTTP dependency on the TMOS13 cloud. The protocol library is a curated subset — library-relevant packs only.
 
 ---
 
@@ -255,7 +242,7 @@ The engine is called via HTTP through `engine_client.py`. No engine code lives i
 
 © 2026 TMOS13, LLC. All rights reserved.
 
-The Bibliothèque codebase is proprietary. The living book corpus draws from public domain texts via the Internet Sacred Text Archive. Individual pack protocols are proprietary intellectual property of TMOS13, LLC.
+The Bibliothèque codebase is proprietary. The embedded 13TMOS engine is licensed under perpetual terms from TMOS13, LLC. The living book corpus draws from public domain texts. Individual pack protocols are proprietary intellectual property of TMOS13, LLC.
 
 ---
 
