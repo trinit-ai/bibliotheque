@@ -87,32 +87,74 @@ export default function BookPage() {
   const chatRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
+  const sessionIdRef = useRef<string>("");
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || "";
+
   useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages]);
 
-  // Auto-greeting on mount
+  // Start session on mount — try API, fall back to local greeting
   useEffect(() => {
-    const g = ("greeting" in data) ? (data as { greeting: string }).greeting : DEFAULT_DATA.greeting;
     setIsLoading(true);
-    setTimeout(() => {
-      setMessages([{ role: "assistant", content: g }]);
-      setIsLoading(false);
-    }, 800);
+    const fallbackGreeting = ("greeting" in data) ? (data as { greeting: string }).greeting : DEFAULT_DATA.greeting;
+
+    if (apiBase) {
+      fetch(`${apiBase}/api/session/start`, {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ pack_id: bookId, content_type: "living_book" }),
+      })
+        .then(r => r.json())
+        .then(d => {
+          sessionIdRef.current = d.session_id;
+          setMessages([{ role: "assistant", content: d.greeting || fallbackGreeting }]);
+          setIsLoading(false);
+        })
+        .catch(() => {
+          setMessages([{ role: "assistant", content: fallbackGreeting }]);
+          setIsLoading(false);
+        });
+    } else {
+      setTimeout(() => {
+        setMessages([{ role: "assistant", content: fallbackGreeting }]);
+        setIsLoading(false);
+      }, 600);
+    }
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
-  const sendMessage = () => {
+  const sendMessage = async () => {
     if (!input.trim() || isLoading) return;
-    setMessages(prev => [...prev, { role: "user", content: input }]);
+    const msg = input.trim();
+    setMessages(prev => [...prev, { role: "user", content: msg }]);
     setInput("");
     if (textareaRef.current) textareaRef.current.style.height = "auto";
     setIsLoading(true);
+
+    // Try API, fall back to demo
+    if (apiBase && sessionIdRef.current) {
+      try {
+        const r = await fetch(`${apiBase}/api/session/turn`, {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ session_id: sessionIdRef.current, message: msg }),
+        });
+        const d = await r.json();
+        setMessages(prev => [...prev, { role: "assistant", content: d.response }]);
+        setIsLoading(false);
+        return;
+      } catch {
+        // Fall through to demo
+      }
+    }
+
+    // Demo fallback
     setTimeout(() => {
       setMessages(prev => [...prev, {
         role: "assistant",
         content: `That's worth sitting with.\n\nThe text addresses this most directly in two places:\n\n[Chapter 8] — "A person of great virtue is like the flowing water. Water benefits all things and contends not with them."\n\n[Chapter 78] — "There is nothing in this world that is softer and meeker than water. Yet for dissolving the hard and inflexible, nothing can surpass it."\n\nThe pattern across both: what is soft overcomes what is hard. Not by force — by persistence and by occupying the position no one else wants.\n\nWould you like to follow the water imagery further, or does this connect to something else you're thinking about?`
       }]);
       setIsLoading(false);
-    }, 1200);
+    }, 800);
   };
 
   const renderContent = (text: string, clickable = false) => {

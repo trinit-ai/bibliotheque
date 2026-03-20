@@ -1,51 +1,58 @@
+import sys
+from pathlib import Path
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 
 from config import ALLOWED_ORIGINS, ENV, PORT, logger
 from db import init_db
-# engine_client removed — engine is embedded locally
 from catalogue import init_catalogue, get_catalogue
+
+# Ensure engine is importable
+ENGINE_DIR = Path(__file__).parent / "engine"
+sys.path.insert(0, str(ENGINE_DIR))
 
 # Route modules
 from api_catalogue import router as catalogue_router
 from api_session import router as session_router
 from api_search import router as search_router
-from api_book import router as book_router
-from api_wiki import router as wiki_router
-from api_auth import router as auth_router
+
+# Optional route modules (may not exist yet)
+try:
+    from api_book import router as book_router
+except ImportError:
+    book_router = None
+try:
+    from api_wiki import router as wiki_router
+except ImportError:
+    wiki_router = None
+try:
+    from api_auth import router as auth_router
+except ImportError:
+    auth_router = None
 
 
 @asynccontextmanager
 async def lifespan(app: FastAPI):
     """Startup and shutdown logic."""
-    # --- Startup ---
     logger.info(f"Bibliothèque API starting (env={ENV})")
 
     # Database
     init_db()
 
-    # Engine client
-    # engine_client removed — engine is embedded
+    # Catalogue (static + living books)
+    init_catalogue()
 
-    # Catalogue (static + living books loaded synchronously)
-    catalogue = init_catalogue()
-
-    # Try to load engine packs into catalogue
+    # Initialize LLM provider
     try:
-        packs = await engine.list_packs()
-        await catalogue.load_from_engine(packs)
+        from engine.llm_provider import init_llm_provider
+        provider = init_llm_provider()
+        logger.info(f"LLM provider initialized: {provider.__class__.__name__}")
     except Exception as exc:
-        logger.warning(f"Could not load engine packs at startup: {exc}")
+        logger.warning(f"LLM provider init failed (sessions will fail): {exc}")
 
     logger.info("Bibliothèque API ready")
     yield
-
-    # --- Shutdown ---
-    try:
-    # engine is embedded locally
-    except Exception:
-        pass
     logger.info("Bibliothèque API stopped")
 
 
@@ -73,9 +80,13 @@ app.add_middleware(
 app.include_router(catalogue_router, prefix="/api/catalogue", tags=["catalogue"])
 app.include_router(session_router, prefix="/api/session", tags=["session"])
 app.include_router(search_router, prefix="/api/search", tags=["search"])
-app.include_router(book_router, prefix="/api/book", tags=["book"])
-app.include_router(wiki_router, prefix="/api/wiki", tags=["wiki"])
-app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
+
+if book_router:
+    app.include_router(book_router, prefix="/api/book", tags=["book"])
+if wiki_router:
+    app.include_router(wiki_router, prefix="/api/wiki", tags=["wiki"])
+if auth_router:
+    app.include_router(auth_router, prefix="/api/auth", tags=["auth"])
 
 
 @app.get("/health")

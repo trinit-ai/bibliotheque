@@ -5,10 +5,12 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # ---------------------------------------------------------------------------
-# Engine
+# LLM
 # ---------------------------------------------------------------------------
-TMOS13_ENGINE_URL = os.getenv("TMOS13_ENGINE_URL", "https://tmos13.ai")
-TMOS13_ENGINE_API_KEY = os.getenv("TMOS13_ENGINE_API_KEY", "")
+ANTHROPIC_API_KEY = os.getenv("ANTHROPIC_API_KEY", "")
+TMOS13_MODEL = os.getenv("TMOS13_MODEL", "claude-sonnet-4-6")
+TMOS13_FALLBACK_MODEL = os.getenv("TMOS13_FALLBACK_MODEL", "")
+TMOS13_LLM_PROVIDER = os.getenv("TMOS13_LLM_PROVIDER", "")
 
 # ---------------------------------------------------------------------------
 # Supabase
