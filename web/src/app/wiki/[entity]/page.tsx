@@ -504,12 +504,17 @@ export default function WikiPage() {
 
       {/* ── Footer ───────────────────────────────────────────────────── */}
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: "auto" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "20px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-          <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
-            Biblioth<span style={{ color: blue }}>è</span>que
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 24px 14px" }}>
+          <div style={{ textAlign: "center", marginBottom: 10 }}>
+            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
           </div>
-          <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-            &copy; 2026 TMOS13, LLC
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+            <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
+              Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
+            </Link>
+            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
+              © 2026 TMOS13, LLC.
+            </div>
           </div>
         </div>
       </footer>

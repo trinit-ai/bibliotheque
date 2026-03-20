@@ -398,13 +398,41 @@ export default function PortalSubjectPage() {
       </div>
 
       {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 24px 16px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-          <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3 }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
+        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px 16px" }}>
+          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 20, marginBottom: 24 }}>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>Library</div>
+              {["Books", "Essays", "Expeditions", "Horoscopes", "Games"].map(s => (
+                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>{s}</Link>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>Subjects</div>
+              {["Philosophy", "Religion", "Science", "History", "Literature"].map(s => (
+                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>{s}</Link>
+              ))}
+            </div>
+            <div>
+              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>About</div>
+              <Link href="/about" style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>About Bibliothèque</Link>
+              <Link href="/subscribe" style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>Subscribe</Link>
+              <span style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0" }}>Privacy Policy</span>
+              <span style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0" }}>Terms of Use</span>
+            </div>
           </div>
-          <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-            &copy; 2026 TMOS13, LLC
+          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 14 }}>
+            <div style={{ textAlign: "center", marginBottom: 10 }}>
+              <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+              <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
+                Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
+              </Link>
+              <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
+                © 2026 TMOS13, LLC.
+              </div>
+            </div>
           </div>
         </div>
       </footer>

@@ -135,12 +135,17 @@ export default function AboutPage() {
 
       {/* Footer */}
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE" }}>
-        <div style={{ maxWidth: 680, margin: "0 auto", padding: "28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <a href="/" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
-            Biblioth<span style={{ color: blue }}>è</span>que
-          </a>
-          <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-            &copy; 2026 TMOS13, LLC.
+        <div style={{ maxWidth: 680, margin: "0 auto", padding: "24px 24px 14px" }}>
+          <div style={{ textAlign: "center", marginBottom: 10 }}>
+            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
+          </div>
+          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+            <a href="/" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
+              Biblioth<span style={{ color: blue }}>è</span>que
+            </a>
+            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
+              &copy; 2026 TMOS13, LLC.
+            </div>
           </div>
         </div>
       </footer>
