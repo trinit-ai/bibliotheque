@@ -247,10 +247,10 @@ export default function CrossoverBridgePage() {
   return (
     <div
       data-mode="session"
+      className="session-page"
       style={{
         display: "flex",
         flexDirection: "column",
-        height: "100vh",
         background: "#020817",
         color: "#e2e8f0",
       }}

@@ -54,7 +54,7 @@ export default function BookPage() {
   };
 
   return (
-    <div style={{ fontFamily: serif, minHeight: "100vh", display: "flex", flexDirection: "column" }}>
+    <div className="chat-page" style={{ fontFamily: serif, display: "flex", flexDirection: "column" }}>
       {/* Top bar */}
       <div style={{ borderBottom: "1px solid #e5e7eb", padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 52 }}>
@@ -159,16 +159,16 @@ export default function BookPage() {
             ))}
           </div>
 
-          <div style={{ padding: "12px 16px 16px", borderTop: "1px solid #e5e7eb", background: "#fff" }}>
+          <div className="chat-input-bar" style={{ borderTop: "1px solid #e5e7eb", background: "#fff" }}>
             <div style={{ display: "flex", gap: 10, alignItems: "center", border: "1px solid #e5e7eb", borderRadius: 8, padding: "9px 12px", background: "#f9fafb" }}>
               <input type="text" placeholder={`Ask about the ${title}…`} value={input}
                 onChange={e => setInput(e.target.value)}
                 onKeyDown={e => e.key === "Enter" && !e.shiftKey && (e.preventDefault(), sendMessage())}
-                style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontSize: 13, fontFamily: serif, color: "#111" }}
+                style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontSize: 16, fontFamily: serif, color: "#111" }}
               />
-              <div onClick={sendMessage} style={{ width: 26, height: 26, borderRadius: 5, background: blue, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 12, cursor: "pointer", flexShrink: 0 }}>↑</div>
+              <div onClick={sendMessage} style={{ width: 32, height: 32, borderRadius: 5, background: blue, display: "flex", alignItems: "center", justifyContent: "center", color: "#fff", fontSize: 14, cursor: "pointer", flexShrink: 0 }}>↑</div>
             </div>
-            <div style={{ display: "flex", gap: 10, marginTop: 5, paddingLeft: 2 }}>
+            <div className="hide-mobile" style={{ display: "flex", gap: 10, marginTop: 5, paddingLeft: 2 }}>
               <span style={{ fontSize: 10, color: "#d1d5db", fontFamily: mono }}>/chapter · /search · /compare · /wiki · /book</span>
               <span style={{ marginLeft: "auto", fontSize: 10, color: "#d1d5db", fontFamily: mono }}>shift+enter for newline</span>
             </div>

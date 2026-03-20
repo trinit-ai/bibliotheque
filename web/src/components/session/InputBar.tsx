@@ -29,9 +29,11 @@ export default function InputBar({ onSend, placeholder = "Ask the text..." }: In
 
   return (
     <div
+      className="session-input-bar"
       style={{
         padding: "12px 20px 16px",
         background: "#020817",
+        flexShrink: 0,
       }}
     >
       <div
@@ -56,7 +58,7 @@ export default function InputBar({ onSend, placeholder = "Ask the text..." }: In
             border: "none",
             outline: "none",
             fontFamily: "'Source Serif 4', 'Georgia', serif",
-            fontSize: 14,
+            fontSize: 16,
             color: "#e2e8f0",
             padding: "10px 0",
           }}
