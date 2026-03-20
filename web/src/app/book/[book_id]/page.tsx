@@ -148,7 +148,7 @@ export default function BookPage() {
   return (
     <div style={{ fontFamily: serif, minHeight: "100vh", display: "flex", flexDirection: "column", background: cream }}>
       {/* Top bar */}
-      <div style={{ borderBottom: `0.5px solid ${border_}`, padding: "0 24px", background: "#fff" }}>
+      <div className="session-topbar" style={{ borderBottom: `0.5px solid ${border_}`, padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 48 }}>
           <Link href="/" className="bib-logo" style={{ display: "flex", alignItems: "baseline", gap: 2, flexShrink: 0, textDecoration: "none" }}>
             <span style={{ fontSize: 20, fontFamily: serif, fontStyle: "italic", fontWeight: 400, color: ink, letterSpacing: "-.02em" }}>Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que</span>
@@ -257,15 +257,15 @@ export default function BookPage() {
         </div>
 
         {/* Center — article header + chat */}
-        <div style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, borderLeft: `0.5px solid ${border_}`, borderRight: `0.5px solid ${border_}`, background: "#fff" }}>
+        <div className="session-center" style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, borderLeft: `0.5px solid ${border_}`, borderRight: `0.5px solid ${border_}`, background: "#fff" }}>
           {/* Article header — compact, sticky */}
-          <div style={{ padding: "14px 32px", borderBottom: `0.5px solid ${border2}`, position: "sticky", top: 0, zIndex: 10, background: "#fff" }}>
+          <div className="session-header" style={{ padding: "14px 32px", borderBottom: `0.5px solid ${border2}`, position: "sticky", top: 0, zIndex: 10, background: "#fff" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
               <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
                 <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif }}>{title}</h1>
-                <span style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
+                <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: "#EFF6FF", borderRadius: 3 }}>Living Book</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
@@ -278,7 +278,7 @@ export default function BookPage() {
 
           {/* Chat area */}
           <style>{`@keyframes bibspin { to { transform: rotate(360deg); } }`}</style>
-          <div ref={chatRef} style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
+          <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
             {messages.map((m, i) => (
               m.role === "assistant" ? (
                 <div key={i} className="bib-msg-in" style={{ maxWidth: 680, width: "100%" }}>
@@ -315,7 +315,7 @@ export default function BookPage() {
           </div>
 
           {/* Input */}
-          <div style={{ padding: "12px 24px 8px", background: "#fff" }}>
+          <div className="session-input" style={{ padding: "12px 24px 8px", background: "#fff" }}>
             <div style={{ maxWidth: 680, margin: "0 auto" }}>
               <div className="bib-input-pill" style={{ display: "flex", gap: 10, alignItems: input.includes("\n") || input.length > 80 ? "flex-end" : "center", border: `0.5px solid ${border_}`, borderRadius: 24, padding: "10px 12px 10px 20px", background: cream, minHeight: 44 }}>
                 <textarea
@@ -378,14 +378,14 @@ export default function BookPage() {
       </div>
 
       {/* Footer */}
-      <div style={{ borderTop: `0.5px solid ${border_}`, padding: "6px 24px", background: cream, display: "flex", alignItems: "center", position: "relative" }}>
-        <div style={{ display: "flex", gap: 10 }}>
+      <div className="session-footer" style={{ borderTop: `0.5px solid ${border_}`, padding: "6px 24px", background: cream, display: "flex", alignItems: "center", position: "relative" }}>
+        <div className="session-footer-slash" style={{ display: "flex", gap: 10 }}>
           {["/chapter", "/search", "/compare", "/wiki", "/book"].map(c => (
             <span key={c} className="bib-slash" style={{ fontSize: 10, color: ink3, fontFamily: mono, cursor: "pointer" }}>{c}</span>
           ))}
         </div>
-        <span style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: mono, fontSize: 9, color: ink3, opacity: 0.5, whiteSpace: "nowrap" }}>Bibliothèque is AI-powered. Responses are generated, not authored.</span>
-        <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: "auto" }}>© 2026 TMOS13, LLC.</span>
+        <span className="session-footer-disclaimer" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: mono, fontSize: 9, color: ink3, opacity: 0.5, whiteSpace: "nowrap" }}>Bibliothèque is AI-powered. Responses are generated, not authored.</span>
+        <span className="hide-mobile" style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: "auto" }}>© 2026 TMOS13, LLC.</span>
       </div>
     </div>
   );

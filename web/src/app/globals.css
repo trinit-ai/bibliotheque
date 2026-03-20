@@ -641,3 +641,104 @@
     padding-right: 1rem;
   }
 }
+
+/* =========================================================================
+   Mobile Session Optimization
+   ========================================================================= */
+
+@media (max-width: 767px) {
+  /* Session top bar — compact */
+  .session-topbar {
+    padding: 0 12px !important;
+    height: 42px !important;
+  }
+  .session-topbar .bib-logo span {
+    font-size: 17px !important;
+  }
+
+  /* Session header — slim, just title */
+  .session-header {
+    padding: 10px 14px !important;
+  }
+  .session-header h1 {
+    font-size: 17px !important;
+  }
+  /* Hide metadata and share icons on mobile header */
+  .session-header-meta {
+    display: none !important;
+  }
+
+  /* Chat area — full width, tighter padding */
+  .session-chat {
+    padding: 16px 14px !important;
+    gap: 20px !important;
+  }
+  .session-chat > div {
+    max-width: 100% !important;
+  }
+
+  /* Assistant messages — smaller text */
+  .session-chat .bib-msg-in div[style*="fontSize: 15"] {
+    font-size: 14px !important;
+    line-height: 1.7 !important;
+  }
+
+  /* Input area — edge to edge, less padding */
+  .session-input {
+    padding: 8px 12px 6px !important;
+  }
+  .session-input > div {
+    max-width: 100% !important;
+  }
+  .session-input .bib-input-pill {
+    border-radius: 20px !important;
+    padding: 8px 10px 8px 14px !important;
+    min-height: 40px !important;
+  }
+
+  /* Footer — compact */
+  .session-footer {
+    padding: 5px 12px !important;
+  }
+  .session-footer-disclaimer {
+    display: none !important;
+  }
+  .session-footer-slash {
+    font-size: 9px !important;
+    gap: 6px !important;
+  }
+
+  /* Center column — no side borders on mobile */
+  .session-center {
+    border-left: none !important;
+    border-right: none !important;
+  }
+
+  /* Wiki transition page */
+  .wiki-main {
+    padding: 20px 16px 32px !important;
+  }
+  .wiki-main h1 {
+    font-size: 28px !important;
+  }
+
+  /* Crossover bridge */
+  .crossover-split {
+    padding: 0 14px !important;
+  }
+
+  /* Portal page */
+  .portal-header {
+    padding: 20px 14px !important;
+  }
+
+  /* Subscribe tier cards */
+  .subscribe-tiers {
+    grid-template-columns: 1fr !important;
+  }
+
+  /* About page */
+  .about-content {
+    padding: 32px 16px !important;
+  }
+}

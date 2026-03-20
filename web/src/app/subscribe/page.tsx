@@ -103,7 +103,7 @@ export default function SubscribePage() {
         </div>
 
         {/* Tier cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginBottom: 48 }}>
+        <div className="subscribe-tiers" style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginBottom: 48 }}>
           {TIERS.map((tier) => (
             <div
               key={tier.name}
