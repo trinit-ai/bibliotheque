@@ -7,7 +7,7 @@ from pathlib import Path
 from .retriever import BookRetriever
 
 
-PROTOCOLS_BASE = Path(__file__).resolve().parent.parent.parent / "protocols" / "books"
+PROTOCOLS_BASE = Path(__file__).resolve().parent.parent.parent.parent / "protocols" / "library" / "books"
 
 
 class LivingBookSession:

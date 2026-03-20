@@ -1,0 +1,6 @@
+id: i_ching
+title: "I Ching"
+content_type: horoscope
+portal: horoscopes
+meta: "64 hexagrams"
+status: stub

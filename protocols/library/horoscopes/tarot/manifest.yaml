@@ -1,0 +1,6 @@
+id: tarot
+title: "Tarot"
+content_type: horoscope
+portal: horoscopes
+meta: "78 cards"
+status: stub

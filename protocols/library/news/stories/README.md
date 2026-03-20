@@ -1,0 +1,1 @@
+Chunked news story objects.

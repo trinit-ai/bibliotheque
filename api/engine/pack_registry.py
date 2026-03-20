@@ -20,8 +20,8 @@ from typing import Optional
 
 from pack_loader import list_available_packs, load_pack_info, PACKS_DIR
 
-LIBRARY_DIR = Path(__file__).resolve().parent.parent / "protocols" / "library"
-PRIVATE_DIR = Path(__file__).resolve().parent.parent / "protocols" / "private"
+LIBRARY_DIR = Path(__file__).resolve().parent.parent.parent / "protocols" / "system"
+PRIVATE_DIR = Path(__file__).resolve().parent.parent.parent / "protocols" / "private"
 
 logger = logging.getLogger("tmos13.pack_registry")
 

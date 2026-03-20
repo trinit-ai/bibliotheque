@@ -9,11 +9,11 @@ bibliotheque.ai is a PBC (Public Benefit Corporation) living library. Consumer-f
 - **Frontend**: Next.js 14 (App Router), deployed on Vercel
 - **Backend**: FastAPI (Python), deployed on Railway
 - **Database**: Supabase (Postgres + Auth + RLS)
-- **Engine**: TMOS13 engine accessed via HTTP (engine_client.py)
+- **Engine**: TMOS13 engine embedded at `api/engine/` (perpetual license from TMOS13, LLC)
 
 ### Key Constraint
 
-Never duplicate engine logic. The TMOS13 engine handles sessions, packs, protocols, prompt assembly, tool execution, and state management. Bibliothèque calls it via `api/engine_client.py`. If you need engine behavior, call the engine — do not reimplement.
+Never duplicate engine logic. The TMOS13 engine handles sessions, packs, protocols, prompt assembly, tool execution, and state management. It is embedded directly at `api/engine/`. If you need engine behavior, import from the engine modules — do not reimplement.
 
 ## Design Language
 
@@ -85,18 +85,28 @@ bibliotheque/
 │   ├── config.py
 │   ├── db.py
 │   ├── errors.py
-│   ├── engine_client.py
 │   ├── catalogue.py
+│   ├── search_service.py
+│   ├── security.py
 │   ├── api_catalogue.py
 │   ├── api_session.py
 │   ├── api_search.py
-│   ├── api_book.py
-│   ├── api_wiki.py
-│   ├── api_auth.py
 │   ├── requirements.txt
+│   ├── engine/               # Embedded TMOS13 engine (53 modules)
 │   └── catalogue/
 │       └── entries/
 │           └── core.yaml
+├── protocols/
+│   ├── system/               # TMOS13 system packs (591 packs, 42 categories)
+│   └── library/              # Bibliothèque corpus
+│       ├── books/            # Living books (tao_te_ching, etc.)
+│       ├── essays/           # Essay packs
+│       ├── expeditions/      # Wiki expedition packs
+│       ├── horoscopes/       # Oracle/divination packs
+│       ├── interaction/      # Interactive experiences
+│       ├── digests/          # Curated digests
+│       ├── crossovers/       # News-library crossover packs
+│       └── news/             # News feeds and stories
 ├── supabase/
 │   └── migrations/
 │       └── 001_bibliotheque_schema.sql

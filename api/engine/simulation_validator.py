@@ -222,7 +222,7 @@ class SimulationValidator:
         """Load MANIFEST.md and header.yaml for a pack."""
         for search_path in [
             protocols_dir / "packs" / pack_id,
-            *protocols_dir.glob(f"library/*/{pack_id}"),
+            *protocols_dir.glob(f"system/*/{pack_id}"),
         ]:
             if search_path.is_dir():
                 manifest = search_path / "MANIFEST.md"

@@ -36,9 +36,9 @@ PACK_ALIASES = {"tmos13_site": "guest"}
 # ─── Paths ─────────────────────────────────────────────────
 
 _THIS_DIR = Path(__file__).parent
-PACKS_DIR = _THIS_DIR.parent / "protocols" / "packs"
-LIBRARY_DIR = _THIS_DIR.parent / "protocols" / "library"
-SCHEMA_PATH = _THIS_DIR.parent / "protocols" / "schema" / "manifest.schema.json"
+PACKS_DIR = _THIS_DIR.parent.parent / "protocols" / "packs"
+LIBRARY_DIR = _THIS_DIR.parent.parent / "protocols" / "system"
+SCHEMA_PATH = _THIS_DIR.parent.parent / "protocols" / "schema" / "manifest.schema.json"
 
 # ─── Pack Filtering ────────────────────────────────────────
 

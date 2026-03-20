@@ -19,8 +19,8 @@ from typing import Optional
 
 logger = logging.getLogger("bibliotheque.search")
 
-BOOKS_DIR = Path(__file__).parent.parent / "protocols" / "books"
-LIBRARY_DIR = Path(__file__).parent.parent / "protocols" / "library"
+BOOKS_DIR = Path(__file__).parent.parent / "protocols" / "library" / "books"
+SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
 class SearchService:
@@ -147,7 +147,7 @@ class SearchService:
         results = []
 
         # Search system library
-        system_dir = LIBRARY_DIR / "system"
+        system_dir = SYSTEM_DIR
         if system_dir.exists():
             for cat_dir in system_dir.iterdir():
                 if not cat_dir.is_dir():

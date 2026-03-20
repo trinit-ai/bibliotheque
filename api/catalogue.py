@@ -44,7 +44,8 @@ class CatalogueEntry(BaseModel):
 # ---------------------------------------------------------------------------
 
 ENTRIES_DIR = Path(__file__).parent / "catalogue" / "entries"
-BOOKS_DIR = Path(__file__).parent / "protocols" / "books"
+BOOKS_DIR = Path(__file__).parent.parent / "protocols" / "library" / "books"
+SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
 class Catalogue:
@@ -116,32 +117,60 @@ class Catalogue:
                 logger.error(f"Failed to load {yaml_path}: {exc}")
 
     def _load_living_books(self) -> None:
-        """Load living books from protocols/books/ directories.
-        Each subdirectory with a manifest.yaml becomes a living_book entry."""
+        """Load living books from protocols/library/books/ directories.
+        Each subdirectory with a header.yaml or manifest.json becomes a living_book entry."""
         if not BOOKS_DIR.exists():
             return
-        for manifest_path in BOOKS_DIR.glob("*/manifest.yaml"):
+        for book_dir in BOOKS_DIR.iterdir():
+            if not book_dir.is_dir():
+                continue
+            # Try header.yaml first, then manifest.json
+            header_path = book_dir / "header.yaml"
+            manifest_path = book_dir / "manifest.json"
             try:
-                with open(manifest_path) as f:
-                    data = yaml.safe_load(f)
-                if not data or data.get("id") in self._entries:
-                    continue
-                entry = CatalogueEntry(
-                    id=data["id"],
-                    slug=data.get("slug", data["id"]),
-                    title=data.get("title", data["id"]),
-                    subtitle=data.get("subtitle", ""),
-                    description=data.get("description", ""),
-                    content_type=ContentType.living_book,
-                    portal=data.get("portal", "literature"),
-                    tags=data.get("tags", []),
-                    featured=data.get("featured"),
-                    source="living_book",
-                    metadata=data.get("metadata", {}),
-                )
-                self._entries[entry.id] = entry
+                if header_path.exists():
+                    with open(header_path) as f:
+                        data = yaml.safe_load(f)
+                    book_id = data.get("book_id", book_dir.name)
+                    if book_id in self._entries:
+                        continue
+                    entry = CatalogueEntry(
+                        id=book_id,
+                        slug=book_id,
+                        title=data.get("title", book_id),
+                        subtitle=f"by {data.get('author', 'Unknown')}",
+                        description=data.get("description", ""),
+                        content_type=ContentType.living_book,
+                        portal=data.get("portal", "literature"),
+                        tags=data.get("tags", []),
+                        featured=data.get("featured"),
+                        source="living_book",
+                        metadata={k: v for k, v in data.items()
+                                  if k not in ("book_id", "title", "author")},
+                    )
+                    self._entries[entry.id] = entry
+                elif manifest_path.exists():
+                    import json
+                    data = json.loads(manifest_path.read_text())
+                    pack_id = data.get("id", book_dir.name)
+                    if pack_id in self._entries:
+                        continue
+                    entry = CatalogueEntry(
+                        id=pack_id,
+                        slug=pack_id,
+                        title=data.get("name", pack_id),
+                        subtitle=data.get("subtitle", ""),
+                        description=data.get("description", ""),
+                        content_type=ContentType.living_book,
+                        portal=data.get("portal", "literature"),
+                        tags=data.get("tags", []),
+                        featured=data.get("featured"),
+                        source="living_book",
+                        metadata=data.get("metadata", {}),
+                    )
+                    self._entries[entry.id] = entry
             except Exception as exc:
-                logger.error(f"Failed to load {manifest_path}: {exc}")
+                logger.error(f"Failed to load book {book_dir.name}: {exc}")
 
     # -----------------------------------------------------------------
     # Index building

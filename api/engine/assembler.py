@@ -28,7 +28,7 @@ from config import PROTOCOL_DIR, get_pack, get_cartridges
 from state import SessionState
 
 # Shared protocol directory for cross-pack files (branding, etc.)
-SHARED_PROTOCOL_DIR = Path(__file__).resolve().parent.parent / "protocols" / "shared"
+SHARED_PROTOCOL_DIR = Path(__file__).resolve().parent.parent.parent / "protocols" / "shared"
 
 # ─── Protocol Boundary ──────────────────────────────────
 # Injected into every pack's system prompt to prevent protocol exfiltration.
