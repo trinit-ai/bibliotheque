@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { Search, ArrowLeft, User, BookOpen, Compass, Sparkles, Gamepad2, Send, ChevronDown, Bookmark, History, Newspaper, Hash, BookMarked } from "lucide-react";
+import { Search, ArrowLeft, User, Send, ChevronDown, Bookmark, History, Newspaper, Hash, BookMarked, Compass, Share2, Link2, Twitter, Mail } from "lucide-react";
 
 const serif = "'Georgia', serif";
 const mono = "'Courier New', monospace";
@@ -265,9 +265,13 @@ export default function BookPage() {
                 <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif }}>{title}</h1>
                 <span style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>
-              <div style={{ display: "flex", alignItems: "center", gap: 6 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: "#EFF6FF", borderRadius: 3 }}>Living Book</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
+                <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
+                <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
+                <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title + " — Bibliothèque")}`, "_blank")} title="Share on X" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Twitter size={13} strokeWidth={1.5} /></button>
+                <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(title + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Share via email" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Mail size={13} strokeWidth={1.5} /></button>
               </div>
             </div>
           </div>
@@ -277,15 +281,18 @@ export default function BookPage() {
           <div ref={chatRef} style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
             {messages.map((m, i) => (
               m.role === "assistant" ? (
-                <div key={i} style={{ display: "flex", gap: 14, alignItems: "flex-start", maxWidth: 620, width: "100%" }}>
-                  <div style={{ width: 30, height: 30, borderRadius: "50%", background: blue, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: "#fff", fontFamily: serif, fontStyle: "italic", flexShrink: 0, marginTop: 3 }}>è</div>
+                <div key={i} className="bib-msg-in" style={{ maxWidth: 680, width: "100%" }}>
                   <div style={{ fontSize: 15, lineHeight: 1.8, color: ink, fontFamily: serif, whiteSpace: "pre-wrap" }}>
                     {renderContent(m.content, i === 0)}
                   </div>
+                  <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
+                    <div className="bib-badge" style={{ width: 26, height: 26, borderRadius: "50%", background: blue, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontFamily: serif, fontStyle: "italic", cursor: "default" }}>è</div>
+                    <button onClick={() => navigator.clipboard?.writeText(m.content)} title="Copy response" style={{ all: "unset", cursor: "pointer", color: border_, display: "flex", padding: 2 }} className="bib-slash"><Link2 size={12} strokeWidth={1.5} /></button>
+                  </div>
                 </div>
               ) : (
-                <div key={i} style={{ display: "flex", justifyContent: "flex-end", maxWidth: 620, width: "100%" }}>
-                  <div style={{
+                <div key={i} className="bib-msg-in" style={{ display: "flex", justifyContent: "flex-end", maxWidth: 680, width: "100%" }}>
+                  <div className="bib-user-msg" style={{
                     maxWidth: 480, padding: "10px 18px",
                     borderRadius: "18px 4px 18px 18px",
                     background: blue, color: "#fff",
@@ -297,12 +304,11 @@ export default function BookPage() {
               )
             ))}
             {isLoading && messages.length > 0 && (
-              <div style={{ display: "flex", gap: 14, alignItems: "flex-start", maxWidth: 620, width: "100%" }}>
-                <div style={{ width: 30, height: 30, borderRadius: "50%", background: blue, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 12, color: "#fff", fontFamily: serif, fontStyle: "italic", flexShrink: 0 }}>è</div>
-                <div style={{ display: "flex", gap: 4, alignItems: "center", padding: "8px 0" }}>
-                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ink3, opacity: 0.4, animation: "bibspin 1s ease-in-out infinite" }} />
-                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ink3, opacity: 0.3, animation: "bibspin 1s ease-in-out 0.2s infinite" }} />
-                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: ink3, opacity: 0.2, animation: "bibspin 1s ease-in-out 0.4s infinite" }} />
+              <div style={{ maxWidth: 680, width: "100%" }}>
+                <div style={{ display: "flex", gap: 5, alignItems: "center", padding: "4px 0" }}>
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.4, animation: "bibspin 1s ease-in-out infinite" }} />
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.3, animation: "bibspin 1s ease-in-out 0.2s infinite" }} />
+                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.2, animation: "bibspin 1s ease-in-out 0.4s infinite" }} />
                 </div>
               </div>
             )}
@@ -311,7 +317,7 @@ export default function BookPage() {
           {/* Input */}
           <div style={{ padding: "12px 24px 8px", background: "#fff" }}>
             <div style={{ maxWidth: 680, margin: "0 auto" }}>
-              <div style={{ display: "flex", gap: 10, alignItems: "flex-end", border: `0.5px solid ${border_}`, borderRadius: 24, padding: "12px 12px 12px 20px", background: cream, transition: "border-color .15s" }}>
+              <div className="bib-input-pill" style={{ display: "flex", gap: 10, alignItems: input.includes("\n") || input.length > 80 ? "flex-end" : "center", border: `0.5px solid ${border_}`, borderRadius: 24, padding: "10px 12px 10px 20px", background: cream, minHeight: 44 }}>
                 <textarea
                   ref={textareaRef}
                   placeholder={`Ask about ${title}…`}
@@ -323,10 +329,12 @@ export default function BookPage() {
                   }}
                   onKeyDown={e => { if (e.key === "Enter" && !e.shiftKey) { e.preventDefault(); sendMessage(); } }}
                   rows={1}
-                  style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontSize: 14, fontFamily: serif, color: ink, resize: "none", overflow: "hidden", lineHeight: 1.5, padding: "2px 0", maxHeight: 160 }}
+                  style={{ flex: 1, border: "none", background: "transparent", outline: "none", fontSize: 14, fontFamily: serif, color: ink, resize: "none", overflow: "hidden", lineHeight: 1.5, padding: 0, maxHeight: 160, display: "block" }}
                   disabled={isLoading}
                 />
                 <div
+                  className="bib-send-btn"
+                  data-loading={isLoading ? "true" : "false"}
                   onClick={isLoading ? undefined : sendMessage}
                   style={{
                     width: 32, height: 32, borderRadius: "50%",
@@ -335,7 +343,6 @@ export default function BookPage() {
                     borderTopColor: isLoading ? blue : undefined,
                     display: "flex", alignItems: "center", justifyContent: "center",
                     color: "#fff", fontSize: 14, cursor: isLoading ? "default" : "pointer", flexShrink: 0,
-                    transition: "background .15s",
                     animation: isLoading ? "bibspin 0.8s linear infinite" : "none",
                   }}
                 >
@@ -374,11 +381,11 @@ export default function BookPage() {
       <div style={{ borderTop: `0.5px solid ${border_}`, padding: "6px 24px", background: cream, display: "flex", alignItems: "center", position: "relative" }}>
         <div style={{ display: "flex", gap: 10 }}>
           {["/chapter", "/search", "/compare", "/wiki", "/book"].map(c => (
-            <span key={c} style={{ fontSize: 10, color: ink3, fontFamily: mono, cursor: "pointer" }}>{c}</span>
+            <span key={c} className="bib-slash" style={{ fontSize: 10, color: ink3, fontFamily: mono, cursor: "pointer" }}>{c}</span>
           ))}
         </div>
         <span style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: mono, fontSize: 9, color: ink3, opacity: 0.5, whiteSpace: "nowrap" }}>Bibliothèque is AI-powered. Responses are generated, not authored.</span>
-        <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: "auto" }}>© 2026 TMOS13, LLC</span>
+        <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: "auto" }}>© 2026 TMOS13, LLC.</span>
       </div>
     </div>
   );

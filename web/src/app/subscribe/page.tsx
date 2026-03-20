@@ -1,6 +1,7 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -27,10 +28,10 @@ const TIERS = [
     current: false,
   },
   {
-    name: "Reader",
+    name: "Early Subscriber",
     price: "Free",
     turns: "50 turns / day",
-    features: ["Email registration only", "Access full library", "Reading history", "Session journal"],
+    features: ["Email registration only", "Access full library", "Reading history", "Session journal", "Bookmarks"],
     cta: "Join",
     accent: blue,
     current: true,
@@ -52,18 +53,18 @@ export default function SubscribePage() {
   const [email, setEmail] = useState("");
 
   return (
-    <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif }}>
+    <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif, display: "flex", flexDirection: "column" }}>
       {/* Header */}
       <header style={{ borderBottom: `0.5px solid ${border2}`, padding: "28px 0", textAlign: "center" }}>
-        <a href="/" style={{ textDecoration: "none" }}>
+        <Link href="/" className="bib-logo" style={{ textDecoration: "none" }}>
           <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 32, fontWeight: 400, letterSpacing: "-.025em", color: ink }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+            Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
           </div>
-        </a>
+        </Link>
       </header>
 
       {/* Content */}
-      <main style={{ maxWidth: 800, margin: "0 auto", padding: "56px 24px 80px" }}>
+      <main style={{ maxWidth: 800, margin: "0 auto", padding: "56px 24px 60px", flex: 1 }}>
         {/* Title block */}
         <div style={{ textAlign: "center", marginBottom: 48 }}>
           <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".18em", textTransform: "uppercase", color: ink3, marginBottom: 16 }}>
@@ -78,36 +79,23 @@ export default function SubscribePage() {
         </div>
 
         {/* Email form */}
-        <div style={{ maxWidth: 440, margin: "0 auto 56px", display: "flex", gap: 10 }}>
+        <div className="bib-input-pill" style={{ maxWidth: 440, margin: "0 auto 56px", display: "flex", gap: 10, border: `0.5px solid ${border_}`, borderRadius: 24, padding: "6px 6px 6px 18px", background: "#fff", alignItems: "center" }}>
           <input
             type="email"
             placeholder="your@email.com"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             style={{
-              flex: 1,
-              border: `0.5px solid ${border_}`,
-              borderRadius: 4,
-              padding: "12px 16px",
-              fontFamily: mono,
-              fontSize: 13,
-              color: ink,
-              background: "#fff",
-              outline: "none",
+              flex: 1, border: "none", background: "transparent", outline: "none",
+              fontFamily: mono, fontSize: 13, color: ink, padding: "6px 0",
             }}
           />
           <button
             style={{
-              background: blue,
-              color: "#fff",
-              border: "none",
-              borderRadius: 4,
-              padding: "12px 28px",
-              fontFamily: mono,
-              fontSize: 13,
-              letterSpacing: ".04em",
-              cursor: "pointer",
-              whiteSpace: "nowrap",
+              background: blue, color: "#fff", border: "none",
+              borderRadius: 20, padding: "10px 24px",
+              fontFamily: mono, fontSize: 12, letterSpacing: ".04em",
+              cursor: "pointer", whiteSpace: "nowrap",
             }}
           >
             Join
@@ -115,25 +103,22 @@ export default function SubscribePage() {
         </div>
 
         {/* Tier cards */}
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(220px, 1fr))", gap: 20, marginBottom: 48 }}>
+        <div style={{ display: "grid", gridTemplateColumns: "repeat(3, 1fr)", gap: 20, marginBottom: 48 }}>
           {TIERS.map((tier) => (
             <div
               key={tier.name}
+              className="bib-card"
               style={{
                 border: `0.5px solid ${tier.current ? blue : border_}`,
-                borderRadius: 8,
-                overflow: "hidden",
+                borderRadius: 8, overflow: "hidden",
                 background: tier.current ? "#fff" : cream,
               }}
             >
-              {/* Card header */}
-              <div
-                style={{
-                  padding: "14px 20px",
-                  borderBottom: `0.5px solid ${tier.current ? "rgba(29,78,216,.15)" : border2}`,
-                  background: tier.current ? "#EFF6FF" : "transparent",
-                }}
-              >
+              <div style={{
+                padding: "14px 20px",
+                borderBottom: `0.5px solid ${tier.current ? "rgba(29,78,216,.15)" : border2}`,
+                background: tier.current ? "#EFF6FF" : "transparent",
+              }}>
                 <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".12em", textTransform: "uppercase", color: tier.accent, marginBottom: 6 }}>
                   {tier.name}
                 </div>
@@ -144,8 +129,6 @@ export default function SubscribePage() {
                   {tier.turns}
                 </div>
               </div>
-
-              {/* Card body */}
               <div style={{ padding: "16px 20px 20px" }}>
                 {tier.features.map((f) => (
                   <div key={f} style={{ display: "flex", gap: 8, alignItems: "flex-start", padding: "5px 0" }}>
@@ -154,37 +137,20 @@ export default function SubscribePage() {
                   </div>
                 ))}
                 {tier.cta && (
-                  <button
-                    style={{
-                      width: "100%",
-                      marginTop: 16,
-                      padding: "10px 0",
-                      background: blue,
-                      color: "#fff",
-                      border: "none",
-                      borderRadius: 4,
-                      fontFamily: mono,
-                      fontSize: 12,
-                      letterSpacing: ".04em",
-                      cursor: "pointer",
-                    }}
-                  >
+                  <button className="bib-send-btn" style={{
+                    width: "100%", marginTop: 16, padding: "10px 0",
+                    background: blue, color: "#fff", border: "none", borderRadius: 4,
+                    fontFamily: mono, fontSize: 12, letterSpacing: ".04em", cursor: "pointer",
+                  }}>
                     {tier.cta}
                   </button>
                 )}
                 {!tier.cta && tier.name === "Patron" && (
-                  <div
-                    style={{
-                      marginTop: 16,
-                      padding: "10px 0",
-                      textAlign: "center",
-                      fontFamily: mono,
-                      fontSize: 11,
-                      color: ink3,
-                      border: `0.5px solid ${border2}`,
-                      borderRadius: 4,
-                    }}
-                  >
+                  <div style={{
+                    marginTop: 16, padding: "10px 0", textAlign: "center",
+                    fontFamily: mono, fontSize: 11, color: ink3,
+                    border: `0.5px solid ${border2}`, borderRadius: 4,
+                  }}>
                     Coming soon
                   </div>
                 )}
@@ -193,22 +159,37 @@ export default function SubscribePage() {
           ))}
         </div>
 
-        {/* Privacy note */}
-        <div style={{ textAlign: "center" }}>
-          <p style={{ fontFamily: mono, fontSize: 11, lineHeight: 1.7, color: ink3, margin: 0 }}>
+        {/* Privacy & legal */}
+        <div style={{ textAlign: "center", maxWidth: 520, margin: "0 auto" }}>
+          <p style={{ fontFamily: mono, fontSize: 11, lineHeight: 1.7, color: ink3, margin: "0 0 20px" }}>
             No credit card required. Your reading history stays private.
+          </p>
+          <p style={{ fontFamily: serif, fontSize: 12, lineHeight: 1.8, color: ink3, margin: 0 }}>
+            By joining, you agree to our Terms of Use and Privacy Policy.
+            Bibliothèque is a product of TMOS13, LLC. Sessions are AI-powered
+            by the 13TMOS engine. Responses are generated, not authored.
+            All texts in the library are public domain or used under license.
+            Your data is never sold. We use cookies only for session management.
           </p>
         </div>
       </main>
 
       {/* Footer */}
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE" }}>
-        <div style={{ maxWidth: 800, margin: "0 auto", padding: "28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
-          <a href="/" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
-          </a>
-          <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-            &copy; 2026 TMOS13, LLC
+        <div style={{ maxWidth: 800, margin: "0 auto", padding: "20px 24px", textAlign: "center" }}>
+          <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
+            Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
+          </Link>
+          <div style={{ fontFamily: mono, fontSize: 10, color: ink3, marginTop: 8 }}>
+            © 2026 TMOS13, LLC. All rights reserved.
+          </div>
+          <div style={{ fontFamily: mono, fontSize: 9, color: ink3, marginTop: 6, opacity: 0.6, lineHeight: 1.7 }}>
+            TMOS13, LLC · Jersey City, NJ · Robert C. Ventura, Founder
+          </div>
+          <div style={{ display: "flex", justifyContent: "center", gap: 16, marginTop: 10 }}>
+            {["Privacy Policy", "Terms of Use", "Contact", "About"].map(s => (
+              <span key={s} style={{ fontFamily: mono, fontSize: 9, color: ink3, cursor: "pointer" }} className="bib-slash">{s}</span>
+            ))}
           </div>
         </div>
       </footer>

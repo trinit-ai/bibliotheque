@@ -493,7 +493,7 @@
 
 /* Thread band right section */
 .thread-right {
-  border-top: 0.5px solid rgba(59,130,246,.18);
+  border-top: 0.5px solid rgba(29,78,216,.15);
   padding-top: 12px;
 }
 
@@ -502,22 +502,125 @@
     border-top: none;
     padding-top: 0;
     padding-left: 24px;
-    border-left: 0.5px solid rgba(59,130,246,.18);
+    border-left: 0.5px solid rgba(29,78,216,.15);
   }
 }
 
+/* =========================================================================
+   Transitions & Hover Effects
+   ========================================================================= */
+
 /* Logo hover */
 .bib-logo {
-  transition: opacity 0.2s;
+  transition: opacity 0.2s ease;
 }
 .bib-logo:hover {
-  opacity: 0.75;
+  opacity: 0.7;
 }
 .bib-logo .bib-accent {
-  transition: color 0.25s, text-shadow 0.25s;
+  transition: color 0.3s ease, text-shadow 0.3s ease;
 }
 .bib-logo:hover .bib-accent {
-  text-shadow: 0 0 8px rgba(29, 78, 216, 0.4);
+  text-shadow: 0 0 12px rgba(29, 78, 216, 0.45);
+}
+
+/* Sidebar nav items */
+.book-sidebar-left a,
+.book-sidebar-left div[style*="cursor: pointer"] {
+  transition: color 0.15s ease, background 0.15s ease;
+}
+.book-sidebar-left a:hover {
+  color: #1D4ED8 !important;
+}
+
+/* Sidebar section headers */
+.book-sidebar-left > div[style*="uppercase"] {
+  transition: color 0.15s ease;
+}
+.book-sidebar-left > div[style*="uppercase"]:hover {
+  color: #6B6760 !important;
+}
+
+/* Related cards in right sidebar */
+.book-sidebar-right a {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.15s ease;
+}
+.book-sidebar-right a:hover {
+  border-color: #E5E1D8 !important;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.06);
+  transform: translateY(-1px);
+}
+
+/* Input bar focus glow */
+.bib-input-pill {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.bib-input-pill:focus-within {
+  border-color: #1D4ED8 !important;
+  box-shadow: 0 0 0 3px rgba(29, 78, 216, 0.08);
+}
+
+/* Send button */
+.bib-send-btn {
+  transition: background 0.15s ease, transform 0.1s ease;
+}
+.bib-send-btn:hover:not([data-loading="true"]) {
+  transform: scale(1.08);
+}
+.bib-send-btn:active:not([data-loading="true"]) {
+  transform: scale(0.95);
+}
+
+/* è badge under assistant messages */
+.bib-badge {
+  transition: opacity 0.2s ease, transform 0.15s ease;
+  opacity: 0.7;
+}
+.bib-badge:hover {
+  opacity: 1;
+  transform: scale(1.1);
+}
+
+/* User message bubbles */
+.bib-user-msg {
+  transition: opacity 0.15s ease;
+}
+.bib-user-msg:hover {
+  opacity: 0.92;
+}
+
+/* Footer slash commands */
+.bib-slash {
+  transition: color 0.15s ease;
+}
+.bib-slash:hover {
+  color: #1D4ED8 !important;
+}
+
+/* Card hover lift (home page) */
+.bib-card {
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease, background 0.2s ease;
+}
+.bib-card:hover {
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.08);
+  transform: translateY(-2px);
+}
+
+/* Smooth fade-in for chat messages */
+@keyframes bibfadein {
+  from { opacity: 0; transform: translateY(6px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+.bib-msg-in {
+  animation: bibfadein 0.3s ease-out;
+}
+
+/* Breadcrumb links */
+.bib-breadcrumb a {
+  transition: color 0.15s ease;
+}
+.bib-breadcrumb a:hover {
+  color: #1D4ED8 !important;
 }
 
 /* Responsive typography */

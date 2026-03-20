@@ -2,6 +2,7 @@
 
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import { Link2, Twitter, Mail, Share2 } from "lucide-react";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -344,8 +345,15 @@ export default function WikiPage() {
           <div style={{ padding: "32px 32px 48px" }}>
             {/* Entity header */}
             <div style={{ marginBottom: 32 }}>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
-                Expedition
+              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
+                <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
+                  Expedition
+                </div>
+                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                  <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 3 }} className="bib-slash"><Link2 size={14} strokeWidth={1.5} /></button>
+                  <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(displayName + " — Bibliothèque Expedition")}`, "_blank")} title="Share on X" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 3 }} className="bib-slash"><Twitter size={14} strokeWidth={1.5} /></button>
+                  <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(displayName + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Email" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 3 }} className="bib-slash"><Mail size={14} strokeWidth={1.5} /></button>
+                </div>
               </div>
               <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.1, letterSpacing: "-.02em", margin: "0 0 16px", color: ink }}>
                 {displayName}

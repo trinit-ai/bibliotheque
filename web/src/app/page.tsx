@@ -236,28 +236,28 @@ function TickerBar() {
 
 function ThreadBand() {
   return (
-    <div className="thread-band" style={{ background: "#1C1A18", borderBottom: "0.5px solid rgba(255,255,255,.06)" }}>
+    <div className="thread-band" style={{ background: "#fff", borderBottom: `0.5px solid ${border_}` }}>
       <div>
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: "rgba(255,255,255,.45)", marginBottom: 10 }}>
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 10 }}>
           Today&apos;s Thread
         </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 19, lineHeight: 1.45, color: "rgba(255,255,255,.82)" }}>
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 19, lineHeight: 1.45, color: ink }}>
           &ldquo;Fed Signals Patience as Inflation Proves Stickier Than Expected&rdquo;
         </div>
       </div>
       <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
-        <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
-        <div style={{ width: 7, height: 7, borderRadius: "50%", background: "#3B82F6", border: "2px solid #1C1A18" }} />
-        <div style={{ width: "0.5px", height: 22, background: "rgba(59,130,246,.4)" }} />
+        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
+        <div style={{ width: 7, height: 7, borderRadius: "50%", background: blue, border: "2px solid #fff" }} />
+        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
       </div>
       <div style={{ borderLeft: "none" }} className="thread-right">
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(59,130,246,.75)", marginBottom: 10 }}>
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
           The Wealth of Nations · Adam Smith · 1776
         </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,.7)", marginBottom: 12 }}>
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: ink2, marginBottom: 12 }}>
           &ldquo;The natural price is the central price, to which the prices of all commodities are continually gravitating…&rdquo;
         </div>
-        <Link href="/crossover/fed-signals-patience/wealth_of_nations" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: "rgba(59,130,246,.85)", background: "rgba(59,130,246,.1)", border: "0.5px solid rgba(59,130,246,.28)", padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
+        <Link href="/crossover/fed-signals-patience/wealth_of_nations" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
           Open in Library →
         </Link>
       </div>
@@ -450,11 +450,11 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
   const transitionUrl = entry.format === "expedition" ? `/wiki/${entry.id}` : `/wiki/${entry.id}`;
   const sessionUrl = `/book/${entry.id}`;
   return (
-    <Link href={transitionUrl} onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
+    <Link href={transitionUrl} className="bib-card" onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
       background: hov ? "#fff" : p.tint,
       border: `0.5px solid ${hov ? p.accent : "rgba(0,0,0,.08)"}`,
       borderRadius: 10, overflow: "hidden", cursor: "pointer",
-      display: "flex", flexDirection: "column", transition: "border-color .15s, background .15s",
+      display: "flex", flexDirection: "column",
       textDecoration: "none", color: "inherit",
     }}>
       <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
@@ -575,7 +575,7 @@ export default function HomePage() {
               Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
             </Link>
             <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-              © 2026 TMOS13, LLC
+              © 2026 TMOS13, LLC.
             </div>
           </div>
         </div>

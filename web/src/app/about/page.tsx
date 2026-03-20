@@ -26,7 +26,7 @@ export default function AboutPage() {
       <header style={{ borderBottom: `0.5px solid ${border2}`, padding: "28px 0", textAlign: "center" }}>
         <a href="/" style={{ textDecoration: "none" }}>
           <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 32, fontWeight: 400, letterSpacing: "-.025em", color: ink }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+            Biblioth<span style={{ color: blue }}>è</span>que
           </div>
         </a>
       </header>
@@ -137,10 +137,10 @@ export default function AboutPage() {
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE" }}>
         <div style={{ maxWidth: 680, margin: "0 auto", padding: "28px 24px", display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 12 }}>
           <a href="/" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+            Biblioth<span style={{ color: blue }}>è</span>que
           </a>
           <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-            &copy; 2026 TMOS13, LLC
+            &copy; 2026 TMOS13, LLC.
           </div>
         </div>
       </footer>
