@@ -181,14 +181,17 @@ button:not(:disabled),
   }
 }
 
-/* On mobile, hide the spacer and let logo center naturally */
+/* On mobile, logo flows naturally (no absolute positioning) */
 @media (max-width: 767px) {
-  .masthead-inner > div[style*="width: 280"] {
+  .masthead-spacer {
     display: none !important;
   }
-  .masthead-inner > div[style*="position: absolute"] {
+  .masthead-logo-wrap {
     position: static !important;
     transform: none !important;
+  }
+  .masthead-inner {
+    justify-content: center !important;
   }
 }
 
