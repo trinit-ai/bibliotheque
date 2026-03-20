@@ -188,6 +188,18 @@ async def session_turn(req: SessionTurnRequest, request: Request) -> dict:
     }
 
 
+@router.get("/guest")
+async def get_guest_pack() -> dict:
+    """Return the default getting-started pack metadata."""
+    return {
+        "pack_id": "bibliotheque_getting_started",
+        "title": "Getting Started",
+        "subtitle": "What Bibliothèque is and how it works",
+        "content_type": "pack",
+        "portal": "brand",
+    }
+
+
 @router.get("/{session_id}")
 async def get_session(session_id: str) -> dict:
     """Get session state (for reconnection)."""
