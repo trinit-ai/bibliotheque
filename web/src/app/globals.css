@@ -154,12 +154,24 @@
   display: flex;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 @media (min-width: 768px) {
   .masthead-inner {
     padding: 20px 24px 14px;
     justify-content: space-between;
+  }
+}
+
+/* On mobile, hide the spacer and let logo center naturally */
+@media (max-width: 767px) {
+  .masthead-inner > div[style*="width: 280"] {
+    display: none !important;
+  }
+  .masthead-inner > div[style*="position: absolute"] {
+    position: static !important;
+    transform: none !important;
   }
 }
 
