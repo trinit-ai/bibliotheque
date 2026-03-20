@@ -1,6 +1,8 @@
 "use client";
 
 import { useState } from "react";
+import Link from "next/link";
+import { useRouter } from "next/navigation";
 
 // ── Data ──────────────────────────────────────────────────────────────────
 
@@ -25,10 +27,10 @@ const ARTS = [
 ];
 
 const PICKS = [
-  { title: "Tao Te Ching", meta: "Laozi \u00b7 Living Book", dot: "#3B82F6" },
-  { title: "The Stoicism Expedition", meta: "Philosophy \u00b7 Expedition", dot: "#10B981" },
-  { title: "I Ching Oracle", meta: "Divination \u00b7 Oracle", dot: "#F59E0B" },
-  { title: "Politics and the English Language", meta: "Orwell \u00b7 Essay", dot: "#8B5CF6" },
+  { title: "Tao Te Ching", meta: "Laozi \u00b7 Living Book", dot: "#3B82F6", href: "/book/tao_te_ching" },
+  { title: "The Stoicism Expedition", meta: "Philosophy \u00b7 Expedition", dot: "#10B981", href: "/wiki/stoicism" },
+  { title: "I Ching Oracle", meta: "Divination \u00b7 Oracle", dot: "#F59E0B", href: "/book/i_ching_oracle" },
+  { title: "Politics and the English Language", meta: "Orwell \u00b7 Essay", dot: "#8B5CF6", href: "/book/politics_and_the_english_language" },
 ];
 
 const ENCOUNTERS = [
@@ -94,23 +96,26 @@ function SbSection({ children }: { children: React.ReactNode }) {
 
 function Masthead() {
   const [q, setQ] = useState("");
+  const router = useRouter();
   return (
     <div style={{ background: cream, borderBottom: `0.5px solid ${border2}` }}>
       <div className="masthead-inner">
         <div className="hide-mobile" style={{ width: 200 }} />
         <div style={{ textAlign: "center" }}>
-          <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
-            Biblioth<span style={{ color: blue }}>è</span>que
-          </div>
-          <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
-            The Living Library
-          </div>
+          <Link href="/" style={{ textDecoration: "none" }}>
+            <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
+              Biblioth<span style={{ color: blue }}>è</span>que
+            </div>
+            <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
+              The Living Library
+            </div>
+          </Link>
         </div>
         <div className="hide-mobile-flex" style={{ width: 280, justifyContent: "flex-end", gap: 10, alignItems: "center" }}>
-          <button style={{ all: "unset", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap" }}>
+          <Link href="/subscribe" style={{ all: "unset", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap" }}>
             Subscribe
-          </button>
-          <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
+          </Link>
+          <form onSubmit={e => { e.preventDefault(); if (q.trim()) router.push(`/search?q=${encodeURIComponent(q)}`); }} style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
             <input
               type="text"
               placeholder="Search library…"
@@ -118,8 +123,8 @@ function Masthead() {
               onChange={e => setQ(e.target.value)}
               style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 120 }}
             />
-            <span style={{ color: ink3, fontSize: 14 }}>⌕</span>
-          </div>
+            <button type="submit" style={{ all: "unset", cursor: "pointer", color: ink3, fontSize: 14 }}>⌕</button>
+          </form>
         </div>
       </div>
     </div>
@@ -190,9 +195,9 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
         t === null
           ? <div key={`div-${i}`} style={{ width: "0.5px", height: 14, background: "rgba(255,255,255,.25)", margin: "0 6px", flexShrink: 0 }} />
           : (
-            <span
+            <Link
               key={t}
-              onClick={() => onSelect(active === t ? null : t)}
+              href={`/portal/${t.toLowerCase()}`}
               onMouseEnter={() => setHov(t)}
               onMouseLeave={() => setHov(null)}
               style={{
@@ -201,11 +206,11 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
                 color: active === t ? "#fff" : hov === t ? "rgba(255,255,255,.95)" : "rgba(255,255,255,.7)",
                 cursor: "pointer", whiteSpace: "nowrap", flexShrink: 0,
                 borderBottom: active === t ? "2px solid rgba(255,255,255,.75)" : "2px solid transparent",
-                display: "inline-block", transition: "color .1s",
+                display: "inline-block", transition: "color .1s", textDecoration: "none",
               }}
             >
               {t}
-            </span>
+            </Link>
           )
       )}
     </div>
@@ -252,9 +257,9 @@ function ThreadBand() {
         <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: "rgba(255,255,255,.7)", marginBottom: 12 }}>
           &ldquo;The natural price is the central price, to which the prices of all commodities are continually gravitating…&rdquo;
         </div>
-        <span style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: "rgba(59,130,246,.85)", background: "rgba(59,130,246,.1)", border: "0.5px solid rgba(59,130,246,.28)", padding: "6px 14px", borderRadius: 3, cursor: "pointer" }}>
+        <Link href="/crossover/fed-signals-patience/wealth_of_nations" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: "rgba(59,130,246,.85)", background: "rgba(59,130,246,.1)", border: "0.5px solid rgba(59,130,246,.28)", padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
           Open in Library →
-        </span>
+        </Link>
       </div>
     </div>
   );
@@ -330,9 +335,9 @@ function LibraryColumn() {
           </div>
           <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 12, borderTop: `0.5px solid ${border2}` }}>
             <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>81 chapters indexed</span>
-            <button style={{ background: blue, color: "#fff", border: "none", borderRadius: 3, fontFamily: mono, fontSize: 11, padding: "7px 16px", cursor: "pointer" }}>
+            <Link href="/book/tao_te_ching" style={{ background: blue, color: "#fff", border: "none", borderRadius: 3, fontFamily: mono, fontSize: 11, padding: "7px 16px", cursor: "pointer", textDecoration: "none" }}>
               Open session →
-            </button>
+            </Link>
           </div>
         </div>
       </div>
@@ -361,13 +366,13 @@ function SidebarSection() {
       <SbSection>
         <ColLabel>Today&apos;s Picks</ColLabel>
         {PICKS.map(p => (
-          <div key={p.title} style={{ display: "flex", gap: 9, padding: "5px 0", alignItems: "flex-start" }}>
+          <Link key={p.title} href={p.href} style={{ display: "flex", gap: 9, padding: "5px 0", alignItems: "flex-start", textDecoration: "none", color: "inherit" }}>
             <div style={{ width: 6, height: 6, borderRadius: "50%", background: p.dot, flexShrink: 0, marginTop: 6 }} />
             <div>
               <div style={{ fontFamily: serif, fontSize: 15, lineHeight: 1.25 }}>{p.title}</div>
               <div style={{ fontFamily: mono, fontSize: 10, color: ink3, marginTop: 3 }}>{p.meta}</div>
             </div>
-          </div>
+          </Link>
         ))}
       </SbSection>
 
@@ -376,9 +381,9 @@ function SidebarSection() {
         <div style={{ fontFamily: serif, fontSize: 15, lineHeight: 1.65, color: ink2 }}>
           In 1610, Johannes Kepler published <em>Astronomia Nova</em>, introducing his first two laws of planetary motion and forever changing our understanding of celestial mechanics.
         </div>
-        <a style={{ fontFamily: mono, fontSize: 11, color: blue, display: "inline-block", marginTop: 10, cursor: "pointer" }}>
+        <Link href="/wiki/planetary_motion" style={{ fontFamily: mono, fontSize: 11, color: blue, display: "inline-block", marginTop: 10, cursor: "pointer", textDecoration: "none" }}>
           Explore the expedition →
-        </a>
+        </Link>
       </SbSection>
 
       <SbSection>
@@ -442,6 +447,7 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
   const [hov, setHov] = useState(false);
   const f = FORMAT_COLORS[entry.format] || FORMAT_COLORS.living_book;
   const p = PORTAL_COLORS[entry.portal] || { tint: "#F9FAFB", accent: "#374151" };
+  const sessionUrl = entry.format === "expedition" ? `/wiki/${entry.id}` : `/book/${entry.id}`;
   return (
     <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
       background: hov ? "#fff" : p.tint,
@@ -459,7 +465,7 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
         <div style={{ fontFamily: serif, fontSize: 13, lineHeight: 1.65, color: ink2, marginTop: 4, flex: 1 }}>{entry.desc}</div>
         <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 12, marginTop: 4, borderTop: "0.5px solid rgba(0,0,0,.07)" }}>
           <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>{entry.meta}</span>
-          <button style={{ background: f.tab, color: "#fff", border: "none", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", cursor: "pointer", letterSpacing: ".04em" }}>Open session →</button>
+          <Link href={sessionUrl} style={{ background: f.tab, color: "#fff", border: "none", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", cursor: "pointer", letterSpacing: ".04em", textDecoration: "none" }}>Open session →</Link>
         </div>
       </div>
     </div>
@@ -528,25 +534,37 @@ export default function HomePage() {
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Library</div>
               {["Books", "Digests", "Essays", "Horoscopes", "Games"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s}</Link>
               ))}
             </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Subjects</div>
               {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Society", "Technology", "Health", "Psychology"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s}</Link>
               ))}
             </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Account</div>
-              {["Sign In", "Register", "Reading History", "Session Journal", "Settings"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              {[
+                { label: "Sign In", href: "/subscribe" },
+                { label: "Register", href: "/subscribe" },
+                { label: "Reading History", href: "/subscribe" },
+                { label: "Session Journal", href: "/subscribe" },
+                { label: "Settings", href: "/subscribe" },
+              ].map(s => (
+                <Link key={s.label} href={s.href} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s.label}</Link>
               ))}
             </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>About</div>
-              {["About Bibliothèque", "TMOS13, LLC", "Privacy Policy", "Terms of Use", "Contact"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
+              {[
+                { label: "About Bibliothèque", href: "/about" },
+                { label: "TMOS13, LLC", href: "/about" },
+                { label: "Privacy Policy", href: "/about" },
+                { label: "Terms of Use", href: "/about" },
+                { label: "Contact", href: "/about" },
+              ].map(s => (
+                <Link key={s.label} href={s.href} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s.label}</Link>
               ))}
             </div>
           </div>
