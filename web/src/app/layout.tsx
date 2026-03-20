@@ -33,22 +33,23 @@ export const metadata: Metadata = {
   },
   openGraph: {
     title: "Bibliothèque",
-    description: "The living library.",
+    description: "The living library. Interactive books, articles, news, and wikis.",
     url: "https://bibliotheque.ai",
     siteName: "Bibliothèque",
     images: [
       {
-        url: "/brand/bibliotheque-logo.svg",
-        width: 200,
-        height: 240,
-        alt: "Bibliothèque",
+        url: "/og",
+        width: 1200,
+        height: 630,
+        alt: "Bibliothèque — The Living Library",
       },
     ],
   },
   twitter: {
-    card: "summary",
+    card: "summary_large_image",
     title: "Bibliothèque",
-    description: "The living library.",
+    description: "The living library. Interactive books, articles, news, and wikis.",
+    images: ["/og"],
   },
 };
 
