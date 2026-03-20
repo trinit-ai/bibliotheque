@@ -236,17 +236,61 @@ function TickerBar() {
   );
 }
 
-// ── Thread band ───────────────────────────────────────────────────────────
+// ── Daily passage ─────────────────────────────────────────────────────────
+
+const DAILY_PASSAGES = [
+  { quote: "A person of great virtue is like the flowing water. Water benefits all things and contends not with them.", source: "Tao Te Ching", author: "Laozi", cite: "Chapter 8", id: "tao_te_ching", dot: "#3B82F6" },
+  { quote: "You have power over your mind — not outside events. Realize this, and you will find strength.", source: "Meditations", author: "Marcus Aurelius", cite: "Book VI", id: "meditations_aurelius", dot: "#7C3AED" },
+  { quote: "All that we are is the result of what we have thought. The mind is everything. What we think, we become.", source: "Dhammapada", author: "The Buddha", cite: "Verse 1", id: "dhammapada", dot: "#F59E0B" },
+  { quote: "Where wast thou when I laid the foundations of the earth? Declare, if thou hast understanding.", source: "Book of Job", author: "Hebrew Bible", cite: "38:4", id: "book_of_job", dot: "#DC2626" },
+  { quote: "What is great in man is that he is a bridge and not an end.", source: "Thus Spake Zarathustra", author: "Friedrich Nietzsche", cite: "Prologue §4", id: "zarathustra_nietzsche", dot: "#059669" },
+  { quote: "The unexamined life is not worth living.", source: "Apology", author: "Plato", cite: "38a", id: "apology_plato", dot: "#0891B2" },
+  { quote: "Vanity of vanities, saith the Preacher. All is vanity. What profit hath a man of all his labour which he taketh under the sun?", source: "Ecclesiastes", author: "Qohelet", cite: "1:2–3", id: "ecclesiastes", dot: "#B45309" },
+  { quote: "Some things are in our control and others not. In our control are opinion, pursuit, desire, aversion — whatever is our own doing.", source: "Enchiridion", author: "Epictetus", cite: "§1", id: "enchiridion_epictetus", dot: "#7C3AED" },
+  { quote: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.", source: "Tao Te Ching", author: "Laozi", cite: "Chapter 1", id: "tao_te_ching", dot: "#3B82F6" },
+  { quote: "There is nothing in this world that is softer and meeker than water. Yet for dissolving the hard and inflexible, nothing can surpass it.", source: "Tao Te Ching", author: "Laozi", cite: "Chapter 78", id: "tao_te_ching", dot: "#3B82F6" },
+  { quote: "The only true wisdom is in knowing you know nothing.", source: "Apology", author: "Plato / Socrates", cite: "21d", id: "apology_plato", dot: "#0891B2" },
+  { quote: "He who has a why to live can bear almost any how.", source: "Twilight of the Idols", author: "Friedrich Nietzsche", cite: "Maxims §12", id: "zarathustra_nietzsche", dot: "#059669" },
+  { quote: "The sage does not hoard. The more he helps others, the more he benefits himself. The more he gives to others, the more he gets himself.", source: "Tao Te Ching", author: "Laozi", cite: "Chapter 81", id: "tao_te_ching", dot: "#3B82F6" },
+  { quote: "To see a world in a grain of sand, and a heaven in a wild flower. Hold infinity in the palm of your hand, and eternity in an hour.", source: "Auguries of Innocence", author: "William Blake", cite: "Lines 1–4", id: "auguries_blake", dot: "#DC2626" },
+  { quote: "I think, therefore I am. But what am I? A thing that thinks.", source: "Meditations on First Philosophy", author: "René Descartes", cite: "Meditation II", id: "meditations_descartes", dot: "#0891B2" },
+  { quote: "One must imagine Sisyphus happy.", source: "The Myth of Sisyphus", author: "Albert Camus", cite: "Final line", id: "myth_sisyphus_camus", dot: "#059669" },
+  { quote: "The universe is change; our life is what our thoughts make it.", source: "Meditations", author: "Marcus Aurelius", cite: "Book IV §3", id: "meditations_aurelius", dot: "#7C3AED" },
+  { quote: "If you are distressed by anything external, the pain is not due to the thing itself, but to your estimate of it — and this you have the power to revoke at any moment.", source: "Meditations", author: "Marcus Aurelius", cite: "Book VIII §47", id: "meditations_aurelius", dot: "#7C3AED" },
+  { quote: "The truth knocks on the door and you say, go away, I am looking for the truth. And so it goes away.", source: "Zen and the Art of Motorcycle Maintenance", author: "Robert Pirsig", cite: "Part III", id: "zen_pirsig", dot: "#F59E0B" },
+  { quote: "In the midst of winter, I found there was, within me, an invincible summer.", source: "Return to Tipasa", author: "Albert Camus", cite: "1954", id: "return_tipasa_camus", dot: "#059669" },
+  { quote: "We do not see things as they are. We see them as we are.", source: "Seduction of the Minotaur", author: "Anaïs Nin", cite: "1961", id: "seduction_nin", dot: "#DC2626" },
+  { quote: "The only way to do great work is to love what you do.", source: "Stanford Commencement", author: "Steve Jobs", cite: "2005", id: "stanford_jobs", dot: "#1D4ED8" },
+  { quote: "Between stimulus and response there is a space. In that space is our power to choose our response.", source: "Man's Search for Meaning", author: "Viktor Frankl", cite: "Part I", id: "mans_search_frankl", dot: "#7C3AED" },
+  { quote: "God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers?", source: "The Gay Science", author: "Friedrich Nietzsche", cite: "§125", id: "gay_science_nietzsche", dot: "#059669" },
+  { quote: "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.", source: "Paradise Lost", author: "John Milton", cite: "Book I", id: "paradise_lost_milton", dot: "#DC2626" },
+  { quote: "Not all those who wander are lost.", source: "The Fellowship of the Ring", author: "J.R.R. Tolkien", cite: "Book I Ch. 10", id: "fellowship_tolkien", dot: "#059669" },
+  { quote: "The wound is the place where the Light enters you.", source: "Collected Poems", author: "Rumi", cite: "13th century", id: "rumi_collected", dot: "#F59E0B" },
+  { quote: "To be, or not to be, that is the question — whether 'tis nobler in the mind to suffer the slings and arrows of outrageous fortune, or to take arms against a sea of troubles.", source: "Hamlet", author: "William Shakespeare", cite: "Act III, Scene 1", id: "hamlet_shakespeare", dot: "#B45309" },
+  { quote: "Until you make the unconscious conscious, it will direct your life and you will call it fate.", source: "Collected Works", author: "Carl Jung", cite: "Vol. 7", id: "jung_collected", dot: "#7C3AED" },
+  { quote: "The highest activity a human being can attain is learning for understanding, because to understand is to be free.", source: "Ethics", author: "Baruch Spinoza", cite: "Part V", id: "ethics_spinoza", dot: "#0891B2" },
+  { quote: "A human being is part of the whole, called by us 'Universe,' a part limited in time and space.", source: "Letter to Robert Marcus", author: "Albert Einstein", cite: "1950", id: "einstein_letter", dot: "#1D4ED8" },
+];
+
+function getDailyPassage() {
+  const now = new Date();
+  const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000);
+  return DAILY_PASSAGES[dayOfYear % DAILY_PASSAGES.length];
+}
 
 function ThreadBand() {
+  const p = getDailyPassage();
   return (
     <div className="thread-band" style={{ background: "#fff", borderBottom: `0.5px solid ${border_}` }}>
-      <div>
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 10 }}>
-          Today&apos;s Thread
+      <div style={{ flex: 1 }}>
+        <div style={{ display: "flex", alignItems: "center", gap: 8, marginBottom: 12 }}>
+          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3 }}>
+            Today&apos;s Passage
+          </div>
+          <div style={{ width: 5, height: 5, borderRadius: "50%", background: p.dot, flexShrink: 0 }} />
         </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 19, lineHeight: 1.45, color: ink }}>
-          &ldquo;Fed Signals Patience as Inflation Proves Stickier Than Expected&rdquo;
+        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 21, lineHeight: 1.5, color: ink, maxWidth: 640 }}>
+          &ldquo;{p.quote}&rdquo;
         </div>
       </div>
       <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
@@ -255,13 +299,13 @@ function ThreadBand() {
         <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
       </div>
       <div style={{ borderLeft: "none" }} className="thread-right">
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
-          The Wealth of Nations · Adam Smith · 1776
+        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue, marginBottom: 8 }}>
+          {p.source} · {p.author}
         </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, lineHeight: 1.7, color: ink2, marginBottom: 12 }}>
-          &ldquo;The natural price is the central price, to which the prices of all commodities are continually gravitating…&rdquo;
+        <div style={{ fontFamily: mono, fontSize: 11, color: ink3, marginBottom: 14 }}>
+          {p.cite}
         </div>
-        <Link href="/crossover/fed-signals-patience/wealth_of_nations" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
+        <Link href={`/book/${p.id}`} className="bib-card" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
           Open in Library →
         </Link>
       </div>
