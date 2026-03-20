@@ -222,7 +222,7 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
 
 function TickerBar() {
   return (
-    <Link href="/book/welcome" style={{ textDecoration: "none", display: "block", background: "#7F1D1D", height: 28, overflow: "hidden", whiteSpace: "nowrap", display: "flex", alignItems: "center", justifyContent: "center", gap: 8, cursor: "pointer", transition: "background .15s" }}
+    <Link href="/book/welcome" style={{ textDecoration: "none", display: "flex", background: "#7F1D1D", height: 28, overflow: "hidden", whiteSpace: "nowrap", alignItems: "center", justifyContent: "center", gap: 8, cursor: "pointer", transition: "background .15s" }}
       onMouseEnter={e => (e.currentTarget.style.background = "#991B1B")}
       onMouseLeave={e => (e.currentTarget.style.background = "#7F1D1D")}
     >
