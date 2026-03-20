@@ -99,9 +99,9 @@ function Masthead() {
   const router = useRouter();
   return (
     <div style={{ background: cream, borderBottom: `0.5px solid ${border2}` }}>
-      <div className="masthead-inner">
-        <div className="hide-mobile" style={{ width: 200 }} />
-        <div style={{ textAlign: "center" }}>
+      <div className="masthead-inner" style={{ position: "relative" }}>
+        <div className="hide-mobile" style={{ width: 280 }} />
+        <div style={{ textAlign: "center", position: "absolute", left: "50%", transform: "translateX(-50%)" }}>
           <Link href="/" className="bib-logo" style={{ textDecoration: "none" }}>
             <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
               Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
