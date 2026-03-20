@@ -83,6 +83,7 @@ export default function BookPage() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [leftOpen, setLeftOpen] = useState<Record<string, boolean>>({ sessions: true, bookmarks: true, news: false, subjects: false, formats: false });
+  const [expandedMsgs, setExpandedMsgs] = useState<Record<number, boolean>>({});
   const chatRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
@@ -115,31 +116,58 @@ export default function BookPage() {
   };
 
   const renderContent = (text: string, clickable = false) => {
-    // Split into lines to handle starter prompts
-    return text.split("\n").map((line, li) => {
-      const starterMatch = line.match(/^• "(.+?)" — (.+)$/);
-      if (starterMatch && clickable) {
-        const prompt = starterMatch[1];
-        const desc = starterMatch[2];
+    // Split into paragraphs (double newline)
+    const paragraphs = text.split(/\n\n+/);
+    return paragraphs.map((para, pi) => {
+      // Check for starter prompts
+      const lines = para.split("\n");
+      const hasStarters = clickable && lines.some(l => l.match(/^• "/));
+      if (hasStarters) {
         return (
-          <div key={li} onClick={() => { setInput(prompt); }} style={{ display: "flex", gap: 8, padding: "6px 10px", margin: "2px 0", borderRadius: 4, border: `0.5px solid ${border_}`, cursor: "pointer", background: cream, alignItems: "baseline" }}>
-            <span style={{ color: blue, fontFamily: mono, fontSize: 12, fontWeight: 500, flexShrink: 0 }}>&quot;{prompt}&quot;</span>
-            <span style={{ color: ink3, fontSize: 13 }}> — {desc}</span>
+          <div key={pi} style={{ display: "flex", flexDirection: "column", gap: 4, margin: "4px 0" }}>
+            {lines.map((line, li) => {
+              const m = line.match(/^• "(.+?)" — (.+)$/);
+              if (m) {
+                return (
+                  <div key={li} onClick={() => { setInput(m[1]); }} style={{ display: "flex", gap: 8, padding: "8px 12px", borderRadius: 6, border: `0.5px solid ${border_}`, cursor: "pointer", background: cream, alignItems: "baseline", transition: "border-color .15s" }}
+                    onMouseEnter={e => (e.currentTarget.style.borderColor = blue)}
+                    onMouseLeave={e => (e.currentTarget.style.borderColor = border_)}
+                  >
+                    <span style={{ color: blue, fontFamily: mono, fontSize: 13, fontWeight: 500, flexShrink: 0 }}>&quot;{m[1]}&quot;</span>
+                    <span style={{ color: ink3, fontSize: 14 }}> — {m[2]}</span>
+                  </div>
+                );
+              }
+              return <span key={li}>{line}</span>;
+            })}
           </div>
         );
       }
-      // Render citations within each line
-      const parts = line.split(/(\[Chapter \d+\]|\[Book [IVXLC]+(?:, §\d+)?\]|\[Verse \d+\]|\[Saying \d+\]|\[§\d+\])/g);
-      return (
-        <span key={li}>
-          {parts.map((part, pi) =>
-            /^\[.+\]$/.test(part)
-              ? <span key={pi} style={{ color: blue, fontFamily: mono, fontSize: 11, fontWeight: 600, letterSpacing: ".02em" }}>{part}</span>
-              : <span key={pi}>{part}</span>
-          )}
-          {li < text.split("\n").length - 1 && "\n"}
-        </span>
-      );
+
+      // Check if paragraph is a blockquote (starts with " or ")
+      if (para.match(/^[""\u201C]/)) {
+        return (
+          <p key={pi} style={{ margin: "0", paddingLeft: 20, borderLeft: `2px solid ${blue}`, color: ink2, fontStyle: "italic" }}>
+            {renderInline(para)}
+          </p>
+        );
+      }
+
+      return <p key={pi} style={{ margin: "0" }}>{renderInline(para)}</p>;
+    });
+  };
+
+  const renderInline = (text: string) => {
+    // Handle **bold**, citations [Chapter N], and regular text
+    const parts = text.split(/(\*\*[^*]+\*\*|\[Chapter \d+\]|\[Book [IVXLC]+(?:, §\d+)?\]|\[Verse \d+\]|\[Saying \d+\]|\[§\d+\])/g);
+    return parts.map((part, i) => {
+      if (/^\[.+\]$/.test(part)) {
+        return <span key={i} style={{ color: blue, fontFamily: mono, fontSize: 13, fontWeight: 600, letterSpacing: ".01em" }}>{part}</span>;
+      }
+      if (/^\*\*(.+)\*\*$/.test(part)) {
+        return <strong key={i} style={{ fontWeight: 600, color: ink }}>{part.slice(2, -2)}</strong>;
+      }
+      return <span key={i}>{part}</span>;
     });
   };
 
@@ -279,10 +307,13 @@ export default function BookPage() {
           {/* Chat area */}
           <style>{`@keyframes bibspin { to { transform: rotate(360deg); } }`}</style>
           <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
-            {messages.map((m, i) => (
-              m.role === "assistant" ? (
-                <div key={i} className="bib-msg-in" style={{ maxWidth: 680, width: "100%" }}>
-                  <div style={{ fontSize: 15, lineHeight: 1.8, color: ink, fontFamily: serif, whiteSpace: "pre-wrap" }}>
+            {messages.map((m, i) => {
+              const isExpanded = expandedMsgs[i];
+              const isLongUser = m.role === "user" && m.content.length > 200;
+
+              return m.role === "assistant" ? (
+                <div key={i} className="bib-msg-in" style={{ maxWidth: 680, width: "100%", paddingLeft: 12 }}>
+                  <div style={{ fontSize: 17, lineHeight: 1.85, color: ink, fontFamily: serif, display: "flex", flexDirection: "column", gap: 16, letterSpacing: "-.005em" }}>
                     {renderContent(m.content, i === 0)}
                   </div>
                   <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
@@ -291,18 +322,41 @@ export default function BookPage() {
                   </div>
                 </div>
               ) : (
-                <div key={i} className="bib-msg-in" style={{ display: "flex", justifyContent: "flex-end", maxWidth: 680, width: "100%" }}>
+                <div key={i} className="bib-msg-in" style={{ display: "flex", justifyContent: "flex-end", maxWidth: 680, width: "100%", paddingRight: 12 }}>
                   <div className="bib-user-msg" style={{
-                    maxWidth: 480, padding: "10px 18px",
+                    maxWidth: 520, padding: "12px 18px",
                     borderRadius: "18px 4px 18px 18px",
                     background: blue, color: "#fff",
-                    fontSize: 14, lineHeight: 1.65, fontFamily: serif,
+                    fontSize: 15, lineHeight: 1.7, fontFamily: serif,
+                    position: "relative",
                   }}>
-                    {m.content}
+                    {isLongUser && !isExpanded ? (
+                      <>
+                        <span>{m.content.slice(0, 200)}…</span>
+                        <button
+                          onClick={() => setExpandedMsgs(p => ({ ...p, [i]: true }))}
+                          style={{ all: "unset", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
+                        >
+                          Show more ↓
+                        </button>
+                      </>
+                    ) : (
+                      <>
+                        {m.content}
+                        {isLongUser && (
+                          <button
+                            onClick={() => setExpandedMsgs(p => ({ ...p, [i]: false }))}
+                            style={{ all: "unset", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
+                          >
+                            Show less ↑
+                          </button>
+                        )}
+                      </>
+                    )}
                   </div>
                 </div>
-              )
-            ))}
+              );
+            })}
             {isLoading && messages.length > 0 && (
               <div style={{ maxWidth: 680, width: "100%" }}>
                 <div style={{ display: "flex", gap: 5, alignItems: "center", padding: "4px 0" }}>
@@ -370,10 +424,30 @@ export default function BookPage() {
             );
           })}
 
-          <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Browse</div>
-          {["Books", "Essays", "Expeditions", "Horoscopes", "Games"].map(s => (
-            <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", padding: "4px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }}>{s}</Link>
-          ))}
+          <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
+          <a href="https://www.gutenberg.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Project Gutenberg
+          </a>
+          <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Amazon Kindle
+          </a>
+          <a href="https://archive.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Internet Archive
+          </a>
+          <a href="https://plato.stanford.edu" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Stanford Encyclopedia
+          </a>
+
+          <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 16, marginBottom: 8 }}>Tools</div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
+            <Search size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Web search
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
+            <BookMarked size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Save to bookmarks
+          </div>
+          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
+            <Link2 size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Copy session link
+          </div>
         </div>
       </div>
 
