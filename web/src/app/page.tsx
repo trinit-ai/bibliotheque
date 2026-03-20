@@ -281,7 +281,7 @@ function getDailyPassage() {
 function ThreadBand() {
   const p = getDailyPassage();
   return (
-    <div className="thread-band" style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 28 }}>
+    <div className="thread-band" style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 28, padding: "24px 0" }}>
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
           <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue }}>
@@ -543,12 +543,9 @@ export default function HomePage() {
         </div>
       </div>
 
-      {/* Daily passage */}
-      <ThreadBand />
-
-      {/* Section divider */}
+      {/* Daily passage — inside same container as cards */}
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-        <div style={{ borderBottom: `0.5px solid ${border_}`, marginTop: 0, marginBottom: 0 }} />
+        <ThreadBand />
       </div>
 
       <div className="main-columns">
