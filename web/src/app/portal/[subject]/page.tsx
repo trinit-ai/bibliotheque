@@ -293,7 +293,7 @@ export default function PortalSubjectPage() {
       <div style={{ background: cream, borderBottom: `0.5px solid ${border_}`, padding: "0 24px", display: "flex", alignItems: "center", justifyContent: "space-between", height: 54 }}>
         <Link href="/" style={{ textDecoration: "none" }}>
           <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, fontWeight: 400, letterSpacing: "-.025em", color: ink, cursor: "pointer" }}>
-            Biblioth<span style={{ color: blue }}>e</span>que
+            Biblioth<span style={{ color: blue }}>è</span>que
           </span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
