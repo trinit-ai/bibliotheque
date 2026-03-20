@@ -1,5 +1,9 @@
 id: wiki_entropy
+slug: wiki-entropy
 title: "Entropy"
+subtitle: "Order, disorder, and the arrow of time"
 content_type: expedition
 portal: science
+tags: [entropy, thermodynamics, information_theory, time]
+featured: null
 status: stub

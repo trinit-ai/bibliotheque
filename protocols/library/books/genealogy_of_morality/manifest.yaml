@@ -1,9 +1,9 @@
 id: genealogy_of_morality
-title: "On the Genealogy of Morality"
-author: "Friedrich Nietzsche"
-year: "1887"
-description: "Where do our moral values come from? Resentment, guilt, and the will to power."
+slug: genealogy-of-morality
+title: "On the Genealogy of Morals"
+subtitle: "A polemic"
 content_type: living_book
 portal: philosophy
-meta: "3 essays"
+tags: [nietzsche, morality, ethics, will_to_power, master_slave]
+featured: 7
 status: stub

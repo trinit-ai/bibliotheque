@@ -1,6 +1,9 @@
 id: i_ching
+slug: i-ching
 title: "I Ching"
+subtitle: "Book of Changes — 64 hexagrams"
 content_type: horoscope
-portal: horoscopes
-meta: "64 hexagrams"
+portal: esoterica
+tags: [i_ching, divination, hexagrams, chinese, oracle]
+featured: null
 status: stub

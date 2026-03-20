@@ -1,5 +1,9 @@
 id: wiki_octopus
+slug: wiki-octopus
 title: "Octopus"
+subtitle: "Alien intelligence in Earth's oceans"
 content_type: expedition
 portal: science
+tags: [octopus, intelligence, biology, cephalopod, evolution]
+featured: null
 status: stub

@@ -1,9 +1,9 @@
 id: ecclesiastes
+slug: ecclesiastes
 title: "Ecclesiastes"
-author: "Qohelet"
-year: "c. 450-200 BC"
-description: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy."
+subtitle: "Vanity of vanities, all is vanity"
 content_type: living_book
 portal: religion
-meta: "12 chapters"
+tags: [bible, wisdom_literature, existentialism, vanity, hebrew_bible]
+featured: 8
 status: stub

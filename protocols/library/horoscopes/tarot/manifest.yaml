@@ -1,6 +1,9 @@
 id: tarot
+slug: tarot
 title: "Tarot"
+subtitle: "78 cards, the major and minor arcana"
 content_type: horoscope
-portal: horoscopes
-meta: "78 cards"
+portal: esoterica
+tags: [tarot, divination, arcana, cards, symbolism]
+featured: null
 status: stub

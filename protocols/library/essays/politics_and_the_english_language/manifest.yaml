@@ -1,9 +1,9 @@
 id: politics_and_the_english_language
+slug: politics-and-the-english-language
 title: "Politics and the English Language"
-author: "George Orwell"
-year: "1946"
-description: "On the corruption of language by political orthodoxy."
+subtitle: "Six rules for clear writing"
 content_type: essay
 portal: literature
-meta: "~4,000 words"
+tags: [orwell, language, politics, writing, clarity]
+featured: null
 status: stub

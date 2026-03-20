@@ -1,5 +1,9 @@
 id: wiki_stoicism
+slug: wiki-stoicism
 title: "Stoicism"
+subtitle: "The philosophy of endurance"
 content_type: expedition
 portal: philosophy
+tags: [stoicism, virtue, epictetus, seneca, marcus_aurelius]
+featured: null
 status: stub

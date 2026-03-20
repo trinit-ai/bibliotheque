@@ -1,9 +1,9 @@
 id: the_hedgehog_and_the_fox
+slug: the-hedgehog-and-the-fox
 title: "The Hedgehog and the Fox"
-author: "Isaiah Berlin"
-year: "1953"
-description: "The fox knows many things; the hedgehog knows one big thing."
+subtitle: "On monist and pluralist worldviews"
 content_type: essay
 portal: philosophy
-meta: "~12,000 words"
+tags: [berlin, tolstoy, history, ideas, pluralism]
+featured: null
 status: stub

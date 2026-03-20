@@ -1,9 +1,9 @@
 id: letter_from_birmingham_jail
+slug: letter-from-birmingham-jail
 title: "Letter from Birmingham Jail"
-author: "Martin Luther King Jr."
-year: "1963"
-description: "The moral case for direct action, written from a cell."
+subtitle: "A defense of nonviolent resistance"
 content_type: essay
 portal: history
-meta: "~7,000 words"
+tags: [mlk, civil_rights, justice, nonviolence, philosophy]
+featured: null
 status: stub

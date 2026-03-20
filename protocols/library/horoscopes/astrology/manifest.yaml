@@ -1,6 +1,9 @@
 id: astrology
+slug: astrology
 title: "Astrology"
+subtitle: "The celestial map of character and time"
 content_type: horoscope
-portal: horoscopes
-meta: "12 signs"
+portal: esoterica
+tags: [astrology, zodiac, planets, horoscope, celestial]
+featured: null
 status: stub

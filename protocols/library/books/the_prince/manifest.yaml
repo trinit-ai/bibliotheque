@@ -1,9 +1,9 @@
 id: the_prince
+slug: the-prince
 title: "The Prince"
-author: "Niccolò Machiavelli"
-year: "1532"
-description: "The most influential — and most misread — work of political theory. A clinical anatomy of power."
+subtitle: "On the acquisition and maintenance of power"
 content_type: living_book
 portal: history
-meta: "26 chapters"
+tags: [machiavelli, power, politics, renaissance, statecraft]
+featured: 6
 status: stub

@@ -1,9 +1,9 @@
 id: a_room_of_ones_own
+slug: a-room-of-ones-own
 title: "A Room of One's Own"
-author: "Virginia Woolf"
-year: "1929"
-description: "On the conditions required for women to write — and by extension, to think."
+subtitle: "On women and fiction"
 content_type: living_book
 portal: literature
-meta: "~38,000 words"
+tags: [woolf, feminism, writing, creativity, women, modernism]
+featured: 4
 status: stub

@@ -1,5 +1,9 @@
 id: wiki_game_theory
+slug: wiki-game-theory
 title: "Game Theory"
+subtitle: "Strategy, decisions, and the mathematics of interaction"
 content_type: expedition
 portal: mathematics
+tags: [game_theory, nash, strategy, economics, decision_theory]
+featured: null
 status: stub
