@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { Search, ArrowLeft, User, Send, ChevronDown, Bookmark, History, Newspaper, Hash, BookMarked, Compass, Share2, Link2, Twitter, Mail } from "lucide-react";
+import { Search, ArrowLeft, User, Send, ChevronDown, Bookmark, History, Newspaper, Hash, BookMarked, Compass, Link2, Twitter, Mail, Menu } from "lucide-react";
 
 const serif = "'Georgia', serif";
 const mono = "'Courier New', monospace";
@@ -331,7 +331,8 @@ export default function BookPage() {
           {/* Article header — compact, sticky */}
           <div className="session-header" style={{ padding: "14px 32px", borderBottom: `0.5px solid ${border2}`, position: "sticky", top: 0, zIndex: 10, background: "#fff" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-              <div style={{ display: "flex", alignItems: "baseline", gap: 10 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
+                <Link href="/" className="show-mobile" style={{ color: ink3, display: "flex", textDecoration: "none", padding: 2 }}><ArrowLeft size={18} strokeWidth={1.5} /></Link>
                 <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif }}>{title}</h1>
                 <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>

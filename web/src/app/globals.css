@@ -684,45 +684,42 @@
    ========================================================================= */
 
 @media (max-width: 767px) {
-  /* Session top bar — compact */
+  /* ── Session: merge two headers into one ──────────────────── */
+  /* Hide the system top bar on mobile — title header is enough */
   .session-topbar {
-    padding: 0 12px !important;
-    height: 42px !important;
-  }
-  .session-topbar .bib-logo span {
-    font-size: 17px !important;
+    display: none !important;
   }
 
-  /* Session header — slim, just title */
+  /* Session header becomes the sole header */
   .session-header {
     padding: 10px 14px !important;
+    position: sticky !important;
+    top: 0 !important;
+    z-index: 20 !important;
   }
   .session-header h1 {
     font-size: 17px !important;
   }
-  /* Hide metadata and share icons on mobile header */
   .session-header-meta {
     display: none !important;
   }
 
-  /* Chat area — full width, tighter padding */
+  /* ── Session: chat area ───────────────────────────────────── */
   .session-chat {
     padding: 16px 14px !important;
-    gap: 20px !important;
+    gap: 18px !important;
   }
   .session-chat > div {
     max-width: 100% !important;
   }
 
-  /* Assistant messages — smaller text */
-  .session-chat .bib-msg-in div[style*="fontSize: 15"] {
-    font-size: 14px !important;
-    line-height: 1.7 !important;
-  }
-
-  /* Input area — edge to edge, less padding */
+  /* ── Session: input sticks to bottom / keyboard ───────────── */
   .session-input {
-    padding: 8px 12px 6px !important;
+    padding: 6px 10px 4px !important;
+    position: sticky !important;
+    bottom: 0 !important;
+    z-index: 20 !important;
+    background: #fff !important;
   }
   .session-input > div {
     max-width: 100% !important;
@@ -733,25 +730,35 @@
     min-height: 40px !important;
   }
 
-  /* Footer — compact */
+  /* ── Session: hide footer entirely on mobile ──────────────── */
   .session-footer {
-    padding: 5px 12px !important;
-  }
-  .session-footer-disclaimer {
     display: none !important;
   }
-  .session-footer-slash {
-    font-size: 9px !important;
-    gap: 6px !important;
-  }
 
-  /* Center column — no side borders on mobile */
+  /* ── Session: no side borders ─────────────────────────────── */
   .session-center {
     border-left: none !important;
     border-right: none !important;
   }
 
-  /* Wiki transition page */
+  /* ── Portal page: stack sidebar below cards ───────────────── */
+  .portal-body {
+    flex-direction: column !important;
+  }
+  .portal-sidebar {
+    width: 100% !important;
+    border-left: none !important;
+    border-top: 0.5px solid #E5E1D8 !important;
+    padding: 20px 14px !important;
+  }
+  .portal-main {
+    padding: 16px 14px !important;
+  }
+  .portal-header {
+    padding: 20px 14px !important;
+  }
+
+  /* ── Wiki transition page ─────────────────────────────────── */
   .wiki-main {
     padding: 20px 16px 32px !important;
   }
@@ -759,23 +766,26 @@
     font-size: 28px !important;
   }
 
-  /* Crossover bridge */
+  /* ── Crossover bridge ─────────────────────────────────────── */
   .crossover-split {
     padding: 0 14px !important;
   }
 
-  /* Portal page */
-  .portal-header {
-    padding: 20px 14px !important;
-  }
-
-  /* Subscribe tier cards */
+  /* ── Subscribe tier cards ─────────────────────────────────── */
   .subscribe-tiers {
     grid-template-columns: 1fr !important;
   }
 
-  /* About page */
+  /* ── About page ───────────────────────────────────────────── */
   .about-content {
     padding: 32px 16px !important;
+  }
+}
+
+/* ── iOS keyboard fix ───────────────────────────────────────────── */
+/* Ensure input stays visible when iOS keyboard opens */
+@supports (-webkit-touch-callout: none) {
+  .session-input {
+    padding-bottom: env(safe-area-inset-bottom, 4px) !important;
   }
 }

@@ -321,10 +321,10 @@ export default function PortalSubjectPage() {
       </div>
 
       {/* Main content */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 60px", display: "flex", gap: 40 }}>
+      <div className="portal-body" style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 24px 60px", display: "flex", gap: 40 }}>
 
         {/* Cards grid */}
-        <div style={{ flex: 1, minWidth: 0 }}>
+        <div className="portal-main" style={{ flex: 1, minWidth: 0 }}>
           <ColLabel>{subjectLabel} &middot; {cards.length} entries</ColLabel>
           <div style={{
             display: "grid",
@@ -344,7 +344,7 @@ export default function PortalSubjectPage() {
         </div>
 
         {/* Sidebar */}
-        <div style={{ width: 240, flexShrink: 0 }}>
+        <div className="portal-sidebar" style={{ width: 240, flexShrink: 0 }}>
 
           {/* Related expeditions */}
           {expeditions.length > 0 && (
