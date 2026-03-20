@@ -106,17 +106,20 @@ function Masthead() {
             The Living Library
           </div>
         </div>
-        <div className="hide-mobile-flex" style={{ width: 200, justifyContent: "flex-end" }}>
+        <div className="hide-mobile-flex" style={{ width: 280, justifyContent: "flex-end", gap: 10, alignItems: "center" }}>
           <div style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
             <input
               type="text"
               placeholder="Search library…"
               value={q}
               onChange={e => setQ(e.target.value)}
-              style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 140 }}
+              style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 120 }}
             />
             <span style={{ color: ink3, fontSize: 14 }}>⌕</span>
           </div>
+          <button style={{ all: "unset", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap" }}>
+            Subscribe
+          </button>
         </div>
       </div>
     </div>
