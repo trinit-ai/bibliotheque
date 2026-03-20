@@ -27,6 +27,7 @@ consistent pack file sets ready for submission.
 | MASTER_REFERENCE.md | master.md templates for each content type |
 | VOICE_GUIDE.md | The Bibliothèque voice register — tone, phrasing, what to avoid |
 | EXECUTION_MODES.md | Surface-specific behavior rules — CLI, web, MCP/claude.ai |
+| TEXT_CHUNKING_GUIDE.md | How to prepare and ingest text for living books — structure types, chunking, indexing |
 
 ### CC automation prompt
 
@@ -45,11 +46,12 @@ consistent pack file sets ready for submission.
 | PACK_PROJECT_INSTRUCTIONS.md | Instructions for running a pack development sandbox |
 | PACK_REFINEMENT_PROTOCOL.md | How to diagnose and fix issues in existing packs |
 
-### Worked example
+### Worked examples
 
 | Directory | Purpose |
 |---|---|
-| example_enlightened_duck/ | Complete pack (5 files) — the OG example. Read all five files to see the format in action |
+| example_enlightened_duck/ | The OG pack (5 files) — a game/experience pack with full session arc, routing rules, deliverable |
+| example_tao_te_ching/ | The first living book (5 files + text/) — shows chunked text, index, cross-references, citation rules |
 
 ---
 
@@ -60,8 +62,9 @@ consistent pack file sets ready for submission.
 1. Read AUTHORING_GUIDE.md → understand the content type
 2. Read MASTER_REFERENCE.md → copy the right template
 3. Read VOICE_GUIDE.md → understand the voice register
-4. Read the enlightened duck example → see a complete pack
-5. Create the five files in `protocols/library/[section]/[pack_id]/`
+4. Read the examples → enlightened duck (game pack), tao te ching (living book)
+5. For living books: read TEXT_CHUNKING_GUIDE.md → prepare and ingest the text
+6. Create the five files in `protocols/library/[section]/[pack_id]/`
 6. Run the authoring checklist from AUTHORING_GUIDE.md
 7. Open a session — does it feel like Bibliothèque?
 

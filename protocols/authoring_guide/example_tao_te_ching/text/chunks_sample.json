@@ -1,0 +1,61 @@
+{
+  "book_id": "tao_te_ching",
+  "chunk_count": 81,
+  "note": "This is a 3-chunk sample. The full file contains all 81 chapters.",
+  "chunks": [
+    {
+      "id": "tao_te_ching_ch001",
+      "label": "Chapter One",
+      "number": 1,
+      "text": "Chapter One\nTao (The Way) that can be spoken of is not the Constant Tao'\nThe name that can be named is not a Constant Name.\nNameless, is the origin of Heaven and Earth;\nThe named is the Mother of all things.\nThus, the constant void enables one to observe the true essence.\nThe constant being enables one to see the outward manifestations.\nThese two come paired from the same origin.\nBut when the essence is manifested,\nIt has a different name.\nThis same origin is called \"The Profound Mystery.\"\nAs profound the mystery as It can be,\nIt is the Gate to the essence of all life.",
+      "keywords": [
+        "constant",
+        "name",
+        "origin",
+        "essence",
+        "named",
+        "enables",
+        "profound",
+        "mystery"
+      ],
+      "themes": [
+        "constant",
+        "name",
+        "origin"
+      ]
+    },
+    {
+      "id": "tao_te_ching_ch002",
+      "label": "Chapter Two",
+      "number": 2,
+      "text": "Chapter Two\nAs soon as beauty is known by the world as beautiful, it becomes ugly.\nAs soon as virtue is being known as something good, it becomes evil.\nTherefore being and non-being give birth to each other.\nDifficult and easy accomplish each other.\nLong and short form each other.\nHigh and low distinguish each other.\nSound and tone harmonize each other\nBefore and after follow each other as a sequence.\nRealizing this, the saint performs effortlessly according to the natural Way without personal\ndesire, and practices the wordless teaching thru one's deeds.\nThe saint inspires the vitality of all lives, without holding back.\nHe nurtures all beings with no wish to take possession of.\nHe devotes all his energy but has no intention to hold on to the merit.\nWhen success is achieved, he seeks no recognition.\nBecause he does not claim for the credit, hence shall not lose it.",
+      "keywords": [
+        "soon",
+        "known",
+        "becomes",
+        "saint"
+      ],
+      "themes": [
+        "soon",
+        "known",
+        "becomes"
+      ]
+    },
+    {
+      "id": "tao_te_ching_ch003",
+      "label": "Chapter Three",
+      "number": 3,
+      "text": "Chapter Three\nBy not adoring the worthy, people will not fall into dispute.\nBy not valuing the hard to get objects, people will not become robbers.\nBy not seeing the desires of lust, one's heart will not be confused.\nTherefore the governing of the saint is to empty one's mind, substantiate one's virtue, weaken\none's worldly ambition and strengthen one's essence.\nHe lets the people to be innocent of worldly knowledge and desire, and keeps the clever ones\nfrom making trouble with their wits.\nActs naturally without desire, then everything will be accomplished in its natural order.",
+      "keywords": [
+        "people",
+        "worldly",
+        "desire"
+      ],
+      "themes": [
+        "people",
+        "worldly",
+        "desire"
+      ]
+    }
+  ]
+}
