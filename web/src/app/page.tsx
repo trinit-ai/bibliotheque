@@ -485,6 +485,11 @@ export default function HomePage() {
         </div>
       </div>
 
+      {/* Section divider */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
+        <div style={{ borderBottom: `0.5px solid ${border_}`, marginTop: 24, marginBottom: 0 }} />
+      </div>
+
       <div className="main-columns">
         <div style={{ paddingRight: 0 }} className="main-col-stories">
           <ColLabel>Top Stories</ColLabel>
