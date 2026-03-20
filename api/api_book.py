@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from catalogue import get_catalogue, ContentType
-from engine_client import get_engine_client
+# engine_client removed — use local engine
 from errors import NotFoundError
 
 router = APIRouter()
@@ -34,7 +34,7 @@ async def query_book(book_id: str, req: BookQueryRequest) -> dict:
     if not entry:
         raise NotFoundError(detail=f"Book '{book_id}' not found")
 
-    engine = get_engine_client()
+    # TODO: wire to embedded engine
     pack_id = entry.pack_id or entry.id
 
     if req.session_id:

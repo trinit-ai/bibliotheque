@@ -2,7 +2,7 @@ from fastapi import APIRouter
 from pydantic import BaseModel
 
 from catalogue import get_catalogue, ContentType
-from engine_client import get_engine_client
+# engine_client removed — use local engine
 from errors import NotFoundError
 
 router = APIRouter()
@@ -47,7 +47,7 @@ async def start_wiki_session(entity: str, req: WikiStartRequest) -> dict:
     if entry and entry.pack_id:
         pack_id = entry.pack_id
 
-    engine = get_engine_client()
+    # TODO: wire to embedded engine
     result = await engine.session_start(
         pack_id=pack_id,
         visitor_name=req.visitor_name,

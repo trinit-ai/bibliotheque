@@ -4,7 +4,7 @@ from fastapi.middleware.cors import CORSMiddleware
 
 from config import ALLOWED_ORIGINS, ENV, PORT, logger
 from db import init_db
-from engine_client import init_engine_client, get_engine_client
+# engine_client removed — engine is embedded locally
 from catalogue import init_catalogue, get_catalogue
 
 # Route modules
@@ -26,7 +26,7 @@ async def lifespan(app: FastAPI):
     init_db()
 
     # Engine client
-    engine = init_engine_client()
+    # engine_client removed — engine is embedded
 
     # Catalogue (static + living books loaded synchronously)
     catalogue = init_catalogue()
@@ -43,7 +43,7 @@ async def lifespan(app: FastAPI):
 
     # --- Shutdown ---
     try:
-        await get_engine_client().close()
+    # engine is embedded locally
     except Exception:
         pass
     logger.info("Bibliothèque API stopped")
