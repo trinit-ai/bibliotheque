@@ -3,6 +3,7 @@
 import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
+import SharedLibCard, { type CardEntry as SharedCardEntry } from "@/components/LibCard";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -241,35 +242,17 @@ function ColLabel({ children }: { children: React.ReactNode }) {
   );
 }
 
-function LibCard({ entry, portalKey }: { entry: CardEntry; portalKey: string }) {
-  const [hov, setHov] = useState(false);
-  const f = FORMAT_COLORS[entry.format] || FORMAT_COLORS.living_book;
-  const p = PORTAL_COLORS[portalKey] || { tint: "#F9FAFB", accent: "#374151" };
-  return (
-    <Link href={`/book/${entry.id}`} style={{ textDecoration: "none", color: "inherit" }}>
-      <div onMouseEnter={() => setHov(true)} onMouseLeave={() => setHov(false)} style={{
-        background: hov ? "#fff" : p.tint,
-        border: `0.5px solid ${hov ? p.accent : "rgba(0,0,0,.08)"}`,
-        borderRadius: 10, overflow: "hidden", cursor: "pointer",
-        display: "flex", flexDirection: "column", transition: "border-color .15s, background .15s",
-        height: "100%",
-      }}>
-        <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-          <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.9)", fontWeight: 500 }}>{f.label}</span>
-          <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>{entry.sessions}</span>
-        </div>
-        <div style={{ padding: "14px 16px 16px", flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
-          <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, lineHeight: 1.15, color: ink, letterSpacing: "-.01em" }}>{entry.title}</div>
-          <div style={{ fontFamily: mono, fontSize: 10, color: p.accent, letterSpacing: ".04em" }}>{entry.author}</div>
-          <div style={{ fontFamily: serif, fontSize: 13, lineHeight: 1.65, color: ink2, marginTop: 4, flex: 1 }}>{entry.desc}</div>
-          <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", paddingTop: 12, marginTop: 4, borderTop: "0.5px solid rgba(0,0,0,.07)" }}>
-            <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>{entry.meta}</span>
-            <span style={{ background: f.tab, color: "#fff", borderRadius: 6, fontFamily: mono, fontSize: 10, padding: "5px 12px", letterSpacing: ".04em" }}>Open session &rarr;</span>
-          </div>
-        </div>
-      </div>
-    </Link>
-  );
+function PortalLibCard({ entry, portalKey }: { entry: { id: string; title: string; author?: string; desc?: string; format: string; meta?: string; sessions?: string }; portalKey: string }) {
+  return <SharedLibCard entry={{
+    id: entry.id,
+    title: entry.title,
+    author: entry.author,
+    desc: entry.desc,
+    format: entry.format,
+    portal: portalKey,
+    meta: entry.meta,
+    sessions: entry.sessions,
+  }} />;
 }
 
 // ── Page ────────────────────────────────────────────────────────────────────
@@ -332,7 +315,7 @@ export default function PortalSubjectPage() {
             gap: 20,
           }}>
             {cards.map(entry => (
-              <LibCard key={entry.id} entry={entry} portalKey={subjectKey} />
+              <PortalLibCard key={entry.id} entry={entry} portalKey={subjectKey} />
             ))}
           </div>
 
