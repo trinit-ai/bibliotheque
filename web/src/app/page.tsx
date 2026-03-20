@@ -419,15 +419,20 @@ const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
   esoterica:   { tint: "#FDF4FF", accent: "#7E22CE" },
   literature:  { tint: "#FFF1F2", accent: "#9F1239" },
   psychology:  { tint: "#ECFEFF", accent: "#155E75" },
+  society:     { tint: "#F0FDF4", accent: "#14532D" },
+  technology:  { tint: "#EFF6FF", accent: "#1E3A8A" },
+  health:      { tint: "#FFF1F2", accent: "#881337" },
 };
 
 const CARD_ENTRIES = [
   { id: "tao_te_ching", title: "Tao Te Ching", author: "Laozi \u00b7 6th century BC", desc: "The foundational text of Taoist philosophy. 81 chapters on the nature of the Tao, virtue, and effortless action.", format: "living_book", portal: "religion", meta: "81 chapters", sessions: "47 this week" },
-  { id: "stoicism", title: "Stoicism", author: "Expedition \u00b7 Zeno to Aurelius", desc: "From Zeno\u2019s stoa to Marcus Aurelius\u2019s journal. Virtue ethics, the dichotomy of control, living according to nature.", format: "expedition", portal: "philosophy", meta: "Full tradition", sessions: "31 this week" },
-  { id: "i_ching", title: "I Ching", author: "Oracle \u00b7 Chinese antiquity", desc: "Cast a hexagram. Receive interpretation from the oldest continuously consulted divinatory text in the world.", format: "oracle", portal: "esoterica", meta: "64 hexagrams", sessions: "12 this week" },
-  { id: "orwell_essay", title: "Politics and the English Language", author: "George Orwell \u00b7 1946", desc: "On the corruption of language by political orthodoxy and the defense of clear prose as a political act.", format: "essay", portal: "literature", meta: "~4,000 words", sessions: "8 this week" },
-  { id: "game_theory", title: "Game Theory", author: "Expedition \u00b7 Nash to Schelling", desc: "The mathematics of strategic interaction. Prisoner\u2019s dilemma, Nash equilibrium, Schelling points.", format: "expedition", portal: "mathematics", meta: "Full field", sessions: "19 this week" },
-  { id: "meditations", title: "Meditations", author: "Marcus Aurelius \u00b7 c. 170\u2013180 AD", desc: "The personal journal of Rome\u2019s philosopher-king. Twelve books of Stoic reflection, never meant to be published.", format: "living_book", portal: "philosophy", meta: "12 books", sessions: "24 this week" },
+  { id: "machines_of_loving_grace", title: "Machines of Loving Grace", author: "John Markoff \u00b7 2015", desc: "A history of AI and robotics told through the people who built it. The tension between augmentation and automation.", format: "living_book", portal: "technology", meta: "Full text", sessions: "31 this week" },
+  { id: "avant_garde_and_kitsch", title: "Avant-Garde and Kitsch", author: "Clement Greenberg \u00b7 1939", desc: "Genuine culture requires difficulty, and kitsch is its enemy. Still the fault line of every culture war.", format: "essay", portal: "society", meta: "~10,000 words", sessions: "12 this week" },
+  { id: "room_of_ones_own", title: "A Room of One\u2019s Own", author: "Virginia Woolf \u00b7 1929", desc: "On the conditions required for women to write \u2014 and by extension, to think. Money and a room of her own.", format: "living_book", portal: "literature", meta: "~38,000 words", sessions: "18 this week" },
+  { id: "relativity_einstein", title: "Relativity", author: "Albert Einstein \u00b7 1916", desc: "Einstein\u2019s own popular exposition of special and general relativity, written for the non-specialist.", format: "living_book", portal: "science", meta: "Full text", sessions: "24 this week" },
+  { id: "the_prince", title: "The Prince", author: "Niccol\u00f2 Machiavelli \u00b7 1532", desc: "The most influential \u2014 and most misread \u2014 work of political theory. A clinical anatomy of power.", format: "living_book", portal: "history", meta: "26 chapters", sessions: "19 this week" },
+  { id: "genealogy_of_morality", title: "On the Genealogy of Morality", author: "Friedrich Nietzsche \u00b7 1887", desc: "Where do our moral values come from? Resentment, guilt, and the will to power \u2014 the most unsettling challenge to conventional ethics.", format: "living_book", portal: "philosophy", meta: "3 essays", sessions: "15 this week" },
+  { id: "ecclesiastes", title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013200 BC", desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.", format: "living_book", portal: "religion", meta: "12 chapters", sessions: "22 this week" },
 ];
 
 function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
