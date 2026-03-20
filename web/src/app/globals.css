@@ -578,6 +578,65 @@
   padding-bottom: calc(16px + env(safe-area-inset-bottom, 0px));
 }
 
+/* Portal grid */
+.portal-grid {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+@media (min-width: 480px) {
+  .portal-grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Portal page: two-column layout */
+.portal-layout {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px 16px;
+}
+
+@media (min-width: 768px) {
+  .portal-layout {
+    flex-direction: row;
+    gap: 0;
+    padding: 28px 24px;
+  }
+}
+
+.portal-main {
+  flex: 1;
+  min-width: 0;
+}
+
+@media (min-width: 768px) {
+  .portal-main {
+    padding-right: 28px;
+    border-right: 0.5px solid #e5e7eb;
+  }
+}
+
+.portal-sidebar {
+  flex-shrink: 0;
+}
+
+@media (min-width: 768px) {
+  .portal-sidebar {
+    width: 260px;
+    padding-left: 28px;
+  }
+}
+
+/* Portal page: entry cards */
+.portal-entry-card {
+  position: relative;
+  z-index: 1;
+  background: #fff;
+}
+
 /* Responsive typography */
 @media (max-width: 767px) {
   h1 {

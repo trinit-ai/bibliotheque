@@ -8,9 +8,9 @@ export default function PortalGrid() {
 
   return (
     <div
+      className="portal-grid"
       style={{
         display: "grid",
-        gridTemplateColumns: "1fr 1fr 1fr 1fr",
         gap: 10,
       }}
     >
