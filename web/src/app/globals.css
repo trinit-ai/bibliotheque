@@ -69,14 +69,6 @@
     font-family: var(--font-mono);
   }
 
-  /* Cursor on interactive elements */
-  a, button, [role="button"], summary,
-  input[type="submit"], input[type="button"],
-  .bib-card, .bib-slash, .bib-badge, .bib-send-btn,
-  .bib-logo {
-    cursor: pointer;
-  }
-
   /* Focus styles */
   :focus-visible {
     outline: 2px solid var(--color-accent);
@@ -88,6 +80,23 @@
     background-color: var(--color-accent);
     color: #ffffff;
   }
+}
+
+/* =========================================================================
+   Global cursor fix — outside @layer so it wins specificity
+   ========================================================================= */
+
+a[href],
+button:not(:disabled),
+[role="button"],
+.bib-card,
+.bib-slash,
+.bib-badge,
+.bib-send-btn:not([data-loading="true"]),
+.bib-logo,
+.book-sidebar-left div[style*="cursor"],
+.book-sidebar-right a {
+  cursor: pointer !important;
 }
 
 /* =========================================================================
