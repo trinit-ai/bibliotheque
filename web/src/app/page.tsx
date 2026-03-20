@@ -112,7 +112,7 @@ function Masthead() {
           </Link>
         </div>
         <div className="hide-mobile-flex" style={{ width: 280, justifyContent: "flex-end", gap: 10, alignItems: "center" }}>
-          <Link href="/subscribe" style={{ all: "unset", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap" }}>
+          <Link href="/subscribe" style={{ textDecoration: "none", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap", display: "inline-block" }}>
             Subscribe
           </Link>
           <form onSubmit={e => { e.preventDefault(); if (q.trim()) router.push(`/search?q=${encodeURIComponent(q)}`); }} style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
@@ -123,7 +123,7 @@ function Masthead() {
               onChange={e => setQ(e.target.value)}
               style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 120 }}
             />
-            <button type="submit" style={{ all: "unset", cursor: "pointer", color: ink3, fontSize: 14 }}>⌕</button>
+            <button type="submit" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, fontSize: 14 }}>⌕</button>
           </form>
         </div>
       </div>

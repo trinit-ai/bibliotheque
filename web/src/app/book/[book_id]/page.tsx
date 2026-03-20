@@ -340,9 +340,9 @@ export default function BookPage() {
                 <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: "#EFF6FF", borderRadius: 3 }}>Living Book</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
-                <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
-                <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title + " — Bibliothèque")}`, "_blank")} title="Share on X" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Twitter size={13} strokeWidth={1.5} /></button>
-                <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(title + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Share via email" style={{ all: "unset", cursor: "pointer", color: ink3, display: "flex", padding: 2 }} className="bib-slash"><Mail size={13} strokeWidth={1.5} /></button>
+                <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
+                <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(title + " — Bibliothèque")}`, "_blank")} title="Share on X" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Twitter size={13} strokeWidth={1.5} /></button>
+                <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(title + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Share via email" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Mail size={13} strokeWidth={1.5} /></button>
               </div>
             </div>
           </div>
@@ -361,7 +361,7 @@ export default function BookPage() {
                   </div>
                   <div style={{ marginTop: 10, display: "flex", alignItems: "center", gap: 8 }}>
                     <div className="bib-badge" style={{ width: 26, height: 26, borderRadius: "50%", background: blue, display: "flex", alignItems: "center", justifyContent: "center", fontSize: 11, color: "#fff", fontFamily: serif, fontStyle: "italic", cursor: "default" }}>è</div>
-                    <button onClick={() => navigator.clipboard?.writeText(m.content)} title="Copy response" style={{ all: "unset", cursor: "pointer", color: border_, display: "flex", padding: 2 }} className="bib-slash"><Link2 size={12} strokeWidth={1.5} /></button>
+                    <button onClick={() => navigator.clipboard?.writeText(m.content)} title="Copy response" style={{ background: "none", border: "none", cursor: "pointer", color: border_, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={12} strokeWidth={1.5} /></button>
                   </div>
                 </div>
               ) : (
@@ -378,7 +378,7 @@ export default function BookPage() {
                         <span>{m.content.slice(0, 200)}…</span>
                         <button
                           onClick={() => setExpandedMsgs(p => ({ ...p, [i]: true }))}
-                          style={{ all: "unset", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
+                          style={{ background: "none", border: "none", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
                         >
                           Show more ↓
                         </button>
@@ -389,7 +389,7 @@ export default function BookPage() {
                         {isLongUser && (
                           <button
                             onClick={() => setExpandedMsgs(p => ({ ...p, [i]: false }))}
-                            style={{ all: "unset", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
+                            style={{ background: "none", border: "none", cursor: "pointer", display: "block", marginTop: 6, fontFamily: mono, fontSize: 11, color: "rgba(255,255,255,.6)", letterSpacing: ".03em" }}
                           >
                             Show less ↑
                           </button>
