@@ -106,7 +106,7 @@ function Masthead() {
             <div className="logo-text" style={{ fontFamily: serif, fontStyle: "italic", fontWeight: 400, letterSpacing: "-.025em", lineHeight: 1, color: ink }}>
               Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
             </div>
-            <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5 }}>
+            <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".22em", textTransform: "uppercase", color: ink3, marginTop: 5, opacity: 0.7 }}>
               The Living Library
             </div>
           </Link>
@@ -538,7 +538,7 @@ export default function HomePage() {
       <LibNav active={libTab} onSelect={setLibTab} />
 
       {/* Card grid — From the Library */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 16px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "34px 16px 0" }}>
         <ColLabel>From the Library</ColLabel>
         <div className="card-grid">
           {CARD_ENTRIES.map(e => <LibCard key={e.id} entry={e} />)}
@@ -547,6 +547,13 @@ export default function HomePage() {
 
       {/* Daily passage — full-width bg, content aligned to grid */}
       <ThreadBand />
+
+      {/* Ornamental break */}
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
+        <div className="bib-ornament" style={{ padding: "20px 0" }}>
+          <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, color: border_, userSelect: "none" }}>·</span>
+        </div>
+      </div>
 
       <div className="main-columns">
         <div style={{ paddingRight: 0 }} className="main-col-stories">
@@ -617,12 +624,17 @@ export default function HomePage() {
               ))}
             </div>
           </div>
-          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16, display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-            <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
-              Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
-            </Link>
-            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-              © 2026 TMOS13, LLC.
+          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16 }}>
+            <div style={{ textAlign: "center", marginBottom: 12 }}>
+              <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
+            </div>
+            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
+              <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
+                Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
+              </Link>
+              <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
+                © 2026 TMOS13, LLC.
+              </div>
             </div>
           </div>
         </div>
