@@ -2,7 +2,7 @@
   "rewrites": [
     {
       "source": "/api/:path*",
-      "destination": "https://bibliotheque-api.up.railway.app/api/:path*"
+      "destination": "https://bibliotheque-web-production.up.railway.app/api/:path*"
     }
   ]
 }
