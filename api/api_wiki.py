@@ -3,7 +3,7 @@ from pydantic import BaseModel
 
 from catalogue import get_catalogue, ContentType
 # engine_client removed — use local engine
-from errors import NotFoundError
+from http_errors import NotFoundError
 
 router = APIRouter()
 

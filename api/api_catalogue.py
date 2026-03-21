@@ -1,6 +1,6 @@
 from fastapi import APIRouter
 from catalogue import get_catalogue, CatalogueEntry
-from errors import NotFoundError
+from http_errors import NotFoundError
 
 router = APIRouter()
 

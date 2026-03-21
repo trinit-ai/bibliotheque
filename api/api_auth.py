@@ -4,7 +4,7 @@ from typing import Optional
 
 from config import REGISTRATION_OPEN
 from db import get_db
-from errors import AuthError, ValidationError
+from http_errors import AuthError, ValidationError
 
 router = APIRouter()
 
