@@ -49,6 +49,9 @@ REGISTRATION_OPEN = os.getenv("REGISTRATION_OPEN", "true").lower() == "true"
 MODEL = TMOS13_MODEL
 DEBUG = os.getenv("DEBUG", "false").lower() == "true"
 TMOS13_MANIFEST_ENABLED = os.getenv("TMOS13_MANIFEST_ENABLED", "false").lower() == "true"
+TIMEKEEPER_ENABLED = os.getenv("TIMEKEEPER_ENABLED", "false").lower() == "true"
+RELEVANCE_SCORING_ENABLED = os.getenv("RELEVANCE_SCORING_ENABLED", "false").lower() == "true"
+RELEVANCE_BOOST_FACTOR = float(os.getenv("RELEVANCE_BOOST_FACTOR", "1.0"))
 WEB_SEARCH_ENABLED = os.getenv("WEB_SEARCH_ENABLED", "false").lower() == "true"
 WEB_SEARCH_MAX_RESULTS = int(os.getenv("WEB_SEARCH_MAX_RESULTS", "5"))
 
