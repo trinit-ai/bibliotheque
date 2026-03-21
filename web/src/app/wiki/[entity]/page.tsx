@@ -440,8 +440,13 @@ const DEFAULT_ENTITY: EntityData = {
   demoResponse: "",
 };
 
+const ENTITY_ALIASES: Record<string, string> = {
+  "the_prince": "prince_x_epstein",
+};
+
 function getEntityData(slug: string): EntityData {
-  const data = ENTITY_MAP[slug];
+  const resolved = ENTITY_ALIASES[slug] || slug;
+  const data = ENTITY_MAP[resolved];
   if (data) return data;
 
   const name = toTitle(slug);

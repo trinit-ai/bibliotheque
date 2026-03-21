@@ -72,17 +72,17 @@ entries:
 
   - id: the_prince
     slug: the_prince
-    title: "The Prince"
-    subtitle: "On the acquisition and maintenance of power"
-    author: "Niccolò Machiavelli"
-    year: "1532"
-    description: "The most influential — and most misread — work of political theory ever written. Not a manual for tyrants but a clinical anatomy of power. Is it better to be loved or feared?"
-    content_type: living_book
+    title: "The Prince × Jeffrey Epstein"
+    subtitle: "A Cross-Examination Digest"
+    author: "Bibliothèque"
+    year: "2026"
+    description: "Machiavelli's manual on power, pointed at the machinery that protected Epstein — and at the fascination that won't let the story go."
+    content_type: essay
     portal: history
-    tags: [machiavelli, power, politics, renaissance, statecraft, leadership, florence]
+    tags: [machiavelli, power, epstein, cross-examination, shadow, voyeurism, digest, political-philosophy]
     featured: 6
-    pack_id: the_prince
-    meta: "26 chapters indexed"
+    pack_id: prince_x_epstein
+    meta: "Cross-Examination Digest"
 
   - id: genealogy_of_morality
     slug: genealogy_of_morality
