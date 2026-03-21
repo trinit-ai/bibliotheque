@@ -254,6 +254,38 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "Richard Feynman said: \"If you think you understand quantum mechanics, you don't understand quantum mechanics.\"\n\nHere is the essence of the mystery. Fire photons one at a time through two narrow slits onto a detector screen. Each photon lands at a definite point — a single dot on the screen. But after thousands of photons, the dots form an interference pattern: bright and dark bands, as though each photon passed through both slits simultaneously and interfered with itself.\n\nNow put a detector at one slit to observe which slit the photon passes through. The interference pattern vanishes. The photon behaves as a particle, passing through one slit or the other.\n\nThe act of observation changes the outcome. Not because of physical disturbance — we can make the measurement arbitrarily gentle. Something deeper is happening.\n\nAfter a century of debate, physicists are divided. The Copenhagen interpretation says the wave function collapses upon measurement. Many-Worlds says every measurement splits the universe. Pilot wave theory says particles have definite trajectories guided by a wave.\n\nEach interpretation is consistent with the math. None is fully satisfying. Where shall we begin?",
   },
+  avant_garde_and_kitsch: {
+    contentType: "essay",
+    author: "Clement Greenberg",
+    year: "Fall 1939",
+    wordCount: "~6,500",
+    sections: 4,
+    furtherReading: [
+      { label: "Avant-Garde and Kitsch \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Avant-Garde_and_Kitsch" },
+      { label: "Clement Greenberg \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Clement_Greenberg" },
+      { label: "Clement Greenberg \u2014 Britannica", url: "https://www.britannica.com/biography/Clement-Greenberg" },
+      { label: "The Art Story: Clement Greenberg", url: "https://www.theartstory.org/critic/greenberg-clement/" },
+    ],
+    intro: "In the fall of 1939, a twenty-nine-year-old critic named Clement Greenberg published an essay in Partisan Review that would become one of the most influential pieces of cultural criticism ever written. \u201CAvant-Garde and Kitsch\u201D asks a deceptively simple question: how can the same civilization produce both a poem by T.S. Eliot and a Tin Pan Alley song? Greenberg\u2019s answer is that the avant-garde and kitsch are not merely different levels of taste \u2014 they are different political formations. Kitsch flatters its audience. Genuine art demands something of them. And totalitarian regimes adopt kitsch as official culture precisely because it keeps people passive. The essay drew a line that criticism has been arguing about ever since \u2014 and that line runs through Biblioth\u00e8que\u2019s own approach to what culture should feel like.",
+    territories: [
+      { name: "The Crisis and the Avant-Garde", desc: "How the same civilization produces Eliot and Tin Pan Alley. The avant-garde as a response to the collapse of shared cultural assumptions. Art for art\u2019s sake as refuge and prison." },
+      { name: "Kitsch", desc: "Ersatz culture for an industrial age. Magazine covers, Hollywood, pulp fiction \u2014 what happens when peasants move to cities and need something to consume. Mechanical where art is alive." },
+      { name: "The Repin Test", desc: "The essay\u2019s rhetorical centerpiece. A Russian peasant stands before a Picasso and a Repin. Picasso paints cause; Repin paints effect. The shortcut to the pleasure of art." },
+      { name: "The Political Thesis", desc: "Kitsch is not politically neutral. Totalitarian regimes adopt it because it flatters the masses while keeping them passive. Genuine culture requires genuine social conditions." },
+      { name: "The Line", desc: "Does the distinction hold? Greenberg\u2019s binary leaves no room for folk art, jazz, or non-Western traditions. But his insistence that aesthetic questions are political questions has only gotten more relevant." },
+    ],
+    related: [
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "Simplicity vs. ornament \u2014 the uncarved block." },
+      { title: "Machines of Loving Grace", type: "book", id: "machines_of_loving_grace", meta: "Dario Amodei \u00b7 2024", desc: "Technology reshaping culture." },
+      { title: "The Prince", type: "book", id: "the_prince", meta: "Machiavelli \u00b7 1532", desc: "Power and the uses of culture." },
+    ],
+    books: [
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "Machines of Loving Grace", author: "Dario Amodei", id: "machines_of_loving_grace" },
+      { title: "The Prince", author: "Machiavelli", id: "the_prince" },
+    ],
+    demoResponse: "One and the same civilization produces a poem by T.S. Eliot and a Tin Pan Alley song. That\u2019s Greenberg\u2019s opening move \u2014 not which one is better, but how both exist in the same world, made by the same culture, for the same species.\n\nHis answer: the difference between genuine art and kitsch isn\u2019t taste. It\u2019s politics. Kitsch flatters. Art demands. And the machinery of mass culture doesn\u2019t just reflect what people want \u2014 it shapes what they\u2019re able to want.\n\nHe was 30 when he wrote this. Fascism was rising. Consumer culture was industrializing. He drew a line and dared you to say which side you\u2019re on.\n\nWhat brought you here?",
+  },
   getting_started: {
     contentType: "expedition",
     author: "Biblioth\u00e8que",

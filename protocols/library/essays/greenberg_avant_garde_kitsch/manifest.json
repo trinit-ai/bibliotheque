@@ -1,0 +1,26 @@
+{
+  "id": "greenberg_avant_garde_kitsch",
+  "name": "Avant-Garde and Kitsch — Editorial Session",
+  "content_type": "editorial",
+  "category": "art_criticism",
+  "status": "active",
+  "version": "1.0",
+  "deliverable_type": "editorial_session_record",
+  "session_intelligence": true,
+  "features": {
+    "rag": true,
+    "citation_required": true,
+    "visitor_reflection": true
+  },
+  "state": {
+    "capture": [
+      "entry_query",
+      "sections_visited",
+      "mode_requested",
+      "key_claims_engaged",
+      "visitor_position",
+      "closing_takeaway",
+      "session_arc"
+    ]
+  }
+}

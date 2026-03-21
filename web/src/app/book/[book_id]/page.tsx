@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  avant_garde_and_kitsch: {
+    title: "Avant-Garde and Kitsch", author: "Clement Greenberg \u00b7 Partisan Review \u00b7 1939", tradition: "Art Criticism \u00b7 Modernism", chapters: "Essay \u00b7 ~6,500 words", portal: "Society",
+    desc: "The essay that drew the line between genuine culture and its imitation \u2014 and argued the line is political.",
+    related: [
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Simplicity vs. ornament \u2014 the uncarved block.", href: "/book/tao_te_ching" },
+      { title: "Machines of Loving Grace", type: "ESSAY", typeColor: "#B45309", meta: "Dario Amodei \u00b7 2024", desc: "Technology reshaping culture.", href: "/book/machines_of_loving_grace" },
+      { title: "The Prince", type: "LIVING BOOK", typeColor: blue, meta: "Machiavelli \u00b7 26 chapters", desc: "Power and the uses of culture.", href: "/book/the_prince" },
+    ],
+    greeting: "One and the same civilization produces a poem by T.S. Eliot and a Tin Pan Alley song. That\u2019s Greenberg\u2019s opening move \u2014 not which one is better, but how both exist in the same world, made by the same culture, for the same species.\n\nHis answer: the difference between genuine art and kitsch isn\u2019t taste. It\u2019s politics. Kitsch flatters. Art demands. And the machinery of mass culture doesn\u2019t just reflect what people want \u2014 it shapes what they\u2019re able to want.\n\nHe was 30 when he wrote this. Fascism was rising. Consumer culture was industrializing. He drew a line and dared you to say which side you\u2019re on.\n\nSome ways in:\n\n\u2022 \"Map the argument\" \u2014 how does he get from Eliot and Tin Pan Alley to fascism in twelve pages?\n\u2022 \"The Repin test\" \u2014 a peasant, a Picasso, and a Repin. Which is art?\n\u2022 \"What is kitsch?\" \u2014 the definition, and whether it still holds\n\u2022 \"Is the scroll kitsch?\" \u2014 a 1939 essay that accidentally describes TikTok\n\u2022 \"The political claim\" \u2014 why kitsch serves totalitarianism\n\nOr ask anything. The full text is here.",
+  },
   getting_started: {
     title: "Getting Started", author: "Welcome to Biblioth\u00e8que", tradition: "Platform", chapters: "Expedition", portal: "Platform",
     desc: "What this place is, how it works, and why the book reads you back.",
@@ -488,7 +498,22 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "getting_started" ? (
+          {bookId === "avant_garde_and_kitsch" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/Avant-Garde_and_Kitsch" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Avant-Garde and Kitsch — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Clement_Greenberg" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Clement Greenberg — Wikipedia
+              </a>
+              <a href="https://www.britannica.com/biography/Clement-Greenberg" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Clement Greenberg — Britannica
+              </a>
+              <a href="https://www.theartstory.org/critic/greenberg-clement/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />The Art Story — Analysis
+              </a>
+            </>
+          ) : bookId === "getting_started" ? (
             <>
               <a href="https://bibliotheque.ai" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Biblioth&egrave;que

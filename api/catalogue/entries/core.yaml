@@ -31,16 +31,16 @@ entries:
   - id: avant_garde_and_kitsch
     slug: avant_garde_and_kitsch
     title: "Avant-Garde and Kitsch"
-    subtitle: "The most consequential essay in 20th century art criticism"
+    subtitle: "The essay that drew the line between genuine culture and its imitation"
     author: "Clement Greenberg"
     year: "1939"
-    description: "Greenberg's argument that genuine culture requires difficulty, and that kitsch — the cultural product of industrialism — is its enemy. Written in 1939, still the fault line of every culture war."
+    description: "The essay that drew the line between genuine culture and its imitation — and argued the line is political."
     content_type: essay
     portal: society
-    tags: [art_criticism, modernism, kitsch, culture, aesthetics, greenberg]
+    tags: [art-criticism, modernism, kitsch, avant-garde, formalism, culture, politics, aesthetics, marxism, greenberg]
     featured: 3
-    pack_id: avant_garde_and_kitsch
-    meta: "~10,000 words"
+    pack_id: greenberg_avant_garde_kitsch
+    meta: "~6,500 words"
 
   - id: room_of_ones_own
     slug: room_of_ones_own

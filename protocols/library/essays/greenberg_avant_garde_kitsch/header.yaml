@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Editorial Pack
+# Avant-Garde and Kitsch by Clement Greenberg
+# ─────────────────────────────────────────────────────────────
+
+id: greenberg_avant_garde_kitsch
+name: "Avant-Garde and Kitsch — Editorial Session"
+category: art_criticism
+wing: library
+section: essays
+content_type: editorial
+
+status: active
+
+# Display fields — shown in catalogue
+title: "Avant-Garde and Kitsch"
+description: "The essay that drew the line between genuine culture and its imitation — and argued the line is political."
+author: "Clement Greenberg"
+year: 1939
+license: public_domain
+publication: "Partisan Review"
+
+# Session config
+deliverable: editorial_session_record
+estimated_turns: "4-12"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "avant-garde and kitsch"
+  - "clement greenberg"
+  - "greenberg essay"
+  - "kitsch"
+  - "avant-garde"
+  - "greenberg on kitsch"
+
+# What this pack explicitly does not do
+excludes:
+  - "art investment advice"
+  - "definitive rankings of artists or movements"
+  - "art market analysis"
+
+# Catalogue fields
+tags: [art-criticism, modernism, kitsch, avant-garde, formalism, culture, politics, aesthetics, marxism, abstract-expressionism]
+related: [wiki_consciousness, amodei_machines_loving_grace]
+featured: true
+featured_order: 3

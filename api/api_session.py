@@ -222,6 +222,7 @@ async def get_session(session_id: str) -> dict:
 
 _LIBRARY_ALIASES: dict[str, str] = {
     "machines_of_loving_grace": "amodei_machines_loving_grace",
+    "avant_garde_and_kitsch": "greenberg_avant_garde_kitsch",
 }
 
 
