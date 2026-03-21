@@ -111,7 +111,7 @@ export default function BookPage() {
       fetch(`${apiBase}/api/session/start`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pack_id: bookId, content_type: "living_book" }),
+        body: JSON.stringify({ pack_id: bookId, content_type: data.chapters?.startsWith("Essay") ? "editorial" : data.chapters === "Expedition" ? "expedition" : "living_book" }),
       })
         .then(r => r.json())
         .then(d => {
@@ -226,7 +226,7 @@ export default function BookPage() {
   const related = data.related || DEFAULT_DATA.related;
 
   return (
-    <div style={{ fontFamily: serif, minHeight: "100vh", display: "flex", flexDirection: "column", background: cream }}>
+    <div style={{ fontFamily: serif, height: "100vh", display: "flex", flexDirection: "column", background: cream, overflow: "hidden" }}>
       {/* Top bar */}
       <div className="session-topbar" style={{ borderBottom: `0.5px solid ${border_}`, padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 48 }}>

@@ -218,12 +218,60 @@ async def get_session(session_id: str) -> dict:
 
 # ── Helpers ───────────────────────────────────────────────────────────────
 
+_LIBRARY_ALIASES: dict[str, str] = {
+    "machines_of_loving_grace": "amodei_machines_loving_grace",
+}
+
+
 def _load_pack(pack_id: str):
-    """Try to load a pack, with fallbacks."""
+    """Try to load a pack, with fallbacks.
+
+    Searches: protocols/packs/ first, then protocols/library/ subdirectories.
+    """
+    from pathlib import Path
+
+    # 1. Try loading from protocols/packs/ (engine packs)
     try:
         from engine.pack_loader import PackLoader
         return PackLoader(pack_id)
     except Exception:
-        # Pack not found — try loading as a simple living book
-        logger.info(f"Pack '{pack_id}' not found as full pack, using minimal assembler")
-        return None
+        pass
+
+    # 2. Try loading from protocols/library/ subdirectories
+    library_base = Path(__file__).parent.parent / "protocols" / "library"
+    dir_name = _LIBRARY_ALIASES.get(pack_id, pack_id)
+    if library_base.exists():
+        for subdir in library_base.iterdir():
+            if not subdir.is_dir():
+                continue
+            pack_dir = subdir / dir_name
+            if pack_dir.exists() and (pack_dir / "master.md").exists():
+                logger.info(f"Pack '{pack_id}' found in library at {pack_dir}")
+                try:
+                    from engine.assembler import Assembler
+                    assembler = Assembler(protocol_dir=pack_dir)
+                    # Return a minimal pack-like object so the assembler can work
+                    return _LibraryPack(pack_id, pack_dir)
+                except Exception as exc:
+                    logger.warning(f"Failed to load library pack {pack_id}: {exc}")
+
+    logger.info(f"Pack '{pack_id}' not found, using minimal assembler")
+    return None
+
+
+class _LibraryPack:
+    """Minimal pack wrapper for library protocol directories."""
+
+    def __init__(self, pack_id: str, protocol_dir):
+        from pathlib import Path
+        self.pack_id = pack_id
+        self.protocol_dir = Path(protocol_dir)
+        self.name = pack_id.replace("_", " ").title()
+        self.version = "1.0"
+        self.cartridges = {}
+        self.system_screens = {}
+        self.settings = {}
+        self.features = {}
+        self.commands = {}
+        self.personality = {}
+        self.nav = {}
