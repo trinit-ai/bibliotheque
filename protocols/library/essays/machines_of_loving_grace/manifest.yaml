@@ -1,5 +1,5 @@
-id: machines_of_loving_grace
-slug: machines-of-loving-grace
+id: machines_of_loving_grace_essay_stub
+slug: machines-of-loving-grace-essay-stub
 title: "Machines of Loving Grace"
 subtitle: "How AI could transform the world for the better"
 author: "Dario Amodei"
@@ -7,7 +7,6 @@ year: "2024"
 content_type: essay
 portal: technology
 tags: [ai, anthropic, amodei, future, medicine, biology, economy, alignment]
-featured: 2
 source_url: "https://darioamodei.com/machines-of-loving-grace"
-note: "Freely available online. Full text can be indexed directly."
-status: stub
+note: "Full pack deployed to protocols/library/technology/amodei_machines_loving_grace/"
+status: superseded

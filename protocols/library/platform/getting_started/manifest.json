@@ -1,0 +1,31 @@
+{
+  "id": "getting_started",
+  "name": "Getting Started — Welcome to Bibliothèque",
+  "version": "1.0.0",
+  "content_type": "expedition",
+  "category": "platform",
+  "visibility": "public",
+  "deliverable_type": "expedition_record",
+
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "visitor_interest": null,
+      "topics_covered": [],
+      "session_offered": null,
+      "closing_takeaway": null,
+      "session_arc": null
+    }
+  },
+
+  "features": {
+    "rag": false,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": false
+  },
+
+  "vault": {
+    "write": "session_summary"
+  }
+}

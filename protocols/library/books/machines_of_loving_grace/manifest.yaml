@@ -1,4 +1,4 @@
-id: machines_of_loving_grace
+id: machines_of_loving_grace_markoff
 title: "Machines of Loving Grace"
 author: "John Markoff"
 year: "2015"
@@ -7,3 +7,4 @@ content_type: living_book
 portal: technology
 meta: "Full text"
 status: stub
+note: "The featured catalogue entry now points to Dario Amodei's 2024 essay."

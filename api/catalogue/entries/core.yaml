@@ -5,11 +5,11 @@ entries:
     title: "Tao Te Ching"
     subtitle: "The Book of the Way"
     author: "Laozi"
-    year: "6th century BC"
-    description: "The foundational text of Taoist philosophy. 81 chapters on the nature of the Tao, virtue, and effortless action."
+    year: "c. 6th century BC"
+    description: "81 chapters on the nature of the Tao — the text that begins by undermining itself."
     content_type: living_book
     portal: religion
-    tags: [taoism, lao_tzu, chinese_philosophy, wu_wei, virtue, the_way]
+    tags: [taoism, lao_tzu, chinese_philosophy, wu_wei, virtue, the_way, water, sage, effortless-action, paradox, emptiness]
     featured: 1
     pack_id: tao_te_ching_mou
     meta: "81 chapters indexed"
@@ -17,16 +17,16 @@ entries:
   - id: machines_of_loving_grace
     slug: machines_of_loving_grace
     title: "Machines of Loving Grace"
-    subtitle: "The quest for common ground between humans and robots"
-    author: "John Markoff"
-    year: "2015"
-    description: "A history of AI and robotics told through the people who built it. The tension between augmentation and automation — tools that serve humans versus machines that replace them."
-    content_type: living_book
+    subtitle: "How AI Could Transform the World for the Better"
+    author: "Dario Amodei"
+    year: "2024"
+    description: "The case for radical AI optimism — across biology, neuroscience, economics, governance, and meaning — from the CEO of Anthropic."
+    content_type: essay
     portal: technology
-    tags: [ai, robotics, automation, augmentation, silicon_valley, history_of_technology]
+    tags: [ai, optimism, risk, biology, neuroscience, economics, governance, meaning, anthropic, future, powerful-ai, technology-ethics]
     featured: 2
-    pack_id: machines_of_loving_grace
-    meta: "Full text indexed"
+    pack_id: amodei_machines_loving_grace
+    meta: "~15,000 words"
 
   - id: avant_garde_and_kitsch
     slug: avant_garde_and_kitsch

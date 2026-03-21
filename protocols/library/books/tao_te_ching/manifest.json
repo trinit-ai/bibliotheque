@@ -1,9 +1,38 @@
 {
-  "pack_id": "book_tao_te_ching",
-  "type": "living_book",
-  "title": "Tao Te Ching",
-  "author": "Lao Tzu",
-  "book_id": "tao_te_ching",
-  "structure_type": "chapters",
-  "license": "public_domain"
+  "id": "tao_te_ching_mou",
+  "name": "Tao Te Ching — Living Book Session",
+  "version": "1.0.0",
+  "content_type": "living_book",
+  "category": "sacred_texts",
+  "visibility": "public",
+  "deliverable_type": "book_session_record",
+
+  "text": {
+    "source": "protocols/library/books/tao_te_ching/text/chunks.json",
+    "index": "protocols/library/books/tao_te_ching/text/index.yaml",
+    "structure": "chapters",
+    "unit_count": 81
+  },
+
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "chapters_visited": [],
+      "themes_explored": [],
+      "visitor_question": null,
+      "closing_takeaway": null,
+      "session_arc": null
+    }
+  },
+
+  "features": {
+    "rag": true,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": true
+  },
+
+  "vault": {
+    "write": "session_summary"
+  }
 }

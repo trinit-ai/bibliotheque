@@ -1,0 +1,43 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Getting Started Pack
+# Welcome to Bibliothèque
+# ─────────────────────────────────────────────────────────────
+
+id: getting_started
+name: "Getting Started — Welcome to Bibliothèque"
+category: platform
+wing: library
+section: platform
+content_type: expedition
+
+status: active
+
+# Display fields
+title: "Getting Started"
+description: "What this place is, how it works, and why the book reads you back."
+entity_type: platform
+
+# Session config
+deliverable: expedition_record
+estimated_turns: "3-8"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery
+triggers:
+  - "getting started"
+  - "what is this"
+  - "how does this work"
+  - "welcome"
+  - "about bibliotheque"
+  - "new here"
+  - "help"
+
+excludes:
+  - "technical documentation or API details"
+  - "pricing or account management"
+
+tags: [welcome, onboarding, about, mission, how-it-works, new-visitor, platform, guide]
+related: [tao_te_ching, enlightened_duck, wiki_stoicism]
+featured: false

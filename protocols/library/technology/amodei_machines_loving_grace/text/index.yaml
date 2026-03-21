@@ -1,0 +1,107 @@
+title: Machines of Loving Grace
+subtitle: How AI Could Transform the World for the Better
+author: Dario Amodei
+published: October 2024
+source: darioamodei.com
+license: freely_available
+structure: sections
+unit_count: 8
+sections:
+- id: preamble
+  title: Preamble — Why Discuss the Upside?
+  order: 1
+  char_count: 5543
+  key_topics:
+  - leverage
+  - propaganda-avoidance
+  - grandiosity
+  - sci-fi-baggage
+  - hope-vs-fear
+  - anthropic
+- id: framework
+  title: Basic Assumptions and Framework
+  order: 2
+  char_count: 9647
+  key_topics:
+  - powerful-AI
+  - compressed-timeline
+  - 5-10-years
+  - marginal-returns
+  - country-analogy
+  - AI-scientist
+- id: biology
+  title: 1. Biology and Health
+  order: 3
+  char_count: 19682
+  key_topics:
+  - drug-discovery
+  - clinical-trials
+  - CRISPR
+  - gene-therapy
+  - cancer
+  - infectious-disease
+  - lifespan
+  - 100-year-compression
+  - prevention
+- id: neuroscience
+  title: 2. Neuroscience and Mind
+  order: 4
+  char_count: 12804
+  key_topics:
+  - mental-health
+  - psychedelics
+  - neurodegenerative-disease
+  - brain-computer-interface
+  - human-baseline
+  - SSRIs
+  - addiction
+  - PTSD
+- id: economics
+  title: 3. Economic Development and Poverty
+  order: 5
+  char_count: 12722
+  key_topics:
+  - global-poverty
+  - health-equity
+  - food-security
+  - climate
+  - inequality
+  - developing-world
+  - infrastructure
+  - education-access
+- id: governance
+  title: 4. Peace and Governance
+  order: 6
+  char_count: 11768
+  key_topics:
+  - democracy
+  - authoritarianism
+  - propaganda
+  - AI-surveillance
+  - AI-defense
+  - coalition-of-democracies
+  - soft-power
+- id: meaning
+  title: 5. Work and Meaning
+  order: 7
+  char_count: 6192
+  key_topics:
+  - purpose
+  - work
+  - autonomy
+  - meaning-crisis
+  - human-agency
+  - AI-complement
+  - dignity
+  - creative-expression
+- id: taking_stock
+  title: Taking Stock
+  order: 8
+  char_count: 12186
+  key_topics:
+  - optimism
+  - hubris
+  - distribution
+  - agency
+  - future-worth-fighting-for
+  - radical-abundance

@@ -1,0 +1,39 @@
+{
+  "id": "amodei_machines_loving_grace",
+  "name": "Machines of Loving Grace — Editorial Session",
+  "version": "1.0.0",
+  "content_type": "editorial",
+  "category": "technology",
+  "visibility": "public",
+  "deliverable_type": "editorial_session_record",
+
+  "text": {
+    "source": "protocols/library/technology/amodei_machines_loving_grace/text/chunks.json",
+    "index": "protocols/library/technology/amodei_machines_loving_grace/text/index.yaml",
+    "structure": "sections",
+    "unit_count": 8
+  },
+
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "sections_visited": [],
+      "mode_requested": null,
+      "key_claims_engaged": [],
+      "visitor_position": null,
+      "closing_takeaway": null,
+      "session_arc": null
+    }
+  },
+
+  "features": {
+    "rag": true,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": true
+  },
+
+  "vault": {
+    "write": "session_summary"
+  }
+}

@@ -1,8 +1,51 @@
-author: Lao Tzu
-book_id: tao_te_ching
-ingested_at: '2026-03-19T12:02:21.018934Z'
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Living Book Pack
+# Tao Te Ching by Laozi (Mou translation)
+# ─────────────────────────────────────────────────────────────
+
+id: tao_te_ching_mou
+name: "Tao Te Ching — Living Book Session"
+category: sacred_texts
+wing: library
+section: sacred_texts
+content_type: living_book
+
+status: active
+
+# Display fields — shown in catalogue
+title: "Tao Te Ching"
+description: "81 chapters on the nature of the Tao — the text that begins by undermining itself."
+author: "Laozi"
+translator: "Mou"
+year: "c. 6th century BC"
 license: public_domain
-structure_type: chapters
-title: Tao Te Ching
-translator: Mou
-year: ''
+chapter_count: 81
+tradition: taoism
+publication: "Public domain"
+
+# Session config
+deliverable: book_session_record
+estimated_turns: "6-20"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-19"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "tao te ching"
+  - "taoism"
+  - "lao tzu"
+  - "laozi"
+  - "open tao"
+  - "dao de jing"
+
+# What this pack explicitly does not do
+excludes:
+  - "direct spiritual advice"
+  - "claims about the historical Laozi's life"
+
+# Catalogue fields
+tags: [tao, virtue, wu-wei, water, sage, effortless-action, paradox, emptiness, taoism, chinese-philosophy, public-domain]
+related: [dhammapada, meditations_aurelius, i_ching_oracle]
+featured: true
+featured_order: 1

@@ -17,6 +17,7 @@ class ContentType(str, Enum):
     living_book = "living_book"
     expedition = "expedition"
     essay = "essay"
+    editorial = "editorial"
     horoscope = "horoscope"
     pack = "pack"
     oracle = "oracle"
@@ -52,6 +53,8 @@ ESSAYS_DIR = LIBRARY_BASE / "essays"
 EXPEDITIONS_DIR = LIBRARY_BASE / "expeditions"
 HOROSCOPES_DIR = LIBRARY_BASE / "horoscopes"
 BRAND_DIR = LIBRARY_BASE / "brand"
+TECHNOLOGY_DIR = LIBRARY_BASE / "technology"
+PLATFORM_DIR = LIBRARY_BASE / "platform"
 SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
@@ -79,6 +82,8 @@ class Catalogue:
         self._load_library_manifests(EXPEDITIONS_DIR, ContentType.pack)
         self._load_library_manifests(HOROSCOPES_DIR, ContentType.pack)
         self._load_library_manifests(BRAND_DIR, ContentType.pack)
+        self._load_library_manifests(TECHNOLOGY_DIR, ContentType.essay)
+        self._load_library_manifests(PLATFORM_DIR, ContentType.expedition)
         self._build_indices()
         logger.info(
             f"Catalogue loaded: {len(self._entries)} entries, "

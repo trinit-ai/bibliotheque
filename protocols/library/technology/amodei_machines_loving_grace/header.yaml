@@ -1,0 +1,48 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Editorial Pack
+# Machines of Loving Grace by Dario Amodei
+# ─────────────────────────────────────────────────────────────
+
+id: amodei_machines_loving_grace
+name: "Machines of Loving Grace — Editorial Session"
+category: technology
+wing: library
+section: technology
+content_type: editorial
+
+status: active
+
+# Display fields — shown in catalogue
+title: "Machines of Loving Grace"
+description: "Dario Amodei's case for radical AI optimism — if we get the risks right, the upside transforms biology, mind, poverty, governance, and meaning itself."
+author: "Dario Amodei"
+year: 2024
+license: freely_available
+publication: "darioamodei.com"
+
+# Session config
+deliverable: editorial_session_record
+estimated_turns: "4-12"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "machines of loving grace"
+  - "dario amodei"
+  - "amodei essay"
+  - "AI optimism"
+  - "debate AI future"
+
+# What this pack explicitly does not do
+excludes:
+  - "investment advice about Anthropic or AI companies"
+  - "insider information about Anthropic operations"
+  - "definitive predictions about AI timelines"
+
+# Catalogue fields
+tags: [ai, optimism, risk, biology, neuroscience, economics, governance, meaning, anthropic, future, powerful-ai, technology-ethics]
+related: [wiki_artificial_intelligence]
+featured: true
+featured_order: 2

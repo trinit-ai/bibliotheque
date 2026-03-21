@@ -24,7 +24,7 @@ function toTitle(s: string) { return s.replace(/_/g, " ").replace(/\b\w/g, c => 
 const BOOK_DATA: Record<string, { title: string; author: string; tradition: string; chapters: string; desc: string; portal: string; related: { title: string; type: string; typeColor: string; meta: string; desc: string; href: string }[]; greeting: string }> = {
   tao_te_ching: {
     title: "Tao Te Ching", author: "Laozi", tradition: "Taoism", chapters: "81 chapters", portal: "Religion",
-    desc: "The foundational text of Taoist philosophy. 81 chapters on the nature of the Tao, virtue, and effortless action.",
+    desc: "81 chapters on the nature of the Tao — the text that begins by undermining itself.",
     related: [
       { title: "Dhammapada", type: "LIVING BOOK", typeColor: blue, meta: "Buddhism · 26 chapters", desc: "The path of dharma. The most accessible Buddhist text.", href: "/book/dhammapada" },
       { title: "Stoicism", type: "EXPEDITION", typeColor: "#0891B2", meta: "Philosophy", desc: "Virtue as the only good. The dichotomy of control.", href: "/wiki/stoicism" },
@@ -32,15 +32,25 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  getting_started: {
+    title: "Getting Started", author: "Welcome to Biblioth\u00e8que", tradition: "Platform", chapters: "Expedition", portal: "Platform",
+    desc: "What this place is, how it works, and why the book reads you back.",
+    related: [
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "The text that\u2019s been here since day one.", href: "/book/tao_te_ching" },
+      { title: "The Enlightened Duck", type: "GAME", typeColor: "#059669", meta: "A pilgrim, a mountain, a duck", desc: "Three questions. No shortcuts. The duck has been waiting.", href: "/book/enlightened_duck" },
+      { title: "Machines of Loving Grace", type: "ESSAY", typeColor: "#B45309", meta: "Dario Amodei \u00b7 2024", desc: "The case for radical AI optimism.", href: "/book/machines_of_loving_grace" },
+    ],
+    greeting: "This is a library where the books talk back.\n\nEvery text here \u2014 every book, every essay, every expedition \u2014 is a conversation. Not a summary. Not a chatbot pretending to have read something. The actual text, fully indexed, present in the session, ready to meet you wherever you are.\n\nYou bring your questions. The text brings its structure. The session is where those two things encounter each other.\n\nSome places to start:\n\n\u2022 \"What is this place?\" \u2014 what Biblioth\u00e8que is and why it exists\n\u2022 \"How does it work?\" \u2014 text authority, governed sessions, bidirectional encounter\n\u2022 \"Show me the library\" \u2014 what\u2019s here and what\u2019s worth seeing\n\u2022 \"Tell me about the duck\" \u2014 a pilgrim, a mountain, three questions, no shortcuts\n\nOr ask me anything about what this place is and why it exists.",
+  },
   machines_of_loving_grace: {
     title: "Machines of Loving Grace", author: "Dario Amodei · Anthropic · 2024", tradition: "Technology · AI", chapters: "Essay · ~15,000 words", portal: "Technology",
-    desc: "The CEO of Anthropic argues that AI will compress a century of scientific progress into a decade — and that this will be broadly beneficial if developed responsibly. The essay is strongest on biology and medicine, most vulnerable on its own internal tensions.",
+    desc: "Dario Amodei makes the case for radical AI optimism — across biology, neuroscience, economics, governance, and meaning. The essay is strongest where it's most concrete, and most honest where it's most speculative.",
     related: [
       { title: "Consciousness", type: "EXPEDITION", typeColor: "#0891B2", meta: "Philosophy of Mind", desc: "The hard problem. Does AI have 'something it is like' to be it?", href: "/wiki/consciousness" },
       { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg · 1939", desc: "Genuine culture requires difficulty. What does AI do to that?", href: "/book/avant_garde_and_kitsch" },
       { title: "The Prince", type: "LIVING BOOK", typeColor: blue, meta: "Machiavelli · 26 chapters", desc: "A clinical anatomy of power. Relevant when the builder is also the regulator.", href: "/book/the_prince" },
     ],
-    greeting: "Dario Amodei's essay makes a specific, ambitious claim: AI will compress a century of scientific progress into a decade, and this will be broadly beneficial — in biology, medicine, neuroscience, economics, and governance.\n\nThe argument is strongest where it's most concrete: the case for AI-accelerated drug discovery and disease eradication. It's most vulnerable where it meets its own shadow — the tension between building one of the most powerful AI systems in history and claiming to be the most reliable voice on its safety.\n\nHere are some ways into the text:\n\n• \"Map the argument\" — walk through the essay's structure and key claims\n• \"Where is this weakest?\" — find the places where evidence is thin\n• \"The biology case\" — his strongest section, on disease and longevity\n• \"The Anthropic tension\" — can the builder also be the safety authority?\n• \"What would a skeptic say?\" — steelman the opposition\n\nOr ask anything. The full text is here.",
+    greeting: "Dario Amodei makes the case for radical AI optimism — across biology, neuroscience, economics, governance, and meaning. The essay is strongest where it's most concrete, and most honest where it's most speculative.\n\nWays into the text:\n\n• \"Map the argument\" — walk through the essay's structure and key claims\n• \"Where is this weakest?\" — find the places where evidence is thin\n• \"The biology case\" — his strongest section, on disease and longevity\n• \"The Anthropic tension\" — can the builder also be the safety authority?\n• \"What would a skeptic say?\" — steelman the opposition\n\nOr ask anything. The full text is here.",
   },
   ecclesiastes: {
     title: "Ecclesiastes", author: "Qohelet", tradition: "Judaism", chapters: "12 chapters", portal: "Religion",
@@ -337,7 +347,7 @@ export default function BookPage() {
                 <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>
               <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 9, color: blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: "#EFF6FF", borderRadius: 3 }}>Living Book</span>
+                <span style={{ fontSize: 9, color: data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : "#EFF6FF", borderRadius: 3 }}>{data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : "Living Book"}</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
                 <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
@@ -468,18 +478,64 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          <a href="https://www.gutenberg.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Project Gutenberg
-          </a>
-          <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Amazon Kindle
-          </a>
-          <a href="https://archive.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Internet Archive
-          </a>
-          <a href="https://plato.stanford.edu" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
-            <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Stanford Encyclopedia
-          </a>
+          {bookId === "getting_started" ? (
+            <>
+              <a href="https://bibliotheque.ai" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Biblioth&egrave;que
+              </a>
+              <a href="https://tmos13.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />TMOS13
+              </a>
+              <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Anthropic
+              </a>
+            </>
+          ) : bookId === "tao_te_ching" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/Tao_Te_Ching" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Tao Te Ching — Wikipedia
+              </a>
+              <a href="https://www.gutenberg.org/ebooks/216" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Full text — Project Gutenberg (Legge)
+              </a>
+              <a href="https://www.with.org/tao_te_ching_en.pdf" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Full text (PDF) — with.org
+              </a>
+              <a href="https://plato.stanford.edu/entries/laozi/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Stanford Encyclopedia: Laozi
+              </a>
+            </>
+          ) : bookId === "machines_of_loving_grace" ? (
+            <>
+              <a href="https://darioamodei.com/essay/machines-of-loving-grace" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Full essay — darioamodei.com
+              </a>
+              <a href="https://www.anthropic.com/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Anthropic — Author&apos;s company
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Dario_Amodei" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Dario Amodei — Wikipedia
+              </a>
+              <a href="https://plato.stanford.edu/entries/ethics-ai/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Stanford Encyclopedia: Ethics of AI
+              </a>
+            </>
+          ) : (
+            <>
+              <a href="https://www.gutenberg.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Project Gutenberg
+              </a>
+              <a href="https://www.amazon.com" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Amazon Kindle
+              </a>
+              <a href="https://archive.org" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Internet Archive
+              </a>
+              <a href="https://plato.stanford.edu" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Stanford Encyclopedia
+              </a>
+            </>
+          )}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 16, marginBottom: 8 }}>Tools</div>
           <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">

@@ -222,7 +222,7 @@ function LibNav({ active, onSelect }: { active: string | null; onSelect: (t: str
 
 function TickerBar() {
   return (
-    <Link href="/book/welcome" style={{ textDecoration: "none", display: "flex", background: "#7F1D1D", height: 28, overflow: "hidden", whiteSpace: "nowrap", alignItems: "center", justifyContent: "center", gap: 8, cursor: "pointer", transition: "background .15s" }}
+    <Link href="/book/getting_started" style={{ textDecoration: "none", display: "flex", background: "#7F1D1D", height: 28, overflow: "hidden", whiteSpace: "nowrap", alignItems: "center", justifyContent: "center", gap: 8, cursor: "pointer", transition: "background .15s" }}
       onMouseEnter={e => (e.currentTarget.style.background = "#991B1B")}
       onMouseLeave={e => (e.currentTarget.style.background = "#7F1D1D")}
     >
@@ -483,8 +483,8 @@ const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
 };
 
 const CARD_ENTRIES = [
-  { id: "tao_te_ching", title: "Tao Te Ching", author: "Laozi \u00b7 6th century BC", desc: "The foundational text of Taoist philosophy. 81 chapters on the nature of the Tao, virtue, and effortless action.", format: "living_book", portal: "religion", meta: "81 chapters", sessions: "47 this week" },
-  { id: "machines_of_loving_grace", title: "Machines of Loving Grace", author: "John Markoff \u00b7 2015", desc: "A history of AI and robotics told through the people who built it. The tension between augmentation and automation.", format: "living_book", portal: "technology", meta: "Full text", sessions: "31 this week" },
+  { id: "tao_te_ching", title: "Tao Te Ching", author: "Laozi \u00b7 c. 6th century BC", desc: "81 chapters on the nature of the Tao \u2014 the text that begins by undermining itself.", format: "living_book", portal: "religion", meta: "81 chapters", sessions: "47 this week" },
+  { id: "machines_of_loving_grace", title: "Machines of Loving Grace", author: "Dario Amodei \u00b7 2024", desc: "The case for radical AI optimism \u2014 across biology, neuroscience, economics, governance, and meaning \u2014 from the CEO of Anthropic.", format: "essay", portal: "technology", meta: "~15,000 words", sessions: "31 this week" },
   { id: "avant_garde_and_kitsch", title: "Avant-Garde and Kitsch", author: "Clement Greenberg \u00b7 1939", desc: "Genuine culture requires difficulty, and kitsch is its enemy. Still the fault line of every culture war.", format: "essay", portal: "society", meta: "~10,000 words", sessions: "12 this week" },
   { id: "room_of_ones_own", title: "A Room of One\u2019s Own", author: "Virginia Woolf \u00b7 1929", desc: "On the conditions required for women to write \u2014 and by extension, to think. Money and a room of her own.", format: "living_book", portal: "literature", meta: "~38,000 words", sessions: "18 this week" },
   { id: "relativity_einstein", title: "Relativity", author: "Albert Einstein \u00b7 1916", desc: "Einstein\u2019s own popular exposition of special and general relativity, written for the non-specialist.", format: "living_book", portal: "science", meta: "Full text", sessions: "24 this week" },

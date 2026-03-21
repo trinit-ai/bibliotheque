@@ -19,6 +19,17 @@ const mono = "'Courier New', monospace";
 // ── Entity data ───────────────────────────────────────────────────────────
 
 interface EntityData {
+  contentType?: "expedition" | "essay" | "living_book";
+  subtitle?: string;
+  author?: string;
+  year?: string;
+  translator?: string;
+  tradition?: string;
+  license?: string;
+  chapters?: number;
+  wordCount?: string;
+  sections?: number;
+  furtherReading?: { label: string; url: string }[];
   intro: string;
   territories: { name: string; desc: string }[];
   related: { title: string; type: "book" | "expedition"; id: string; meta: string; desc: string }[];
@@ -243,6 +254,101 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "Richard Feynman said: \"If you think you understand quantum mechanics, you don't understand quantum mechanics.\"\n\nHere is the essence of the mystery. Fire photons one at a time through two narrow slits onto a detector screen. Each photon lands at a definite point — a single dot on the screen. But after thousands of photons, the dots form an interference pattern: bright and dark bands, as though each photon passed through both slits simultaneously and interfered with itself.\n\nNow put a detector at one slit to observe which slit the photon passes through. The interference pattern vanishes. The photon behaves as a particle, passing through one slit or the other.\n\nThe act of observation changes the outcome. Not because of physical disturbance — we can make the measurement arbitrarily gentle. Something deeper is happening.\n\nAfter a century of debate, physicists are divided. The Copenhagen interpretation says the wave function collapses upon measurement. Many-Worlds says every measurement splits the universe. Pilot wave theory says particles have definite trajectories guided by a wave.\n\nEach interpretation is consistent with the math. None is fully satisfying. Where shall we begin?",
   },
+  getting_started: {
+    contentType: "expedition",
+    author: "Biblioth\u00e8que",
+    intro: "Biblioth\u00e8que is a living library where every text is a two-way conversation. Not a summary engine. Not a chatbot pretending to have read something. The actual text \u2014 fully indexed, present in the session \u2014 ready to meet you wherever you are. The platform combines four things: the public domain texts that are humanity\u2019s shared inheritance, navigable structure inspired by Wikipedia, conversational depth powered by Claude, and governance by protocol so the AI serves the text, not itself. Getting Started is the front door \u2014 a session that explains what this place is, shows what\u2019s here, and opens a door into the library.",
+    territories: [
+      { name: "The Two-Way Street", desc: "You read the book, and the book reads you. What bidirectional encounter means in practice \u2014 the full text is in the session, every claim cites its source, and the conversation starts wherever you are." },
+      { name: "The Stance", desc: "Self-aware. Unapologetically highbrow. Post-brain rot. What each of those means, and why the difficulty is a feature, not a bug. The \u00e8 is a wink. The library is serious. Both things are true." },
+      { name: "New Media", desc: "AI flipped from something you talk to into something you author through. Curation as creative act. The spectrum from traditional text encounters to cross-examination packs to original authored experiences. The key word is agency." },
+      { name: "The Library", desc: "Living books, expeditions, essays, games. What\u2019s here now, what\u2019s coming, and how the library grows. Contributors and authors will join over time. The ambition: every major work that has shaped human thought, alive and conversational." },
+      { name: "The Door", desc: "The welcome pack exists to get you into the library, not to keep you in the welcome pack. Open a book. Explore a subject. Engage an argument. Meet the duck." },
+    ],
+    related: [
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "The text that\u2019s been here since day one." },
+      { title: "The Enlightened Duck", type: "expedition", id: "enlightened_duck", meta: "Game", desc: "A pilgrim, a mountain, a duck." },
+      { title: "Machines of Loving Grace", type: "book", id: "machines_of_loving_grace", meta: "Dario Amodei \u00b7 2024", desc: "The case for radical AI optimism." },
+    ],
+    books: [
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "The Enlightened Duck", author: "Game", id: "enlightened_duck" },
+      { title: "Stoicism", author: "Expedition", id: "stoicism" },
+    ],
+    furtherReading: [
+      { label: "Biblioth\u00e8que", url: "https://bibliotheque.ai" },
+      { label: "TMOS13", url: "https://tmos13.com" },
+      { label: "Anthropic", url: "https://www.anthropic.com/" },
+    ],
+    demoResponse: "This is a library where the books talk back.\n\nEvery text here \u2014 every book, every essay, every expedition \u2014 is a conversation. Not a summary. Not a chatbot pretending to have read something. The actual text, fully indexed, present in the session, ready to meet you wherever you are.\n\nYou bring your questions. The text brings its structure. The session is where those two things encounter each other.\n\nSome places to start:\n\n\u2022 Open a book \u2014 the Tao Te Ching has been here since day one. 81 chapters. Ask about any of them.\n\u2022 Explore a subject \u2014 Stoicism, Consciousness, the history of AI. Guided expeditions through territory worth knowing.\n\u2022 Engage an argument \u2014 Dario Amodei\u2019s case for radical AI optimism. Greenberg on kitsch. Essays you can push back on.\n\u2022 Meet the duck \u2014 a pilgrim climbs a mountain. Three questions. No shortcuts. The duck has been waiting.\n\nOr ask me anything about what this place is and why it exists.",
+  },
+  tao_te_ching: {
+    contentType: "living_book",
+    author: "Laozi",
+    year: "c. 6th century BC",
+    translator: "Mou",
+    tradition: "Taoism",
+    license: "Public Domain",
+    chapters: 81,
+    furtherReading: [
+      { label: "Tao Te Ching \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Tao_Te_Ching" },
+      { label: "Full text (Legge translation) \u2014 Project Gutenberg", url: "https://www.gutenberg.org/ebooks/216" },
+      { label: "Full text (PDF) \u2014 with.org", url: "https://www.with.org/tao_te_ching_en.pdf" },
+      { label: "Stanford Encyclopedia: Laozi", url: "https://plato.stanford.edu/entries/laozi/" },
+    ],
+    intro: "The Tao Te Ching is 81 short chapters attributed to Laozi, written around the 6th century BC. It is the foundational text of Taoism and one of the most translated works in any language. The text begins by undermining itself \u2014 \u201CThe Tao that can be spoken of is not the constant Tao\u201D \u2014 and what follows is a sustained paradox: a book about what cannot be said. The chapters return again and again to water, emptiness, softness, and the sage who leads by stepping back. It contradicts itself freely, not by accident but as method. The full text is indexed and present in session, in the Mou translation.",
+    territories: [
+      { name: "The Unnameable", desc: "Chapters on the nature of the Tao itself \u2014 what it is, why it resists definition, and why naming is the first problem. [Chapters 1, 4, 14, 21, 25]" },
+      { name: "Water and Softness", desc: "The Tao Te Ching\u2019s central image: what is soft overcomes what is hard. Water, yielding, the strength in not-contending. [Chapters 8, 22, 43, 76, 78]" },
+      { name: "The Sage and Governance", desc: "How the sage governs \u2014 by doing less, not more. The ruler who leads so lightly that the people say \u201Cwe did it ourselves.\u201D [Chapters 17, 29, 57, 60, 80]" },
+      { name: "Paradox and Reversal", desc: "The text\u2019s method: beauty and ugliness give birth to each other, knowing is not-knowing, the greatest fullness seems empty. [Chapters 2, 18, 36, 41, 45]" },
+      { name: "Wu Wei \u2014 Effortless Action", desc: "The practice at the heart of the text: acting without forcing, accomplishing without striving. Not passivity, but alignment. [Chapters 3, 37, 47, 48, 63]" },
+    ],
+    related: [
+      { title: "Dhammapada", type: "book", id: "dhammapada", meta: "Buddhism \u00b7 26 chapters", desc: "The Buddhist complement \u2014 another short, compressed wisdom text." },
+      { title: "Stoicism", type: "expedition", id: "stoicism", meta: "Philosophy", desc: "The Western tradition that comes closest to wu wei." },
+      { title: "I Ching", type: "book", id: "i_ching", meta: "Divination \u00b7 64 hexagrams", desc: "Cast a hexagram. 3,000-year-old wisdom system from the same tradition." },
+    ],
+    books: [
+      { title: "Dhammapada", author: "Pali Canon", id: "dhammapada" },
+      { title: "Meditations", author: "Marcus Aurelius", id: "meditations_aurelius" },
+      { title: "Stoicism", author: "Expedition", id: "stoicism" },
+    ],
+    demoResponse: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins \u2014 by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely \u2014 not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
+  },
+  machines_of_loving_grace: {
+    contentType: "essay",
+    subtitle: "How AI Could Transform the World for the Better",
+    author: "Dario Amodei",
+    year: "October 2024",
+    wordCount: "~15,000",
+    sections: 8,
+    furtherReading: [
+      { label: "Read the full essay", url: "https://darioamodei.com/essay/machines-of-loving-grace" },
+      { label: "Anthropic", url: "https://www.anthropic.com/" },
+      { label: "Dario Amodei — Wikipedia", url: "https://en.wikipedia.org/wiki/Dario_Amodei" },
+      { label: "Stanford Encyclopedia: Ethics of AI", url: "https://plato.stanford.edu/entries/ethics-ai/" },
+    ],
+    intro: "In October 2024, Dario Amodei \u2014 CEO of Anthropic \u2014 published an essay arguing that the upside of powerful AI is far more radical than most people imagine. Rather than abstract futurism, he structures the case around five concrete domains: biology and health, neuroscience and mental health, economic development and poverty, peace and governance, and work and meaning. The essay opens with an unusual move: explaining why the CEO of an AI company probably shouldn\u2019t be writing this kind of piece, then making the case anyway. It is strongest on biology \u2014 where Amodei claims AI could compress a century of medical progress into a decade \u2014 and most candid about its limitations on governance and human meaning, which Amodei calls \u201Cthe most speculative\u201D and \u201Cthe hardest to get right.\u201D",
+    territories: [
+      { name: "The Argument\u2019s Architecture", desc: "Why Amodei wrote this, what \u201Cpowerful AI\u201D means, and the compressed timeline framework." },
+      { name: "Biology and Health", desc: "The essay\u2019s strongest section. AI-accelerated drug discovery, CRISPR, gene therapy, cancer, infectious disease, and the \u201C100 years of progress in 5\u201310 years\u201D claim." },
+      { name: "Mind and Economics", desc: "Neuroscience, mental health, the developing world, distribution of benefits, and the admission that these require \u201Ca broader set of skills.\u201D" },
+      { name: "Governance and Meaning", desc: "The most speculative sections. Democracy vs. authoritarianism, AI surveillance, the \u201Ccoalition of democracies\u201D proposal, and the question of human purpose." },
+      { name: "The Tension", desc: "The provenance problem \u2014 can the builder of powerful AI also be its most credible safety voice? The essay knows this question exists and addresses it directly." },
+    ],
+    related: [
+      { title: "Consciousness", type: "expedition", id: "consciousness", meta: "Philosophy of Mind", desc: "The hard problem. Does AI have \u2018something it is like\u2019 to be it?" },
+      { title: "Avant-Garde and Kitsch", type: "book", id: "avant_garde_and_kitsch", meta: "Greenberg \u00b7 1939", desc: "Genuine culture requires difficulty. What does AI do to that?" },
+      { title: "The Prince", type: "book", id: "the_prince", meta: "Machiavelli \u00b7 1532", desc: "A clinical anatomy of power. Relevant when the builder is also the regulator." },
+    ],
+    books: [
+      { title: "Meditations", author: "Marcus Aurelius", id: "meditations_aurelius" },
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "The Prince", author: "Machiavelli", id: "the_prince" },
+    ],
+    demoResponse: "Amodei\u2019s essay makes a specific, ambitious claim: AI will compress a century of scientific progress into a decade, and this will be broadly beneficial \u2014 in biology, medicine, neuroscience, economics, and governance.\n\nThe argument is strongest where it\u2019s most concrete: the case for AI-accelerated drug discovery and disease eradication. It\u2019s most vulnerable where it meets its own shadow \u2014 the tension between building one of the most powerful AI systems in history and claiming to be the most reliable voice on its safety.\n\nThe essay has eight sections and a very deliberate structure. It opens by naming why this piece is awkward to write \u2014 an AI CEO talking about AI\u2019s upside \u2014 then lays out a framework, walks through five domains from strongest to most speculative, and closes with a synthesis.\n\nYou can map the argument, challenge it, steelman it, locate yourself in relation to it, or connect it to other texts in the library. Or start with whatever brought you here.",
+  },
 };
 
 const DEFAULT_ENTITY: EntityData = {
@@ -331,7 +437,7 @@ export default function WikiPage() {
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "8px 24px", display: "flex", alignItems: "center", gap: 6 }}>
           <Link href="/" style={{ fontFamily: mono, fontSize: 10, color: ink3, textDecoration: "none" }}>Home</Link>
           <span style={{ fontFamily: mono, fontSize: 10, color: border_ }}>/</span>
-          <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>Expeditions</span>
+          <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>{data.contentType === "essay" ? "Essays" : data.contentType === "living_book" ? "Living Books" : "Expeditions"}</span>
           <span style={{ fontFamily: mono, fontSize: 10, color: border_ }}>/</span>
           <span style={{ fontFamily: mono, fontSize: 10, color: ink2 }}>{displayName}</span>
         </div>
@@ -346,8 +452,8 @@ export default function WikiPage() {
             {/* Entity header */}
             <div style={{ marginBottom: 32 }}>
               <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 10 }}>
-                  Expedition
+                <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: data.contentType === "essay" ? "#B45309" : blue, marginBottom: 10 }}>
+                  {data.contentType === "essay" ? "Essay" : data.contentType === "living_book" ? "Living Book" : "Expedition"}
                 </div>
                 <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
                   <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 3 }} className="bib-slash"><Link2 size={14} strokeWidth={1.5} /></button>
@@ -358,6 +464,11 @@ export default function WikiPage() {
               <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.1, letterSpacing: "-.02em", margin: "0 0 16px", color: ink }}>
                 {displayName}
               </h1>
+              {data.author && (
+                <div style={{ fontFamily: mono, fontSize: 11, color: ink2, marginBottom: 16, letterSpacing: ".03em" }}>
+                  {data.author}{data.year ? ` · ${data.year}` : ""}
+                </div>
+              )}
               <div style={{ width: 40, height: 1, background: border_, marginBottom: 18 }} />
               <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.75, color: ink2, margin: 0, maxWidth: 640 }}>
                 {data.intro}
@@ -390,7 +501,7 @@ export default function WikiPage() {
                 padding: "12px 28px", borderRadius: 4,
                 display: "inline-flex", alignItems: "center", gap: 8,
               }}>
-                Begin exploration →
+                {data.contentType === "essay" ? "Open session →" : data.contentType === "living_book" ? "Open session →" : "Begin exploration →"}
               </Link>
               <Link href="/" style={{
                 background: "none", cursor: "pointer", border: `0.5px solid ${border_}`, color: ink2,
@@ -456,28 +567,92 @@ export default function WikiPage() {
             </Link>
           ))}
 
-          {/* Expedition info */}
+          {/* Entry info */}
           <div style={{ marginTop: 20 }}>
-            <ColLabel>About This Expedition</ColLabel>
+            <ColLabel>About This Entry</ColLabel>
             <div style={{ background: "#fff", border: `0.5px solid ${border_}`, borderRadius: 6, padding: 14 }}>
               <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
                 <span style={{ color: ink2 }}>Type</span>
-                <span style={{ color: blue }}>Expedition</span>
+                <span style={{ color: blue }}>{data.contentType === "essay" ? "Essay" : data.contentType === "living_book" ? "Living Book" : "Expedition"}</span>
               </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
-                <span style={{ color: ink2 }}>Territories</span>
-                <span style={{ color: blue }}>{data.territories.length}</span>
-              </div>
-              <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
-                <span style={{ color: ink2 }}>Connected Books</span>
-                <span style={{ color: blue }}>{data.books.length}</span>
-              </div>
+              {data.author && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Author</span>
+                  <span style={{ color: blue }}>{data.author}</span>
+                </div>
+              )}
+              {data.contentType === "essay" && data.year && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Published</span>
+                  <span style={{ color: blue }}>{data.year}</span>
+                </div>
+              )}
+              {data.translator && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Translator</span>
+                  <span style={{ color: blue }}>{data.translator}</span>
+                </div>
+              )}
+              {data.chapters && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Chapters</span>
+                  <span style={{ color: blue }}>{data.chapters}</span>
+                </div>
+              )}
+              {data.contentType === "essay" && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Sections</span>
+                  <span style={{ color: blue }}>{data.sections || data.territories.length}</span>
+                </div>
+              )}
+              {data.wordCount && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Word count</span>
+                  <span style={{ color: blue }}>{data.wordCount}</span>
+                </div>
+              )}
+              {data.tradition && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>Tradition</span>
+                  <span style={{ color: blue }}>{data.tradition}</span>
+                </div>
+              )}
+              {data.license && (
+                <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                  <span style={{ color: ink2 }}>License</span>
+                  <span style={{ color: blue }}>{data.license}</span>
+                </div>
+              )}
+              {!data.contentType || data.contentType === "expedition" ? (
+                <>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                    <span style={{ color: ink2 }}>Territories</span>
+                    <span style={{ color: blue }}>{data.territories.length}</span>
+                  </div>
+                  <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
+                    <span style={{ color: ink2 }}>Connected Books</span>
+                    <span style={{ color: blue }}>{data.books.length}</span>
+                  </div>
+                </>
+              ) : null}
               <div style={{ display: "flex", justifyContent: "space-between", fontFamily: mono, fontSize: 11, padding: "4px 0" }}>
                 <span style={{ color: ink2 }}>Turns (anonymous)</span>
                 <span style={{ color: blue }}>5</span>
               </div>
             </div>
           </div>
+
+          {/* Further reading (essays) */}
+          {data.furtherReading && data.furtherReading.length > 0 && (
+            <div style={{ marginTop: 20 }}>
+              <ColLabel>Further Reading</ColLabel>
+              {data.furtherReading.map(fr => (
+                <a key={fr.url} href={fr.url} target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                  <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />{fr.label}
+                </a>
+              ))}
+            </div>
+          )}
 
           {/* Other expeditions */}
           <div style={{ marginTop: 20 }}>
