@@ -171,8 +171,9 @@ async def session_turn(req: SessionTurnRequest, request: Request) -> dict:
 
     except Exception as exc:
         import traceback
-        logger.error(f"LLM call failed: {exc}\n{traceback.format_exc()}")
-        raw_response = "I encountered an issue processing your request. Please try again."
+        tb = traceback.format_exc()
+        logger.error(f"LLM call failed: {exc}\n{tb}")
+        raw_response = f"DEBUG — LLM error: {exc}\n\nTraceback:\n{tb[-500:]}"
 
     # 6. Output guard
     cleaned = clean_output(raw_response)
