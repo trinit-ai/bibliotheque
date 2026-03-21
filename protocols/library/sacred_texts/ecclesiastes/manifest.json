@@ -1,0 +1,37 @@
+{
+  "id": "ecclesiastes",
+  "name": "Ecclesiastes — Living Book Session",
+  "version": "1.0.0",
+  "content_type": "living_book",
+  "category": "sacred_texts",
+  "visibility": "public",
+  "deliverable_type": "book_session_record",
+  "text": {
+    "source": "protocols/library/sacred_texts/ecclesiastes/text/chunks.json",
+    "index": "protocols/library/sacred_texts/ecclesiastes/text/index.yaml",
+    "structure": "chapters",
+    "unit_count": 12
+  },
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "chapters_visited": [],
+      "key_passages": [],
+      "themes_engaged": [],
+      "connections_made": [],
+      "visitor_position": null,
+      "closing_question": null,
+      "session_arc": null
+    }
+  },
+  "features": {
+    "rag": true,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": true,
+    "visitor_reflection": true
+  },
+  "vault": {
+    "write": "session_summary"
+  }
+}

@@ -93,14 +93,14 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     greeting: "Dario Amodei makes the case for radical AI optimism — across biology, neuroscience, economics, governance, and meaning. The essay is strongest where it's most concrete, and most honest where it's most speculative.\n\nWays into the text:\n\n• \"Map the argument\" — walk through the essay's structure and key claims\n• \"Where is this weakest?\" — find the places where evidence is thin\n• \"The biology case\" — his strongest section, on disease and longevity\n• \"The Anthropic tension\" — can the builder also be the safety authority?\n• \"What would a skeptic say?\" — steelman the opposition\n\nOr ask anything. The full text is here.",
   },
   ecclesiastes: {
-    title: "Ecclesiastes", author: "Qohelet", tradition: "Judaism", chapters: "12 chapters", portal: "Religion",
+    title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013230 BC", tradition: "Wisdom Literature", chapters: "12 chapters", portal: "Religion",
     desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.",
     related: [
-      { title: "Book of Job", type: "LIVING BOOK", typeColor: blue, meta: "Judaism · 42 chapters", desc: "Where wast thou when I laid the foundations of the earth?", href: "/book/book_of_job" },
-      { title: "Free Will", type: "EXPEDITION", typeColor: "#0891B2", meta: "Philosophy", desc: "Determinism, compatibilism, and moral responsibility.", href: "/wiki/free_will" },
-      { title: "Meditations", type: "LIVING BOOK", typeColor: blue, meta: "Stoicism · 12 books", desc: "Private journal of a philosopher-emperor.", href: "/book/meditations_aurelius" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Impermanence as method, not despair.", href: "/book/tao_te_ching" },
+      { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg \u00b7 1939", desc: "The domestication of radical texts.", href: "/book/avant_garde_and_kitsch" },
+      { title: "Meditations", type: "LIVING BOOK", typeColor: blue, meta: "Marcus Aurelius \u00b7 12 books", desc: "Private journal of a philosopher-emperor.", href: "/book/meditations_aurelius" },
     ],
-    greeting: "Vanity of vanities, saith the Preacher. All is vanity.\n\nThis is the Bible's most unsettling book — the one that questions whether any of it matters. And yet it doesn't despair. It recommends bread, wine, and the work of your hands. What draws you here?",
+    greeting: "Vanity of vanities, says the Teacher. All is vanity.\n\nOr maybe: vapor of vapors. Breath of breaths. The word is hebel \u2014 it means something that exists for a moment and then disappears. Qohelet used it 38 times in 12 chapters to describe everything: wisdom, wealth, pleasure, labor, legacy, justice, life itself.\n\nHe tried everything \u2014 knowledge, wine, building projects, money, women \u2014 and looked at all of it and said: chasing after wind.\n\nThen he said: eat your bread with joy.\n\nBoth things are true. That\u2019s the book.\n\nWhere do you want to start?\n\n\u2022 \"A time for every purpose\" \u2014 the famous poem that means something different than you think\n\u2022 \"Is this all there is?\" \u2014 Qohelet\u2019s answer to the meaning question\n\u2022 \"The race is not to the swift\" \u2014 on time, chance, and the lie of meritocracy\n\u2022 \"Read from the beginning\" \u2014 Chapter 1, the thesis\n\u2022 \"Something\u2019s on my mind\" \u2014 bring your own question to the text",
   },
 };
 
@@ -530,7 +530,22 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {(bookId === "prince_x_epstein" || bookId === "the_prince") ? (
+          {bookId === "ecclesiastes" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/Ecclesiastes" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Ecclesiastes — Wikipedia
+              </a>
+              <a href="https://www.britannica.com/topic/Ecclesiastes-Old-Testament" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Ecclesiastes — Britannica
+              </a>
+              <a href="https://www.biblegateway.com/passage/?search=Ecclesiastes+1&version=KJV" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Full text (KJV) — Bible Gateway
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Ecclesiastes#Authorship" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Qohelet — Wikipedia
+              </a>
+            </>
+          ) : (bookId === "prince_x_epstein" || bookId === "the_prince") ? (
             <>
               <a href="https://en.wikipedia.org/wiki/The_Prince" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#DC2626", flexShrink: 0 }} />The Prince — Wikipedia

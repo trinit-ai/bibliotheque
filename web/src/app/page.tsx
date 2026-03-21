@@ -491,7 +491,7 @@ const CARD_ENTRIES = [
   { id: "relativity_einstein", title: "Relativity", author: "Albert Einstein \u00b7 1916", desc: "Einstein\u2019s own popular exposition of special and general relativity, written for the non-specialist.", format: "living_book", portal: "science", meta: "Full text", sessions: "24 this week" },
   { id: "the_prince", title: "The Prince \u00d7 Jeffrey Epstein", author: "Cross-Examination Digest", desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.", format: "digest", portal: "history", meta: "Digest", sessions: "19 this week" },
   { id: "genealogy_of_morality", title: "On the Genealogy of Morality", author: "Friedrich Nietzsche \u00b7 1887", desc: "Where do our moral values come from? Resentment, guilt, and the will to power \u2014 the most unsettling challenge to conventional ethics.", format: "living_book", portal: "philosophy", meta: "3 essays", sessions: "15 this week" },
-  { id: "ecclesiastes", title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013200 BC", desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.", format: "living_book", portal: "religion", meta: "12 chapters", sessions: "22 this week" },
+  { id: "ecclesiastes", title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013230 BC", desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.", format: "living_book", portal: "religion", meta: "12 chapters", sessions: "22 this week" },
 ];
 
 function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {

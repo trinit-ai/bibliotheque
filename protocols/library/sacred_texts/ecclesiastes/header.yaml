@@ -1,0 +1,52 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Living Book Pack
+# Ecclesiastes (Qohelet)
+# ─────────────────────────────────────────────────────────────
+
+id: ecclesiastes
+name: "Ecclesiastes — Living Book Session"
+category: sacred_texts
+wing: library
+section: sacred_texts
+content_type: living_book
+
+status: active
+
+# Display fields — shown in catalogue
+title: "Ecclesiastes"
+description: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor."
+author: "Qohelet"
+year: "c. 450-230 BC"
+license: public_domain
+tradition: wisdom_literature
+chapter_count: 12
+
+# Session config
+deliverable: book_session_record
+estimated_turns: "6-20"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "ecclesiastes"
+  - "qohelet"
+  - "vanity of vanities"
+  - "there is nothing new under the sun"
+  - "a time for every purpose"
+  - "all is vanity"
+  - "hebel"
+
+# What this pack explicitly does not do
+excludes:
+  - "theological authority or doctrinal claims"
+  - "pastoral counseling"
+  - "claims about divine will"
+  - "definitive dating or authorship attribution"
+
+# Catalogue fields
+tags: [wisdom, vanity, hebel, time, death, labor, joy, futility, meaning, existentialism]
+related: [tao_te_ching_living_book, greenberg_avant_garde_kitsch, prince_x_epstein]
+featured: true
+featured_order: 8
