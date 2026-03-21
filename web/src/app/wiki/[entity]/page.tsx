@@ -20,6 +20,7 @@ const mono = "'Courier New', monospace";
 
 interface EntityData {
   contentType?: "expedition" | "essay" | "living_book";
+  title?: string;
   subtitle?: string;
   author?: string;
   year?: string;
@@ -256,6 +257,7 @@ const ENTITY_MAP: Record<string, EntityData> = {
   },
   prince_x_epstein: {
     contentType: "essay",
+    title: "The Prince \u00d7 Jeffrey Epstein",
     subtitle: "A Cross-Examination Digest",
     author: "Biblioth\u00e8que",
     wordCount: "Digest",
@@ -287,6 +289,7 @@ const ENTITY_MAP: Record<string, EntityData> = {
   },
   avant_garde_and_kitsch: {
     contentType: "essay",
+    title: "Avant-Garde and Kitsch",
     author: "Clement Greenberg",
     year: "Fall 1939",
     wordCount: "~6,500",
@@ -381,6 +384,7 @@ const ENTITY_MAP: Record<string, EntityData> = {
   },
   machines_of_loving_grace: {
     contentType: "essay",
+    title: "Machines of Loving Grace",
     subtitle: "How AI Could Transform the World for the Better",
     author: "Dario Amodei",
     year: "October 2024",
@@ -470,8 +474,8 @@ export default function WikiPage() {
   const params = useParams();
   const entity = params.entity as string;
   const slug = decodeURIComponent(entity);
-  const displayName = toTitle(slug);
   const data = getEntityData(slug);
+  const displayName = data.title || toTitle(slug);
 
   return (
     <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif, display: "flex", flexDirection: "column" }}>
