@@ -101,6 +101,37 @@ async def health():
     }
 
 
+@app.get("/debug/files")
+async def debug_files():
+    """Temporary: show what pack files exist on disk."""
+    from pathlib import Path
+    library_base = Path(__file__).parent.parent / "protocols" / "library"
+    packs_base = Path(__file__).parent.parent / "protocols" / "packs"
+    result = {
+        "library_base_exists": library_base.exists(),
+        "library_base_path": str(library_base),
+        "packs_base_exists": packs_base.exists(),
+        "library_dirs": {},
+        "api_session_has_aliases": False,
+    }
+    if library_base.exists():
+        for subdir in sorted(library_base.iterdir()):
+            if subdir.is_dir():
+                packs = []
+                for pack_dir in sorted(subdir.iterdir()):
+                    if pack_dir.is_dir():
+                        files = [f.name for f in pack_dir.iterdir()]
+                        packs.append({"name": pack_dir.name, "files": files})
+                result["library_dirs"][subdir.name] = packs
+    try:
+        from api_session import _LIBRARY_ALIASES
+        result["api_session_has_aliases"] = True
+        result["aliases"] = _LIBRARY_ALIASES
+    except Exception:
+        pass
+    return result
+
+
 if __name__ == "__main__":
     import uvicorn
 
