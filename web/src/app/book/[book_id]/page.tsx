@@ -195,10 +195,18 @@ export default function BookPage() {
         );
       }
 
-      // Check if paragraph is a blockquote (starts with " or ")
-      if (para.match(/^[""\u201C]/)) {
+      // Check if paragraph is a blockquote (starts with > or " or ")
+      if (para.match(/^>/)) {
+        const cleaned = para.replace(/^>\s*/gm, "").trim();
         return (
-          <p key={pi} style={{ margin: "0", paddingLeft: 20, borderLeft: `2px solid ${blue}`, color: ink2, fontStyle: "italic" }}>
+          <p key={pi} style={{ margin: "0", paddingLeft: 20, borderLeft: `2px solid ${blue}`, color: ink2, fontStyle: "italic", lineHeight: 1.8 }}>
+            {renderInline(cleaned)}
+          </p>
+        );
+      }
+      if (para.match(/^["\u201C]/)) {
+        return (
+          <p key={pi} style={{ margin: "0", paddingLeft: 20, borderLeft: `2px solid ${blue}`, color: ink2, fontStyle: "italic", lineHeight: 1.8 }}>
             {renderInline(para)}
           </p>
         );
@@ -209,14 +217,17 @@ export default function BookPage() {
   };
 
   const renderInline = (text: string) => {
-    // Handle **bold**, citations [Chapter N], and regular text
-    const parts = text.split(/(\*\*[^*]+\*\*|\[Chapter \d+\]|\[Book [IVXLC]+(?:, §\d+)?\]|\[Verse \d+\]|\[Saying \d+\]|\[§\d+\])/g);
+    // Handle **bold**, *italic*, citations [Chapter N], [Section], and regular text
+    const parts = text.split(/(\*\*[^*]+\*\*|\*[^*]+\*|\[(?:Chapter \d+|Section \d+|Book [IVXLC]+(?:, §\d+)?|Verse \d+|Saying \d+|§\d+|Preamble|Framework|Biology and Health|Neuroscience and Mind|Economic Development|Peace and Governance|Work and Meaning|Taking Stock)\])/g);
     return parts.map((part, i) => {
       if (/^\[.+\]$/.test(part)) {
         return <span key={i} style={{ color: blue, fontFamily: mono, fontSize: 13, fontWeight: 600, letterSpacing: ".01em" }}>{part}</span>;
       }
       if (/^\*\*(.+)\*\*$/.test(part)) {
         return <strong key={i} style={{ fontWeight: 600, color: ink }}>{part.slice(2, -2)}</strong>;
+      }
+      if (/^\*([^*]+)\*$/.test(part)) {
+        return <em key={i} style={{ fontStyle: "italic" }}>{part.slice(1, -1)}</em>;
       }
       return <span key={i}>{part}</span>;
     });
