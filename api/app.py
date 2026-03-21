@@ -8,9 +8,10 @@ from config import ALLOWED_ORIGINS, ENV, PORT, logger
 from db import init_db
 from catalogue import init_catalogue, get_catalogue
 
-# Ensure engine is importable
+# Ensure engine is importable (append so api/ modules take priority)
 ENGINE_DIR = Path(__file__).parent / "engine"
-sys.path.insert(0, str(ENGINE_DIR))
+if str(ENGINE_DIR) not in sys.path:
+    sys.path.append(str(ENGINE_DIR))
 
 # Route modules
 from api_catalogue import router as catalogue_router
