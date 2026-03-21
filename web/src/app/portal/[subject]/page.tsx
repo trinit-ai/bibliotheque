@@ -39,6 +39,7 @@ const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }
   horoscope:   { label: "Horoscope",   tab: "#7C3AED", tint: "#F5F3FF" },
   essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
   interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
+  digest:      { label: "Digest",      tab: "#DC2626", tint: "#FEF2F2" },
 };
 
 const SUBJECT_INTROS: Record<string, string> = {

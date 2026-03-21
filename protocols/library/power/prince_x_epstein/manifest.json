@@ -1,0 +1,28 @@
+{
+  "id": "prince_x_epstein",
+  "name": "The Prince × Jeffrey Epstein — Digest",
+  "content_type": "editorial",
+  "display_badge": "DIGEST",
+  "category": "power",
+  "status": "active",
+  "version": "1.0",
+  "deliverable_type": "digest_session_record",
+  "session_intelligence": true,
+  "features": {
+    "rag": false,
+    "citation_required": false,
+    "visitor_reflection": true,
+    "shadow_territory": true
+  },
+  "state": {
+    "capture": [
+      "entry_query",
+      "framework_engaged",
+      "contemporary_threads",
+      "shadow_territory_entered",
+      "visitor_position",
+      "closing_takeaway",
+      "session_arc"
+    ]
+  }
+}

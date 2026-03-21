@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Cross-Examination Digest
+# The Prince × Jeffrey Epstein
+# ─────────────────────────────────────────────────────────────
+
+id: prince_x_epstein
+name: "The Prince × Jeffrey Epstein — Digest"
+category: power
+wing: library
+section: digests
+content_type: editorial
+display_badge: DIGEST
+
+status: active
+
+# Display fields — shown in catalogue
+title: "The Prince × Jeffrey Epstein"
+description: "Machiavelli's manual on power, pointed at the machinery that protected Epstein — and at the fascination that won't let the story go."
+author: "Bibliothèque"
+source_text: "The Prince by Niccolò Machiavelli (1532)"
+license: public_domain
+
+# Session config
+deliverable: digest_session_record
+estimated_turns: "4-15"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "prince epstein"
+  - "machiavelli epstein"
+  - "the prince power"
+  - "epstein power structures"
+  - "machiavelli modern power"
+
+# What this pack explicitly does not do
+excludes:
+  - "graphic descriptions of abuse"
+  - "conspiracy theories presented as fact"
+  - "victim identification or speculation"
+  - "legal advice"
+
+# Catalogue fields
+tags: [power, machiavelli, epstein, cross-examination, shadow, voyeurism, globalism, morality, political-philosophy, digest]
+related: [greenberg_avant_garde_kitsch, tao_te_ching_mou, wiki_consciousness]
+featured: true
+featured_order: 4

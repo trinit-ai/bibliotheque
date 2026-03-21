@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  prince_x_epstein: {
+    title: "The Prince \u00d7 Jeffrey Epstein", author: "A Cross-Examination Digest", tradition: "Power \u00b7 Philosophy \u00b7 Shadow", chapters: "Digest", portal: "Power",
+    desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.",
+    related: [
+      { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg \u00b7 1939", desc: "Kitsch and the sensationalized story.", href: "/book/avant_garde_and_kitsch" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Wu wei as the counter to Machiavellian forcing.", href: "/book/tao_te_ching" },
+      { title: "The Prince", type: "LIVING BOOK", typeColor: blue, meta: "Machiavelli \u00b7 26 chapters", desc: "The source text, unmediated.", href: "/book/the_prince" },
+    ],
+    greeting: "Machiavelli wrote a manual for how power actually works \u2014 stripped of morality, observed with the precision of a naturalist watching predators. The Prince doesn\u2019t care whether you approve. It describes what it sees.\n\nThe Epstein case is a demonstration of exactly those mechanics, operating in the 21st century. A private citizen built a network of protection that shielded him for decades \u2014 through managed relationships, strategic philanthropy, and the oldest currency in Machiavelli\u2019s playbook: mutual exposure.\n\nThe question here isn\u2019t whether Epstein was evil. That\u2019s settled. The question is how the machinery worked, what it reveals about the structures we all live inside, and why we can\u2019t stop looking at it.\n\nSome ways in:\n\n\u2022 \"The framework\" \u2014 what Machiavelli actually argues about power, fear, and the management of appearances\n\u2022 \"The collision\" \u2014 what Machiavelli would have recognized in Epstein\u2019s operation\n\u2022 \"The wider lens\" \u2014 how this maps to globalism and institutional power\n\u2022 \"The shadow\" \u2014 why we\u2019re fascinated by figures like this\n\u2022 \"The mirror\" \u2014 what the analysis says about the person doing the analyzing",
+  },
   avant_garde_and_kitsch: {
     title: "Avant-Garde and Kitsch", author: "Clement Greenberg \u00b7 Partisan Review \u00b7 1939", tradition: "Art Criticism \u00b7 Modernism", chapters: "Essay \u00b7 ~6,500 words", portal: "Society",
     desc: "The essay that drew the line between genuine culture and its imitation \u2014 and argued the line is political.",
@@ -90,6 +100,8 @@ const FORMAT_COLORS: Record<string, { bg: string; border: string }> = {
   "EXPEDITION": { bg: "#ECFEFF", border: "#A5F3FC" },
   "HOROSCOPE": { bg: "#F5F3FF", border: "#DDD6FE" },
   "ESSAY": { bg: "#FFFBEB", border: "#FDE68A" },
+  "DIGEST": { bg: "#FEF2F2", border: "#FECACA" },
+  "GAME": { bg: "#ECFDF5", border: "#A7F3D0" },
 };
 
 export default function BookPage() {
@@ -367,7 +379,7 @@ export default function BookPage() {
                 <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>
               <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 9, color: data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : "#EFF6FF", borderRadius: 3 }}>{data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : "Living Book"}</span>
+                <span style={{ fontSize: 9, color: data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 3 }}>{data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
                 <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
@@ -498,7 +510,22 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "avant_garde_and_kitsch" ? (
+          {bookId === "prince_x_epstein" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/The_Prince" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#DC2626", flexShrink: 0 }} />The Prince — Wikipedia
+              </a>
+              <a href="https://www.gutenberg.org/ebooks/1232" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Full text — Project Gutenberg
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Machiavelli — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Jeffrey_Epstein" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Jeffrey Epstein — Wikipedia
+              </a>
+            </>
+          ) : bookId === "avant_garde_and_kitsch" ? (
             <>
               <a href="https://en.wikipedia.org/wiki/Avant-Garde_and_Kitsch" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Avant-Garde and Kitsch — Wikipedia

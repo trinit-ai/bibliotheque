@@ -55,6 +55,7 @@ HOROSCOPES_DIR = LIBRARY_BASE / "horoscopes"
 BRAND_DIR = LIBRARY_BASE / "brand"
 TECHNOLOGY_DIR = LIBRARY_BASE / "technology"
 PLATFORM_DIR = LIBRARY_BASE / "platform"
+POWER_DIR = LIBRARY_BASE / "power"
 SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
@@ -84,6 +85,7 @@ class Catalogue:
         self._load_library_manifests(BRAND_DIR, ContentType.pack)
         self._load_library_manifests(TECHNOLOGY_DIR, ContentType.essay)
         self._load_library_manifests(PLATFORM_DIR, ContentType.expedition)
+        self._load_library_manifests(POWER_DIR, ContentType.editorial)
         self._build_indices()
         logger.info(
             f"Catalogue loaded: {len(self._entries)} entries, "

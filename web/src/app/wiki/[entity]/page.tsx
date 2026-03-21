@@ -254,6 +254,37 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "Richard Feynman said: \"If you think you understand quantum mechanics, you don't understand quantum mechanics.\"\n\nHere is the essence of the mystery. Fire photons one at a time through two narrow slits onto a detector screen. Each photon lands at a definite point — a single dot on the screen. But after thousands of photons, the dots form an interference pattern: bright and dark bands, as though each photon passed through both slits simultaneously and interfered with itself.\n\nNow put a detector at one slit to observe which slit the photon passes through. The interference pattern vanishes. The photon behaves as a particle, passing through one slit or the other.\n\nThe act of observation changes the outcome. Not because of physical disturbance — we can make the measurement arbitrarily gentle. Something deeper is happening.\n\nAfter a century of debate, physicists are divided. The Copenhagen interpretation says the wave function collapses upon measurement. Many-Worlds says every measurement splits the universe. Pilot wave theory says particles have definite trajectories guided by a wave.\n\nEach interpretation is consistent with the math. None is fully satisfying. Where shall we begin?",
   },
+  prince_x_epstein: {
+    contentType: "essay",
+    subtitle: "A Cross-Examination Digest",
+    author: "Biblioth\u00e8que",
+    wordCount: "Digest",
+    furtherReading: [
+      { label: "The Prince \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/The_Prince" },
+      { label: "The Prince (full text) \u2014 Project Gutenberg", url: "https://www.gutenberg.org/ebooks/1232" },
+      { label: "Niccol\u00f2 Machiavelli \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Niccol%C3%B2_Machiavelli" },
+      { label: "Jeffrey Epstein \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Jeffrey_Epstein" },
+    ],
+    intro: "What would Machiavelli have seen in the Epstein case? Not the horror \u2014 he was familiar with worse. The machinery. A private citizen who built a network of protection through the oldest instruments in The Prince: managed relationships, strategic philanthropy, and the currency of mutual exposure. This digest applies Machiavelli\u2019s analytical framework \u2014 virt\u00f9, fortuna, the appearance of virtue, the economy of violence \u2014 to the structures that enabled Epstein, the information culture that delivered the story, and the fascination that won\u2019t let it go.",
+    territories: [
+      { name: "The Framework", desc: "Machiavelli\u2019s Prince as analytical toolkit: virt\u00f9, fortuna, the appearance of virtue, cruelty well-used, fear vs. love, the fox and the lion." },
+      { name: "The Collision", desc: "What Machiavelli would have recognized in Epstein\u2019s operation \u2014 the network as principality, the management of appearances through philanthropy, the economy of protection." },
+      { name: "The Wider Lens", desc: "Beyond Epstein. Globalism, institutional capture, the intersection of private wealth and sovereign power. Machiavelli\u2019s city-state framework applied at civilizational scale." },
+      { name: "The Shadow", desc: "Why we can\u2019t look away. Voyeurism, dark archetypes, the Joker, Mangione, serial killer fascination. What Jung\u2019s shadow reveals about the collective fixation with transgressive power." },
+      { name: "The Mirror", desc: "The cross-examination turned inward. What does your fascination with this story tell you about yourself? Is analysis itself a form of complicity?" },
+    ],
+    related: [
+      { title: "Avant-Garde and Kitsch", type: "book", id: "avant_garde_and_kitsch", meta: "Greenberg \u00b7 1939", desc: "Kitsch and the sensationalized story." },
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "Wu wei as the counter to Machiavellian forcing." },
+      { title: "Consciousness", type: "expedition", id: "consciousness", meta: "Philosophy of Mind", desc: "What it means to pay genuine attention vs. consume passively." },
+    ],
+    books: [
+      { title: "Avant-Garde and Kitsch", author: "Greenberg", id: "avant_garde_and_kitsch" },
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "The Prince", author: "Machiavelli", id: "the_prince" },
+    ],
+    demoResponse: "Machiavelli wrote a manual for how power actually works \u2014 stripped of morality, observed with the precision of a naturalist watching predators. The Epstein case is a demonstration of exactly those mechanics, operating in the 21st century.\n\nThe question here isn\u2019t whether Epstein was evil. That\u2019s settled. The question is how the machinery worked, what it reveals about the structures we all live inside, and why we can\u2019t stop looking at it.\n\nWhat brought you here \u2014 the Machiavelli framework, the Epstein case, or something else?",
+  },
   avant_garde_and_kitsch: {
     contentType: "essay",
     author: "Clement Greenberg",
