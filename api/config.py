@@ -1,8 +1,15 @@
 import os
 import logging
+from pathlib import Path
 from dotenv import load_dotenv
 
 load_dotenv()
+
+# ---------------------------------------------------------------------------
+# Paths (required by engine modules)
+# ---------------------------------------------------------------------------
+BASE_DIR = Path(__file__).parent.parent
+PROTOCOL_DIR = BASE_DIR / "protocols" / "packs" / "guest"  # default fallback
 
 # ---------------------------------------------------------------------------
 # LLM
@@ -35,6 +42,43 @@ ALLOWED_ORIGINS = [
 # Auth
 # ---------------------------------------------------------------------------
 REGISTRATION_OPEN = os.getenv("REGISTRATION_OPEN", "true").lower() == "true"
+
+# ---------------------------------------------------------------------------
+# Engine compatibility (functions/vars expected by engine modules)
+# ---------------------------------------------------------------------------
+MODEL = TMOS13_MODEL
+DEBUG = os.getenv("DEBUG", "false").lower() == "true"
+TMOS13_MANIFEST_ENABLED = os.getenv("TMOS13_MANIFEST_ENABLED", "false").lower() == "true"
+WEB_SEARCH_ENABLED = os.getenv("WEB_SEARCH_ENABLED", "false").lower() == "true"
+WEB_SEARCH_MAX_RESULTS = int(os.getenv("WEB_SEARCH_MAX_RESULTS", "5"))
+
+_active_pack = None
+_active_cartridges: dict = {}
+
+
+def get_pack():
+    """Return the currently active pack (if any)."""
+    return _active_pack
+
+
+def set_pack(pack):
+    """Set the active pack."""
+    global _active_pack
+    _active_pack = pack
+
+
+def get_cartridges():
+    """Return the active cartridges dict."""
+    return _active_cartridges
+
+
+def get_default_settings():
+    """Return default session settings for the engine."""
+    return {
+        "model": TMOS13_MODEL,
+        "max_tokens": 4096,
+        "temperature": 0.7,
+    }
 
 # ---------------------------------------------------------------------------
 # Logging
