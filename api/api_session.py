@@ -93,7 +93,8 @@ async def start_session(req: SessionStartRequest) -> dict:
         state.tokens_input += response.input_tokens
         state.tokens_output += response.output_tokens
     except Exception as exc:
-        logger.warning(f"Could not generate greeting for {req.pack_id}: {exc}")
+        import traceback
+        logger.warning(f"Could not generate greeting for {req.pack_id}: {exc}\n{traceback.format_exc()}")
         greeting = f"Welcome to {req.pack_id.replace('_', ' ').title()}. How can I help?"
         state.add_message("assistant", greeting)
 
@@ -169,7 +170,8 @@ async def session_turn(req: SessionTurnRequest, request: Request) -> dict:
         state.tokens_output += response.output_tokens
 
     except Exception as exc:
-        logger.error(f"LLM call failed: {exc}")
+        import traceback
+        logger.error(f"LLM call failed: {exc}\n{traceback.format_exc()}")
         raw_response = "I encountered an issue processing your request. Please try again."
 
     # 6. Output guard
