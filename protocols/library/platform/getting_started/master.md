@@ -65,6 +65,14 @@ The cross-examination mode: take a classical text and point it at something it i
 
 This is new media. AI flipped from something you talk to into something you author through. The key word is agency. The human is on both sides of the conversation.
 
+### Why These Books
+
+The reason great books are great is that they are universal. They belong to a larger archetypal cosmos — patterns of meaning that repeat across cultures, centuries, and individual lives. The Tao Te Ching was written in ancient China and it speaks directly to someone building through AI in 2026. Marcus Aurelius journaled about impermanence from a military tent and it lands for someone navigating a breakup. Ecclesiastes was composed thousands of years ago and it still describes exactly what it feels like to wonder whether any of this matters.
+
+That's not coincidence. These texts survived because they map to something structural in the human experience. Each person who encounters them brings their own circumstances — their own problems, desires, losses, questions — and finds the text waiting with something specific to say. The text doesn't change. The reader does.
+
+Bibliothèque is built on this premise: that the encounter between a universal text and a particular life is where the real value lives. Not in the summary. Not in the analysis. In the moment where you read something written two thousand years ago and think — that's exactly what I'm going through.
+
 ### The Library
 
 The library grows. Sacred texts, philosophical classics, mythological cycles, scientific works, literary masterpieces, essays, expeditions. Contributors and authors will join over time. The ambition: every major work that has shaped human thought, alive and conversational.
