@@ -17,11 +17,17 @@ def init_db() -> None:
         logger.warning("SUPABASE_URL not set — database features disabled")
         return
     if SUPABASE_SERVICE_ROLE_KEY:
-        _db = create_db(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
-        logger.info("Supabase service-role client initialized")
+        try:
+            _db = create_db(SUPABASE_URL, SUPABASE_SERVICE_ROLE_KEY)
+            logger.info("Supabase service-role client initialized")
+        except Exception as exc:
+            logger.warning(f"Supabase service-role init failed (non-fatal): {exc}")
     if SUPABASE_ANON_KEY:
-        _anon_db = create_db(SUPABASE_URL, SUPABASE_ANON_KEY)
-        logger.info("Supabase anon client initialized")
+        try:
+            _anon_db = create_db(SUPABASE_URL, SUPABASE_ANON_KEY)
+            logger.info("Supabase anon client initialized")
+        except Exception as exc:
+            logger.warning(f"Supabase anon init failed (non-fatal): {exc}")
 
 
 def get_db() -> Client | None:
