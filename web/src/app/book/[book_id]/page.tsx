@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  enlightened_duck: {
+    title: "The Enlightened Duck", author: "A Biblioth\u00e8que Game", tradition: "Games", chapters: "Game", portal: "Games",
+    desc: "A pilgrim climbs a mountain, crosses a pond, presents an offering, and earns three questions answered by a duck who knows the secrets of the universe.",
+    related: [
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "The text the duck has probably read.", href: "/book/tao_te_ching" },
+      { title: "Stoicism", type: "EXPEDITION", typeColor: "#0891B2", meta: "Philosophy", desc: "A more serious approach to the same questions.", href: "/wiki/stoicism" },
+      { title: "I Ching", type: "HOROSCOPE", typeColor: "#7C3AED", meta: "Divination \u00b7 64 hexagrams", desc: "Another oracle. No duck.", href: "/book/i_ching" },
+    ],
+    greeting: "The mountain is ahead of you.\n\nIt\u2019s not a particularly tall mountain, but the path is steep and the air is thin and something about the light suggests you\u2019ve been walking longer than you think.\n\nAt the top \u2014 according to the villagers at the base, who seemed amused that you were going \u2014 there is a pond. And in the pond, there is a duck. And the duck, they say, knows the secrets of the universe.\n\nYou get three questions. No more. Choose well.\n\nBut first: the climb. And on the way up, there is the matter of the offering.\n\nWhat do you bring?",
+  },
   the_prince: {
     title: "The Prince \u00d7 Jeffrey Epstein", author: "A Cross-Examination Digest", tradition: "Power \u00b7 Philosophy \u00b7 Shadow", chapters: "Digest", portal: "Power",
     desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.",
@@ -389,7 +399,7 @@ export default function BookPage() {
                 <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
               </div>
               <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
-                <span style={{ fontSize: 9, color: data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 3 }}>{data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
+                <span style={{ fontSize: 9, color: data.chapters === "Game" ? "#059669" : data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters === "Game" ? "#ECFDF5" : data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 3 }}>{data.chapters === "Game" ? "Game" : data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
                 <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>

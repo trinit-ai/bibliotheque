@@ -56,6 +56,7 @@ BRAND_DIR = LIBRARY_BASE / "brand"
 TECHNOLOGY_DIR = LIBRARY_BASE / "technology"
 PLATFORM_DIR = LIBRARY_BASE / "platform"
 POWER_DIR = LIBRARY_BASE / "power"
+INTERACTION_DIR = LIBRARY_BASE / "interaction"
 SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
@@ -86,6 +87,7 @@ class Catalogue:
         self._load_library_manifests(TECHNOLOGY_DIR, ContentType.essay)
         self._load_library_manifests(PLATFORM_DIR, ContentType.expedition)
         self._load_library_manifests(POWER_DIR, ContentType.editorial)
+        self._load_library_manifests(INTERACTION_DIR, ContentType.game)
         self._build_indices()
         logger.info(
             f"Catalogue loaded: {len(self._entries)} entries, "
