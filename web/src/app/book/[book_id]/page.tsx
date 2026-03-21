@@ -98,37 +98,34 @@ export default function BookPage() {
   const textareaRef = useRef<HTMLTextAreaElement>(null);
 
   const sessionIdRef = useRef<string>("");
-  const apiBase = process.env.NEXT_PUBLIC_API_URL || "";
+  const apiBase = process.env.NEXT_PUBLIC_API_URL || "";  // empty string uses relative URLs via Vercel rewrites
 
   useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages]);
 
-  // Start session on mount — try API, fall back to local greeting
+  // Start session on mount — try API (via apiBase or relative URL), fall back to local greeting
   useEffect(() => {
     setIsLoading(true);
     const fallbackGreeting = ("greeting" in data) ? (data as { greeting: string }).greeting : DEFAULT_DATA.greeting;
+    const base = apiBase || "";  // empty = relative URL, works via Vercel rewrites
 
-    if (apiBase) {
-      fetch(`${apiBase}/api/session/start`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ pack_id: bookId, content_type: data.chapters?.startsWith("Essay") ? "editorial" : data.chapters === "Expedition" ? "expedition" : "living_book" }),
+    fetch(`${base}/api/session/start`, {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ pack_id: bookId, content_type: data.chapters?.startsWith("Essay") ? "editorial" : data.chapters === "Expedition" ? "expedition" : "living_book" }),
+    })
+      .then(r => {
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
+        return r.json();
       })
-        .then(r => r.json())
-        .then(d => {
-          sessionIdRef.current = d.session_id;
-          setMessages([{ role: "assistant", content: d.greeting || fallbackGreeting }]);
-          setIsLoading(false);
-        })
-        .catch(() => {
-          setMessages([{ role: "assistant", content: fallbackGreeting }]);
-          setIsLoading(false);
-        });
-    } else {
-      setTimeout(() => {
+      .then(d => {
+        sessionIdRef.current = d.session_id;
+        setMessages([{ role: "assistant", content: d.greeting || fallbackGreeting }]);
+        setIsLoading(false);
+      })
+      .catch(() => {
         setMessages([{ role: "assistant", content: fallbackGreeting }]);
         setIsLoading(false);
-      }, 600);
-    }
+      });
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -141,13 +138,15 @@ export default function BookPage() {
     setIsLoading(true);
 
     // Try API, fall back to demo
-    if (apiBase && sessionIdRef.current) {
+    const base = apiBase || "";
+    if (sessionIdRef.current) {
       try {
-        const r = await fetch(`${apiBase}/api/session/turn`, {
+        const r = await fetch(`${base}/api/session/turn`, {
           method: "POST",
           headers: { "Content-Type": "application/json" },
           body: JSON.stringify({ session_id: sessionIdRef.current, message: msg }),
         });
+        if (!r.ok) throw new Error(`HTTP ${r.status}`);
         const d = await r.json();
         setMessages(prev => [...prev, { role: "assistant", content: d.response }]);
         setIsLoading(false);
@@ -157,14 +156,14 @@ export default function BookPage() {
       }
     }
 
-    // Demo fallback
+    // Demo fallback — only reached if no session or API unreachable
     setTimeout(() => {
       setMessages(prev => [...prev, {
         role: "assistant",
-        content: `That's worth sitting with.\n\nThe text addresses this most directly in two places:\n\n[Chapter 8] — "A person of great virtue is like the flowing water. Water benefits all things and contends not with them."\n\n[Chapter 78] — "There is nothing in this world that is softer and meeker than water. Yet for dissolving the hard and inflexible, nothing can surpass it."\n\nThe pattern across both: what is soft overcomes what is hard. Not by force — by persistence and by occupying the position no one else wants.\n\nWould you like to follow the water imagery further, or does this connect to something else you're thinking about?`
+        content: "The session couldn\u2019t connect to the library backend. Try refreshing the page, or come back shortly."
       }]);
       setIsLoading(false);
-    }, 800);
+    }, 400);
   };
 
   const renderContent = (text: string, clickable = false) => {
