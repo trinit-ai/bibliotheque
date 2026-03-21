@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  the_prince: {
+    title: "The Prince \u00d7 Jeffrey Epstein", author: "A Cross-Examination Digest", tradition: "Power \u00b7 Philosophy \u00b7 Shadow", chapters: "Digest", portal: "Power",
+    desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.",
+    related: [
+      { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg \u00b7 1939", desc: "Kitsch and the sensationalized story.", href: "/book/avant_garde_and_kitsch" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Wu wei as the counter to Machiavellian forcing.", href: "/book/tao_te_ching" },
+      { title: "Machines of Loving Grace", type: "ESSAY", typeColor: "#B45309", meta: "Dario Amodei \u00b7 2024", desc: "Technology reshaping culture.", href: "/book/machines_of_loving_grace" },
+    ],
+    greeting: "Machiavelli wrote a manual for how power actually works \u2014 stripped of morality, observed with the precision of a naturalist watching predators. The Prince doesn\u2019t care whether you approve. It describes what it sees.\n\nThe Epstein case is a demonstration of exactly those mechanics, operating in the 21st century. A private citizen built a network of protection that shielded him for decades \u2014 through managed relationships, strategic philanthropy, and the oldest currency in Machiavelli\u2019s playbook: mutual exposure.\n\nThe question here isn\u2019t whether Epstein was evil. That\u2019s settled. The question is how the machinery worked, what it reveals about the structures we all live inside, and why we can\u2019t stop looking at it.\n\nSome ways in:\n\n\u2022 \"The framework\" \u2014 what Machiavelli actually argues about power, fear, and the management of appearances\n\u2022 \"The collision\" \u2014 what Machiavelli would have recognized in Epstein\u2019s operation\n\u2022 \"The wider lens\" \u2014 how this maps to globalism and institutional power\n\u2022 \"The shadow\" \u2014 why we\u2019re fascinated by figures like this\n\u2022 \"The mirror\" \u2014 what the analysis says about the person doing the analyzing",
+  },
   prince_x_epstein: {
     title: "The Prince \u00d7 Jeffrey Epstein", author: "A Cross-Examination Digest", tradition: "Power \u00b7 Philosophy \u00b7 Shadow", chapters: "Digest", portal: "Power",
     desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.",
@@ -510,7 +520,7 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "prince_x_epstein" ? (
+          {(bookId === "prince_x_epstein" || bookId === "the_prince") ? (
             <>
               <a href="https://en.wikipedia.org/wiki/The_Prince" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#DC2626", flexShrink: 0 }} />The Prince — Wikipedia
