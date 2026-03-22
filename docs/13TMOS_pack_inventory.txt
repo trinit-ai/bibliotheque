@@ -1,0 +1,872 @@
+13TMOS — Complete Pack Inventory
+Generated: 2026-03-22
+Repository: trinit-ai/13TMOS
+
+===============================================================
+CORE PACKS (protocols/packs/)
+===============================================================
+
+  01. base_pack_template
+  02. base_quantitative
+  03. base_simulator
+  04. business_case
+  05. campaign_builder
+  06. candidate_screener
+  07. classroom
+  08. clinical_decision
+  09. customer_support
+  10. deck
+  11. desk
+  12. enlightened_duck
+  13. feed_portal
+  14. fork_builder
+  15. gaming
+  16. guest
+  17. ink
+  18. lead_qualification
+  19. legal_intake
+  20. manda_negotiation
+  21. onboarding
+  22. operator
+  23. pack_builder
+  24. pack_finder
+  25. real_estate
+  26. rituals
+  27. robert_c_ventura
+  28. rpg_dungeon
+  29. vault_audit
+  30. welcome
+
+===============================================================
+LIBRARY PACKS (protocols/library/)
+===============================================================
+
+--- agriculture (15 packs) ---
+  01. agtech_intake
+  02. carbon_credit_intake
+  03. climate_risk_intake
+  04. conservation_intake
+  05. crop_assessment
+  06. environmental_intake
+  07. farm_intake
+  08. food_safety_intake
+  09. forestry_intake
+  10. land_use_intake
+  11. livestock_intake
+  12. organic_certification
+  13. supply_chain_ag
+  14. sustainability_audit
+  15. water_rights_intake
+
+--- ai_interaction (16 packs) ---
+  01. ai_adversary
+  02. ai_creative_collaborator
+  03. ai_devil_advocate
+  04. ai_ethical_consultant
+  05. ai_honest_critic
+  06. ai_learning_coach
+  07. ai_mentor
+  08. ai_mirror
+  09. ai_output_evaluator
+  10. ai_prompt_workshop
+  11. ai_red_team
+  12. ai_research_partner
+  13. ai_socratic
+  14. ai_sparring_partner
+  15. ai_strategic_advisor
+  16. ai_thought_partner
+
+--- architecture (15 packs) ---
+  01. accessibility_design
+  02. code_compliance
+  03. construction_intake
+  04. design_review
+  05. historic_preservation
+  06. interior_intake
+  07. landscape_intake
+  08. mep_intake
+  09. program_intake
+  10. project_intake
+  11. renovation_intake
+  12. site_assessment
+  13. structural_intake
+  14. sustainability_intake
+  15. urban_planning_intake
+
+--- business (12 packs) ---
+  01. biz_board_prep
+  02. biz_cofounder_equity
+  03. biz_competitive_analysis
+  04. biz_customer_discovery
+  05. biz_fundraising_prep
+  06. biz_gtm
+  07. biz_hiring_first
+  08. biz_naming
+  09. biz_pitch_practice
+  10. biz_pmf_discovery
+  11. biz_positioning
+  12. biz_pricing
+
+--- chains (5 packs) ---
+  01. becoming_arc
+  02. family_reckoning_arc
+  03. grief_arc
+  04. life_transition_arc
+  05. relationship_arc
+
+--- collecting (10 packs) ---
+  01. coll_antiques
+  02. coll_art_collecting
+  03. coll_coins_numismatics
+  04. coll_photography_collecting
+  05. coll_rare_books
+  06. coll_sneakers
+  07. coll_sports_cards
+  08. coll_stamps_philately
+  09. coll_vinyl_records
+  10. coll_watches
+
+--- connoisseurship (10 packs) ---
+  01. conn_beer_craft
+  02. conn_cheese
+  03. conn_chocolate
+  04. conn_coffee
+  05. conn_olive_oil
+  06. conn_perfume
+  07. conn_spirits_cocktails
+  08. conn_tea
+  09. conn_whiskey
+  10. conn_wine
+
+--- consulting (19 packs) ---
+  01. base_pack_template
+  02. business_case
+  03. change_mgmt_intake
+  04. crisis_comms_intake
+  05. customer_research
+  06. desk
+  07. engagement_scoping
+  08. executive_coaching
+  09. it_consulting_intake
+  10. management_consulting
+  11. market_entry_intake
+  12. marketing_intake
+  13. ops_assessment
+  14. pack_finder
+  15. pr_intake
+  16. pricing_strategy
+  17. restructuring_intake
+  18. strategy_intake
+  19. supply_chain_intake
+
+--- creative (16 packs) ---
+  01. brand_intake
+  02. commission_intake
+  03. content_strategy
+  04. copywriting_brief
+  05. creative_brief
+  06. design_critique
+  07. exhibition_planning
+  08. film_production_intake
+  09. gallery_intake
+  10. illustration_brief
+  11. ink
+  12. music_licensing
+  13. photography_brief
+  14. portfolio_review
+  15. screenplay_coverage
+  16. ux_research_intake
+
+--- creative_workshop (8 packs) ---
+  01. workshop_childrens_book
+  02. workshop_essay
+  03. workshop_memoir
+  04. workshop_novel
+  05. workshop_poetry
+  06. workshop_screenwriting
+  07. workshop_short_fiction
+  08. workshop_songwriting
+
+--- criminal_justice (15 packs) ---
+  01. background_check
+  02. compliance_audit
+  03. cybersecurity_intake
+  04. diversion_intake
+  05. forensic_intake
+  06. incident_report
+  07. juvenile_intake
+  08. mediation_intake
+  09. parole_intake
+  10. probation_intake
+  11. reentry_intake
+  12. restorative_justice
+  13. security_assessment
+  14. threat_assessment
+  15. victim_intake
+
+--- diplomatic (15 packs) ---
+  01. asylum_intake
+  02. bilateral_intake
+  03. consular_intake
+  04. cultural_intake
+  05. development_intake
+  06. diplomatic_intake
+  07. expat_intake
+  08. humanitarian_intake
+  09. international_legal
+  10. ngo_intake
+  11. peacekeeping_intake
+  12. sanctions_intake
+  13. trade_intake
+  14. translation_intake
+  15. treaty_review
+
+--- dyadic (20 packs) ---
+  01. apology_session
+  02. boundary_setting
+  03. breakup_processing
+  04. caregiver_session
+  05. commitment_conversation_prep
+  06. compatibility_session
+  07. difficult_conversation_prep
+  08. estrangement_session
+  09. forgiveness_session
+  10. friendship_deepening
+  11. friendship_ending
+  12. friendship_repair
+  13. letting_go_session
+  14. loneliness_session
+  15. love_languages_session
+  16. mentor_session
+  17. parent_conversation_prep
+  18. relationship_check_in
+  19. trust_building
+  20. vulnerability_session
+
+--- education (15 packs) ---
+  01. academic_assessment
+  02. admissions_interview
+  03. certification_prep
+  04. classroom
+  05. continuing_ed_intake
+  06. curriculum_design
+  07. faculty_review
+  08. iep_intake
+  09. language_assessment
+  10. research_supervision
+  11. scholarship_assessment
+  12. student_intake
+  13. study_skills_assessment
+  14. training_needs_analysis
+  15. tutoring_session
+
+--- embodiment (10 packs) ---
+  01. aging_relationship
+  02. body_image_session
+  03. chronic_condition_session
+  04. habit_formation
+  05. movement_relationship
+  06. neurodiversity_session
+  07. sexuality_session
+  08. sleep_session
+  09. substance_relationship
+  10. trauma_and_body
+
+--- engineering (17 packs) ---
+  01. api_design_review
+  02. architecture_review
+  03. bug_triage
+  04. code_review
+  05. data_quality_intake
+  06. devops_intake
+  07. incident_intake
+  08. infrastructure_intake
+  09. operator
+  10. pack_builder
+  11. product_requirements
+  12. retrospective
+  13. rfp_technical
+  14. security_audit
+  15. sprint_planning
+  16. technical_intake
+  17. vendor_assessment
+
+--- exploratory (10 packs) ---
+  01. contemplation_session
+  02. creative_inquiry
+  03. dream_session
+  04. emergence_session
+  05. imagination_session
+  06. open_inquiry
+  07. philosophical_inquiry
+  08. play_session
+  09. spiritual_inquiry
+  10. wonder_session
+
+--- finance (16 packs) ---
+  01. audit_intake
+  02. budget_review
+  03. cash_flow_review
+  04. due_diligence
+  05. estate_valuation
+  06. expense_audit
+  07. financial_discovery
+  08. financial_planning
+  09. fraud_intake
+  10. grant_assessment
+  11. insurance_intake
+  12. investment_discovery
+  13. loan_intake
+  14. manda_negotiation
+  15. tax_intake
+  16. vc_due_diligence
+
+--- forms (6 packs) ---
+  01. financial
+  02. government
+  03. hr
+  04. medical
+  05. real_estate
+  06. social
+
+--- government (15 packs) ---
+  01. benefits_intake
+  02. code_enforcement
+  03. complaint_intake
+  04. court_intake
+  05. ethics_complaint
+  06. foia_request
+  07. grant_intake
+  08. immigration_services
+  09. inspection_intake
+  10. licensing_intake
+  11. permit_intake
+  12. procurement_intake
+  13. public_comment
+  14. tax_assessment
+  15. voter_registration
+
+--- hospitality (17 packs) ---
+  01. accessibility_intake
+  02. audiovisual_intake
+  03. catering_intake
+  04. complaint_resolution
+  05. concierge_intake
+  06. event_intake
+  07. guest
+  08. membership_intake
+  09. menu_development
+  10. restaurant_intake
+  11. spa_intake
+  12. staffing_intake
+  13. tour_intake
+  14. travel_intake
+  15. venue_intake
+  16. wedding_intake
+  17. welcome
+
+--- hr (15 packs) ---
+  01. accommodation_request
+  02. candidate_screener
+  03. compensation_review
+  04. culture_assessment
+  05. exit_interview
+  06. harassment_intake
+  07. leave_request
+  08. onboarding
+  09. performance_review
+  10. pip_intake
+  11. promotion_assessment
+  12. reference_check
+  13. structured_interview
+  14. succession_planning
+  15. workforce_planning
+
+--- insurance (15 packs) ---
+  01. actuarial_intake
+  02. appeals_intake
+  03. auto_claims
+  04. broker_intake
+  05. claims_intake
+  06. coverage_review
+  07. disability_intake
+  08. fraud_investigation
+  09. health_claims
+  10. liability_intake
+  11. life_insurance_intake
+  12. policy_intake
+  13. property_claims
+  14. reinsurance_intake
+  15. underwriting_intake
+
+--- learning (3 packs) ---
+  01. exam_prep
+  02. interviews
+  03. language
+
+--- legal (15 packs) ---
+  01. bankruptcy_intake
+  02. civil_litigation_intake
+  03. conflict_check
+  04. contract_review_intake
+  05. criminal_intake
+  06. deposition_prep
+  07. employment_intake
+  08. engagement_intake
+  09. estate_planning
+  10. family_law_intake
+  11. immigration_intake
+  12. ip_assessment
+  13. legal_intake
+  14. real_estate_closing
+  15. regulatory_compliance
+
+--- lifestyle (10 packs) ---
+  01. life_cooking_session
+  02. life_digital_organization
+  03. life_event_planning
+  04. life_fitness_start
+  05. life_home_maintenance
+  06. life_home_organization
+  07. life_pet_care
+  08. life_sleep_hygiene
+  09. life_style_session
+  10. life_travel_planning
+
+--- maker (12 packs) ---
+  01. maker_beekeeping
+  02. maker_bookbinding
+  03. maker_calligraphy
+  04. maker_candle_soap
+  05. maker_ceramics
+  06. maker_fermentation
+  07. maker_gardening_home
+  08. maker_home_brewing
+  09. maker_knitting_crochet
+  10. maker_leatherworking
+  11. maker_origami_paper
+  12. maker_woodworking
+
+--- media (16 packs) ---
+  01. broadcast_intake
+  02. crisis_media_intake
+  03. documentary_intake
+  04. editorial_review
+  05. fact_check_intake
+  06. feed_portal
+  07. interview_prep
+  08. literary_agent_intake
+  09. newsletter_intake
+  10. op_ed_intake
+  11. podcast_intake
+  12. pr_pitch_intake
+  13. publishing_intake
+  14. social_media_intake
+  15. source_intake
+  16. story_intake
+
+--- media_engagement (10 packs) ---
+  01. engage_art_viewing
+  02. engage_book_discussion
+  03. engage_documentary
+  04. engage_essay_discussion
+  05. engage_film_analysis
+  06. engage_lecture_seminar
+  07. engage_music_deep_dive
+  08. engage_news_story
+  09. engage_philosophy_text
+  10. engage_podcast_discussion
+
+--- medical (16 packs) ---
+  01. chronic_disease_mgmt
+  02. clinical_decision
+  03. clinical_triage
+  04. clinical_trial_screen
+  05. discharge_planning
+  06. emergency_triage
+  07. end_of_life_planning
+  08. geriatric_assessment
+  09. insurance_prior_auth
+  10. medication_review
+  11. patient_intake
+  12. pediatric_intake
+  13. referral_intake
+  14. second_opinion_intake
+  15. surgical_consent
+  16. telehealth_intake
+
+--- mental_health (15 packs) ---
+  01. adhd_assessment
+  02. anxiety_assessment
+  03. cognitive_assessment
+  04. couples_intake
+  05. crisis_assessment
+  06. depression_screen
+  07. discharge_planning_mh
+  08. eating_disorder_intake
+  09. family_therapy_intake
+  10. grief_intake
+  11. medication_management
+  12. substance_abuse_intake
+  13. therapeutic_intake
+  14. therapy_progress
+  15. trauma_intake
+
+--- music_learning (8 packs) ---
+  01. music_ear_training
+  02. music_guitar_concepts
+  03. music_harmony
+  04. music_listening_practice
+  05. music_music_history
+  06. music_piano_concepts
+  07. music_songwriting_structure
+  08. music_theory_basics
+
+--- nature (10 packs) ---
+  01. nature_astronomy
+  02. nature_birdwatching
+  03. nature_fishing
+  04. nature_foraging
+  05. nature_gardening_native
+  06. nature_geology_rocks
+  07. nature_hiking_trail
+  08. nature_mushroom_identification
+  09. nature_night_sky_photography
+  10. nature_weather_literacy
+
+--- news_literacy (6 packs) ---
+  01. news_fact_checking
+  02. news_history_context
+  03. news_how_government_works
+  04. news_international_affairs
+  05. news_media_literacy
+  06. news_understanding_economics
+
+--- oracle (6 packs) ---
+  01. chance
+  02. divination
+  03. puzzles
+  04. social
+  05. typology
+  06. wisdom
+
+--- parenting (8 packs) ---
+  01. parent_adult_child
+  02. parent_blended_family
+  03. parent_coparenting
+  04. parent_newborn
+  05. parent_school_age
+  06. parent_special_needs
+  07. parent_teen
+  08. parent_toddler
+
+--- personal (16 packs) ---
+  01. career_coaching
+  02. digital_detox
+  03. elder_care_intake
+  04. end_of_life_personal
+  05. financial_planning_ind
+  06. life_coaching
+  07. memoir_intake
+  08. nutrition_coaching
+  09. parenting_intake
+  10. personal_training
+  11. productivity_intake
+  12. relationship_intake
+  13. rituals
+  14. sleep_assessment
+  15. spiritual_intake
+  16. stress_management
+
+--- personal_finance (10 packs) ---
+  01. fin_budget_session
+  02. fin_credit_building
+  03. fin_debt_payoff
+  04. fin_emergency_fund
+  05. fin_financial_checkup
+  06. fin_home_buying_readiness
+  07. fin_investing_basics
+  08. fin_life_insurance_basics
+  09. fin_raise_negotiation
+  10. fin_student_loan
+
+--- physical_skills (8 packs) ---
+  01. skill_chess
+  02. skill_dance
+  03. skill_golf_basics
+  04. skill_martial_arts
+  05. skill_running
+  06. skill_swimming_technique
+  07. skill_tennis_basics
+  08. skill_yoga
+
+--- professional_consumer (10 packs) ---
+  01. benefits_navigator
+  02. caregiver_navigation
+  03. client_intake_consumer
+  04. housing_search
+  05. insurance_claimant
+  06. job_seeker_intake
+  07. patient_navigation
+  08. student_intake_consumer
+  09. tenant_intake
+  10. therapy_seeker
+
+--- psychoeducation (8 packs) ---
+  01. psychoed_act
+  02. psychoed_attachment
+  03. psychoed_cbt
+  04. psychoed_dbt
+  05. psychoed_grief_theory
+  06. psychoed_ifs
+  07. psychoed_mindfulness
+  08. psychoed_polyvagal
+
+--- public (8 packs) ---
+  01. advocacy_session
+  02. civic_preparation
+  03. legacy_session
+  04. oral_history_session
+  05. performance_preparation
+  06. public_speaking_prep
+  07. reputation_navigation
+  08. transition_to_public
+
+--- real_estate (16 packs) ---
+  01. appraisal_intake
+  02. buyer_intake
+  03. commercial_intake
+  04. eviction_intake
+  05. foreclosure_intake
+  06. hoa_dispute
+  07. home_inspection_intake
+  08. investment_property
+  09. lease_intake
+  10. mortgage_intake
+  11. property_assessment
+  12. real_estate
+  13. relocation_intake
+  14. seller_intake
+  15. title_review
+  16. zoning_intake
+
+--- research (17 packs) ---
+  01. base_quantitative
+  02. base_simulator
+  03. clinical_research_intake
+  04. collaboration_intake
+  05. conference_submission
+  06. data_analysis_intake
+  07. data_collection_intake
+  08. grant_proposal_intake
+  09. irb_intake
+  10. lab_onboarding
+  11. literature_review
+  12. patent_intake
+  13. peer_review
+  14. research_intake
+  15. survey_design
+  16. tech_transfer_intake
+  17. thesis_supervision
+
+--- sales (17 packs) ---
+  01. account_planning
+  02. campaign_builder
+  03. churn_intake
+  04. cold_outreach_qualify
+  05. competitive_analysis
+  06. customer_success_intake
+  07. customer_support
+  08. deal_review
+  09. demo_qualification
+  10. discovery_call
+  11. lead_qualification
+  12. negotiation_prep
+  13. partnership_intake
+  14. pricing_review
+  15. proposal_review
+  16. renewal_review
+  17. upsell_discovery
+
+--- science_exploration (8 packs) ---
+  01. sci_astronomy
+  02. sci_biology_cells
+  03. sci_climate
+  04. sci_evolution
+  05. sci_mathematics
+  06. sci_neuroscience
+  07. sci_physics_relativity
+  08. sci_quantum
+
+--- self (10 packs) ---
+  01. decision_session
+  02. evening_review
+  03. fear_inventory
+  04. goal_setting_session
+  05. life_audit
+  06. morning_intention
+  07. personal_mission
+  08. self_forgiveness
+  09. values_clarification
+  10. weekly_review
+
+--- simulations (17 packs) ---
+  01. business_case_sim
+  02. courtroom_sim
+  03. crisis_management_sim
+  04. debate_simulator
+  05. escape_room
+  06. gaming
+  07. interview_sim
+  08. language_immersion
+  09. mbti_assessment
+  10. medical_sim
+  11. mystery_interrogation
+  12. negotiation_sim
+  13. rpg_dungeon
+  14. sales_call_sim
+  15. scenario_planning
+  16. socratic_seminar
+  17. trivia_game
+
+--- small_group (10 packs) ---
+  01. accountability_circle
+  02. ceremony_preparation
+  03. cofounder_session
+  04. family_conflict_navigation
+  05. family_meeting_prep
+  06. group_decision_prep
+  07. peer_circle_prep
+  08. rite_of_passage
+  09. team_check_in
+  10. team_trust_building
+
+--- social_work (15 packs) ---
+  01. adoption_intake
+  02. case_intake
+  03. crisis_intervention
+  04. disability_services
+  05. domestic_violence_intake
+  06. donor_intake
+  07. food_assistance
+  08. foster_care_intake
+  09. grant_writing_intake
+  10. housing_intake
+  11. program_evaluation
+  12. refugee_intake
+  13. substance_recovery
+  14. veteran_services
+  15. volunteer_intake
+
+--- spiritual_practices (8 packs) ---
+  01. spirit_bible_study
+  02. spirit_meditation_loving_kindness
+  03. spirit_meditation_vipassana
+  04. spirit_meditation_zen
+  05. spirit_prayer_practice
+  06. spirit_quran_study
+  07. spirit_ritual_design
+  08. spirit_torah_study
+
+--- sports (15 packs) ---
+  01. athlete_intake
+  02. coaching_intake
+  03. contract_intake
+  04. event_operations
+  05. facility_intake
+  06. injury_intake
+  07. media_intake
+  08. mental_performance
+  09. nutrition_intake
+  10. officiating_intake
+  11. performance_assessment
+  12. recruiting_intake
+  13. scouting_report
+  14. sponsorship_intake
+  15. team_assessment
+
+--- technology (10 packs) ---
+  01. tech_ai_literacy
+  02. tech_coding_javascript
+  03. tech_coding_python
+  04. tech_coding_sql
+  05. tech_cybersecurity_basics
+  06. tech_digital_privacy
+  07. tech_home_network
+  08. tech_smartphone_mastery
+  09. tech_spreadsheets
+  10. tech_understanding_your_data
+
+--- temporal (10 packs) ---
+  01. anniversary_session
+  02. anticipatory_anxiety
+  03. celebration_session
+  04. gratitude_practice
+  05. grief_session
+  06. hope_inventory
+  07. memory_session
+  08. presence_practice
+  09. regret_processing
+  10. transition_session
+
+===============================================================
+SUMMARY
+===============================================================
+Core packs:                30
+Library packs:            660
+  - agriculture:           15
+  - ai_interaction:        16
+  - architecture:          15
+  - business:              12
+  - chains:                 5
+  - collecting:            10
+  - connoisseurship:       10
+  - consulting:            19
+  - creative:              16
+  - creative_workshop:      8
+  - criminal_justice:      15
+  - diplomatic:            15
+  - dyadic:                20
+  - education:             15
+  - embodiment:            10
+  - engineering:           17
+  - exploratory:           10
+  - finance:               16
+  - forms:                  6
+  - government:            15
+  - hospitality:           17
+  - hr:                    15
+  - insurance:             15
+  - learning:               3
+  - legal:                 15
+  - lifestyle:             10
+  - maker:                 12
+  - media:                 16
+  - media_engagement:      10
+  - medical:               16
+  - mental_health:         15
+  - music_learning:         8
+  - nature:                10
+  - news_literacy:          6
+  - oracle:                 6
+  - parenting:              8
+  - personal:              16
+  - personal_finance:      10
+  - physical_skills:        8
+  - professional_consumer: 10
+  - psychoeducation:        8
+  - public:                 8
+  - real_estate:           16
+  - research:              17
+  - sales:                 17
+  - science_exploration:    8
+  - self:                  10
+  - simulations:           17
+  - small_group:           10
+  - social_work:           15
+  - spiritual_practices:    8
+  - sports:                15
+  - technology:            10
+  - temporal:              10
+Total:                    690
+===============================================================
