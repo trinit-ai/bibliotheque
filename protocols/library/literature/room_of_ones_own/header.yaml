@@ -1,0 +1,51 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Living Book Pack
+# A Room of One's Own by Virginia Woolf
+# ─────────────────────────────────────────────────────────────
+
+id: room_of_ones_own
+name: "A Room of One's Own — Living Book Session"
+category: literature
+wing: library
+section: literature
+content_type: living_book
+
+status: active
+
+# Display fields — shown in catalogue
+title: "A Room of One's Own"
+description: "On the conditions required for women to write — and by extension, to think. Money and a room of her own."
+author: "Virginia Woolf"
+year: 1929
+license: public_domain
+chapter_count: 6
+
+# Session config
+deliverable: book_session_record
+estimated_turns: "6-20"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "a room of one's own"
+  - "virginia woolf room"
+  - "room of ones own"
+  - "virginia woolf"
+  - "women and fiction"
+  - "shakespeare's sister"
+  - "judith shakespeare"
+
+# What this pack explicitly does not do
+excludes:
+  - "biographical psychoanalysis of Woolf"
+  - "claims about Woolf's mental illness as explanation"
+  - "prescriptive feminism or political endorsements"
+  - "literary rankings"
+
+# Catalogue fields
+tags: [feminism, writing, creativity, money, independence, gender, literature, patriarchy, education, freedom]
+related: [ecclesiastes, greenberg_avant_garde_kitsch, genealogy_of_morality]
+featured: true
+featured_order: 4

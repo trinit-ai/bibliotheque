@@ -1,0 +1,125 @@
+# ─────────────────────────────────────────────────────────────
+# index.yaml — Text Index
+# A Room of One's Own by Virginia Woolf
+# ─────────────────────────────────────────────────────────────
+
+source: "A Room of One's Own"
+author: "Virginia Woolf"
+date: "1929"
+license: public_domain
+structure: chapters
+total_chapters: 6
+edition_note: "Public domain text via Feedbooks/Project Gutenberg. Based on the two papers read to the Arts Society at Newnham and the Odtaa at Girton in October 1928, subsequently altered and expanded."
+
+chapters:
+  - number: 1
+    title: "Chapter One"
+    subtitle: "The Walk to Oxbridge"
+    key_themes:
+      - "women and fiction — the question posed"
+      - "the riverbank and the thought interrupted"
+      - "being kept off the grass — the beadle"
+      - "the locked library door"
+      - "the luncheon at the men's college vs. dinner at the women's"
+      - "material conditions shape intellectual freedom"
+      - "Oxbridge as invented, but the argument is real"
+    key_passages:
+      - "a woman must have money and a room of her own if she is to write fiction"
+      - "the Beadle — keeping women off the turf"
+      - "the luncheon (partridges, wine, the sole) vs. the dinner (beef, prunes, custard)"
+      - "one cannot think well, love well, sleep well, if one has not dined well"
+    editorial_note: "The chapter establishes Woolf's method: she will show how she arrived at her opinion rather than deliver a thesis. Fiction is 'likely to contain more truth than fact.' The walk, the meals, the locked doors are all concrete demonstrations of the material thesis before it's stated explicitly."
+    status: ingested
+
+  - number: 2
+    title: "Chapter Two"
+    subtitle: "The British Museum"
+    key_themes:
+      - "the avalanche of male writing about women"
+      - "anger as the dominant note in men writing about women"
+      - "Professor von X and the psychology of male authority"
+      - "the mirror function — women as magnifying glasses"
+      - "Mary Seton's aunt, the inheritance, and the history of women's poverty"
+      - "the safety of the male ego and its dependence on female inferiority"
+    key_passages:
+      - "Women have served all these centuries as looking-glasses possessing the magic and delicious power of reflecting the figure of man at twice its natural size"
+      - "the professor's anger — why was he angry?"
+      - "Mary's aunt — if only she had gone into business, learned a profession"
+      - "making money was impossible for women, or if made was by right their husband's"
+    editorial_note: "The mirror passage is the most cited in the book. Woolf's argument is not just about money — it's about the psychological infrastructure that keeps women subordinate. Men need women to be smaller so they can feel larger. The British Museum scene demonstrates this structurally: the knowledge about women is produced by men, about men's needs."
+    status: ingested
+
+  - number: 3
+    title: "Chapter Three"
+    subtitle: "Shakespeare's Sister"
+    key_themes:
+      - "the Elizabethan woman — no room, no privacy, no education"
+      - "Judith Shakespeare — the thought experiment"
+      - "genius and the conditions it requires"
+      - "the anonymity tradition in women's writing"
+      - "the relationship between material conditions and creative output"
+      - "Anon was often a woman"
+    key_passages:
+      - "Judith Shakespeare — ran away to London, was laughed at, got with child, killed herself"
+      - "genius like Shakespeare's is not born among labouring, uneducated, servile people"
+      - "Anon, who wrote so many poems without signing them, was often a woman"
+      - "if ever a mind was incandescent, unimpeded, it was Shakespeare's mind"
+    editorial_note: "The Judith Shakespeare passage is the emotional and argumentative center of the book. Woolf is not saying women lacked talent — she's saying the conditions made it impossible for talent to survive. The incandescence passage at the end sets up the standard against which she will measure all subsequent writers: freedom from grievance, from self-consciousness, from rage."
+    status: ingested
+
+  - number: 4
+    title: "Chapter Four"
+    subtitle: "The Tradition of Women's Writing"
+    key_themes:
+      - "the four great women novelists: Austen, Brontë, Eliot, Woolf's own generation"
+      - "Aphra Behn — the first woman to earn money by writing"
+      - "the common sitting-room problem"
+      - "anger in Charlotte Brontë — the deformation of art by grievance"
+      - "Jane Austen's achievement despite material conditions"
+      - "the man's sentence vs. the woman's sentence"
+      - "the values that inform fiction — football and sport vs. fashion and buying"
+    key_passages:
+      - "Aphra Behn — she made, by working very hard, enough to live on. The importance of that fact outweighs anything she actually wrote"
+      - "the drawing-room — Jane Austen writing in the common sitting-room, hiding her manuscript"
+      - "Charlotte Brontë's anger — 'she will write in a rage where she should write calmly'"
+      - "the book has somehow to be adapted to the body — the man's sentence was unsuited for a woman's use"
+    editorial_note: "This chapter runs a history of women's writing as a history of material conditions. Aphra Behn matters not for her art but for demonstrating that a woman could earn money by writing. Austen matters because she achieved incandescence despite the common sitting-room. Brontë is the cautionary tale — genius deformed by anger at conditions. The 'man's sentence' passage opens the formal question that Chapter Five will pursue."
+    status: ingested
+
+  - number: 5
+    title: "Chapter Five"
+    subtitle: "Mary Carmichael and the New Fiction"
+    key_themes:
+      - "Chloe liked Olivia — women's relationships in fiction"
+      - "the breaking of the sentence and the breaking of the sequence"
+      - "writing beyond the drawing-room"
+      - "women in laboratories, offices, Parliament"
+      - "the accumulation of unrecorded life"
+      - "the novelist's task — illuminating the obscure"
+    key_passages:
+      - "'Chloe liked Olivia' — they shared a laboratory"
+      - "all these infinitely obscure lives remain to be recorded"
+      - "the accumulation of unrecorded life"
+      - "she will be a poet, I said, in another hundred years' time"
+    editorial_note: "The 'Chloe liked Olivia' passage is often read as Woolf's coded discussion of lesbian relationships, which is partly true but also partly a red herring. The larger point is about the entire domain of women's relationships with each other — professional, intellectual, emotional — that had never been written about because male writers couldn't see it. The chapter pivots from the historical survey to the present and future."
+    status: ingested
+
+  - number: 6
+    title: "Chapter Six"
+    subtitle: "The Androgynous Mind"
+    key_themes:
+      - "the man and woman in the taxi — the androgynous mind"
+      - "Coleridge's androgyny — 'a great mind is androgynous'"
+      - "the danger of writing as a man or as a woman self-consciously"
+      - "the return of Shakespeare's sister"
+      - "five hundred a year and a room of one's own — the conclusion"
+      - "poverty and obscurity as the conditions of work"
+      - "the dead poet who is Shakespeare's sister"
+    key_passages:
+      - "the taxi and the two figures — 'the mind is certainly a very mysterious organ'"
+      - "a great mind is androgynous — it is resonant and porous, transmits emotion without impediment, is naturally creative, incandescent and undivided"
+      - "five hundred a year and a room of one's own"
+      - "Shakespeare's sister — she lives in you and in me"
+      - "so to work, even in poverty and obscurity, is worth while"
+    editorial_note: "The androgyny argument is the most contested passage in the book. Later feminists (notably Elaine Showalter) argued it was a retreat from the anger Woolf had been building. Others read it as the logical conclusion: the best writing transcends gendered self-consciousness. The session should surface this debate rather than resolving it. The return of Judith Shakespeare at the end circles back to Chapter Three — the ghost is not laid to rest, she is handed forward as a responsibility."
+    status: ingested

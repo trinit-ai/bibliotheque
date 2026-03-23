@@ -1,0 +1,37 @@
+{
+  "id": "room_of_ones_own",
+  "name": "A Room of One's Own — Living Book Session",
+  "version": "1.0.0",
+  "content_type": "living_book",
+  "category": "literature",
+  "visibility": "public",
+  "deliverable_type": "book_session_record",
+  "text": {
+    "source": "protocols/library/literature/room_of_ones_own/text/chunks.json",
+    "index": "protocols/library/literature/room_of_ones_own/text/index.yaml",
+    "structure": "chapters",
+    "unit_count": 6
+  },
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "chapters_visited": [],
+      "key_passages": [],
+      "themes_engaged": [],
+      "connections_made": [],
+      "visitor_position": null,
+      "closing_question": null,
+      "session_arc": null
+    }
+  },
+  "features": {
+    "rag": true,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": true,
+    "visitor_reflection": true
+  },
+  "vault": {
+    "write": "session_summary"
+  }
+}

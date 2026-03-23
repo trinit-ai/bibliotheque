@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  room_of_ones_own: {
+    title: "A Room of One\u2019s Own", author: "Virginia Woolf \u00b7 1929", tradition: "Literature \u00b7 Feminism", chapters: "6 chapters", portal: "Literature",
+    desc: "What does a woman need in order to write? Five hundred pounds a year and a room with a lock on the door.",
+    related: [
+      { title: "Ecclesiastes", type: "LIVING BOOK", typeColor: blue, meta: "Qohelet \u00b7 12 chapters", desc: "Conditions for joy. Conditions for creation.", href: "/book/ecclesiastes" },
+      { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg \u00b7 1939", desc: "Cultural gatekeeping and who gets to make art.", href: "/book/avant_garde_and_kitsch" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Emptiness as the condition for creation.", href: "/book/tao_te_ching" },
+    ],
+    greeting: "In October 1928, Virginia Woolf was invited to lecture at Cambridge on the subject of women and fiction. What she delivered was something else entirely.\n\nShe didn\u2019t survey women\u2019s novels. She asked the prior question: what does a woman need in order to write at all? Her answer was specific. Five hundred pounds a year. A room with a lock on the door. Not metaphor. Material conditions.\n\nThen she invented a sister for Shakespeare \u2014 equally gifted, equally hungry for the world \u2014 and showed what would have happened to her. It\u2019s the most elegant demolition of \u201Ctalent is enough\u201D ever written.\n\nThe essay is 40,000 words long. It reads like a walk. And the argument hasn\u2019t finished.\n\nWhere do you want to start?\n\n\u2022 \"The room\" \u2014 what does it actually take to create?\n\u2022 \"Judith Shakespeare\" \u2014 the thought experiment about genius and exclusion\n\u2022 \"The anger question\" \u2014 Bront\u00eb vs. Austen, and whether rage deforms writing\n\u2022 \"Read from the beginning\" \u2014 the walk across the lawn\n\u2022 \"Something\u2019s on my mind\" \u2014 bring your own question to the text",
+  },
   relativity_einstein: {
     title: "On the Electrodynamics of Moving Bodies", author: "Albert Einstein \u00b7 1905", tradition: "Physics", chapters: "10 sections", portal: "Science",
     desc: "The original special relativity paper. Thirty pages that dismantled absolute time and planted the seed for E=mc\u00b2.",
@@ -540,7 +550,19 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "relativity_einstein" ? (
+          {bookId === "room_of_ones_own" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/A_Room_of_One%27s_Own" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />A Room of One&apos;s Own — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Virginia_Woolf" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Virginia Woolf — Wikipedia
+              </a>
+              <a href="https://gutenberg.net.au/ebooks02/0200791h.html" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Full text — Project Gutenberg Australia
+              </a>
+            </>
+          ) : bookId === "relativity_einstein" ? (
             <>
               <a href="https://en.wikipedia.org/wiki/On_the_Electrodynamics_of_Moving_Bodies" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />The Paper — Wikipedia

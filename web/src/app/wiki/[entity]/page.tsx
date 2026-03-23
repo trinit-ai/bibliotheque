@@ -255,6 +255,38 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "Richard Feynman said: \"If you think you understand quantum mechanics, you don't understand quantum mechanics.\"\n\nHere is the essence of the mystery. Fire photons one at a time through two narrow slits onto a detector screen. Each photon lands at a definite point — a single dot on the screen. But after thousands of photons, the dots form an interference pattern: bright and dark bands, as though each photon passed through both slits simultaneously and interfered with itself.\n\nNow put a detector at one slit to observe which slit the photon passes through. The interference pattern vanishes. The photon behaves as a particle, passing through one slit or the other.\n\nThe act of observation changes the outcome. Not because of physical disturbance — we can make the measurement arbitrarily gentle. Something deeper is happening.\n\nAfter a century of debate, physicists are divided. The Copenhagen interpretation says the wave function collapses upon measurement. Many-Worlds says every measurement splits the universe. Pilot wave theory says particles have definite trajectories guided by a wave.\n\nEach interpretation is consistent with the math. None is fully satisfying. Where shall we begin?",
   },
+  room_of_ones_own: {
+    contentType: "living_book",
+    title: "A Room of One\u2019s Own",
+    author: "Virginia Woolf",
+    year: "1929",
+    chapters: 6,
+    license: "Public Domain",
+    furtherReading: [
+      { label: "A Room of One\u2019s Own \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/A_Room_of_One%27s_Own" },
+      { label: "Virginia Woolf \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Virginia_Woolf" },
+      { label: "Full text \u2014 Project Gutenberg Australia", url: "https://gutenberg.net.au/ebooks02/0200791h.html" },
+    ],
+    intro: "In October 1928, Virginia Woolf was invited to lecture at Cambridge on the subject of women and fiction. What she delivered was something else entirely. She didn\u2019t survey women\u2019s novels. She asked the prior question: what does a woman need in order to write at all? Her answer was specific. Five hundred pounds a year. A room with a lock on the door. Not metaphor. Material conditions. Then she invented a sister for Shakespeare \u2014 equally gifted, equally hungry for the world \u2014 and showed what would have happened to her. The essay is 40,000 words long. It reads like a walk. And the argument hasn\u2019t finished.",
+    territories: [
+      { name: "Five Hundred Pounds a Year", desc: "The material thesis: intellectual freedom depends on material things. Not metaphor \u2014 literal money, literal space, literal time. The conditions for creation." },
+      { name: "Judith Shakespeare", desc: "What would have happened to a woman with Shakespeare\u2019s genius in the sixteenth century? Woolf\u2019s thought experiment about talent, structure, and the cost of exclusion." },
+      { name: "The Mirror Function", desc: "Women have served as looking-glasses reflecting men at twice their natural size. Woolf\u2019s most diagnostic line \u2014 and the one that describes social media before it existed." },
+      { name: "The Anger Problem", desc: "Does anger deform art? Bront\u00eb vs. Austen. Woolf\u2019s most contested claim, and the contemporary debate about tone-policing." },
+      { name: "The Room Today", desc: "Who has a room of their own in 2026? The creator economy, the gig economy, student debt, and the ongoing question of who gets to make art." },
+    ],
+    related: [
+      { title: "Ecclesiastes", type: "book", id: "ecclesiastes", meta: "Qohelet \u00b7 12 chapters", desc: "Conditions for joy. Conditions for creation." },
+      { title: "Avant-Garde and Kitsch", type: "book", id: "avant_garde_and_kitsch", meta: "Greenberg \u00b7 1939", desc: "Cultural gatekeeping and who gets to make art." },
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "Emptiness as the condition for creation." },
+    ],
+    books: [
+      { title: "Ecclesiastes", author: "Qohelet", id: "ecclesiastes" },
+      { title: "Avant-Garde and Kitsch", author: "Greenberg", id: "avant_garde_and_kitsch" },
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+    ],
+    demoResponse: "In October 1928, Virginia Woolf was invited to lecture at Cambridge on women and fiction. She didn\u2019t survey women\u2019s novels. She asked the prior question: what does a woman need in order to write at all?\n\nFive hundred pounds a year. A room with a lock on the door. Not metaphor. Material conditions.\n\nThen she invented a sister for Shakespeare and showed what would have happened to her.\n\nWhat draws you here?",
+  },
   relativity_einstein: {
     contentType: "living_book",
     title: "On the Electrodynamics of Moving Bodies",
