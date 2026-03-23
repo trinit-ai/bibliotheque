@@ -549,7 +549,7 @@ export default function HomePage() {
       <ThreadBand />
 
       {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 60 }}>
+      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 0 }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px 20px" }}>
           <div className="footer-grid">
             <div>
