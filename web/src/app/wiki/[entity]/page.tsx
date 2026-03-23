@@ -477,6 +477,7 @@ const ENTITY_MAP: Record<string, EntityData> = {
   },
   getting_started: {
     contentType: "expedition",
+    title: "Welcome to Biblioth\u00e8que",
     author: "Biblioth\u00e8que",
     intro: "Biblioth\u00e8que is a living library where every text is a two-way conversation. Not a summary engine. Not a chatbot pretending to have read something. The actual text \u2014 fully indexed, present in the session \u2014 ready to meet you wherever you are. The platform combines four things: the public domain texts that are humanity\u2019s shared inheritance, navigable structure inspired by Wikipedia, conversational depth powered by Claude, and governance by protocol so the AI serves the text, not itself. Getting Started is the front door \u2014 a session that explains what this place is, shows what\u2019s here, and opens a door into the library.",
     territories: [
