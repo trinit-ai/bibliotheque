@@ -455,7 +455,19 @@ export default function BookPage() {
           </div>
 
           {/* Chat area */}
-          <style>{`@keyframes bibspin { to { transform: rotate(360deg); } }`}</style>
+          <style>{`
+            @keyframes bibspin { to { transform: rotate(360deg); } }
+            @keyframes bibfadein {
+              from { opacity: 0; transform: translateY(12px); }
+              to { opacity: 1; transform: translateY(0); }
+            }
+            @keyframes bibpulse {
+              0%, 100% { opacity: 0.3; }
+              50% { opacity: 1; }
+            }
+            .bib-msg-in { animation: bibfadein 0.35s ease-out both; }
+            .bib-user-msg { animation: bibfadein 0.2s ease-out both; }
+          `}</style>
           <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
             {messages.map((m, i) => {
               const isExpanded = expandedMsgs[i];
@@ -508,11 +520,11 @@ export default function BookPage() {
               );
             })}
             {isLoading && messages.length > 0 && (
-              <div style={{ maxWidth: 680, width: "100%" }}>
-                <div style={{ display: "flex", gap: 5, alignItems: "center", padding: "4px 0" }}>
-                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.4, animation: "bibspin 1s ease-in-out infinite" }} />
-                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.3, animation: "bibspin 1s ease-in-out 0.2s infinite" }} />
-                  <div style={{ width: 5, height: 5, borderRadius: "50%", background: ink3, opacity: 0.2, animation: "bibspin 1s ease-in-out 0.4s infinite" }} />
+              <div style={{ maxWidth: 680, width: "100%", paddingLeft: 12 }} className="bib-msg-in">
+                <div style={{ display: "flex", gap: 6, alignItems: "center", padding: "8px 0" }}>
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, animation: "bibpulse 1.2s ease-in-out infinite" }} />
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, animation: "bibpulse 1.2s ease-in-out 0.2s infinite" }} />
+                  <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, animation: "bibpulse 1.2s ease-in-out 0.4s infinite" }} />
                 </div>
               </div>
             )}
@@ -521,7 +533,7 @@ export default function BookPage() {
           {/* Input */}
           <div className="session-input" style={{ padding: "12px 24px 8px", background: "#fff" }}>
             <div style={{ maxWidth: 680, margin: "0 auto" }}>
-              <div className="bib-input-pill" style={{ display: "flex", gap: 10, alignItems: input.includes("\n") || input.length > 80 ? "flex-end" : "center", border: `0.5px solid ${border_}`, borderRadius: 24, padding: "10px 12px 10px 20px", background: cream, minHeight: 44 }}>
+              <div className="bib-input-pill" style={{ display: "flex", gap: 10, alignItems: input.includes("\n") || input.length > 80 ? "flex-end" : "center", border: `0.5px solid ${border_}`, borderRadius: 24, padding: "10px 12px 10px 20px", background: cream, minHeight: 44, transition: "border-color 0.15s, box-shadow 0.15s" }}>
                 <textarea
                   ref={textareaRef}
                   placeholder={`Ask about ${title}…`}

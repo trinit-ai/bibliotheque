@@ -162,7 +162,7 @@ async def session_turn(req: SessionTurnRequest, request: Request) -> dict:
         response = await provider.generate(
             system=system_prompt,
             messages=state.history,
-            max_tokens=4096,
+            max_tokens=2048,
         )
 
         raw_response = response.text

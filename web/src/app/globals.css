@@ -827,6 +827,12 @@ button:not(:disabled),
 
 /* ── iOS fixes ──────────────────────────────────────────────────── */
 
+/* Input pill focus state */
+.bib-input-pill:focus-within {
+  border-color: #1D4ED8 !important;
+  box-shadow: 0 0 0 2px rgba(29, 78, 216, 0.1) !important;
+}
+
 /* Prevent iOS text zoom on input focus — font must be >= 16px */
 @media (max-width: 767px) {
   .session-input textarea,
