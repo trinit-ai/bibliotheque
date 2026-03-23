@@ -172,7 +172,13 @@ export default function BookPage() {
   const sessionIdRef = useRef<string>("");
   const apiBase = process.env.NEXT_PUBLIC_API_URL || "";  // empty string uses relative URLs via Vercel rewrites
 
-  useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages]);
+  useEffect(() => {
+    if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight;
+    // Refocus input after new message arrives (desktop only — avoid keyboard popup on mobile)
+    if (!isLoading && textareaRef.current && window.innerWidth > 767) {
+      textareaRef.current.focus();
+    }
+  }, [messages, isLoading]);
 
   // iOS keyboard: scroll input into view when virtual keyboard opens/closes
   useEffect(() => {
