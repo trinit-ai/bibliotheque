@@ -499,7 +499,6 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     furtherReading: [
       { label: "Biblioth\u00e8que", url: "https://bibliotheque.ai" },
-      { label: "TMOS13", url: "https://tmos13.com" },
       { label: "Anthropic", url: "https://www.anthropic.com/" },
     ],
     demoResponse: "This is a library where the books talk back.\n\nEvery text here \u2014 every book, every essay, every expedition \u2014 is a conversation. Not a summary. Not a chatbot pretending to have read something. The actual text, fully indexed, present in the session, ready to meet you wherever you are.\n\nYou bring your questions. The text brings its structure. The session is where those two things encounter each other.\n\nSome places to start:\n\n\u2022 Open a book \u2014 the Tao Te Ching has been here since day one. 81 chapters. Ask about any of them.\n\u2022 Explore a subject \u2014 Stoicism, Consciousness, the history of AI. Guided expeditions through territory worth knowing.\n\u2022 Engage an argument \u2014 Dario Amodei\u2019s case for radical AI optimism. Greenberg on kitsch. Essays you can push back on.\n\u2022 Meet the duck \u2014 a pilgrim climbs a mountain. Three questions. No shortcuts. The duck has been waiting.\n\nOr ask me anything about what this place is and why it exists.",
@@ -651,6 +650,9 @@ export default function WikiPage() {
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
             <Link href="/search" className="hide-mobile" style={{ border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 12px", background: cream, textDecoration: "none", cursor: "pointer", fontFamily: mono, fontSize: 11, color: ink3, display: "inline-flex", alignItems: "center", gap: 6 }}>
               Search library <span style={{ fontSize: 13 }}>⌕</span>
+            </Link>
+            <Link href="/search" className="show-mobile" style={{ color: ink3, textDecoration: "none", display: "flex", alignItems: "center", fontSize: 18 }}>
+              ⌕
             </Link>
             <Link href="/subscribe" style={{ width: 32, height: 32, borderRadius: "50%", background: cream, border: `0.5px solid ${border_}`, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", flexShrink: 0 }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ink3} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
