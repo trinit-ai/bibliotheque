@@ -450,6 +450,30 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "One and the same civilization produces a poem by T.S. Eliot and a Tin Pan Alley song. That\u2019s Greenberg\u2019s opening move \u2014 not which one is better, but how both exist in the same world, made by the same culture, for the same species.\n\nHis answer: the difference between genuine art and kitsch isn\u2019t taste. It\u2019s politics. Kitsch flatters. Art demands. And the machinery of mass culture doesn\u2019t just reflect what people want \u2014 it shapes what they\u2019re able to want.\n\nHe was 30 when he wrote this. Fascism was rising. Consumer culture was industrializing. He drew a line and dared you to say which side you\u2019re on.\n\nWhat brought you here?",
   },
+  enlightened_duck: {
+    contentType: "expedition",
+    title: "The Enlightened Duck",
+    author: "Biblioth\u00e8que",
+    intro: "At the top of a mountain that isn\u2019t particularly tall but takes longer to climb than you\u2019d expect, there is a pond. In the pond, there is a duck. The duck, according to the villagers at the base \u2014 who seemed amused that you were going \u2014 knows the secrets of the universe. You get three questions. No more. The duck doesn\u2019t explain the rules. The duck doesn\u2019t do follow-ups. The duck answers what you ask, and what you ask reveals more about you than the answer reveals about the universe. This is a game about the questions you choose when the questions are limited.",
+    territories: [
+      { name: "The Climb", desc: "The path up the mountain. What you bring, what you leave behind, what you notice on the way. The journey is part of the answer." },
+      { name: "The Offering", desc: "Before the duck will speak, you must present something. Not payment \u2014 an offering. What you choose says everything." },
+      { name: "Three Questions", desc: "No more, no less. The duck answers honestly, but the duck is a duck. Wisdom comes in a form you might not expect." },
+      { name: "The Descent", desc: "You leave with three answers. Whether they were the right questions is something you discover on the way down." },
+      { name: "The Duck", desc: "Who is the duck? The duck is the duck. The duck has been waiting. The duck will continue to wait after you leave." },
+    ],
+    related: [
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "The text the duck has probably read." },
+      { title: "Ecclesiastes", type: "book", id: "ecclesiastes", meta: "Qohelet \u00b7 12 chapters", desc: "All is vanity. The duck agrees." },
+      { title: "Stoicism", type: "expedition", id: "stoicism", meta: "Philosophy", desc: "A more serious approach to the same questions." },
+    ],
+    books: [
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "Ecclesiastes", author: "Qohelet", id: "ecclesiastes" },
+      { title: "I Ching", author: "Chinese tradition", id: "i_ching" },
+    ],
+    demoResponse: "The mountain is ahead of you.\n\nIt\u2019s not a particularly tall mountain, but the path is steep and the air is thin and something about the light suggests you\u2019ve been walking longer than you think.\n\nAt the top, there is a pond. And in the pond, there is a duck. And the duck knows the secrets of the universe.\n\nYou get three questions. No more.\n\nBut first: the climb. And on the way up, there is the matter of the offering.\n\nWhat do you bring?",
+  },
   getting_started: {
     contentType: "expedition",
     author: "Biblioth\u00e8que",
