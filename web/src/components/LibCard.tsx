@@ -31,8 +31,9 @@ const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }
   horoscope:   { label: "Horoscope",   tab: "#7C3AED", tint: "#F5F3FF" },
   essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
   interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
+  digest:      { label: "Digest",      tab: "#DC2626", tint: "#FEF2F2" },
   pack:        { label: "Pack",        tab: "#6B7280", tint: "#F9FAFB" },
-  game:        { label: "Game",        tab: "#059669", tint: "#ECFDF5" },
+  game:        { label: "Game",        tab: "#7C3AED", tint: "#F5F3FF" },
 };
 
 const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
