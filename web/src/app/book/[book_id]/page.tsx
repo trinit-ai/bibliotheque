@@ -165,6 +165,7 @@ export default function BookPage() {
   const [input, setInput] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [leftOpen, setLeftOpen] = useState<Record<string, boolean>>({ sessions: true, bookmarks: true, news: false, subjects: false, formats: false });
+  const [headerExpanded, setHeaderExpanded] = useState(false);
   const [expandedMsgs, setExpandedMsgs] = useState<Record<number, boolean>>({});
   const chatRef = useRef<HTMLDivElement>(null);
   const textareaRef = useRef<HTMLTextAreaElement>(null);
@@ -398,14 +399,22 @@ export default function BookPage() {
         <div className="session-center" style={{ flex: 1, display: "flex", flexDirection: "column", minWidth: 0, borderLeft: `0.5px solid ${border_}`, borderRight: `0.5px solid ${border_}`, background: "#fff" }}>
           {/* Article header — compact, sticky */}
           <div className="session-header" style={{ padding: "14px 32px", borderBottom: `0.5px solid ${border2}`, position: "sticky", top: 0, zIndex: 10, background: "#fff" }}>
-            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-                <Link href={`/wiki/${bookId}`} className="show-mobile" style={{ color: ink3, display: "flex", textDecoration: "none", padding: 2 }}><ArrowLeft size={18} strokeWidth={1.5} /></Link>
-                <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif }}>{title}</h1>
-                <div style={{ width: "0.5px", height: 18, background: border_, flexShrink: 0 }} />
-                <span style={{ fontSize: 11, color: ink3, fontFamily: mono, letterSpacing: ".03em", flexShrink: 0, whiteSpace: "nowrap" }}>{author}</span>
+            <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", gap: 8 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, minWidth: 0 }}>
+                <Link href={`/wiki/${bookId}`} className="show-mobile" style={{ color: ink3, display: "flex", textDecoration: "none", padding: 2, flexShrink: 0 }}><ArrowLeft size={18} strokeWidth={1.5} /></Link>
+                <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif, overflow: "hidden", textOverflow: "ellipsis", whiteSpace: "nowrap" }}>{title}</h1>
+                {/* Author — desktop only inline */}
+                <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 12, flexShrink: 0 }}>
+                  <div style={{ width: "0.5px", height: 18, background: border_ }} />
+                  <span style={{ fontSize: 11, color: ink3, fontFamily: mono, letterSpacing: ".03em", whiteSpace: "nowrap" }}>{author}</span>
+                </div>
+                {/* Mobile chevron toggle */}
+                <button className="show-mobile" onClick={() => setHeaderExpanded(p => !p)} style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", padding: 2, flexShrink: 0 }}>
+                  <ChevronDown size={16} strokeWidth={1.5} style={{ transition: "transform .15s", transform: headerExpanded ? "rotate(180deg)" : "rotate(0)" }} />
+                </button>
               </div>
-              <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              {/* Desktop meta */}
+              <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8, flexShrink: 0 }}>
                 <span style={{ fontSize: 9, color: data.chapters === "Game" ? "#059669" : data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters === "Game" ? "#ECFDF5" : data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 3 }}>{data.chapters === "Game" ? "Game" : data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
                 <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
                 <div style={{ width: "0.5px", height: 14, background: border_, margin: "0 2px" }} />
@@ -414,6 +423,16 @@ export default function BookPage() {
                 <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(title + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Share via email" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Mail size={13} strokeWidth={1.5} /></button>
               </div>
             </div>
+            {/* Mobile expanded details */}
+            {headerExpanded && (
+              <div className="show-mobile" style={{ paddingTop: 10, borderTop: `0.5px solid ${border2}`, marginTop: 10, display: "flex", flexWrap: "wrap", alignItems: "center", gap: 8 }}>
+                <span style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
+                <div style={{ width: "0.5px", height: 12, background: border_ }} />
+                <span style={{ fontSize: 9, color: data.chapters === "Game" ? "#059669" : data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".06em", textTransform: "uppercase", padding: "2px 6px", background: data.chapters === "Game" ? "#ECFDF5" : data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 2 }}>{data.chapters === "Game" ? "Game" : data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
+                <div style={{ width: "0.5px", height: 12, background: border_ }} />
+                <span style={{ fontSize: 9, color: ink3, fontFamily: mono }}>{data.tradition} · {data.chapters}</span>
+              </div>
+            )}
           </div>
 
           {/* Chat area */}
