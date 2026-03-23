@@ -402,15 +402,6 @@ export default function BookPage() {
             </div>
           )}
 
-          {/* Axis 1: News */}
-          <div onClick={() => setLeftOpen(p => ({ ...p, news: !p.news }))} style={{ padding: "6px 14px", fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", userSelect: "none", borderTop: `0.5px solid ${border2}` }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 5 }}><Newspaper size={11} strokeWidth={1.5} /> News</span>
-            <ChevronDown size={12} strokeWidth={1.5} style={{ transition: "transform .15s", transform: leftOpen.news ? "rotate(0)" : "rotate(-90deg)" }} />
-          </div>
-          {leftOpen.news && ["World", "Politics", "Markets", "Tech", "Health", "Science", "Opinion", "Arts", "Sports"].map(s => (
-            <div key={s} style={{ padding: "4px 14px", fontSize: 12, color: ink2, cursor: "pointer", borderLeft: "2px solid transparent" }}>{s}</div>
-          ))}
-
           {/* Axis 2: Subjects (wiki/expedition territory) */}
           <div onClick={() => setLeftOpen(p => ({ ...p, subjects: !p.subjects }))} style={{ padding: "6px 14px", fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", userSelect: "none", borderTop: `0.5px solid ${border2}` }}>
             <span style={{ display: "flex", alignItems: "center", gap: 5 }}><Compass size={11} strokeWidth={1.5} /> Subjects</span>

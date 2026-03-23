@@ -535,7 +535,6 @@ export default function HomePage() {
     <div style={{ background: cream, color: ink, minHeight: "100vh", fontFamily: serif, overflowX: "hidden" }}>
       <TickerBar />
       <Masthead />
-      <NewsNav active={newsTab} onSelect={t => { setNewsTab(t); setLibTab(null); }} />
       <LibNav active={libTab} onSelect={setLibTab} />
 
       {/* Card grid — From the Library */}
@@ -549,45 +548,10 @@ export default function HomePage() {
       {/* Daily passage — full-width bg, content aligned to grid */}
       <ThreadBand />
 
-      {/* Ornamental break */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 16px" }}>
-        <div className="bib-ornament" style={{ padding: "20px 0" }}>
-          <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 14, color: border_, userSelect: "none" }}>·</span>
-        </div>
-      </div>
-
-      <div className="main-columns">
-        <div style={{ paddingRight: 0 }} className="main-col-stories">
-          <ColLabel>Top Stories</ColLabel>
-          <StoryListSection />
-        </div>
-        <div className="column-divider" style={{ background: border2 }} />
-        <div className="main-col-library">
-          <ColLabel>From the Library</ColLabel>
-          <LibraryColumn />
-        </div>
-        <div className="column-divider" style={{ background: border2 }} />
-        <div className="main-col-sidebar">
-          <SidebarSection />
-        </div>
-      </div>
-
       {/* Footer */}
       <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px 20px" }}>
           <div className="footer-grid">
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>News</div>
-              {["World", "U.S.", "Politics", "Business", "Economy", "Markets", "Tech", "Health", "Science", "Sports"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Opinion</div>
-              {["Opinion", "Free Expression", "Arts", "Lifestyle", "Style", "Real Estate", "Personal Finance"].map(s => (
-                <div key={s} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer" }}>{s}</div>
-              ))}
-            </div>
             <div>
               <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Library</div>
               {["Books", "Digests", "Essays", "Horoscopes", "Games"].map(s => (
