@@ -1,0 +1,37 @@
+{
+  "id": "relativity",
+  "name": "On the Electrodynamics of Moving Bodies — Living Book Session",
+  "version": "2.0.0",
+  "content_type": "living_book",
+  "category": "science",
+  "visibility": "public",
+  "deliverable_type": "book_session_record",
+  "text": {
+    "source": "protocols/library/science/relativity/text/chunks.json",
+    "index": "protocols/library/science/relativity/text/index.yaml",
+    "structure": "parts_and_sections",
+    "unit_count": 10
+  },
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "sections_visited": [],
+      "key_concepts": [],
+      "thought_experiments_engaged": [],
+      "connections_made": [],
+      "visitor_position": null,
+      "closing_question": null,
+      "session_arc": null
+    }
+  },
+  "features": {
+    "rag": true,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": true,
+    "visitor_reflection": true
+  },
+  "vault": {
+    "write": "session_summary"
+  }
+}

@@ -224,6 +224,7 @@ _LIBRARY_ALIASES: dict[str, str] = {
     "machines_of_loving_grace": "amodei_machines_loving_grace",
     "avant_garde_and_kitsch": "greenberg_avant_garde_kitsch",
     "the_prince": "prince_x_epstein",
+    "relativity_einstein": "relativity",
 }
 
 

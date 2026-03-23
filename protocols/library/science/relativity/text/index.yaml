@@ -1,0 +1,185 @@
+# ─────────────────────────────────────────────────────────────
+# index.yaml — Text Index
+# On the Electrodynamics of Moving Bodies by Albert Einstein
+# ─────────────────────────────────────────────────────────────
+
+source: "On the Electrodynamics of Moving Bodies (Zur Elektrodynamik bewegter Körper)"
+author: "Albert Einstein"
+date: "June 30, 1905"
+journal: "Annalen der Physik, 17:891, 1905"
+license: public_domain
+structure: sections
+total_sections: 10
+parts: 2
+edition_note: "English translation. Notation updated to modern convention (c for speed of light rather than Einstein's original V). Prepared by John Walker from Fourmilab."
+
+parts_structure:
+  - part: "I. Kinematical Part"
+    sections: [1, 2, 3, 4, 5]
+    description: "Establishes the two postulates (relativity principle and constancy of light speed), redefines simultaneity, derives the Lorentz transformations, and demonstrates time dilation and length contraction."
+  - part: "II. Electrodynamical Part"
+    sections: [6, 7, 8, 9, 10]
+    description: "Applies the kinematical results to Maxwell's equations, derives the relativistic Doppler effect, aberration, radiation pressure, and the dynamics of the electron — culminating in the relationship between energy and mass."
+
+sections:
+  - number: 0
+    id: "introduction"
+    title: "Introduction"
+    part: "Introduction"
+    key_themes:
+      - "asymmetry in electrodynamics of moving bodies"
+      - "magnet-conductor thought experiment — the observable depends only on relative motion"
+      - "failure to detect motion relative to the 'light medium' (ether)"
+      - "the two postulates stated: principle of relativity, constancy of speed of light"
+      - "luminiferous ether declared superfluous"
+    key_passages:
+      - "the magnet and conductor — the asymmetry that launched the paper"
+      - "We will raise this conjecture to the status of a postulate"
+      - "The introduction of a 'luminiferous ether' will prove to be superfluous"
+    editorial_note: "The opening paragraph is one of the most consequential in the history of physics. Einstein doesn't start with mathematics — he starts with an aesthetic objection: the theory produces asymmetries that nature doesn't display. The ether dismissal is almost casual, a subordinate clause. The whole revolution is framed as a cleanup operation."
+    status: ingested
+
+  - number: 1
+    id: "section_1"
+    title: "Definition of Simultaneity"
+    part: "I. Kinematical Part"
+    key_themes:
+      - "what do we mean by 'time'?"
+      - "simultaneity as judgment, not fact"
+      - "the clock synchronization procedure via light signals"
+      - "time as operationally defined, not given"
+    key_passages:
+      - "'That train arrives here at 7 o'clock' means the pointing of the small hand of my watch to 7 and the arrival of the train are simultaneous events"
+      - "the definition of synchronism via light signal reflection"
+    editorial_note: "This is Einstein doing philosophy as physics. Before deriving anything, he dismantles the concept of absolute simultaneity by asking what the word actually means operationally. The train example is deceptively simple — it makes the reader realize they've never thought carefully about what 'at the same time' means for events at different locations."
+    status: ingested
+
+  - number: 2
+    id: "section_2"
+    title: "On the Relativity of Lengths and Times"
+    part: "I. Kinematical Part"
+    key_themes:
+      - "the two postulates stated formally"
+      - "length depends on the state of motion of the observer"
+      - "time depends on the state of motion of the observer"
+      - "the rigid rod thought experiment"
+    key_passages:
+      - "the two principles: (1) laws of physics same in all inertial frames, (2) light speed constant"
+      - "observers moving with the moving rod would thus find that the two clocks were not synchronous"
+      - "we cannot attach any absolute signification to the concept of simultaneity"
+    editorial_note: "The formal statement of the two postulates. Everything that follows is a consequence of taking these two principles seriously and simultaneously. The rod-and-clock thought experiment demonstrates that length and time are relative — not as metaphor, but as measurement."
+    status: ingested
+
+  - number: 3
+    id: "section_3"
+    title: "Theory of the Transformation of Co-ordinates and Times"
+    part: "I. Kinematical Part"
+    key_themes:
+      - "derivation of the Lorentz transformations"
+      - "the relationship between stationary and moving coordinate systems"
+      - "the Lorentz factor (gamma)"
+      - "mathematical machinery of special relativity"
+    key_passages:
+      - "the Lorentz transformation equations"
+    editorial_note: "The mathematical core of the paper. Einstein derives the Lorentz transformations from the two postulates alone — no ether, no ad hoc assumptions. Lorentz had arrived at similar equations earlier, but as corrections to preserve the ether theory. Einstein derived them as consequences of abandoning it. Same equations, opposite meaning."
+    status: ingested
+
+  - number: 4
+    id: "section_4"
+    title: "Physical Meaning of the Equations Obtained"
+    part: "I. Kinematical Part"
+    key_themes:
+      - "length contraction — the moving sphere becomes an ellipsoid"
+      - "time dilation — the moving clock runs slow"
+      - "the clock thought experiment"
+      - "physical reality of the transformations, not just mathematical convenience"
+    key_passages:
+      - "the rigid sphere measured from the moving system is an ellipsoid"
+      - "the clock moved from A to B lags behind the other which has remained at B"
+    editorial_note: "This is where the mathematics becomes physics. The sphere becoming an ellipsoid and the clock running slow are not illusions or measurement artifacts — they are physical consequences of the structure of spacetime. The clock result is the first statement of what becomes the twin paradox."
+    status: ingested
+
+  - number: 5
+    id: "section_5"
+    title: "The Composition of Velocities"
+    part: "I. Kinematical Part"
+    key_themes:
+      - "velocities don't simply add"
+      - "the relativistic velocity addition formula"
+      - "the speed of light as an unreachable limit"
+    key_passages:
+      - "the velocity addition formula"
+      - "the velocity of light cannot be altered by composition with a velocity less than that of light"
+    editorial_note: "The speed limit of the universe, derived. If you're on a train moving at half the speed of light and throw a ball forward at half the speed of light, the ball is not moving at the speed of light relative to the ground. It's moving at 0.8c. The formula ensures c is never exceeded. This is where common sense breaks."
+    status: ingested
+
+  - number: 6
+    id: "section_6"
+    title: "Transformation of the Maxwell-Hertz Equations for Empty Space"
+    part: "II. Electrodynamical Part"
+    key_themes:
+      - "Maxwell's equations are already relativistic"
+      - "electric and magnetic fields transform into each other"
+      - "what one observer sees as an electric field, another sees as magnetic"
+      - "the asymmetry from the introduction — resolved"
+    key_passages:
+      - "the transformation equations for electric and magnetic fields"
+      - "the electromotive force is nothing else than an electric field"
+    editorial_note: "The payoff of the introduction. The asymmetry Einstein opened with — the magnet and conductor producing different descriptions but identical phenomena — is now resolved. Electric and magnetic fields are aspects of the same thing, seen from different frames. The ether was the artifact of insisting they were separate."
+    status: ingested
+
+  - number: 7
+    id: "section_7"
+    title: "Theory of Doppler's Principle and of Aberration"
+    part: "II. Electrodynamical Part"
+    key_themes:
+      - "relativistic Doppler effect"
+      - "aberration of light — the apparent shift in star positions"
+      - "frequency and direction of light change with observer's motion"
+    key_passages:
+      - "the relativistic Doppler formula"
+      - "aberration formula from first principles"
+    editorial_note: "Known phenomena re-derived from the new framework. The Doppler effect and stellar aberration had been observed for decades. Einstein shows they fall out naturally from the transformation equations, without needing an ether to propagate through."
+    status: ingested
+
+  - number: 8
+    id: "section_8"
+    title: "Transformation of the Energy of Light Rays"
+    part: "II. Electrodynamical Part"
+    key_themes:
+      - "energy of light transforms with frequency"
+      - "radiation pressure derived relativistically"
+      - "a 'light complex' — the proto-photon"
+      - "connection between wave and particle descriptions"
+    key_passages:
+      - "the energy and frequency of a light complex transform in the same way"
+      - "it is remarkable that the energy and the frequency of a light complex vary with the state of motion of the observer in accordance with the same law"
+    editorial_note: "Einstein had already published the photoelectric effect paper earlier in 1905, proposing light quanta. Here, in the relativity paper, he notes that energy and frequency transform identically — a result that quietly supports the quantum hypothesis (E = hν). The two revolutions of 1905 are connected at this joint."
+    status: ingested
+
+  - number: 9
+    id: "section_9"
+    title: "Transformation of the Maxwell-Hertz Equations (with Convection Currents)"
+    part: "II. Electrodynamical Part"
+    key_themes:
+      - "extending the transformation to include charges and currents"
+      - "moving charges in the new framework"
+    editorial_note: "Technical extension of §6 to include matter carrying charge. Shorter and more specialized than the surrounding sections."
+    status: ingested
+
+  - number: 10
+    id: "section_10"
+    title: "Dynamics of the Slowly Accelerated Electron"
+    part: "II. Electrodynamical Part"
+    key_themes:
+      - "the electron in an electromagnetic field"
+      - "'transverse' and 'longitudinal' mass — mass increases with velocity"
+      - "no particle can reach the speed of light"
+      - "kinetic energy of the electron at relativistic speeds"
+      - "acknowledgment of Michele Besso"
+    key_passages:
+      - "the kinetic energy of the electron — deviates from classical at high velocities"
+      - "velocities greater than that of light have no possibility of existence"
+      - "I am indebted to him for several valuable suggestions — acknowledgment of Besso"
+    editorial_note: "The paper ends with the dynamics of the electron and a quiet bombshell: mass is not constant. The concept of velocity-dependent mass appears here, though Einstein would later reformulate this as the equivalence of mass and energy (E=mc², published separately in September 1905). The acknowledgment of Besso — the only person thanked — is poignant. No other physicist is cited. Einstein worked this out in conversation with one friend."
+    status: ingested

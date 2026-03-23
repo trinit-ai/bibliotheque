@@ -58,6 +58,7 @@ PLATFORM_DIR = LIBRARY_BASE / "platform"
 POWER_DIR = LIBRARY_BASE / "power"
 INTERACTION_DIR = LIBRARY_BASE / "interaction"
 SACRED_TEXTS_DIR = LIBRARY_BASE / "sacred_texts"
+SCIENCE_DIR = LIBRARY_BASE / "science"
 SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
@@ -90,6 +91,7 @@ class Catalogue:
         self._load_library_manifests(POWER_DIR, ContentType.editorial)
         self._load_library_manifests(INTERACTION_DIR, ContentType.game)
         self._load_library_manifests(SACRED_TEXTS_DIR, ContentType.living_book)
+        self._load_library_manifests(SCIENCE_DIR, ContentType.living_book)
         self._build_indices()
         logger.info(
             f"Catalogue loaded: {len(self._entries)} entries, "

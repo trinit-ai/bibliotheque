@@ -58,16 +58,16 @@ entries:
 
   - id: relativity_einstein
     slug: relativity_einstein
-    title: "Relativity"
-    subtitle: "The Special and General Theory"
+    title: "On the Electrodynamics of Moving Bodies"
+    subtitle: "The original 1905 special relativity paper"
     author: "Albert Einstein"
-    year: "1916"
-    description: "Einstein's own popular exposition of special and general relativity, written for the non-specialist. Space, time, and the speed of light in Einstein's own words."
+    year: "1905"
+    description: "The original special relativity paper. Thirty pages that dismantled absolute time, unified electricity and magnetism, and planted the seed for E=mc²."
     content_type: living_book
     portal: science
-    tags: [einstein, relativity, physics, spacetime, light, general_relativity]
+    tags: [einstein, relativity, physics, spacetime, light, time-dilation, lorentz-transformation, simultaneity, 1905]
     featured: 5
-    pack_id: relativity_einstein
+    pack_id: relativity
     meta: "Full text indexed"
 
   - id: the_prince

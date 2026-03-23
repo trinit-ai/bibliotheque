@@ -1,0 +1,57 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Living Book Pack
+# On the Electrodynamics of Moving Bodies by Albert Einstein
+# ─────────────────────────────────────────────────────────────
+
+id: relativity
+name: "On the Electrodynamics of Moving Bodies — Living Book Session"
+category: science
+wing: library
+section: science
+content_type: living_book
+
+status: active
+
+# Display fields — shown in catalogue
+title: "On the Electrodynamics of Moving Bodies"
+description: "The 1905 paper that introduced special relativity. Einstein dismantles absolute time, derives the Lorentz transformations from two postulates, and unifies electricity and magnetism — all in 30 pages."
+author: "Albert Einstein"
+year: 1905
+license: public_domain
+original_title: "Zur Elektrodynamik bewegter Körper"
+journal: "Annalen der Physik, 17:891"
+section_count: 10
+
+# Session config
+deliverable: book_session_record
+estimated_turns: "6-20"
+version: "2.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-21"
+revised: "2026-03-22"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "relativity"
+  - "einstein relativity"
+  - "special relativity"
+  - "electrodynamics of moving bodies"
+  - "einstein 1905"
+  - "einstein paper"
+  - "e equals mc squared"
+  - "lorentz transformation"
+  - "time dilation"
+
+# What this pack explicitly does not do
+excludes:
+  - "physics homework solutions"
+  - "mathematical derivations beyond what Einstein presents"
+  - "claims about Einstein's personal life as explanation for the physics"
+  - "general relativity (different paper, 1915)"
+  - "quantum mechanics (different theory, different session)"
+
+# Catalogue fields
+tags: [relativity, spacetime, light, time-dilation, length-contraction, lorentz-transformation, electrodynamics, simultaneity, thought-experiments, Einstein, 1905]
+related: [amodei_machines_loving_grace, ecclesiastes]
+featured: true
+featured_order: 5

@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  relativity_einstein: {
+    title: "On the Electrodynamics of Moving Bodies", author: "Albert Einstein \u00b7 1905", tradition: "Physics", chapters: "10 sections", portal: "Science",
+    desc: "The original special relativity paper. Thirty pages that dismantled absolute time and planted the seed for E=mc\u00b2.",
+    related: [
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Another text that begins by undermining what you thought you knew.", href: "/book/tao_te_ching" },
+      { title: "Ecclesiastes", type: "LIVING BOOK", typeColor: blue, meta: "Qohelet \u00b7 12 chapters", desc: "Time. What is it? Does it matter?", href: "/book/ecclesiastes" },
+      { title: "Machines of Loving Grace", type: "ESSAY", typeColor: "#B45309", meta: "Dario Amodei \u00b7 2024", desc: "Technology reshaping everything.", href: "/book/machines_of_loving_grace" },
+    ],
+    greeting: "On June 30, 1905, a 26-year-old patent clerk submitted a paper to Annalen der Physik. No laboratory. No academic position. One friend thanked. Thirty pages.\n\nThe paper dismantled absolute time, showed that simultaneity depends on who\u2019s measuring, demonstrated that moving clocks run slow and moving objects contract, unified electricity and magnetism, and planted the seed for E=mc\u00b2. It cited no other physicists. It started with an observation that the existing theory was ugly \u2014 it gave two different explanations for the same phenomenon \u2014 and ended with a new theory of space and time.\n\nThe full text is here. Einstein built his argument from thought experiments and two postulates. The first five sections require nothing beyond careful thinking.\n\nWhere do you want to start?\n\n\u2022 \"What does 'simultaneous' mean?\" \u2014 \u00a71, where the revolution begins\n\u2022 \"Time dilation\" \u2014 moving clocks run slow, and this is not a metaphor\n\u2022 \"The speed of light\" \u2014 the one fact that breaks Newtonian physics\n\u2022 \"Read from the beginning\" \u2014 the introduction, where Einstein spots the asymmetry\n\u2022 \"Something specific\" \u2014 bring your own question",
+  },
   enlightened_duck: {
     title: "The Enlightened Duck", author: "A Biblioth\u00e8que Game", tradition: "Games", chapters: "Game", portal: "Games",
     desc: "A pilgrim climbs a mountain, crosses a pond, presents an offering, and earns three questions answered by a duck who knows the secrets of the universe.",
@@ -530,7 +540,22 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "ecclesiastes" ? (
+          {bookId === "relativity_einstein" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/On_the_Electrodynamics_of_Moving_Bodies" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />The Paper — Wikipedia
+              </a>
+              <a href="https://www.fourmilab.ch/etexts/einstein/specrel/specrel.pdf" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Full text (PDF) — Fourmilab
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Albert_Einstein" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Albert Einstein — Wikipedia
+              </a>
+              <a href="https://journals.aps.org/collections/einstein" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Einstein&apos;s 1905 Papers — APS
+              </a>
+            </>
+          ) : bookId === "ecclesiastes" ? (
             <>
               <a href="https://en.wikipedia.org/wiki/Ecclesiastes" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Ecclesiastes — Wikipedia
