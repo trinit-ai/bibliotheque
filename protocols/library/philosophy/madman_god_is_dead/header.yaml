@@ -1,0 +1,51 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Editorial Pack (Digest)
+# The Madman: God Is Dead — Friedrich Nietzsche
+# ─────────────────────────────────────────────────────────────
+
+id: madman_god_is_dead
+name: "The Madman: God Is Dead — Digest Session"
+category: philosophy
+wing: library
+section: philosophy
+content_type: editorial
+
+status: active
+
+# Display fields — shown in catalogue
+title: "The Madman: God Is Dead"
+description: "Nietzsche's most famous passage — and the most misunderstood. He isn't celebrating. He's diagnosing a catastrophe."
+author: "Friedrich Nietzsche"
+year: 1882
+license: public_domain
+source_text: "The Gay Science (Die fröhliche Wissenschaft), §125"
+
+# Session config
+deliverable: session_record
+estimated_turns: "4-12"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-22"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "god is dead"
+  - "nietzsche god is dead"
+  - "the madman"
+  - "nietzsche madman"
+  - "death of god"
+  - "parable of the madman"
+  - "gay science 125"
+
+# What this pack explicitly does not do
+excludes:
+  - "theology or apologetics"
+  - "claims that Nietzsche was an atheist celebrating (he was diagnosing)"
+  - "biographical psychoanalysis"
+  - "the full Genealogy of Morality (different pack)"
+
+# Catalogue fields
+tags: [nietzsche, god-is-dead, secularism, meaning-crisis, nihilism, modernity, philosophy, religion, morality, values]
+related: [genealogy_of_morality, ecclesiastes, zen_motorcycle_maintenance]
+featured: true
+featured_order: 7

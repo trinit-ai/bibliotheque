@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  genealogy_of_morality: {
+    title: "The Madman: God Is Dead", author: "Friedrich Nietzsche \u00b7 1882", tradition: "Philosophy", chapters: "Digest", portal: "Philosophy",
+    desc: "Nietzsche\u2019s most famous passage \u2014 and the most misunderstood. He isn\u2019t celebrating. He\u2019s diagnosing a catastrophe.",
+    related: [
+      { title: "Ecclesiastes", type: "LIVING BOOK", typeColor: blue, meta: "Qohelet \u00b7 12 chapters", desc: "The Hebrew parallel to the meaning crisis.", href: "/book/ecclesiastes" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "What holds when foundations give way.", href: "/book/tao_te_ching" },
+      { title: "Avant-Garde and Kitsch", type: "ESSAY", typeColor: "#B45309", meta: "Greenberg \u00b7 1939", desc: "What fills the void when genuine culture collapses.", href: "/book/avant_garde_and_kitsch" },
+    ],
+    greeting: "In 1882, Friedrich Nietzsche wrote a parable about a man who lit a lantern in broad daylight, ran into the marketplace, and announced that God was dead \u2014 and that we had killed him.\n\nMost people know the phrase. Almost no one knows the passage. The standard reading is that Nietzsche was celebrating \u2014 a triumphant atheist declaring victory over religion. The actual passage says the opposite. The atheists in the marketplace are the ones laughing. The Madman is the only one who understands what\u2019s happened, and he\u2019s terrified.\n\nThis is a digest session \u2014 one passage, read closely, and the question it opens about meaning, morality, and what holds a civilization together when the foundations give way.\n\nWhere do you want to start?\n\n\u2022 \"Read the passage\" \u2014 the full text of The Gay Science \u00a7125\n\u2022 \"The misreading\" \u2014 what people think Nietzsche said vs. what he actually wrote\n\u2022 \"The meaning crisis\" \u2014 how a passage from 1882 describes 2026\n\u2022 \"Morality after God\" \u2014 if the old foundation is gone, what holds it up?\n\u2022 \"Something specific\" \u2014 bring your own question",
+  },
   room_of_ones_own: {
     title: "A Room of One\u2019s Own", author: "Virginia Woolf \u00b7 1929", tradition: "Literature \u00b7 Feminism", chapters: "6 chapters", portal: "Literature",
     desc: "What does a woman need in order to write? Five hundred pounds a year and a room with a lock on the door.",
@@ -550,7 +560,19 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "room_of_ones_own" ? (
+          {bookId === "genealogy_of_morality" ? (
+            <>
+              <a href="https://en.wikipedia.org/wiki/The_Gay_Science" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />The Gay Science — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Friedrich_Nietzsche" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#7C3AED", flexShrink: 0 }} />Friedrich Nietzsche — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/God_is_dead" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />God is dead (philosophy) — Wikipedia
+              </a>
+            </>
+          ) : bookId === "room_of_ones_own" ? (
             <>
               <a href="https://en.wikipedia.org/wiki/A_Room_of_One%27s_Own" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />A Room of One&apos;s Own — Wikipedia

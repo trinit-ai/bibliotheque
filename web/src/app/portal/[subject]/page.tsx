@@ -70,7 +70,7 @@ interface CardEntry {
 
 const SUBJECT_CARDS: Record<string, CardEntry[]> = {
   philosophy: [
-    { id: "genealogy_of_morality", title: "On the Genealogy of Morality", author: "Friedrich Nietzsche \u00b7 1887", desc: "Where do our moral values come from? Resentment, guilt, and the will to power \u2014 the most unsettling challenge to conventional ethics.", format: "living_book", meta: "3 essays", sessions: "15 this week" },
+    { id: "genealogy_of_morality", title: "The Madman: God Is Dead", author: "Friedrich Nietzsche \u00b7 1882", desc: "Nietzsche\u2019s most famous passage \u2014 and the most misunderstood. He isn\u2019t celebrating. He\u2019s diagnosing a catastrophe.", format: "digest", meta: "Single passage", sessions: "15 this week" },
     { id: "republic", title: "The Republic", author: "Plato \u00b7 c. 375 BC", desc: "Justice, the ideal state, the allegory of the cave. The dialogue that launched Western philosophy\u2019s longest conversation.", format: "living_book", meta: "10 books", sessions: "28 this week" },
     { id: "meditations", title: "Meditations", author: "Marcus Aurelius \u00b7 c. 170 AD", desc: "The private journal of a Roman emperor, practicing Stoic philosophy under the pressures of empire. Never meant to be published.", format: "living_book", meta: "12 books", sessions: "41 this week" },
     { id: "stoicism_expedition", title: "The Stoicism Expedition", author: "Expedition \u00b7 Multi-source", desc: "A guided journey through Stoic thought: from Zeno\u2019s stoa to Marcus Aurelius\u2019s tent. Epictetus, Seneca, and the modern revival.", format: "expedition", meta: "\u221e turns", sessions: "33 this week" },

@@ -1,0 +1,36 @@
+{
+  "id": "madman_god_is_dead",
+  "name": "The Madman: God Is Dead — Digest Session",
+  "version": "1.0.0",
+  "content_type": "editorial",
+  "category": "philosophy",
+  "visibility": "public",
+  "deliverable_type": "session_record",
+  "text": {
+    "source": "embedded_in_master",
+    "structure": "single_passage",
+    "unit_count": 1,
+    "note": "The Gay Science §125 is embedded directly in master.md. No text directory needed."
+  },
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "misreading_addressed": false,
+      "levels_engaged": [],
+      "connections_made": [],
+      "visitor_position": null,
+      "closing_question": null,
+      "session_arc": null
+    }
+  },
+  "features": {
+    "rag": false,
+    "session_intelligence": true,
+    "transcript_export": true,
+    "citation_required": false,
+    "visitor_reflection": true
+  },
+  "vault": {
+    "write": "session_summary"
+  }
+}

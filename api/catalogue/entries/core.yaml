@@ -86,17 +86,17 @@ entries:
 
   - id: genealogy_of_morality
     slug: genealogy_of_morality
-    title: "On the Genealogy of Morality"
-    subtitle: "A polemic"
+    title: "The Madman: God Is Dead"
+    subtitle: "The most famous passage in modern philosophy"
     author: "Friedrich Nietzsche"
-    year: "1887"
-    description: "Three essays. Where do our moral values come from? Nietzsche's answer — resentment, guilt, and the will to power — is still the most unsettling challenge to conventional ethics ever written."
-    content_type: living_book
+    year: "1882"
+    description: "Nietzsche's most famous passage — and the most misunderstood. He isn't celebrating. He's diagnosing a catastrophe."
+    content_type: essay
     portal: philosophy
-    tags: [nietzsche, morality, ethics, genealogy, master_slave, guilt, will_to_power]
+    tags: [nietzsche, god-is-dead, secularism, meaning-crisis, nihilism, modernity, philosophy, morality, values]
     featured: 7
-    pack_id: genealogy_of_morality
-    meta: "3 essays indexed"
+    pack_id: madman_god_is_dead
+    meta: "Single passage"
 
   - id: ecclesiastes
     slug: ecclesiastes

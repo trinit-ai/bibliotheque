@@ -225,6 +225,7 @@ _LIBRARY_ALIASES: dict[str, str] = {
     "avant_garde_and_kitsch": "greenberg_avant_garde_kitsch",
     "the_prince": "prince_x_epstein",
     "relativity_einstein": "relativity",
+    "genealogy_of_morality": "madman_god_is_dead",
 }
 
 

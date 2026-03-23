@@ -255,6 +255,37 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "Richard Feynman said: \"If you think you understand quantum mechanics, you don't understand quantum mechanics.\"\n\nHere is the essence of the mystery. Fire photons one at a time through two narrow slits onto a detector screen. Each photon lands at a definite point — a single dot on the screen. But after thousands of photons, the dots form an interference pattern: bright and dark bands, as though each photon passed through both slits simultaneously and interfered with itself.\n\nNow put a detector at one slit to observe which slit the photon passes through. The interference pattern vanishes. The photon behaves as a particle, passing through one slit or the other.\n\nThe act of observation changes the outcome. Not because of physical disturbance — we can make the measurement arbitrarily gentle. Something deeper is happening.\n\nAfter a century of debate, physicists are divided. The Copenhagen interpretation says the wave function collapses upon measurement. Many-Worlds says every measurement splits the universe. Pilot wave theory says particles have definite trajectories guided by a wave.\n\nEach interpretation is consistent with the math. None is fully satisfying. Where shall we begin?",
   },
+  genealogy_of_morality: {
+    contentType: "essay",
+    title: "The Madman: God Is Dead",
+    author: "Friedrich Nietzsche",
+    year: "1882",
+    wordCount: "Single passage",
+    furtherReading: [
+      { label: "The Gay Science \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/The_Gay_Science" },
+      { label: "Friedrich Nietzsche \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Friedrich_Nietzsche" },
+      { label: "God is dead (philosophy) \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/God_is_dead" },
+    ],
+    intro: "In 1882, Friedrich Nietzsche wrote a parable about a man who lit a lantern in broad daylight, ran into the marketplace, and announced that God was dead \u2014 and that we had killed him. Most people know the phrase. Almost no one knows the passage. The standard reading is that Nietzsche was celebrating \u2014 a triumphant atheist declaring victory over religion. The actual passage says the opposite. The atheists in the marketplace are the ones laughing. The Madman is the only one who understands what\u2019s happened, and he\u2019s terrified. The death of God isn\u2019t a metaphysical claim. It\u2019s a cultural-historical diagnosis: the foundations of Western morality, meaning, and truth have lost their ground. Nietzsche in 1882, predicting the 20th century \u2014 and the 21st.",
+    territories: [
+      { name: "The Misreading", desc: "\u201CGod is dead\u201D as bumper sticker, slogan, atheist declaration. What most people think Nietzsche said \u2014 and why they\u2019re wrong. The atheists are the ones laughing. The Madman is the one who sees." },
+      { name: "The Diagnosis", desc: "The death of God as cultural-historical event, not metaphysical claim. The foundations of Western morality, meaning, and truth lose their ground. \u201CIs there still any up or down?\u201D" },
+      { name: "\u201CI Have Come Too Early\u201D", desc: "The Madman\u2019s self-diagnosis: the event has happened but hasn\u2019t been absorbed. Nietzsche in 1882 predicting the 20th century \u2014 and the 21st." },
+      { name: "The Challenge", desc: "\u201CMust we ourselves not become gods simply to appear worthy of it?\u201D If there is no external source of value, what do you do? The seed of the \u00dcbermensch." },
+      { name: "The Churches as Tombs", desc: "The passage ends in the churches. The institutional forms survive after the content has died. The question isn\u2019t whether the churches are full or empty \u2014 it\u2019s whether what they house is alive." },
+    ],
+    related: [
+      { title: "Ecclesiastes", type: "book", id: "ecclesiastes", meta: "Qohelet \u00b7 12 chapters", desc: "The Hebrew parallel to the meaning crisis." },
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "What holds when foundations give way." },
+      { title: "Avant-Garde and Kitsch", type: "book", id: "avant_garde_and_kitsch", meta: "Greenberg \u00b7 1939", desc: "What fills the void when genuine culture collapses." },
+    ],
+    books: [
+      { title: "Ecclesiastes", author: "Qohelet", id: "ecclesiastes" },
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "Avant-Garde and Kitsch", author: "Greenberg", id: "avant_garde_and_kitsch" },
+    ],
+    demoResponse: "Most people know the phrase. Almost no one knows the passage.\n\nThe standard reading is that Nietzsche was celebrating \u2014 a triumphant atheist declaring victory over religion. The actual passage says the opposite. The atheists in the marketplace are the ones laughing. The Madman is the only one who understands what\u2019s happened, and he\u2019s terrified.\n\nWhat draws you here \u2014 the philosophy, the meaning crisis, or something more personal?",
+  },
   room_of_ones_own: {
     contentType: "living_book",
     title: "A Room of One\u2019s Own",
