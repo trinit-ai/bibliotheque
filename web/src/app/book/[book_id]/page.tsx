@@ -181,26 +181,6 @@ export default function BookPage() {
     }
   }, [messages, isLoading]);
 
-  // iOS keyboard: dynamically resize container to visual viewport
-  const containerRef = useRef<HTMLDivElement>(null);
-  useEffect(() => {
-    const vv = window.visualViewport;
-    if (!vv) return;
-    const onResize = () => {
-      if (containerRef.current) {
-        // Set height to the actual visible area (excludes keyboard + browser chrome)
-        containerRef.current.style.height = `${vv.height}px`;
-      }
-    };
-    vv.addEventListener("resize", onResize);
-    vv.addEventListener("scroll", onResize);
-    // Set initial height
-    onResize();
-    return () => {
-      vv.removeEventListener("resize", onResize);
-      vv.removeEventListener("scroll", onResize);
-    };
-  }, []);
 
   // Start session on mount — try API (via apiBase or relative URL), fall back to local greeting
   useEffect(() => {
@@ -336,7 +316,7 @@ export default function BookPage() {
   const related = data.related || DEFAULT_DATA.related;
 
   return (
-    <div ref={containerRef} style={{ fontFamily: serif, height: "100dvh", display: "flex", flexDirection: "column", background: cream, overflow: "hidden" }}>
+    <div style={{ fontFamily: serif, minHeight: "100dvh", display: "flex", flexDirection: "column", background: cream }}>
       {/* Top bar */}
       <div className="session-topbar" style={{ borderBottom: `0.5px solid ${border_}`, padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 48 }}>
