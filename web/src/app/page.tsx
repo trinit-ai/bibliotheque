@@ -281,8 +281,8 @@ function getDailyPassage() {
 function ThreadBand() {
   const p = getDailyPassage();
   return (
-    <div style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 28 }}>
-    <div className="thread-band" style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 16px" }}>
+    <div style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 48 }}>
+    <div className="thread-band" style={{ maxWidth: 1200, margin: "0 auto", padding: "36px 24px" }}>
       <div>
         <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
           <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue }}>
@@ -538,7 +538,7 @@ export default function HomePage() {
       <LibNav active={libTab} onSelect={setLibTab} />
 
       {/* Card grid — From the Library */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "34px 16px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 0" }}>
         <ColLabel>From the Library</ColLabel>
         <div className="card-grid">
           {CARD_ENTRIES.map(e => <LibCard key={e.id} entry={e} />)}
@@ -549,7 +549,7 @@ export default function HomePage() {
       <ThreadBand />
 
       {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
+      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 60 }}>
         <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px 20px" }}>
           <div className="footer-grid">
             <div>
