@@ -91,6 +91,7 @@ export default function SubscribePage() {
             }}
           />
           <button
+            onClick={(e) => { e.preventDefault(); alert("Coming soon — registration opens shortly."); }}
             style={{
               background: blue, color: "#fff", border: "none",
               borderRadius: 20, padding: "10px 24px",
@@ -137,7 +138,7 @@ export default function SubscribePage() {
                   </div>
                 ))}
                 {tier.cta && (
-                  <button className="bib-send-btn" style={{
+                  <button onClick={() => alert("Coming soon — registration opens shortly.")} className="bib-send-btn" style={{
                     width: "100%", marginTop: 16, padding: "10px 0",
                     background: blue, color: "#fff", border: "none", borderRadius: 4,
                     fontFamily: mono, fontSize: 12, letterSpacing: ".04em", cursor: "pointer",

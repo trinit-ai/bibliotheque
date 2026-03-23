@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Link from "next/link";
-import { useRouter } from "next/navigation";
+import SiteFooter from "@/components/SiteFooter";
 
 // ── Data ──────────────────────────────────────────────────────────────────
 
@@ -95,8 +95,6 @@ function SbSection({ children }: { children: React.ReactNode }) {
 // ── Masthead ──────────────────────────────────────────────────────────────
 
 function Masthead() {
-  const [q, setQ] = useState("");
-  const router = useRouter();
   return (
     <div style={{ background: cream, borderBottom: `0.5px solid ${border2}` }}>
       <div className="masthead-inner" style={{ position: "relative" }}>
@@ -115,16 +113,10 @@ function Masthead() {
           <Link href="/subscribe" style={{ textDecoration: "none", cursor: "pointer", fontFamily: mono, fontSize: 10, color: blue, padding: "5px 12px", border: `0.5px solid ${blue}`, borderRadius: 3, whiteSpace: "nowrap", display: "inline-block" }}>
             Subscribe
           </Link>
-          <form onSubmit={e => { e.preventDefault(); if (q.trim()) router.push(`/search?q=${encodeURIComponent(q)}`); }} style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff" }}>
-            <input
-              type="text"
-              placeholder="Search library…"
-              value={q}
-              onChange={e => setQ(e.target.value)}
-              style={{ border: "none", outline: "none", fontFamily: mono, fontSize: 11, color: ink, background: "transparent", width: 120 }}
-            />
-            <button type="submit" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, fontSize: 14 }}>⌕</button>
-          </form>
+          <Link href="/search" style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", textDecoration: "none", cursor: "pointer", gap: 6 }}>
+            <span style={{ fontFamily: mono, fontSize: 11, color: ink3 }}>Search library</span>
+            <span style={{ color: ink3, fontSize: 13 }}>⌕</span>
+          </Link>
         </div>
       </div>
     </div>
@@ -278,39 +270,49 @@ function getDailyPassage() {
   return DAILY_PASSAGES[dayOfYear % DAILY_PASSAGES.length];
 }
 
+function getTomorrowPassage() {
+  const now = new Date();
+  const dayOfYear = Math.floor((now.getTime() - new Date(now.getFullYear(), 0, 0).getTime()) / 86400000);
+  return DAILY_PASSAGES[(dayOfYear + 1) % DAILY_PASSAGES.length];
+}
+
 function ThreadBand() {
   const p = getDailyPassage();
+  const tmrw = getTomorrowPassage();
   return (
     <div style={{ background: "#fff", borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, marginTop: 48 }}>
-    <div className="thread-band" style={{ maxWidth: 1200, margin: "0 auto", padding: "36px 24px" }}>
-      <div>
-        <div style={{ display: "flex", alignItems: "center", gap: 6, marginBottom: 10 }}>
-          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: blue }}>
-            {p.source} · {p.author}
+      <div style={{ maxWidth: 720, margin: "0 auto", padding: "48px 24px", textAlign: "center" }}>
+        {/* Today's passage */}
+        <div style={{ marginBottom: 40 }}>
+          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: blue, marginBottom: 16 }}>
+            Today&apos;s Passage
           </div>
-          <div style={{ width: 5, height: 5, borderRadius: "50%", background: p.dot, flexShrink: 0 }} />
+          <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 24, lineHeight: 1.55, color: ink, marginBottom: 12 }}>
+            &ldquo;{p.quote}&rdquo;
+          </div>
+          <div style={{ fontFamily: mono, fontSize: 11, color: ink3, marginBottom: 20 }}>
+            — {p.author}, <span style={{ fontStyle: "italic", fontFamily: serif }}>{p.source}</span>
+          </div>
+          <Link href={`/book/${p.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "8px 16px", borderRadius: 4, textDecoration: "none" }}>
+            Open in Library →
+          </Link>
         </div>
-        <div style={{ fontFamily: mono, fontSize: 11, color: ink3, marginBottom: 14 }}>
-          {p.cite}
+
+        {/* Divider */}
+        <div style={{ width: 40, height: 1, background: border_, margin: "0 auto 28px" }} />
+
+        {/* Tomorrow teaser */}
+        <div>
+          <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 8 }}>
+            Tomorrow
+          </div>
+          <Link href={`/book/${tmrw.id}`} style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
+            <div style={{ width: 6, height: 6, borderRadius: "50%", background: tmrw.dot, flexShrink: 0 }} />
+            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink2 }}>{tmrw.source}</span>
+            <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>— {tmrw.author}</span>
+          </Link>
         </div>
-        <Link href={`/book/${p.id}`} className="bib-card" style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "6px 14px", borderRadius: 3, cursor: "pointer", textDecoration: "none" }}>
-          Open in Library →
-        </Link>
       </div>
-      <div className="hide-mobile-flex" style={{ flexDirection: "column", alignItems: "center" }}>
-        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
-        <div style={{ width: 7, height: 7, borderRadius: "50%", background: blue, border: "2px solid #fff" }} />
-        <div style={{ width: "0.5px", height: 22, background: "rgba(29,78,216,.3)" }} />
-      </div>
-      <div style={{ borderLeft: "none" }} className="thread-right">
-        <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 12 }}>
-          Today&apos;s Passage
-        </div>
-        <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 21, lineHeight: 1.5, color: ink, maxWidth: 580 }}>
-          &ldquo;{p.quote}&rdquo;
-        </div>
-      </div>
-    </div>
     </div>
   );
 }
@@ -375,7 +377,7 @@ function LibraryColumn() {
       <div style={{ border: `0.5px solid ${border_}`, borderRadius: 6, overflow: "hidden", marginBottom: 18 }}>
         <div style={{ background: blue, padding: "10px 16px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
           <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.75)" }}>Living Book</span>
-          <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>81 chapters · 47 sessions this week</span>
+          <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>81 chapters</span>
         </div>
         <div style={{ padding: 16 }}>
           <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 24, lineHeight: 1.1, marginBottom: 5 }}>Tao Te Ching</div>
@@ -512,7 +514,6 @@ function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
     }}>
       <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.9)", fontWeight: 500 }}>{f.label}</span>
-        <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>{entry.sessions}</span>
       </div>
       <div style={{ padding: "14px 16px 16px", flex: 1, display: "flex", flexDirection: "column", gap: 6 }}>
         <div style={{ fontFamily: serif, fontStyle: "italic", fontSize: 22, lineHeight: 1.15, color: ink, letterSpacing: "-.01em" }}>{entry.title}</div>
@@ -540,7 +541,7 @@ export default function HomePage() {
       <LibNav active={libTab} onSelect={setLibTab} />
 
       {/* Card grid — From the Library */}
-      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "48px 24px 0" }}>
+      <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px 0" }}>
         <ColLabel>From the Library</ColLabel>
         <div className="card-grid">
           {CARD_ENTRIES.map(e => <LibCard key={e.id} entry={e} />)}
@@ -550,62 +551,7 @@ export default function HomePage() {
       {/* Daily passage — full-width bg, content aligned to grid */}
       <ThreadBand />
 
-      {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 0 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "32px 16px 20px" }}>
-          <div className="footer-grid">
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Library</div>
-              {["Books", "Digests", "Essays", "Horoscopes", "Games"].map(s => (
-                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s}</Link>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Subjects</div>
-              {["Philosophy", "Religion", "Science", "History", "Mathematics", "Esoterica", "Literature", "Society", "Technology", "Health", "Psychology"].map(s => (
-                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s}</Link>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>Account</div>
-              {[
-                { label: "Sign In", href: "/subscribe" },
-                { label: "Register", href: "/subscribe" },
-                { label: "Reading History", href: "/subscribe" },
-                { label: "Session Journal", href: "/subscribe" },
-                { label: "Settings", href: "/subscribe" },
-              ].map(s => (
-                <Link key={s.label} href={s.href} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s.label}</Link>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 10 }}>About</div>
-              {[
-                { label: "About Bibliothèque", href: "/about" },
-                { label: "TMOS13, LLC", href: "/about" },
-                { label: "Privacy Policy", href: "/about" },
-                { label: "Terms of Use", href: "/about" },
-                { label: "Contact", href: "/about" },
-              ].map(s => (
-                <Link key={s.label} href={s.href} style={{ fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", cursor: "pointer", display: "block", textDecoration: "none" }}>{s.label}</Link>
-              ))}
-            </div>
-          </div>
-          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 16 }}>
-            <div style={{ textAlign: "center", marginBottom: 12 }}>
-              <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-              <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink3, textDecoration: "none" }}>
-                Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
-              </Link>
-              <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-                © 2026 TMOS13, LLC.
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

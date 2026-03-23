@@ -167,7 +167,7 @@ button:not(:disabled),
 .masthead-inner {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 14px 16px 10px;
+  padding: 28px 16px 22px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -176,7 +176,7 @@ button:not(:disabled),
 
 @media (min-width: 768px) {
   .masthead-inner {
-    padding: 20px 24px 14px;
+    padding: 36px 24px 28px;
     justify-content: space-between;
   }
 }

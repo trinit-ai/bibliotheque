@@ -3,6 +3,7 @@
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import { Link2, Twitter, Mail, Share2 } from "lucide-react";
+import SiteFooter from "@/components/SiteFooter";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -647,9 +648,8 @@ export default function WikiPage() {
             </span>
           </Link>
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 12 }}>
-            <Link href="/search" className="hide-mobile" style={{ display: "flex", alignItems: "center", border: `0.5px solid ${border_}`, borderRadius: 3, padding: "5px 10px", background: "#fff", textDecoration: "none" }}>
-              <span style={{ fontFamily: mono, fontSize: 11, color: ink3 }}>Search library…</span>
-              <span style={{ color: ink3, fontSize: 14, marginLeft: 8 }}>⌕</span>
+            <Link href="/search" className="hide-mobile" style={{ border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 12px", background: cream, textDecoration: "none", cursor: "pointer", fontFamily: mono, fontSize: 11, color: ink3, display: "inline-flex", alignItems: "center", gap: 6 }}>
+              Search library <span style={{ fontSize: 13 }}>⌕</span>
             </Link>
             <Link href="/subscribe" style={{ width: 32, height: 32, borderRadius: "50%", background: cream, border: `0.5px solid ${border_}`, display: "flex", alignItems: "center", justifyContent: "center", textDecoration: "none", flexShrink: 0 }}>
               <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke={ink3} strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
@@ -701,6 +701,29 @@ export default function WikiPage() {
               </p>
             </div>
 
+            {/* Action buttons */}
+            <div style={{ display: "flex", gap: 10, marginBottom: 12, flexWrap: "wrap" }}>
+              <Link href={`/book/${slug}`} style={{
+                cursor: "pointer", background: blue, color: "#fff",
+                fontFamily: mono, fontSize: 12, letterSpacing: ".04em",
+                padding: "12px 28px", borderRadius: 4,
+                display: "inline-flex", alignItems: "center", gap: 8,
+                textDecoration: "none",
+              }}>
+                {data.contentType === "essay" ? "Open session →" : data.contentType === "living_book" ? "Open session →" : "Begin exploration →"}
+              </Link>
+              <Link href="/" style={{
+                background: "none", cursor: "pointer", border: `0.5px solid ${border_}`, color: ink2,
+                fontFamily: mono, fontSize: 12, padding: "12px 20px", borderRadius: 4,
+                textDecoration: "none",
+              }}>
+                ← Library
+              </Link>
+            </div>
+            <p style={{ fontFamily: mono, fontSize: 10, color: ink3, marginBottom: 36 }}>
+              Opens a guided conversation. 5 turns for anonymous visitors.
+            </p>
+
             {/* Major territories */}
             <div style={{ marginBottom: 36 }}>
               <ColLabel>Major Territories</ColLabel>
@@ -719,47 +742,6 @@ export default function WikiPage() {
               </div>
             </div>
 
-            {/* Action buttons */}
-            <div style={{ display: "flex", gap: 10, marginBottom: 40, flexWrap: "wrap" }}>
-              <Link href={`/book/${slug}`} style={{
-                cursor: "pointer", background: blue, color: "#fff",
-                fontFamily: mono, fontSize: 12, letterSpacing: ".04em",
-                padding: "12px 28px", borderRadius: 4,
-                display: "inline-flex", alignItems: "center", gap: 8,
-              }}>
-                {data.contentType === "essay" ? "Open session →" : data.contentType === "living_book" ? "Open session →" : "Begin exploration →"}
-              </Link>
-              <Link href="/" style={{
-                background: "none", cursor: "pointer", border: `0.5px solid ${border_}`, color: ink2,
-                fontFamily: mono, fontSize: 12, padding: "12px 20px", borderRadius: 4,
-              }}>
-                ← Back to Library
-              </Link>
-            </div>
-            <p style={{ fontFamily: mono, fontSize: 10, color: ink3, marginTop: -30, marginBottom: 40 }}>
-              Opens a guided conversation. 5 turns for anonymous visitors.
-            </p>
-
-            {/* Library connections */}
-            <div>
-              <ColLabel>Library Connections</ColLabel>
-              <div style={{ display: "flex", flexDirection: "column", gap: 10 }}>
-                {data.books.map(b => (
-                  <Link key={b.id} href={`/book/${b.id}`} style={{
-                    display: "flex", alignItems: "center", gap: 12,
-                    padding: "10px 14px", border: `0.5px solid ${border_}`, borderRadius: 6,
-                    textDecoration: "none", color: ink, background: "#fff",
-                  }}>
-                    <div style={{ width: 6, height: 6, borderRadius: "50%", background: blue, flexShrink: 0 }} />
-                    <div>
-                      <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15 }}>{b.title}</span>
-                      <span style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: 10 }}>{b.author}</span>
-                    </div>
-                    <span style={{ marginLeft: "auto", fontFamily: mono, fontSize: 10, color: blue, flexShrink: 0 }}>Open →</span>
-                  </Link>
-                ))}
-              </div>
-            </div>
           </div>
         </div>
 
@@ -880,45 +862,10 @@ export default function WikiPage() {
             </div>
           )}
 
-          {/* Other expeditions */}
-          <div style={{ marginTop: 20 }}>
-            <ColLabel>More Expeditions</ColLabel>
-            {["stoicism", "consciousness", "entropy", "game_theory", "quantum_mechanics", "free_will"]
-              .filter(e => e !== slug)
-              .slice(0, 4)
-              .map(e => (
-                <Link
-                  key={e}
-                  href={`/wiki/${e}`}
-                  style={{
-                    display: "block", textDecoration: "none",
-                    padding: "8px 0", borderBottom: `0.5px solid ${border2}`,
-                    fontFamily: serif, fontSize: 14, color: blue, cursor: "pointer",
-                  }}
-                >
-                  {toTitle(e)}
-                </Link>
-              ))}
-          </div>
         </div>
       </div>
 
-      {/* ── Footer ───────────────────────────────────────────────────── */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: "auto" }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "24px 24px 14px" }}>
-          <div style={{ textAlign: "center", marginBottom: 10 }}>
-            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-            <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
-              Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
-            </Link>
-            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-              © 2026 TMOS13, LLC.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

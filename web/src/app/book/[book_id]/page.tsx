@@ -3,7 +3,7 @@
 import { useState, useRef, useEffect } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
-import { Search, ArrowLeft, User, Send, ChevronDown, Bookmark, History, Newspaper, Hash, BookMarked, Compass, Link2, Twitter, Mail, Menu } from "lucide-react";
+import { Search, ArrowLeft, ArrowUp, User, ChevronDown, History, Compass, Link2, Twitter, Mail, Menu } from "lucide-react";
 
 const serif = "'Georgia', serif";
 const mono = "'Courier New', monospace";
@@ -339,7 +339,8 @@ export default function BookPage() {
           <div className="book-search">
             <Link href="/search" style={{ textDecoration: "none", display: "flex", alignItems: "center", gap: 6, background: cream, border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 10px", color: ink3 }}>
               <Search size={13} strokeWidth={1.5} />
-              <span style={{ fontSize: 11, fontFamily: mono }}>Search library…</span>
+              <span style={{ fontSize: 11, fontFamily: mono }}>Search library</span>
+              <span style={{ fontSize: 13 }}>⌕</span>
             </Link>
           </div>
           <div style={{ marginLeft: "auto", display: "flex", alignItems: "center", gap: 10 }}>
@@ -380,27 +381,7 @@ export default function BookPage() {
             </div>
           )}
 
-          {/* Bookmarks */}
-          <div onClick={() => setLeftOpen(p => ({ ...p, bookmarks: !p.bookmarks }))} style={{ padding: "6px 14px", fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", userSelect: "none", borderTop: `0.5px solid ${border2}` }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 5 }}><Bookmark size={11} strokeWidth={1.5} /> Bookmarks</span>
-            <ChevronDown size={12} strokeWidth={1.5} style={{ transition: "transform .15s", transform: leftOpen.bookmarks ? "rotate(0)" : "rotate(-90deg)" }} />
-          </div>
-          {leftOpen.bookmarks && (
-            <div style={{ marginBottom: 8 }}>
-              {[
-                { label: "Tao Te Ching", href: "/book/tao_te_ching", dot: "#3B82F6" },
-                { label: "Meditations", href: "/book/meditations_aurelius", dot: "#3B82F6" },
-                { label: "Stoicism", href: "/wiki/stoicism", dot: "#0891B2" },
-                { label: "I Ching", href: "/book/i_ching", dot: "#7C3AED" },
-              ].map(b => (
-                <Link key={b.label} href={b.href} style={{ display: "flex", alignItems: "center", gap: 7, padding: "4px 14px", fontSize: 12, color: ink2, textDecoration: "none", fontFamily: serif }}>
-                  <span style={{ width: 5, height: 5, borderRadius: "50%", background: b.dot, flexShrink: 0 }} />
-                  {b.label}
-                </Link>
-              ))}
-              <div style={{ padding: "6px 14px", fontSize: 10, color: ink3, fontFamily: mono, cursor: "pointer", display: "flex", alignItems: "center", gap: 4 }}><BookMarked size={10} strokeWidth={1.5} /> Add bookmark</div>
-            </div>
-          )}
+
 
           {/* Axis 2: Subjects (wiki/expedition territory) */}
           <div onClick={() => setLeftOpen(p => ({ ...p, subjects: !p.subjects }))} style={{ padding: "6px 14px", fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", userSelect: "none", borderTop: `0.5px solid ${border2}` }}>
@@ -411,23 +392,6 @@ export default function BookPage() {
             <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", padding: "4px 14px", fontSize: 12, color: ink2, cursor: "pointer", textDecoration: "none", borderLeft: "2px solid transparent" }}>{s}</Link>
           ))}
 
-          {/* Axis 3: Format / content types */}
-          <div onClick={() => setLeftOpen(p => ({ ...p, formats: !p.formats }))} style={{ padding: "6px 14px", fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", cursor: "pointer", display: "flex", justifyContent: "space-between", alignItems: "center", userSelect: "none", borderTop: `0.5px solid ${border2}` }}>
-            <span style={{ display: "flex", alignItems: "center", gap: 5 }}><Hash size={11} strokeWidth={1.5} /> Format</span>
-            <ChevronDown size={12} strokeWidth={1.5} style={{ transition: "transform .15s", transform: leftOpen.formats ? "rotate(0)" : "rotate(-90deg)" }} />
-          </div>
-          {leftOpen.formats && [
-            { label: "Books", dot: "#1D4ED8" },
-            { label: "Essays", dot: "#B45309" },
-            { label: "Expeditions", dot: "#0891B2" },
-            { label: "Horoscopes", dot: "#7C3AED" },
-            { label: "Games", dot: "#059669" },
-          ].map(f => (
-            <div key={f.label} style={{ display: "flex", alignItems: "center", gap: 7, padding: "4px 14px", fontSize: 12, color: ink2, cursor: "pointer" }}>
-              <span style={{ width: 5, height: 5, borderRadius: "50%", background: f.dot, flexShrink: 0 }} />
-              {f.label}
-            </div>
-          ))}
         </div>
 
         {/* Center — article header + chat */}
@@ -435,10 +399,11 @@ export default function BookPage() {
           {/* Article header — compact, sticky */}
           <div className="session-header" style={{ padding: "14px 32px", borderBottom: `0.5px solid ${border2}`, position: "sticky", top: 0, zIndex: 10, background: "#fff" }}>
             <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between", flexWrap: "wrap", gap: 8 }}>
-              <div style={{ display: "flex", alignItems: "center", gap: 10 }}>
-                <Link href="/" className="show-mobile" style={{ color: ink3, display: "flex", textDecoration: "none", padding: 2 }}><ArrowLeft size={18} strokeWidth={1.5} /></Link>
+              <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+                <Link href={`/wiki/${bookId}`} className="show-mobile" style={{ color: ink3, display: "flex", textDecoration: "none", padding: 2 }}><ArrowLeft size={18} strokeWidth={1.5} /></Link>
                 <h1 style={{ fontSize: 22, fontWeight: 400, margin: 0, fontStyle: "italic", letterSpacing: "-.02em", color: ink, fontFamily: serif }}>{title}</h1>
-                <span className="session-header-meta" style={{ fontSize: 10, color: ink3, fontFamily: mono }}>{author}</span>
+                <div style={{ width: "0.5px", height: 18, background: border_, flexShrink: 0 }} />
+                <span style={{ fontSize: 11, color: ink3, fontFamily: mono, letterSpacing: ".03em", flexShrink: 0, whiteSpace: "nowrap" }}>{author}</span>
               </div>
               <div className="session-header-meta" style={{ display: "flex", alignItems: "center", gap: 8 }}>
                 <span style={{ fontSize: 9, color: data.chapters === "Game" ? "#059669" : data.chapters?.startsWith("Essay") ? "#B45309" : data.chapters === "Expedition" ? "#0891B2" : data.chapters === "Digest" ? "#DC2626" : blue, fontFamily: mono, letterSpacing: ".08em", textTransform: "uppercase", padding: "2px 8px", background: data.chapters === "Game" ? "#ECFDF5" : data.chapters?.startsWith("Essay") ? "#FFFBEB" : data.chapters === "Expedition" ? "#ECFEFF" : data.chapters === "Digest" ? "#FEF2F2" : "#EFF6FF", borderRadius: 3 }}>{data.chapters === "Game" ? "Game" : data.chapters?.startsWith("Essay") ? "Essay" : data.chapters === "Expedition" ? "Expedition" : data.chapters === "Digest" ? "Digest" : "Living Book"}</span>
@@ -559,7 +524,7 @@ export default function BookPage() {
                     animation: isLoading ? "bibspin 0.8s linear infinite" : "none",
                   }}
                 >
-                  {isLoading ? null : <Send size={14} strokeWidth={2} />}
+                  {isLoading ? null : <ArrowUp size={16} strokeWidth={2.5} />}
                 </div>
               </div>
             </div>
@@ -728,27 +693,15 @@ export default function BookPage() {
           )}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 16, marginBottom: 8 }}>Tools</div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
-            <Search size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Web search
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
-            <BookMarked size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Save to bookmarks
-          </div>
-          <div style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
+          <div onClick={() => { navigator.clipboard?.writeText(window.location.href); }} style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: mono, cursor: "pointer" }} className="bib-slash">
             <Link2 size={11} strokeWidth={1.5} style={{ color: ink3 }} /> Copy session link
           </div>
         </div>
       </div>
 
       {/* Footer */}
-      <div className="session-footer" style={{ borderTop: `0.5px solid ${border_}`, padding: "6px 24px", background: cream, display: "flex", alignItems: "center", position: "relative" }}>
-        <div className="session-footer-slash" style={{ display: "flex", gap: 10 }}>
-          {["/chapter", "/search", "/compare", "/wiki", "/book"].map(c => (
-            <span key={c} className="bib-slash" style={{ fontSize: 10, color: ink3, fontFamily: mono, cursor: "pointer" }}>{c}</span>
-          ))}
-        </div>
-        <span className="session-footer-disclaimer" style={{ position: "absolute", left: "50%", transform: "translateX(-50%)", fontFamily: mono, fontSize: 9, color: ink3, opacity: 0.5, whiteSpace: "nowrap" }}>Bibliothèque is AI-powered. Responses are generated, not authored.</span>
-        <span className="hide-mobile" style={{ fontFamily: mono, fontSize: 10, color: ink3, marginLeft: "auto" }}>© 2026 TMOS13, LLC.</span>
+      <div className="session-footer" style={{ borderTop: `0.5px solid ${border_}`, padding: "6px 24px", background: cream, display: "flex", alignItems: "center", justifyContent: "center" }}>
+        <span style={{ fontFamily: mono, fontSize: 9, color: ink3, opacity: 0.5 }}>Sessions are AI-generated and grounded in the source text. Not a substitute for the original.</span>
       </div>
     </div>
   );

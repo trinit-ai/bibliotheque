@@ -87,7 +87,6 @@ export default function LibCard({ entry }: { entry: CardEntry }) {
       {/* Format tab */}
       <div style={{ background: f.tab, padding: "6px 14px", display: "flex", alignItems: "center", justifyContent: "space-between" }}>
         <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: "rgba(255,255,255,.9)", fontWeight: 500 }}>{f.label}</span>
-        {entry.sessions && <span style={{ fontFamily: mono, fontSize: 10, color: "rgba(255,255,255,.5)" }}>{entry.sessions}</span>}
       </div>
 
       {/* Card body */}

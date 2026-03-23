@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useParams } from "next/navigation";
 import Link from "next/link";
 import SharedLibCard, { type CardEntry as SharedCardEntry } from "@/components/LibCard";
+import SiteFooter from "@/components/SiteFooter";
 
 // ── Tokens ────────────────────────────────────────────────────────────────
 
@@ -31,6 +32,10 @@ const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
   society:     { tint: "#F0FDF4", accent: "#14532D" },
   technology:  { tint: "#EFF6FF", accent: "#1E3A8A" },
   health:      { tint: "#FFF1F2", accent: "#881337" },
+  books:       { tint: "#EFF6FF", accent: "#1D4ED8" },
+  essays:      { tint: "#FFFBEB", accent: "#B45309" },
+  digests:     { tint: "#FEF2F2", accent: "#DC2626" },
+  games:       { tint: "#F5F3FF", accent: "#7C3AED" },
 };
 
 const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }> = {
@@ -54,6 +59,10 @@ const SUBJECT_INTROS: Record<string, string> = {
   society: "The works that shaped how we understand collective life. Sociology, political economy, cultural criticism \u2014 from Adam Smith to Simone de Beauvoir. These texts engage with the structures that organize human societies and the forces that change them.",
   technology: "The literature of the machine age and beyond. From Turing\u2019s foundational papers to contemporary works on AI and robotics, these are the texts that define our relationship with the tools we build. Ask about augmentation, automation, intelligence, and what it means to compute.",
   health: "The body and its care, from ancient Hippocratic texts to modern medical literature. Not medical advice \u2014 medical thinking. Engage with the foundational works that shaped our understanding of disease, wellness, and the practice of healing.",
+  books: "The living books. Full texts \u2014 indexed, queryable, conversational. Every chapter, every passage, every theme available in dialogue. You bring your questions. The text brings its structure. The session is where they meet.",
+  essays: "Arguments you can push back on. Each essay is fully present in the session \u2014 grounded in the actual text, open to challenge, designed for genuine engagement rather than passive reading.",
+  digests: "Cross-examination digests. A classical text pointed at a contemporary subject. The authorship is in the collision \u2014 neither text alone produces what the encounter does.",
+  games: "Structured experiences designed to surprise you. Not quizzes. Not assessments. Encounters with rules, questions, and consequences that the session takes seriously even when it doesn\u2019t take itself seriously.",
 };
 
 // ── Subject card data ──────────────────────────────────────────────────────
@@ -156,6 +165,24 @@ const SUBJECT_CARDS: Record<string, CardEntry[]> = {
     { id: "how_we_die", title: "How We Die", author: "Sherwin Nuland \u00b7 1994", desc: "A surgeon\u2019s unflinching account of the biological processes of death. Honest, humane, and strangely comforting.", format: "living_book", meta: "14 chapters", sessions: "13 this week" },
     { id: "man_who_mistook", title: "The Man Who Mistook His Wife for a Hat", author: "Oliver Sacks \u00b7 1985", desc: "Neurological case studies that read like literature. What brain disorders reveal about the nature of mind and self.", format: "living_book", meta: "24 cases", sessions: "32 this week" },
     { id: "being_mortal", title: "Being Mortal", author: "Atul Gawande \u00b7 2014", desc: "Medicine\u2019s failure to deal honestly with aging and death. What matters at the end of life.", format: "living_book", meta: "8 chapters", sessions: "19 this week" },
+  ],
+  // ── Format-based portals ──
+  books: [
+    { id: "tao_te_ching", title: "Tao Te Ching", author: "Laozi \u00b7 c. 6th century BC", desc: "81 chapters on the nature of the Tao \u2014 the text that begins by undermining itself.", format: "living_book", meta: "81 chapters", sessions: "47 this week" },
+    { id: "ecclesiastes", title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013230 BC", desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.", format: "living_book", meta: "12 chapters", sessions: "22 this week" },
+    { id: "room_of_ones_own", title: "A Room of One\u2019s Own", author: "Virginia Woolf \u00b7 1929", desc: "What does a woman need in order to write? Five hundred pounds a year and a room with a lock on the door.", format: "living_book", meta: "~38,000 words", sessions: "18 this week" },
+    { id: "relativity_einstein", title: "On the Electrodynamics of Moving Bodies", author: "Albert Einstein \u00b7 1905", desc: "The original special relativity paper. Thirty pages that dismantled absolute time.", format: "living_book", meta: "Full text", sessions: "24 this week" },
+  ],
+  essays: [
+    { id: "machines_of_loving_grace", title: "Machines of Loving Grace", author: "Dario Amodei \u00b7 2024", desc: "The case for radical AI optimism \u2014 across biology, neuroscience, economics, governance, and meaning.", format: "essay", meta: "~15,000 words", sessions: "31 this week" },
+    { id: "avant_garde_and_kitsch", title: "Avant-Garde and Kitsch", author: "Clement Greenberg \u00b7 1939", desc: "The essay that drew the line between genuine culture and its imitation \u2014 and argued the line is political.", format: "essay", meta: "~6,500 words", sessions: "12 this week" },
+  ],
+  digests: [
+    { id: "the_prince", title: "The Prince \u00d7 Jeffrey Epstein", author: "Cross-Examination Digest", desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.", format: "digest", meta: "Digest", sessions: "19 this week" },
+    { id: "genealogy_of_morality", title: "The Madman: God Is Dead", author: "Friedrich Nietzsche \u00b7 1882", desc: "Nietzsche\u2019s most famous passage \u2014 and the most misunderstood. He isn\u2019t celebrating. He\u2019s diagnosing a catastrophe.", format: "digest", meta: "Single passage", sessions: "15 this week" },
+  ],
+  games: [
+    { id: "enlightened_duck", title: "The Enlightened Duck", author: "A Biblioth\u00e8que Game", desc: "A pilgrim climbs a mountain. Three questions. No shortcuts. The duck has been waiting.", format: "game", meta: "3 questions", sessions: "45 this week" },
   ],
 };
 
@@ -280,9 +307,10 @@ export default function PortalSubjectPage() {
             Biblioth<span style={{ color: blue }}>è</span>que
           </span>
         </Link>
-        <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
-          <span style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".1em", textTransform: "uppercase", color: ink3 }}>Portal</span>
-          <span style={{ color: border_, fontSize: 12 }}>/</span>
+        <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
+          <Link href="/search" style={{ border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 12px", background: cream, textDecoration: "none", fontFamily: mono, fontSize: 11, color: ink3, display: "inline-flex", alignItems: "center", gap: 6 }}>
+            Search library <span style={{ fontSize: 13 }}>⌕</span>
+          </Link>
           <span style={{ fontFamily: mono, fontSize: 11, letterSpacing: ".06em", textTransform: "uppercase", color: portalColor.accent, fontWeight: 600 }}>
             {subjectLabel}
           </span>
@@ -312,8 +340,8 @@ export default function PortalSubjectPage() {
           <ColLabel>{subjectLabel} &middot; {cards.length} entries</ColLabel>
           <div className="card-grid" style={{
             display: "grid",
-            gridTemplateColumns: "repeat(auto-fill, minmax(300px, 1fr))",
-            gap: 20,
+            gridTemplateColumns: "repeat(auto-fill, minmax(240px, 1fr))",
+            gap: 16,
           }}>
             {cards.map(entry => (
               <PortalLibCard key={entry.id} entry={entry} portalKey={subjectKey} />
@@ -381,45 +409,7 @@ export default function PortalSubjectPage() {
         </div>
       </div>
 
-      {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE", marginTop: 40 }}>
-        <div style={{ maxWidth: 1200, margin: "0 auto", padding: "28px 24px 16px" }}>
-          <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fit, minmax(140px, 1fr))", gap: 20, marginBottom: 24 }}>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>Library</div>
-              {["Books", "Essays", "Expeditions", "Horoscopes", "Games"].map(s => (
-                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>{s}</Link>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>Subjects</div>
-              {["Philosophy", "Religion", "Science", "History", "Literature"].map(s => (
-                <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>{s}</Link>
-              ))}
-            </div>
-            <div>
-              <div style={{ fontFamily: mono, fontSize: 9, letterSpacing: ".1em", textTransform: "uppercase", color: ink, fontWeight: 600, marginBottom: 8 }}>About</div>
-              <Link href="/about" style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>About Bibliothèque</Link>
-              <Link href="/subscribe" style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0", textDecoration: "none" }}>Subscribe</Link>
-              <span style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0" }}>Privacy Policy</span>
-              <span style={{ display: "block", fontFamily: serif, fontSize: 13, color: ink2, padding: "3px 0" }}>Terms of Use</span>
-            </div>
-          </div>
-          <div style={{ borderTop: `0.5px solid ${border_}`, paddingTop: 14 }}>
-            <div style={{ textAlign: "center", marginBottom: 10 }}>
-              <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
-            </div>
-            <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-              <Link href="/" className="bib-logo" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
-                Biblioth<span className="bib-accent" style={{ color: blue }}>è</span>que
-              </Link>
-              <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-                © 2026 TMOS13, LLC.
-              </div>
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }

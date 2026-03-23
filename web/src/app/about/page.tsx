@@ -1,7 +1,8 @@
 import { Metadata } from "next";
+import SiteFooter from "@/components/SiteFooter";
 
 export const metadata: Metadata = {
-  title: "About | Bibliotheque",
+  title: "About | Bibliothèque",
   description: "A living library where every text is a two-way street.",
 };
 
@@ -39,7 +40,7 @@ export default function AboutPage() {
             About
           </div>
           <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.15, letterSpacing: "-.02em", color: ink, margin: "0 0 20px" }}>
-            About Bibliotheque
+            About Bibliothèque
           </h1>
           <p style={{ fontFamily: serif, fontStyle: "italic", fontSize: 20, lineHeight: 1.6, color: ink2, margin: 0 }}>
             You read the book. And the book reads you.
@@ -49,7 +50,7 @@ export default function AboutPage() {
         {/* Mission */}
         <div style={{ borderTop: `0.5px solid ${border_}`, borderBottom: `0.5px solid ${border_}`, padding: "32px 0", marginBottom: 48 }}>
           <p style={{ fontFamily: serif, fontSize: 17, lineHeight: 1.85, color: ink2, margin: 0 }}>
-            Bibliotheque is a living library where every text is a two-way street.
+            Bibliothèque is a living library where every text is a two-way street.
             With 1,700+ texts planned across philosophy, religion, science, history, literature, and beyond,
             we are building the world&apos;s first conversational corpus &mdash; a place where you don&apos;t just read,
             you engage. Anonymous-first. No tracking. No algorithms. Powered by the 13TMOS engine.
@@ -65,7 +66,7 @@ export default function AboutPage() {
             What it is
           </h2>
           <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.85, color: ink2, margin: "0 0 12px" }}>
-            Bibliotheque is a living library, not a chatbot. Every text in the collection &mdash; from the Tao Te Ching
+            Bibliothèque is a living library, not a chatbot. Every text in the collection &mdash; from the Tao Te Ching
             to Einstein&apos;s Relativity &mdash; is rendered as a living book: a conversational entity that knows its own pages,
             its own history, its own tradition. You open a session with a text the way you&apos;d sit down with a scholar
             who has spent a lifetime with that single work.
@@ -122,7 +123,7 @@ export default function AboutPage() {
             Who built it
           </h2>
           <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.85, color: ink2, margin: "0 0 12px" }}>
-            Bibliotheque is built by TMOS13, LLC, founded by Robert C. Ventura in Jersey City, New Jersey.
+            Bibliothèque is built by TMOS13, LLC, founded by Robert C. Ventura in Jersey City, New Jersey.
           </p>
           <p style={{ fontFamily: serif, fontSize: 16, lineHeight: 1.85, color: ink2, margin: 0 }}>
             The 13TMOS engine &mdash; the protocol layer that governs every session, every turn, every interaction &mdash;
@@ -133,22 +134,7 @@ export default function AboutPage() {
         </section>
       </main>
 
-      {/* Footer */}
-      <footer style={{ borderTop: `0.5px solid ${border_}`, background: "#F5F3EE" }}>
-        <div style={{ maxWidth: 680, margin: "0 auto", padding: "24px 24px 14px" }}>
-          <div style={{ textAlign: "center", marginBottom: 10 }}>
-            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 13, color: ink3, opacity: 0.6 }}>You read the book. And the book reads you.</span>
-          </div>
-          <div style={{ display: "flex", justifyContent: "space-between", alignItems: "center", flexWrap: "wrap", gap: 8 }}>
-            <a href="/" style={{ fontFamily: serif, fontStyle: "italic", fontSize: 15, color: ink3, textDecoration: "none" }}>
-              Biblioth<span style={{ color: blue }}>è</span>que
-            </a>
-            <div style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>
-              &copy; 2026 TMOS13, LLC.
-            </div>
-          </div>
-        </div>
-      </footer>
+      <SiteFooter />
     </div>
   );
 }
