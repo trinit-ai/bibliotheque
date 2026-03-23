@@ -174,6 +174,21 @@ export default function BookPage() {
 
   useEffect(() => { if (chatRef.current) chatRef.current.scrollTop = chatRef.current.scrollHeight; }, [messages]);
 
+  // iOS keyboard: scroll input into view when virtual keyboard opens/closes
+  useEffect(() => {
+    const vv = window.visualViewport;
+    if (!vv) return;
+    const onResize = () => {
+      // When keyboard opens, visualViewport height shrinks
+      // Scroll the focused textarea into view
+      if (document.activeElement && document.activeElement.tagName === "TEXTAREA") {
+        document.activeElement.scrollIntoView({ block: "nearest" });
+      }
+    };
+    vv.addEventListener("resize", onResize);
+    return () => vv.removeEventListener("resize", onResize);
+  }, []);
+
   // Start session on mount — try API (via apiBase or relative URL), fall back to local greeting
   useEffect(() => {
     setIsLoading(true);
@@ -308,7 +323,7 @@ export default function BookPage() {
   const related = data.related || DEFAULT_DATA.related;
 
   return (
-    <div style={{ fontFamily: serif, height: "100vh", display: "flex", flexDirection: "column", background: cream, overflow: "hidden" }}>
+    <div style={{ fontFamily: serif, height: "100dvh", display: "flex", flexDirection: "column", background: cream, overflow: "hidden" }}>
       {/* Top bar */}
       <div className="session-topbar" style={{ borderBottom: `0.5px solid ${border_}`, padding: "0 24px", background: "#fff" }}>
         <div style={{ display: "flex", alignItems: "center", gap: 20, height: 48 }}>

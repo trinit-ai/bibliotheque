@@ -837,10 +837,25 @@ button:not(:disabled),
   }
 }
 
+/* ── iOS keyboard handling ────────────────────────────────────── */
+
 /* Ensure input has space above iOS browser chrome */
 @supports (-webkit-touch-callout: none) {
   .session-input {
     padding-bottom: calc(env(safe-area-inset-bottom, 8px) + 8px) !important;
+  }
+}
+
+/* On iOS, use VisualViewport to keep input above keyboard */
+@supports (-webkit-touch-callout: none) {
+  @media (max-width: 767px) {
+    /* The session-center flex column handles layout —
+       chat area takes flex:1 and scrolls, input stays at bottom.
+       100dvh on the root container tracks the visual viewport
+       including keyboard. This is the modern iOS fix. */
+    .session-chat {
+      padding-bottom: 8px !important;
+    }
   }
 }
 
