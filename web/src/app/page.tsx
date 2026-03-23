@@ -467,6 +467,7 @@ const FORMAT_COLORS: Record<string, { label: string; tab: string; tint: string }
   essay:       { label: "Essay",       tab: "#B45309", tint: "#FFFBEB" },
   interaction: { label: "Interaction", tab: "#059669", tint: "#ECFDF5" },
   digest:      { label: "Digest",      tab: "#DC2626", tint: "#FEF2F2" },
+  game:        { label: "Game",        tab: "#7C3AED", tint: "#F5F3FF" },
 };
 
 const PORTAL_COLORS: Record<string, { tint: string; accent: string }> = {
@@ -492,6 +493,7 @@ const CARD_ENTRIES = [
   { id: "the_prince", title: "The Prince \u00d7 Jeffrey Epstein", author: "Cross-Examination Digest", desc: "Machiavelli\u2019s manual on power, pointed at the machinery that protected Epstein \u2014 and at the fascination that won\u2019t let the story go.", format: "digest", portal: "history", meta: "Digest", sessions: "19 this week" },
   { id: "genealogy_of_morality", title: "The Madman: God Is Dead", author: "Friedrich Nietzsche \u00b7 1882", desc: "Nietzsche\u2019s most famous passage \u2014 and the most misunderstood. He isn\u2019t celebrating. He\u2019s diagnosing a catastrophe.", format: "digest", portal: "philosophy", meta: "Single passage", sessions: "15 this week" },
   { id: "ecclesiastes", title: "Ecclesiastes", author: "Qohelet \u00b7 c. 450\u2013230 BC", desc: "The most existential book of the Bible. All is vanity. Yet still: eat, drink, find joy in your labor.", format: "living_book", portal: "religion", meta: "12 chapters", sessions: "22 this week" },
+  { id: "enlightened_duck", title: "The Enlightened Duck", author: "A Biblioth\u00e8que Game", desc: "A pilgrim climbs a mountain. Three questions. No shortcuts. The duck has been waiting.", format: "game", portal: "esoterica", meta: "3 questions", sessions: "45 this week" },
 ];
 
 function LibCard({ entry }: { entry: typeof CARD_ENTRIES[0] }) {
