@@ -678,22 +678,20 @@ export default function WikiPage() {
           <div style={{ padding: "32px 32px 48px" }}>
             {/* Entity header */}
             <div style={{ marginBottom: 32 }}>
-              <div style={{ display: "flex", alignItems: "center", justifyContent: "space-between" }}>
-                <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: data.contentType === "essay" ? "#B45309" : blue, marginBottom: 10 }}>
-                  {data.contentType === "essay" ? "Essay" : data.contentType === "living_book" ? "Living Book" : "Expedition"}
-                </div>
-                <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
-                  <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 3 }} className="bib-slash"><Link2 size={14} strokeWidth={1.5} /></button>
-                  <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(displayName + " — Bibliothèque Expedition")}`, "_blank")} title="Share on X" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 3 }} className="bib-slash"><Twitter size={14} strokeWidth={1.5} /></button>
-                  <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(displayName + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Email" style={{ background: "none", border: "none", cursor: "pointer", color: ink3, display: "flex", alignItems: "center", padding: 3 }} className="bib-slash"><Mail size={14} strokeWidth={1.5} /></button>
-                </div>
+              <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: data.contentType === "essay" ? "#B45309" : blue, marginBottom: 10 }}>
+                {data.contentType === "essay" ? "Essay" : data.contentType === "living_book" ? "Living Book" : "Expedition"}
               </div>
               <h1 style={{ fontFamily: serif, fontStyle: "italic", fontSize: 42, fontWeight: 400, lineHeight: 1.1, letterSpacing: "-.02em", margin: "0 0 16px", color: ink }}>
                 {displayName}
               </h1>
               {data.author && (
-                <div style={{ fontFamily: mono, fontSize: 11, color: ink2, marginBottom: 16, letterSpacing: ".03em" }}>
-                  {data.author}{data.year ? ` · ${data.year}` : ""}
+                <div style={{ fontFamily: mono, fontSize: 11, color: ink2, marginBottom: 12, letterSpacing: ".03em", display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
+                  <span>{data.author}{data.year ? ` · ${data.year}` : ""}</span>
+                  <div style={{ display: "flex", gap: 6, alignItems: "center" }}>
+                    <button onClick={() => navigator.clipboard?.writeText(window.location.href)} title="Copy link" style={{ background: "none", border: "none", cursor: "pointer", color: border_, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Link2 size={13} strokeWidth={1.5} /></button>
+                    <button onClick={() => window.open(`https://twitter.com/intent/tweet?url=${encodeURIComponent(window.location.href)}&text=${encodeURIComponent(displayName + " — Bibliothèque")}`, "_blank")} title="Share on X" style={{ background: "none", border: "none", cursor: "pointer", color: border_, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Twitter size={13} strokeWidth={1.5} /></button>
+                    <button onClick={() => window.open(`mailto:?subject=${encodeURIComponent(displayName + " — Bibliothèque")}&body=${encodeURIComponent(window.location.href)}`, "_blank")} title="Email" style={{ background: "none", border: "none", cursor: "pointer", color: border_, display: "flex", alignItems: "center", padding: 2 }} className="bib-slash"><Mail size={13} strokeWidth={1.5} /></button>
+                  </div>
                 </div>
               )}
               <div style={{ width: 40, height: 1, background: border_, marginBottom: 18 }} />
