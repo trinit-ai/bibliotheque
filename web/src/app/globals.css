@@ -159,7 +159,7 @@ button:not(:disabled),
     display: flex !important;
   }
   .show-mobile {
-    display: none;
+    display: none !important;
   }
 }
 
