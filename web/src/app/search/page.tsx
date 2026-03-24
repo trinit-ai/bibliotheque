@@ -134,7 +134,7 @@ export default function SearchPage() {
             <p style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".12em", textTransform: "uppercase", color: ink3, marginBottom: 16 }}>
               Browse
             </p>
-            {["Philosophy", "Religion", "Science", "History", "Literature", "Society", "Technology", "Esoterica"].map(s => (
+            {["Philosophy", "Religion", "Science", "History", "Mathematics", "Literature", "Psychology", "Society", "Technology", "Health", "Esoterica"].map(s => (
               <Link key={s} href={`/portal/${s.toLowerCase()}`} style={{
                 display: "inline-block", textDecoration: "none", fontFamily: mono, fontSize: 12,
                 color: blue, padding: "6px 14px", border: `0.5px solid ${border_}`, borderRadius: 20,

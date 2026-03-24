@@ -308,7 +308,7 @@ export default function PortalSubjectPage() {
           </span>
         </Link>
         <div style={{ display: "flex", alignItems: "center", gap: 12 }}>
-          <Link href="/search" style={{ border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 12px", background: cream, textDecoration: "none", fontFamily: mono, fontSize: 11, color: ink3, display: "inline-flex", alignItems: "center", gap: 6 }}>
+          <Link href="/search" style={{ border: `0.5px solid ${border_}`, borderRadius: 4, padding: "6px 12px", background: cream, textDecoration: "none", fontFamily: mono, fontSize: 11, color: ink3, display: "inline-flex", alignItems: "center", gap: 6, whiteSpace: "nowrap" }}>
             Search library <span style={{ fontSize: 13 }}>⌕</span>
           </Link>
           <span style={{ fontFamily: mono, fontSize: 11, letterSpacing: ".06em", textTransform: "uppercase", color: portalColor.accent, fontWeight: 600 }}>
