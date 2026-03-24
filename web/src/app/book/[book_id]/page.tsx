@@ -433,7 +433,7 @@ export default function BookPage() {
 
           {/* Chat area */}
           <style>{`
-            @keyframes bibspin { to { transform: rotate(360deg); } }
+            @keyframes bibspin { 0% { transform: rotate(0deg); } 100% { transform: rotate(360deg); } }
             @keyframes bibfadein {
               from { opacity: 0; transform: translateY(12px); }
               to { opacity: 1; transform: translateY(0); }
@@ -445,7 +445,7 @@ export default function BookPage() {
             .bib-msg-in { animation: bibfadein 0.35s ease-out both; }
             .bib-user-msg { animation: bibfadein 0.2s ease-out both; }
           `}</style>
-          <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
+          <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center", justifyContent: "flex-end" }}>
             {messages.map((m, i) => {
               const isExpanded = expandedMsgs[i];
               const isLongUser = m.role === "user" && m.content.length > 200;
@@ -531,15 +531,14 @@ export default function BookPage() {
                   onClick={isLoading ? undefined : sendMessage}
                   style={{
                     width: 32, height: 32, borderRadius: "50%",
-                    background: isLoading ? "transparent" : (input.trim() ? blue : border_),
-                    border: isLoading ? `2.5px solid ${border_}` : "none",
-                    borderTopColor: isLoading ? blue : undefined,
+                    background: isLoading ? `conic-gradient(${blue} 90deg, ${border_} 90deg)` : (input.trim() ? blue : border_),
                     display: "flex", alignItems: "center", justifyContent: "center",
                     color: "#fff", fontSize: 14, cursor: isLoading ? "default" : "pointer", flexShrink: 0,
-                    animation: isLoading ? "bibspin 0.8s linear infinite" : "none",
+                    animation: isLoading ? "bibspin 1s linear infinite" : "none",
+                    willChange: isLoading ? "transform" : "auto",
                   }}
                 >
-                  {isLoading ? null : <ArrowUp size={16} strokeWidth={2.5} />}
+                  {isLoading ? <div style={{ width: 26, height: 26, borderRadius: "50%", background: cream }} /> : <ArrowUp size={16} strokeWidth={2.5} />}
                 </div>
               </div>
             </div>
