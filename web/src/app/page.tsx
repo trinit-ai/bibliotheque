@@ -311,9 +311,11 @@ function ThreadBand() {
           <div style={{ fontFamily: mono, fontSize: 10, letterSpacing: ".16em", textTransform: "uppercase", color: ink3, marginBottom: 8 }}>
             Tomorrow
           </div>
-          <Link href={`/book/${tmrw.id}`} style={{ textDecoration: "none", display: "inline-flex", alignItems: "center", gap: 8 }}>
-            <div style={{ width: 6, height: 6, borderRadius: "50%", background: tmrw.dot, flexShrink: 0 }} />
-            <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink2 }}>{tmrw.source}</span>
+          <Link href={`/book/${tmrw.id}`} style={{ textDecoration: "none", display: "inline-flex", flexDirection: "column", alignItems: "center", gap: 4 }}>
+            <div style={{ display: "flex", alignItems: "center", gap: 8 }}>
+              <div style={{ width: 6, height: 6, borderRadius: "50%", background: tmrw.dot, flexShrink: 0 }} />
+              <span style={{ fontFamily: serif, fontStyle: "italic", fontSize: 16, color: ink2 }}>{tmrw.source}</span>
+            </div>
             <span style={{ fontFamily: mono, fontSize: 10, color: ink3 }}>— {tmrw.author}</span>
           </Link>
         </div>
