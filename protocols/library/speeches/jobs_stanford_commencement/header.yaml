@@ -1,0 +1,49 @@
+# ─────────────────────────────────────────────────────────────
+# header.yaml — Editorial Pack (Digest)
+# Steve Jobs' Stanford Commencement Speech
+# ─────────────────────────────────────────────────────────────
+
+id: jobs_stanford_commencement
+name: "Steve Jobs' Stanford Commencement Speech — Digest Session"
+category: speeches
+wing: library
+section: speeches
+content_type: editorial
+
+status: active
+
+# Display fields — shown in catalogue
+title: "Steve Jobs' Stanford Commencement Speech"
+description: "Three stories about connecting the dots, love and loss, and death. Stay Hungry. Stay Foolish."
+author: "Steve Jobs"
+year: 2005
+license: public_domain
+occasion: "Stanford University Commencement, June 12, 2005"
+
+# Session config
+deliverable: session_record
+estimated_turns: "4-12"
+version: "1.0"
+pack_author: "Robert C. Ventura"
+created: "2026-03-22"
+
+# Discovery — what triggers this pack to load
+triggers:
+  - "steve jobs speech"
+  - "steve jobs stanford"
+  - "stay hungry stay foolish"
+  - "connecting the dots"
+  - "jobs commencement"
+  - "steve jobs"
+
+# What this pack explicitly does not do
+excludes:
+  - "Apple product reviews or comparisons"
+  - "hagiography — Jobs as saint or infallible visionary"
+  - "business strategy consulting"
+  - "technology industry analysis"
+
+# Catalogue fields
+tags: [steve-jobs, commencement, death, purpose, career, dropout, love, loss, intuition, calligraphy, apple, stay-hungry]
+related: [ecclesiastes, zen_motorcycle_maintenance, madman_god_is_dead]
+featured: false

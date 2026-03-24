@@ -32,6 +32,16 @@ const BOOK_DATA: Record<string, { title: string; author: string; tradition: stri
     ],
     greeting: "The Tao that can be spoken of is not the constant Tao. The name that can be named is not a constant name.\n\nThis is where the text begins — by undermining itself. What can be said about something that, by its own account, cannot be named?\n\n81 chapters follow. They return again and again to water, to emptiness, to the sage who leads by stepping back. The text contradicts itself freely — not by accident, but as method. Chapter 2 says beauty and ugliness give birth to each other. Chapter 78 says nothing is softer than water, yet nothing overcomes the hard like water does.\n\nThe full text is indexed and present in this session. You can ask about any chapter, search for a theme, or follow a thread across the whole work.\n\nWhat draws you here today?",
   },
+  jobs_stanford_commencement: {
+    title: "Steve Jobs\u2019 Stanford Commencement Speech", author: "Steve Jobs \u00b7 2005", tradition: "Speeches", chapters: "Digest", portal: "Technology",
+    desc: "Three stories about connecting the dots, love and loss, and death. Stay Hungry. Stay Foolish.",
+    related: [
+      { title: "Ecclesiastes", type: "LIVING BOOK", typeColor: blue, meta: "Qohelet \u00b7 12 chapters", desc: "The mortality frame.", href: "/book/ecclesiastes" },
+      { title: "Tao Te Ching", type: "LIVING BOOK", typeColor: blue, meta: "Laozi \u00b7 81 chapters", desc: "Connecting the dots by not forcing.", href: "/book/tao_te_ching" },
+      { title: "The Madman: God Is Dead", type: "DIGEST", typeColor: "#DC2626", meta: "Nietzsche \u00b7 1882", desc: "Don\u2019t be trapped by dogma.", href: "/book/genealogy_of_morality" },
+    ],
+    greeting: "On June 12, 2005, Steve Jobs stood in front of Stanford\u2019s graduating class and told them three stories. Not advice. Not strategy. Three things that happened to him: dropping out of college, getting fired from his own company, and being told he was going to die.\n\nThe speech became one of the most watched of the 21st century. The quotes became posters and LinkedIn captions. But the speech itself is darker, more specific, and more honest than the quotes suggest.\n\nHe died six years later. He was 56.\n\nWhere do you want to start?\n\n\u2022 \"Connecting the dots\" \u2014 dropping out, the calligraphy class, and why you can\u2019t plan your life\n\u2022 \"Love and loss\" \u2014 getting fired from Apple and why destruction was the prerequisite\n\u2022 \"Death\" \u2014 the cancer diagnosis, the mirror test, and \u201Cyou are already naked\u201D\n\u2022 \"The full speech\" \u2014 all three stories, walked through closely\n\u2022 \"Something specific\" \u2014 bring your own question",
+  },
   genealogy_of_morality: {
     title: "The Madman: God Is Dead", author: "Friedrich Nietzsche \u00b7 1882", tradition: "Philosophy", chapters: "Digest", portal: "Philosophy",
     desc: "Nietzsche\u2019s most famous passage \u2014 and the most misunderstood. He isn\u2019t celebrating. He\u2019s diagnosing a catastrophe.",
@@ -554,7 +564,19 @@ export default function BookPage() {
           })}
 
           <div style={{ fontSize: 9, color: ink3, fontFamily: mono, letterSpacing: ".12em", textTransform: "uppercase", marginTop: 18, marginBottom: 8 }}>Further Reading</div>
-          {bookId === "genealogy_of_morality" ? (
+          {bookId === "jobs_stanford_commencement" ? (
+            <>
+              <a href="https://news.stanford.edu/2005/06/12/youve-got-find-love-jobs-says/" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#1D4ED8", flexShrink: 0 }} />Full speech — Stanford News
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Steve_Jobs" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />Steve Jobs — Wikipedia
+              </a>
+              <a href="https://en.wikipedia.org/wiki/Whole_Earth_Catalog" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
+                <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#B45309", flexShrink: 0 }} />Whole Earth Catalog — Wikipedia
+              </a>
+            </>
+          ) : bookId === "genealogy_of_morality" ? (
             <>
               <a href="https://en.wikipedia.org/wiki/The_Gay_Science" target="_blank" rel="noopener noreferrer" style={{ display: "flex", alignItems: "center", gap: 6, padding: "5px 0", fontSize: 12, color: ink2, fontFamily: serif, textDecoration: "none", cursor: "pointer" }} className="bib-slash">
                 <span style={{ width: 4, height: 4, borderRadius: "50%", background: "#059669", flexShrink: 0 }} />The Gay Science — Wikipedia

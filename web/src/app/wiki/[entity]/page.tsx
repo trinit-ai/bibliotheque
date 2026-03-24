@@ -352,6 +352,37 @@ const ENTITY_MAP: Record<string, EntityData> = {
     ],
     demoResponse: "On June 30, 1905, a 26-year-old patent clerk submitted thirty pages that dismantled absolute time. No lab, no academic position, one friend thanked.\n\nThe paper starts with something that bothered Einstein: Maxwell\u2019s equations give two different explanations for the same physical phenomenon. A magnet moving past a wire and a wire moving past a magnet produce the same current \u2014 but the theory says they\u2019re different processes. Einstein found this ugly. His fix required abandoning the idea that time is the same for everyone.\n\nThe full text is here. Where do you want to start?",
   },
+  jobs_stanford_commencement: {
+    contentType: "essay",
+    title: "Steve Jobs\u2019 Stanford Commencement Speech",
+    author: "Steve Jobs",
+    year: "June 12, 2005",
+    wordCount: "Single speech",
+    furtherReading: [
+      { label: "Full speech \u2014 Stanford News", url: "https://news.stanford.edu/2005/06/12/youve-got-find-love-jobs-says/" },
+      { label: "Steve Jobs \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Steve_Jobs" },
+      { label: "Whole Earth Catalog \u2014 Wikipedia", url: "https://en.wikipedia.org/wiki/Whole_Earth_Catalog" },
+    ],
+    intro: "On June 12, 2005, Steve Jobs stood in front of Stanford\u2019s graduating class and told them three stories. Not advice. Not strategy. Three things that happened to him: dropping out of college, getting fired from his own company, and being told he was going to die. The speech became one of the most watched of the 21st century. The quotes became posters and LinkedIn captions. But the speech itself is darker, more specific, and more honest than the quotes suggest. Jobs isn\u2019t philosophizing about difficulty. He\u2019s speaking from inside it. He died of pancreatic cancer six years later. He was 56.",
+    territories: [
+      { name: "Connecting the Dots", desc: "Dropped out of Reed College, slept on floors, dropped in on a calligraphy class. Ten years later, that class became the Macintosh\u2019s typography. You can\u2019t connect the dots looking forward." },
+      { name: "Love and Loss", desc: "Built Apple at 20, got fired at 30. The firing freed him \u2014 NeXT, Pixar, Laurene, and the return. The heaviness of success replaced by the lightness of being a beginner." },
+      { name: "Death", desc: "The mirror test every morning for 33 years. The pancreatic cancer diagnosis. \u201CYou are already naked. There is no reason not to follow your heart.\u201D" },
+      { name: "The Shadow", desc: "Jobs died in 2011, six years after the speech. He reportedly delayed surgery in favor of alternative treatments. \u201CYour time is limited\u201D lands differently knowing this." },
+      { name: "Stay Hungry. Stay Foolish.", desc: "The Whole Earth Catalog and the counterculture-to-tech pipeline. Stewart Brand\u2019s farewell message becomes Jobs\u2019 closing instruction \u2014 a countercultural slogan, not a business one." },
+    ],
+    related: [
+      { title: "Ecclesiastes", type: "book", id: "ecclesiastes", meta: "Qohelet \u00b7 12 chapters", desc: "The mortality frame." },
+      { title: "Tao Te Ching", type: "book", id: "tao_te_ching", meta: "Laozi \u00b7 81 chapters", desc: "Connecting the dots by not forcing." },
+      { title: "The Madman: God Is Dead", type: "book", id: "genealogy_of_morality", meta: "Nietzsche \u00b7 1882", desc: "Don\u2019t be trapped by dogma." },
+    ],
+    books: [
+      { title: "Ecclesiastes", author: "Qohelet", id: "ecclesiastes" },
+      { title: "Tao Te Ching", author: "Laozi", id: "tao_te_ching" },
+      { title: "Machines of Loving Grace", author: "Dario Amodei", id: "machines_of_loving_grace" },
+    ],
+    demoResponse: "On June 12, 2005, Steve Jobs told Stanford\u2019s graduating class three stories. Not advice. Three things that happened to him.\n\nThe speech became famous. The quotes became posters. But the speech itself is darker and more honest than the quotes suggest. He died six years later.\n\nWhat draws you here?",
+  },
   ecclesiastes: {
     contentType: "living_book",
     title: "Ecclesiastes",

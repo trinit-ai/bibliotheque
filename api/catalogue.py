@@ -61,6 +61,7 @@ SACRED_TEXTS_DIR = LIBRARY_BASE / "sacred_texts"
 SCIENCE_DIR = LIBRARY_BASE / "science"
 LITERATURE_DIR = LIBRARY_BASE / "literature"
 PHILOSOPHY_DIR = LIBRARY_BASE / "philosophy"
+SPEECHES_DIR = LIBRARY_BASE / "speeches"
 SYSTEM_DIR = Path(__file__).parent.parent / "protocols" / "system"
 
 
@@ -96,6 +97,7 @@ class Catalogue:
         self._load_library_manifests(SCIENCE_DIR, ContentType.living_book)
         self._load_library_manifests(LITERATURE_DIR, ContentType.living_book)
         self._load_library_manifests(PHILOSOPHY_DIR, ContentType.editorial)
+        self._load_library_manifests(SPEECHES_DIR, ContentType.editorial)
         self._build_indices()
         logger.info(
             f"Catalogue loaded: {len(self._entries)} entries, "

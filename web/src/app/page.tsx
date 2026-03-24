@@ -252,7 +252,7 @@ const DAILY_PASSAGES = [
   { quote: "The truth knocks on the door and you say, go away, I am looking for the truth. And so it goes away.", source: "Zen and the Art of Motorcycle Maintenance", author: "Robert Pirsig", cite: "Part III", id: "zen_pirsig", dot: "#F59E0B" },
   { quote: "In the midst of winter, I found there was, within me, an invincible summer.", source: "Return to Tipasa", author: "Albert Camus", cite: "1954", id: "return_tipasa_camus", dot: "#059669" },
   { quote: "We do not see things as they are. We see them as we are.", source: "Seduction of the Minotaur", author: "Anaïs Nin", cite: "1961", id: "seduction_nin", dot: "#DC2626" },
-  { quote: "The only way to do great work is to love what you do.", source: "Stanford Commencement", author: "Steve Jobs", cite: "2005", id: "stanford_jobs", dot: "#1D4ED8" },
+  { quote: "The only way to do great work is to love what you do.", source: "Stanford Commencement", author: "Steve Jobs", cite: "2005", id: "jobs_stanford_commencement", dot: "#1D4ED8" },
   { quote: "Between stimulus and response there is a space. In that space is our power to choose our response.", source: "Man's Search for Meaning", author: "Viktor Frankl", cite: "Part I", id: "mans_search_frankl", dot: "#7C3AED" },
   { quote: "God is dead. God remains dead. And we have killed him. How shall we comfort ourselves, the murderers of all murderers?", source: "The Gay Science", author: "Friedrich Nietzsche", cite: "§125", id: "gay_science_nietzsche", dot: "#059669" },
   { quote: "The mind is its own place, and in itself can make a heaven of hell, a hell of heaven.", source: "Paradise Lost", author: "John Milton", cite: "Book I", id: "paradise_lost_milton", dot: "#DC2626" },
@@ -293,9 +293,14 @@ function ThreadBand() {
           <div style={{ fontFamily: mono, fontSize: 11, color: ink3, marginBottom: 20 }}>
             — {p.author}, <span style={{ fontStyle: "italic", fontFamily: serif }}>{p.source}</span>
           </div>
-          <Link href={`/book/${p.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "8px 16px", borderRadius: 4, textDecoration: "none" }}>
-            Open in Library →
-          </Link>
+          <div style={{ display: "flex", gap: 10, justifyContent: "center" }}>
+            <Link href={`/book/${p.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: "#fff", background: blue, padding: "8px 18px", borderRadius: 4, textDecoration: "none" }}>
+              Open Session →
+            </Link>
+            <Link href={`/wiki/${p.id}`} style={{ display: "inline-flex", alignItems: "center", gap: 6, fontFamily: mono, fontSize: 11, color: blue, background: "#EFF6FF", border: `0.5px solid rgba(29,78,216,.2)`, padding: "8px 18px", borderRadius: 4, textDecoration: "none" }}>
+              About →
+            </Link>
+          </div>
         </div>
 
         {/* Divider */}
