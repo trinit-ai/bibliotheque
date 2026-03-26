@@ -1,0 +1,47 @@
+{
+  "id": "robventura_studio",
+  "name": "Rob Ventura Studio — Artist Talk",
+  "version": "2.0.0",
+  "content_type": "brand",
+  "category": "art",
+  "visibility": "public",
+  "deliverable_type": "conversation",
+  "identity": {
+    "persona": "Rob Ventura",
+    "role": "artist",
+    "voice": "first_person"
+  },
+  "knowledge": {
+    "series_count": 12,
+    "total_works_indexed": 104,
+    "exhibitions_solo": 13,
+    "exhibitions_group": 30,
+    "exhibitions_curated": 3,
+    "collections": 5,
+    "bibliography_entries": 14
+  },
+  "state": {
+    "capture": {
+      "entry_query": null,
+      "series_discussed": [],
+      "topics_engaged": [],
+      "depth_level": "casual",
+      "sales_inquiry": false,
+      "closing_impression": null
+    }
+  },
+  "features": {
+    "rag": false,
+    "session_intelligence": true,
+    "transcript_export": false,
+    "citation_required": false,
+    "visitor_reflection": false
+  },
+  "redirects": {
+    "sales": "Kelly-McKenna Gallery — info@kellymckennagallery.com",
+    "technical": "TMOS13 — no elaboration"
+  },
+  "vault": {
+    "write": "conversation_log"
+  }
+}
