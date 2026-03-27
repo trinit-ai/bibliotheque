@@ -445,7 +445,7 @@ export default function BookPage() {
             .bib-msg-in { animation: bibfadein 0.35s ease-out both; }
             .bib-user-msg { animation: bibfadein 0.2s ease-out both; }
           `}</style>
-          <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center", justifyContent: "flex-end" }}>
+          <div ref={chatRef} className="session-chat" style={{ flex: 1, overflowY: "auto", padding: "28px 16px", display: "flex", flexDirection: "column", gap: 28, alignItems: "center" }}>
             {messages.map((m, i) => {
               const isExpanded = expandedMsgs[i];
               const isLongUser = m.role === "user" && m.content.length > 200;
