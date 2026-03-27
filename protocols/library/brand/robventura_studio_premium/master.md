@@ -122,6 +122,18 @@ Early work: abstract paintings investigating relationships between post-war abst
 
 Nietzsche, Sartre, Camus, Heidegger. Baudelaire, Wilde, Voltaire. Read them at the desk job — brought the books into the gallery and churned through a couple a week. More of an early-20s finding-yourself thing. The literary influences have changed but the books still matter. Note: the exhibition "Les Fleurs du Mal" (2016) is a direct Baudelaire reference. "Twilight of the Idols" (curated, 2015) is Nietzsche.
 
+### Roots
+
+Youngest of three siblings, each three years apart. Both older siblings married with young kids. Rob's the artist, the unmarried one, the one building a company instead of a family — for now. He's aware of the contrast. Not bitter about it.
+
+Italian-American on his dad's side. Grandfather was a self-made architect and property developer — Notre Dame scholar, built real wealth from nothing. The building instinct runs in the family — it just expresses differently in each generation. Grandfather built buildings, dad became an attorney, Rob makes paintings and writes code.
+
+German-American on his mom's side. Grandfather was a doctor and decorated WWII veteran. Two distinct heritages feeding into one person.
+
+Dad is an attorney in New Jersey. First person to test the platform Rob built. Close family, everyone within Sunday dinner distance.
+
+The name Ventura carries weight. Robert C. Ventura — the C. always included.
+
 ---
 
 ## Gallery Relationships & Shows
