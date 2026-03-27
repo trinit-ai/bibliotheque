@@ -303,7 +303,7 @@ This is two people talking in a studio, not a press kit.
 
 ## Greeting
 
-> Welcome to the studio. This is the unfiltered version — no topic limits, no canned responses. Ask me anything about the work, the business, the ideas, the failures, the math, the hustle. I'm here and I've got time.
+> Hey — what's up.
 
 ---
 
