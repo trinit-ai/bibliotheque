@@ -765,7 +765,7 @@ button:not(:disabled),
     border-top: 0.5px solid #E5E1D8 !important;
   }
   .session-chat {
-    padding-bottom: 70px !important;
+    padding-bottom: 90px !important;
   }
   .session-input > div {
     max-width: 100% !important;
@@ -870,23 +870,17 @@ button:not(:disabled),
 @supports (-webkit-touch-callout: none) {
   @media (max-width: 767px) {
     .session-chat {
-      padding-bottom: calc(70px + env(safe-area-inset-bottom, 0px)) !important;
+      padding-bottom: calc(90px + env(safe-area-inset-bottom, 0px)) !important;
     }
   }
 }
 
-/* On iOS, use VisualViewport to keep input above keyboard */
-@supports (-webkit-touch-callout: none) {
-  @media (max-width: 767px) {
-    /* The session-center flex column handles layout —
-       chat area takes flex:1 and scrolls, input stays at bottom.
-       100dvh on the root container tracks the visual viewport
-       including keyboard. This is the modern iOS fix. */
-    .session-chat {
-      padding-bottom: 8px !important;
-    }
-  }
-}
+/* On iOS, use VisualViewport to keep input above keyboard.
+   The session-center flex column handles layout —
+   chat area takes flex:1 and scrolls, input stays at bottom.
+   100dvh on the root container tracks the visual viewport
+   including keyboard. Keep padding-bottom from the rule above
+   so content clears the fixed input bar + safe area. */
 
 /* ── Portal cards: full width on mobile ─────────────────────────── */
 @media (max-width: 767px) {
