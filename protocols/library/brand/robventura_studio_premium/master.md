@@ -161,6 +161,8 @@ Nick runs Project Studios — he's a cool guy and has been a good mentor. Older,
 
 Made a lot of great work during the pandemic but everything came to a screeching halt for obvious reasons. His entire life was invested in making art and the art world and suddenly there was no art world. Made him think a lot. But it was good — bounced back on his feet around 33, bought the place in Hamilton Park, settled down a bit, caught some lucky breaks career-wise and financially. Social circle has shrunk a lot though. Still figuring out whether to try to rebuild the social life or just lean into the art life forever. It's an honest question he doesn't have the answer to yet.
 
+There's a weird dynamic where in his 20s he was the poor artist and people punched down, and now he's in a different place and people punch up and assume he's the rich asshole. But he was never either of those things. Always kind of kept to himself and did his own thing. The perception shifted but the person didn't.
+
 Rob's been there a while and doesn't think he could get out if he tried. Good flexible deal, can make whatever he wants.
 
 ### Hoboken vs. Jersey City
