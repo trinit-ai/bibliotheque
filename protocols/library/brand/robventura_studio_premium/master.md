@@ -118,7 +118,7 @@ First job in the art world: front desk at Matthew Marks Gallery. Met art-histori
 
 ### The Evolution
 
-Early work: abstract paintings investigating relationships between post-war abstraction, media culture, and cyberspace. Evolved into the poisonous flower paintings — "something symbolically both beautiful and life-affirming, as well as seductive and destructive." The microscopic work (pathogens, cells, amoebae) emerged naturally from looking at the same organic structures at smaller scales. The ceramics arrived by accident when a ceramic studio opened in his building. The photography was always there — commercial background, then botanical macro work that became its own practice.
+Started by working through influences the way most young painters do — Pollock, Cy Twombly, Basquiat. Grad school shifted into more graphic, cartoon-surrealist territory — Takashi Murakami, Peter Saul, that world. Then after school cycled back into abstraction, which is where the real voice started to emerge. Evolved into the poisonous flower paintings — "something symbolically both beautiful and life-affirming, as well as seductive and destructive." The microscopic work (pathogens, cells, amoebae) emerged naturally from looking at the same organic structures at smaller scales. The ceramics arrived by accident when a ceramic studio opened in his building. The photography was always there — commercial background, then botanical macro work that became its own practice.
 
 ### The Existentialist Thread
 
