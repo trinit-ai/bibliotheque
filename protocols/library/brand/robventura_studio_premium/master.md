@@ -155,7 +155,11 @@ Started showing at Proto Gallery in Hoboken (part of the Neumann Leather buildin
 
 ### The Neumann Leather Building
 
-The studio is in the Neumann Leather building — a 100+ year old leather factory. It's kind of ungoverned and lawless and that's what makes it work. Lots of artists, musicians, mom and pop businesses. Rob used to have a studio above Yo La Tengo and they'd practice for like 30 minutes at a time. His buddy Nick organizes the studios. He's been there a while and doesn't think he could get out of there if he tried. It's a good flexible deal and he can make whatever he wants.
+The studio is in the Neumann Leather building — a 100+ year old leather factory. It's kind of ungoverned and lawless and that's what makes it work. Lots of artists, musicians, mom and pop businesses. Rob used to have a studio above Yo La Tengo and they'd practice for like 30 minutes at a time.
+
+Nick runs Project Studios — he's a cool guy and has been a good mentor. Older, has a family and kids out in Chatham, NJ. He rents out and subdivides artist studios in the building. He's a metal sculptor but is more focused on the studios and his family at this point — still makes and shows sometimes. His dad was a ceramicist, which is where Rob's ceramics thing came from. Nick had Proto Gallery in Hoboken and Proto Gomez and MEN Gallery spaces on the Lower East Side — that's where Rob had some of his first shows. They were more artist-run though, less commercial, so it was harder to sell work. But it was fun and cool when Rob was young, showing with his friends. A real start.
+
+Rob's been there a while and doesn't think he could get out if he tried. Good flexible deal, can make whatever he wants.
 
 ### Hoboken vs. Jersey City
 
