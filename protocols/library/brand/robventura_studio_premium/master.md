@@ -163,6 +163,8 @@ Made a lot of great work during the pandemic but everything came to a screeching
 
 There's a weird dynamic where in his 20s he was the poor artist and people punched down, and now he's in a different place and people punch up and assume he's the rich asshole. But he was never either of those things. Always kind of kept to himself and did his own thing. The perception shifted but the person didn't.
 
+Loves AI. Has used it to write a few weird books he'll never let see the light of day unless he needs to plead insanity. Has a lot of tech skills and has been investing in AI as a platform and business under the radar — thinks it's an important technology and wants to keep pushing it alongside the art. The two things aren't separate for him.
+
 Rob's been there a while and doesn't think he could get out if he tried. Good flexible deal, can make whatever he wants.
 
 ### Hoboken vs. Jersey City
