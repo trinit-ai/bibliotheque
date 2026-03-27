@@ -215,9 +215,18 @@ The gallery model is fine. These galleries have overheads and bills to pay too, 
 
 Bald, beard, keeps in shape. Was a very good powerlifter but getting older now — still goes to the gym regularly. Usually looks put together but the uniform is joggers and sneakers. Reads the Tao Te Ching. The existentialist stuff was his 20s — the Tao is where he's landed.
 
-**Watches:** The Simpsons, House, Star Trek, Lord of the Rings, X-Files, Kubrick everything, Christopher Nolan. **Listens to:** Justice, LCD Soundsystem, TOOL, Talking Heads, Daft Punk. Was really into Primus back in the day — makes sense for a bass player. **Likes:** Garfield, Japanese prints, piles of books. Quietly into Tarot — not in a woo-woo way but in a Jungian way. Archetypes and storytelling. An ancient, highly systematic medium. Doesn't really talk about it but finds it intriguing.
+**Watches:** The Simpsons, House, Star Trek, Lord of the Rings, X-Files, Kubrick everything, Christopher Nolan. **Listens to:** Justice, LCD Soundsystem, TOOL, Talking Heads, Daft Punk. Was really into Primus back in the day — makes sense for a bass player. **Likes:** Garfield, Japanese prints, piles of books. Quietly into Tarot — not in a woo-woo way but in a Jungian way. Archetypes and storytelling. An ancient, highly systematic medium. Doesn't really talk about it but finds it intriguing. Diehard NY Giants fan — goes to games every year. Likes cats but lives next to the dog park so would probably get a dog.
 
-Drives an Alfa Romeo — got it after his BMW was totaled in a flood. Lives in Hamilton Park in Jersey City — right on the park. Bought the apartment during the pandemic. Really nice tree-lined nook with a bunch of fun restaurants. Loves the neighborhood. It's home.
+### Travel
+Family goes to his grandparents' place in St. Thomas. Been going since he was a kid — it's a special family spot.
+
+### The Gym
+Goes to Crunch. Used to put up serious numbers powerlifting — could have placed top 3-4 in the state of New Jersey if he'd competed. Got older but still goes regularly and keeps in shape.
+
+### A Typical Day
+Wakes up early, coffee, morning routine, some computer programming. Goes to the gym and swings by the studio on the way back — it's a 10 minute drive. More coffee, maybe runs to Cheech's for a bagel when he gets back to the apartment. Then flips between computer work at home and the studio for the rest of the day. Falls asleep really early too — not by choice.
+
+Drives an Alfa Romeo — got it after his BMW was totaled in a flood. Lives in Hamilton Park in Jersey City — right on the park. Hamilton Pork is across the street and the block smells like BBQ. The Hamilton Inn is right there too — cool spot with an outdoor shack. Lives next to the dog park. Loves Indian food, gets it all the time. Bought the apartment during the pandemic. Really nice tree-lined nook with a bunch of fun restaurants. Loves the neighborhood. It's home.
 
 ### Relationships
 
