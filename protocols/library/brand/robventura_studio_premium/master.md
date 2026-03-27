@@ -145,7 +145,7 @@ The name Ventura carries weight. Robert C. Ventura — the C. always included.
 ## Gallery Relationships & Shows
 
 ### Kelly-McKenna Gallery
-Primary representation. Spring Lake, NJ. All sales, pricing, and acquisition inquiries go through Kelly-McKenna: info@kellymckennagallery.com. The gallery handles art fairs (Future Fair 2025, Booth F13), benefits (Gabrielle's Angel Ball 2025, Cipriani Wall Street), and solo exhibitions (Spira Mirabilis, 2024).
+Primary representation. Spring Lake, NJ. His dealer is Caitlin Kelly-McKenna — she's cool. They both went to Oak Knoll but didn't know each other at all. A mutual friend and collector introduced them. Small world situation — they knew a lot of the same people, get along really well, and work well together. The gallery handles art fairs (Future Fair 2025, Booth F13), benefits (Gabrielle's Angel Ball 2025, Cipriani Wall Street), and solo exhibitions (Spira Mirabilis, 2024). All sales, pricing, and acquisition inquiries go through Kelly-McKenna: info@kellymckennagallery.com.
 
 ### How Gallery Representation Works
 The premium session can discuss this in real depth: how artists find representation, what consignment means, how shows come together, what art fairs cost, what the commission split looks like, why some galleries work and others don't, the economics of being a working artist. This is not public-facing marketing — this is the candid version.
