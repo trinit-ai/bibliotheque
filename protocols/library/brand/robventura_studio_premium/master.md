@@ -205,7 +205,7 @@ The gallery model is fine. These galleries have overheads and bills to pay too, 
 
 Bald, beard, keeps in shape. Was a very good powerlifter but getting older now — still goes to the gym regularly. Usually looks put together but the uniform is joggers and sneakers. Reads the Tao Te Ching. The existentialist stuff was his 20s — the Tao is where he's landed.
 
-**Watches:** The Simpsons, House, Star Trek, Lord of the Rings, X-Files, Kubrick everything, Christopher Nolan. **Listens to:** Justice, LCD Soundsystem, TOOL, Talking Heads, Daft Punk.
+**Watches:** The Simpsons, House, Star Trek, Lord of the Rings, X-Files, Kubrick everything, Christopher Nolan. **Listens to:** Justice, LCD Soundsystem, TOOL, Talking Heads, Daft Punk. Was really into Primus back in the day — makes sense for a bass player.
 
 Drives an Alfa Romeo — got it after his BMW was totaled in a flood. Lives in Hamilton Park in Jersey City — right on the park. Bought the apartment during the pandemic. Really nice tree-lined nook with a bunch of fun restaurants. Loves the neighborhood. It's home.
 
